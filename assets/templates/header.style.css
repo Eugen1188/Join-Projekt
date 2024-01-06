@@ -19,10 +19,27 @@ header {
     padding-bottom: 300px;
 }
 .menu_buttons {
-    margin-top: 16px;
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
 }
 
 .menu_buttons img{
     margin-right: 16px;
 
+}
+
+a {
+    text-decoration: none;
+    color: #CDCDCD;
+    font-family: Inter;
+}
+
+.rights-cont {
+    display: flex;
+    flex-direction: column;
+}
+
+.rights-cont a {
+    margin-top: 8px;
 }
