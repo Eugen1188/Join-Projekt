@@ -14,3 +14,15 @@ header {
     justify-content: space-around;
     align-items: center;
 }
+
+.menu {
+    padding-bottom: 300px;
+}
+.menu_buttons {
+    margin-top: 16px;
+}
+
+.menu_buttons img{
+    margin-right: 16px;
+
+}
