@@ -3,7 +3,7 @@ body {
     padding: 0;
 }
 
-header {
+.main-header {
     position: fixed;
     background-color: #2A3647;
     height: 100%;
@@ -17,15 +17,18 @@ header {
 
 .menu {
     padding-bottom: 300px;
+    width: -webkit-fill-available;
 }
 .menu_buttons {
     margin-top: 25px;
     display: flex;
     align-items: center;
+    width: -webkit-fill-available;
 }
 
 .menu_buttons img{
-    margin-right: 16px;
+    margin-right: 26px;
+    margin-left: 48px;
 
 }
 
@@ -44,9 +47,9 @@ a {
     margin-top: 8px;
 }
 
-.head {
+.head-top {
     display: flex;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 15%;
     width: 85%;
@@ -57,17 +60,17 @@ a {
     align-items: center;
 }
 
-.head span{
+.head-top span{
     padding-left: 100px;
     font-size: 20px;
 }
 
-.head div {
+.head-top div {
     display: flex;
     align-items: center;
     margin-right: 50px;
 }
 
-.head div img{
+.head-top div img{
     margin-left: 16px;
 }
