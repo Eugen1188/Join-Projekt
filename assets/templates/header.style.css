@@ -24,12 +24,19 @@ body {
     display: flex;
     align-items: center;
     width: -webkit-fill-available;
+    justify-content: center;
 }
 
 .menu_buttons img{
     margin-right: 26px;
-    margin-left: 48px;
+    width: 26px;
+    height: 26px;
 
+}
+
+.menu_buttons a{
+    width: 75px;
+    height: 26px;
 }
 
 a {
