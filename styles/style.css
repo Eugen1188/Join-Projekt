@@ -1,5 +1,6 @@
 body{
     margin: 0;
+    font-family: Inter;
 }
 
 .animation-main-cont{
@@ -16,16 +17,22 @@ body{
     padding: 48px
 }
 
+.login-top-cont img{
+    width: 100px;
+    height: 120px;
+}
+
 .signup-button{
     background-color: #2A3647;
     width: 100px;
     height: 50px;
-    border-radius: 20px;
+    border-radius: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
     margin-left: 16px;
+    cursor: pointer;
 }
 
 .signup-cont{
@@ -54,11 +61,15 @@ body{
 }
 
 .login-rights-cont{
-    width: 200px;
+    width: 235px;
     height: 30px;
-    background-color: bisque;
     margin-left: auto;
     margin-right: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: #D1D1D1;
+    margin-top: 100px;
 }
 
 .login-cont{
@@ -100,7 +111,7 @@ form{
 }
 
 .loginemail{
-    background: url(/assets/img/mail.png)no-repeat 100%;
+    background: url(../assets/img/mail.png)no-repeat 100%;
     background-size: 20px 16px;
     background-position-x: 370px;
     width: 422px;
@@ -118,7 +129,7 @@ form{
 }
 
 .loginpassword{
-    background: url(/assets/img/lock.png)no-repeat 100%;
+    background: url(../assets/img/lock.png)no-repeat 100%;
     background-size: 16px 21px;
     background-position-x: 372px;
     width: 422px;
@@ -170,6 +181,7 @@ form{
     font-size: 21px;
     font-weight: 700;
     margin-right: 16px;
+    cursor: pointer;
 }
 
 .loginguestbutton{
@@ -181,10 +193,16 @@ form{
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #2A3647;
     font-size: 21px;
     font-weight: 700;
     margin-left: 16px;
+    cursor: pointer;
+}
+
+.loginguestbutton a{
+    color: #2A3647;
+    text-decoration: none;
+    font-weight: 700;
 }
 
 .checkbox-cont{
@@ -196,12 +214,73 @@ form{
     margin-left: 8px;
 }
 
-.logincheckbox{
-    width: 16px;
-    height: 16px;
-    -moz-appearance:none;
-    -webkit-appearance:none;
-    -o-appearance:none;
-    border: 2px solid #2A3647 !important;
+
+.checkboxlabel{
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .logincheckbox{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  .checkmark{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 14px;
+    width: 14px;
+    background-color: #ffffff;
     border-radius: 3px;
-}
+    border: 2px solid #2A3647 !important;
+  }
+
+  .checkboxlabel input:checked ~ .checkmark {
+    background-color: #000000;
+  }
+
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  .checkboxlabel input:checked ~ .checkmark:after {
+    display: block;
+  }
+
+  .checkboxlabel .checkmark:after {
+    left: 4px;
+    top: 0px;
+    width: 4px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  .privacy-cont{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 16px;
+    margin-right: 16px;
+  }
+
+  .privacy-cont span{
+    cursor: pointer;
+  }

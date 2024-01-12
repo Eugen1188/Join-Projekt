@@ -37,6 +37,8 @@ body {
 .menu_buttons a{
     width: 75px;
     height: 26px;
+    display: flex;
+    align-items: center;
 }
 
 a {
