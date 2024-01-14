@@ -1,14 +1,22 @@
 body{
+    width: 100%;
     margin: 0;
     font-family: Inter;
+    height: 100vh;
+    background-color: #F6F7F8;
 }
 
 .animation-main-cont{
-    display: none;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    position: absolute;
+    top: 60px;
+    left: 60px;
     background-color: #F6F7F8;
+    animation: move-logo 2s ease-in-out;
+}
+
+@keyframes move-logo{
+    from { transform: translate(400px, 300px)}
+    to { transform: translate(60px, 60px)}
 }
 
 .login-top-cont{
@@ -46,10 +54,11 @@ body{
 }
 
 .login-main-cont{
+    display: none;
     height: 100vh;
-    display: flex;
     flex-direction: column;
     background-color: #F6F7F8;
+    opacity: 0;
 }
 
 .login-cont{
