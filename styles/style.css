@@ -1,37 +1,90 @@
+:root{
+    --background-color-site: #F6F7F8;
+    --button-color: #2A3647;
+    --light-grey: #D1D1D1;
+    --light-blue: #29ABE2;
+
+}
+
+
 body{
     width: 100%;
     margin: 0;
     font-family: Inter;
     height: 100vh;
-    background-color: #F6F7F8;
+    background-color: var(--background-color-site);
+    position: relative;
 }
 
 .animation-main-cont{
     position: absolute;
-    top: 60px;
-    left: 60px;
-    background-color: #F6F7F8;
-    animation: move-logo 2s ease-in-out;
+    display: flex;
+    height: 100vh;
+    width: 100%;
 }
 
-@keyframes move-logo{
-    from { transform: translate(400px, 300px)}
-    to { transform: translate(60px, 60px)}
+.change-height{
+    animation: change-height 2s ease-in-out forwards;
 }
+
+@keyframes change-height{
+    from {height: 100vh;}
+    to {height: 0vh;}
+} 
+
+.change-logo-color{
+    animation: change-logo-color 1s ease-in-out forwards;
+}
+
+@keyframes change-logo-color{
+    from {fill: white;}
+    to {fill: var(--button-color);}
+}
+
+.change-background-color{
+    animation: change-background-color 2s ease-in-out;
+}
+
+@keyframes change-background-color{
+    from{background-color: var(--button-color);}
+    to{background-color: var(--background-color-site);}
+}
+
+
+
+.animation-img{
+    width: 100px;
+    height: 120px;
+    object-fit: contain;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 999;
+    transform: translate(-50%, -50%);
+    animation: move-logo 1s ease-in-out forwards;
+}
+
+
+@keyframes move-logo{
+    from { top: 50%; left: 50%; width: 300px; height: 400px; }
+    to { top: 100px; left: 100px; width: 100px; height: 120px;}
+}
+
 
 .login-top-cont{
     display: flex;
-    justify-content: space-between;
-    padding: 48px
+    justify-content: end;
+    padding: 100px
 }
 
 .login-top-cont img{
     width: 100px;
     height: 120px;
+    display: none;
 }
 
 .signup-button{
-    background-color: #2A3647;
+    background-color: var(--button-color);
     width: 100px;
     height: 50px;
     border-radius: 8px;
@@ -54,12 +107,14 @@ body{
 }
 
 .login-main-cont{
-    display: none;
+    display: flex;
     height: 100vh;
     flex-direction: column;
-    background-color: #F6F7F8;
-    opacity: 0;
+    background-color: var(--background-color-site);
+
 }
+
+
 
 .login-cont{
     width: 652px;
@@ -67,7 +122,10 @@ body{
     margin-left: auto;
     margin-right: auto;
     background-color: white;
+    
 }
+
+
 
 .login-rights-cont{
     width: 235px;
@@ -77,7 +135,7 @@ body{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    color: #D1D1D1;
+    color: var(--light-grey);
     margin-top: 100px;
 }
 
@@ -109,7 +167,7 @@ body{
 .line{
     width: 150px;
     height: 3px;
-    background-color: #29ABE2;
+    background-color: var(--light-blue);
 }
 
 form{
@@ -125,7 +183,7 @@ form{
     background-position-x: 370px;
     width: 422px;
     height: 48px;
-    border-color: #D1D1D1;
+    border-color: var(--light-grey);
     border-style: solid;
     border-radius: 10px;
     font-size: 20px;
@@ -143,7 +201,7 @@ form{
     background-position-x: 372px;
     width: 422px;
     height: 48px;
-    border-color: #D1D1D1;
+    border-color: var(--light-grey);
     border-style: solid;
     border-radius: 10px;
     font-size: 20px;
@@ -158,7 +216,7 @@ form{
 }
 
 ::placeholder {
-    color: #D1D1D1;
+    color: var(--light-grey);
     opacity: 1; /* Firefox */
 }
 
@@ -181,7 +239,7 @@ form{
 .loginbutton{
     width: 110px;
     height: 48px;
-    background-color: #2A3647;
+    background-color: var(--button-color);
     border-radius: 8px;
     display: flex;
     justify-content: center;
@@ -191,13 +249,19 @@ form{
     font-weight: 700;
     margin-right: 16px;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+.loginbutton:hover{
+    background-color: var(--light-blue);
+    box-shadow: rgb(0 0 0 / 20%) 1px 3px 5px 1px;
 }
 
 .loginguestbutton{
     width: 177px;
     height: 46px;
     background-color: #ffffff;
-    border: solid 1px #2A3647;
+    border: solid 1px var(--button-color);
     border-radius: 8px;
     display: flex;
     justify-content: center;
@@ -209,7 +273,7 @@ form{
 }
 
 .loginguestbutton a{
-    color: #2A3647;
+    color: var(--button-color);
     text-decoration: none;
     font-weight: 700;
 }
@@ -253,7 +317,7 @@ form{
     width: 14px;
     background-color: #ffffff;
     border-radius: 3px;
-    border: 2px solid #2A3647 !important;
+    border: 2px solid var(--button-color) !important;
   }
 
   .checkboxlabel input:checked ~ .checkmark {
@@ -293,3 +357,12 @@ form{
   .privacy-cont span{
     cursor: pointer;
   }
+
+  .ecrease-opacity{
+    animation: encrease-opacity 1s ease-in-out forwards;
+}
+
+@keyframes encrease-opacity{
+    from { opacity: 0;}
+    to { opacity: 1;}
+}
