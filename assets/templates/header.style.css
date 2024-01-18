@@ -20,15 +20,23 @@ body {
     width: -webkit-fill-available;
 }
 .menu_buttons {
-    margin-top: 25px;
+    margin-top: 18px;
     display: flex;
     align-items: center;
     width: -webkit-fill-available;
     justify-content: center;
+    transition: 0.1s;
+    height: 36px;
+}
+
+.menu_buttons:hover{
+    background-color: #4c6ea1;
 }
 
 .menu_buttons div{
     width: 124px;
+    display: flex;
+    align-items: center;
 }
 
 .menu_buttons img{
