@@ -27,6 +27,10 @@ body {
     justify-content: center;
 }
 
+.menu_buttons div{
+    width: 124px;
+}
+
 .menu_buttons img{
     margin-right: 26px;
     width: 26px;
@@ -34,12 +38,7 @@ body {
 
 }
 
-.menu_buttons a{
-    width: 75px;
-    height: 26px;
-    display: flex;
-    align-items: center;
-}
+
 
 a {
     text-decoration: none;
