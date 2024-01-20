@@ -1,0 +1,42 @@
+
+
+body{
+    overflow: hidden;
+    font-family: Inter;
+}
+
+.main-sum-cont{
+
+    position: fixed;
+    inset: 100px 200px;
+}
+
+h1{
+    font-size: 61px;
+    font-weight: bolder;
+}
+
+.join360-cont{
+    display: flex;
+    justify-content:start;
+    align-items: center;
+    gap: 30px;
+}
+
+.blue-line{
+    width: 3px;
+    height: 50px;
+    background-color: var(--light-blue);
+}
+
+
+
+/* buttons style */
+
+.summary-btn{
+ background-color: var(--button-selected);
+}
+
+.summary-btn:hover{
+    background-color: var(--button-selected);
+}

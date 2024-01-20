@@ -1,0 +1,8 @@
+/* style button select*/
+
+.addtask-btn{
+    background-color: var(--button-selected);
+}
+.addtask-btn:hover{
+    background-color: var(--button-selected);
+}

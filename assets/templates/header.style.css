@@ -7,12 +7,13 @@ body {
     position: fixed;
     background-color: #2A3647;
     height: 100%;
-    width: 15%;
+    width: 200px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    z-index: 999;
 }
 
 .menu {
@@ -23,10 +24,9 @@ body {
     margin-top: 18px;
     display: flex;
     align-items: center;
-    width: -webkit-fill-available;
     justify-content: center;
     transition: 0.1s;
-    height: 36px;
+    height: 45px;
 }
 
 .menu_buttons:hover{
@@ -55,25 +55,40 @@ a {
 }
 
 .rights-cont {
+    justify-content: center;
+    align-items: center;
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
-.rights-cont a {
-    margin-top: 8px;
+.rights-links{
+    display: flex;
+    justify-content: center;
+    margin-top:8px;
+    width: 100%;
+    align-items: center;
+    height: 32px;
+}
+
+.rights-links:hover{
+    color: var(--light-blue);
+}
+
+.rights-links div{
+width: 105px;
 }
 
 .head-top {
-    display: flex;
-    position: fixed;
-    top: 0;
-    left: 15%;
-    width: 85%;
-    height: 10%;
+    position: relative;
     justify-content: space-between;
     box-shadow: 0px 1px 3px 0px #CDCDCD;
     display: flex;
     align-items: center;
+    background-color: white;
+    padding-left: 160px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .head-top span{

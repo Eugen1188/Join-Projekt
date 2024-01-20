@@ -1,0 +1,9 @@
+/* style button select*/
+
+.board-btn{
+    background-color: var(--button-selected);
+}
+
+.board-btn:hover{
+    background-color: var(--button-selected);
+}

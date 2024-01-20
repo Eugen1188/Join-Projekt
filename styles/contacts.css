@@ -1,0 +1,9 @@
+/* style button select*/
+
+.contacts-btn{
+    background-color: var(--button-selected);
+}
+
+.contacts-btn:hover{
+    background-color: var(--button-selected);
+}
