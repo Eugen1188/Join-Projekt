@@ -8,7 +8,7 @@ body{
 .main-sum-cont{
 
     position: fixed;
-    inset: 100px 200px;
+    inset: 120px 388px;
 }
 
 h1{
@@ -40,3 +40,210 @@ h1{
 .summary-btn:hover{
     background-color: var(--button-selected);
 }
+
+/*-------*/
+
+.tasks-main-cont{
+    width: 560px;
+}
+
+.todo-done-cont{
+    display: flex;
+    justify-content: space-between;
+    height: 210px;
+}
+
+.task1-cont{
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 18px;
+    gap: 18px;
+    width: 264px;
+    height: 168px;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.task2-cont{
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 18px;
+    gap: 18px;
+    width: 264px;
+    height: 168px;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.task1-cont:hover {
+    width: 284px;
+    height: 188px;
+    background-color: var(--button-color);
+}
+
+.task1-cont:hover .pencil-circle-white {
+    fill: white;
+}
+
+.task1-cont:hover .pencil-hover {
+    fill: var(--button-color);
+}
+
+.task1-cont:hover span {
+    color: white;
+}
+
+.task1-cont:hover .task-number div {
+    color: white;
+}
+
+.task-number span{
+    font-size: 64px;
+    font-weight: 700;
+}
+
+.deadline-help-hover-cont{
+    height: 178px;
+}
+
+.deadline-cont{
+    display: flex;
+    background-color: white;
+    border-radius: 18px;
+    align-items: center;
+    height: 168px;
+    justify-content: space-evenly;
+}
+
+.deadline-cont:hover{
+    height: 178px;
+    width: 570px;
+}
+
+.urgent-count{
+    font-size: 64px;
+    gap: 5px;
+}
+
+.urgent{
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.date{
+    font-size: 21px;
+    font-weight: 700;
+    margin-top: 6px;
+}
+
+.grey-line{
+    width: 2px;
+    height: 102px;
+    background-color: var(--light-grey);
+}
+
+.urgent-cont{
+    display: flex;
+    padding: 38px 72px 38px 72px;
+    gap: 16px;
+}
+
+.deadline-date-cont{
+    display: flex;
+    flex-direction: column;
+}
+
+.urgent-count{
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+}
+
+.count-cont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tasks-overall-cont{
+    width: 100%;
+}
+
+.tasks-overview-cont{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    height: 168px;
+    margin-top: 42px;
+
+}
+
+.flex-center{
+    display: flex;
+    justify-content: center;
+}
+
+.flex-end{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.tasks-in-board-cont{
+    background-color: white;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 168px;
+    height: 168px;
+}
+
+.tasks-in-board-cont:hover{
+    width: 178px;
+    height: 178px;
+}
+
+.tasks-in-board-help-hover-cont{
+    height: 198px;
+    width: 198px;
+    display: flex;
+    align-items: center;
+}
+
+.tasks-in-board-span{
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.tasks-amount-board{
+    font-size: 64px;
+    font-weight: 600;
+}
+
+.summary-cont{
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.greetings-main-cont{
+    display: flex;
+    flex-direction: column;
+}
+
+.goodmorning-span{
+    font-size: 47px;
+    font-weight: 500;
+    color: var(--button-selected);
+}
+
+.usernamespan{
+    font-size: 64px;
+    font-weight: 700;
+    color: var(--light-blue);
+}
+
