@@ -39,5 +39,3 @@ function checkTasks() {
     console.log(taskTitle);
   }
 }
-
-//substring(0,1) = erster Buchstabe
