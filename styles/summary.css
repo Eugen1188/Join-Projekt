@@ -75,6 +75,8 @@ h1 {
     cursor: pointer;
 }
 
+/* --- task 1 hover effect */
+
 .task1-cont:hover {
     width: 284px;
     height: 188px;
@@ -96,6 +98,34 @@ h1 {
 .task1-cont:hover .task-number div {
     color: white;
 }
+
+ /*-------------------*/
+
+ /* --- task 2 hover effect */
+ 
+ .task2-cont:hover {
+    width: 284px;
+    height: 188px;
+    background-color: var(--button-color);
+}
+
+.task2-cont:hover .circle-task2 {
+    fill: white;
+}
+
+.task2-cont:hover .hook-task2 {
+    stroke: var(--button-color);
+}
+
+.task2-cont:hover span {
+    color: white;
+}
+
+.task2-cont:hover .task-number div {
+    color: white;
+}
+
+ /*-------------------*/
 
 .task-number span {
     font-size: 64px;
