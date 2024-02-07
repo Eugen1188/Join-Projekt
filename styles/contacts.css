@@ -7,7 +7,7 @@
     --light-blue: #29ABE2;
     --button-selected: #091931;
     --contacts-link-color: #007CEE;
-
+    --contacts-scrollbar-color: #A8A8A8;
 }
 
 * {
@@ -27,7 +27,25 @@
 
 .contacts-container {
     margin-left: 200px;
+    width: 456px;
+    max-height: 1024px;
+    overflow-y: scroll;
+    padding: 0;
 }
+
+.contacts-container::-webkit-scrollbar-track {
+    background-color: var(--background-color-site);
+}
+
+.contacts-container::-webkit-scrollbar-thumb {
+    border-radius: 50px;
+}
+
+.contacts-container::-webkit-scrollbar-button {
+    border-radius: 50px;
+}
+
+
 
 .contacts-conllection {
     width: 400px;
