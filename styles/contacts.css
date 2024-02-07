@@ -15,6 +15,7 @@
     box-sizing: border-box;
 }
 
+
 .contacts-btn {
     background-color: var(--button-selected);
 }
@@ -67,6 +68,31 @@
     height: 58px;
     padding: 17px 36px;
     gap: 8px;
+    display: flex;
+}
+
+.list-char {
+    font-size: 20px;
+}
+
+.contact-data {
+    width: 352px;
+    height: 78px;
+    border-radius: 10px;
+    padding: 15px 24px;
+    gap: 35px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.initials-circle {
+    height: 42px;
+    width: 42px;
+    border-radius: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--background-color-site);
 }
 
 .center {
@@ -86,6 +112,7 @@
     padding: 66px 48px 66px 48px;
     gap: 12px;
     background-color: gray;
+    color: var(--background-color-site);
 }
 
 .user-color-one {
