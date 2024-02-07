@@ -79,6 +79,10 @@
     cursor: pointer;
 }
 
+.board-add-button:active{
+    background-color: var(--light-blue);
+}
+
 .board-add-button span{
     font-size: 21px;
     font-weight: 700;
