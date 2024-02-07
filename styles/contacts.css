@@ -1,9 +1,125 @@
 /* style button select*/
 
-.contacts-btn{
+:root {
+    --background-color-site: #F6F7F8;
+    --button-color: #2A3647;
+    --light-grey: #D1D1D1;
+    --light-blue: #29ABE2;
+    --button-selected: #091931;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.contacts-btn {
     background-color: var(--button-selected);
 }
 
-.contacts-btn:hover{
+.contacts-btn:hover {
     background-color: var(--button-selected);
 }
+
+.contacts-container {
+    margin-left: 200px;
+}
+
+.contacts-conllection {
+    width: 400px;
+    padding: 32px 24px;
+}
+
+.contacts-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-contacts-btn {
+    width: 352px;
+    height: 56px;
+    border-radius: 10px;
+    padding: 12px 16px;
+    background-color: var(--button-color);
+    border: none;
+    color: var(--background-color-site);
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 25.2px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.add-contacts-btn img {
+    height: 32px;
+    width: 32px;
+}
+
+.add-contacts-btn:active {
+    background-color: var(--light-blue)
+}
+
+.list {
+    width: 352px;
+    height: 58px;
+    padding: 17px 36px;
+    gap: 8px;
+}
+
+.center {
+    text-align: center
+}
+
+.underline {
+    width: 352px;
+    height: 16px;
+    padding: 8px 0px;
+    border-bottom: 1px solid rgba(0, 0, 0, 10%);
+}
+
+.add-contacts-card {
+    width: 467px;
+    height: 594px;
+    padding: 66px 48px 66px 48px;
+    gap: 12px;
+    background-color: gray;
+}
+
+.user-color-one {
+    background-color: #FF7A00;
+}
+
+.user-color-two {
+    background-color: #FF5EB3;
+}
+
+.user-color-three {
+    background-color: #6E52FF;
+}
+
+.user-color-four {
+    background-color: #9327FF;
+}
+
+.user-color-five {
+    background-color: #00BEE8;
+}
+
+.user-color-six {
+    background-color: #1FD7C1;
+}
+
+/* .user-color-one {
+    background-color: #FF7A00;
+}
+
+.user-color-one {
+    background-color: #FF7A00;
+}
+
+.user-color-one {
+    background-color: #FF7A00;
+} */

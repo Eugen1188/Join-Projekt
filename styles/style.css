@@ -1,4 +1,4 @@
-:root{
+:root {
     --background-color-site: #F6F7F8;
     --button-color: #2A3647;
     --light-grey: #D1D1D1;
@@ -7,53 +7,65 @@
 
 }
 
-
-body{
+body {
     width: 100%;
     margin: 0;
-    font-family: Inter;
+    font-family: "Inter", sans-serif;
     height: 100vh;
     background-color: var(--background-color-site);
     position: relative;
 }
 
-.animation-main-cont{
+.animation-main-cont {
     position: absolute;
     display: flex;
     height: 100vh;
     width: 100%;
 }
 
-.change-height{
+.change-height {
     animation: change-height 2s ease-in-out forwards;
 }
 
-@keyframes change-height{
-    from {height: 100vh;}
-    to {height: 0vh;}
-} 
+@keyframes change-height {
+    from {
+        height: 100vh;
+    }
 
-.change-logo-color{
+    to {
+        height: 0vh;
+    }
+}
+
+.change-logo-color {
     animation: change-logo-color 1s ease-in-out forwards;
 }
 
-@keyframes change-logo-color{
-    from {fill: white;}
-    to {fill: var(--button-color);}
+@keyframes change-logo-color {
+    from {
+        fill: white;
+    }
+
+    to {
+        fill: var(--button-color);
+    }
 }
 
-.change-background-color{
+.change-background-color {
     animation: change-background-color 2s ease-in-out;
 }
 
-@keyframes change-background-color{
-    from{background-color: var(--button-color);}
-    to{background-color: var(--background-color-site);}
+@keyframes change-background-color {
+    from {
+        background-color: var(--button-color);
+    }
+
+    to {
+        background-color: var(--background-color-site);
+    }
 }
 
-
-
-.animation-img{
+.animation-img {
     width: 100px;
     height: 120px;
     object-fit: contain;
@@ -65,26 +77,35 @@ body{
     animation: move-logo 1s ease-in-out forwards;
 }
 
+@keyframes move-logo {
+    from {
+        top: 50%;
+        left: 50%;
+        width: 300px;
+        height: 400px;
+    }
 
-@keyframes move-logo{
-    from { top: 50%; left: 50%; width: 300px; height: 400px; }
-    to { top: 100px; left: 100px; width: 100px; height: 120px;}
+    to {
+        top: 100px;
+        left: 100px;
+        width: 100px;
+        height: 120px;
+    }
 }
 
-
-.login-top-cont{
+.login-top-cont {
     display: flex;
     justify-content: end;
     padding: 80px
 }
 
-.login-top-cont img{
+.login-top-cont img {
     width: 100px;
     height: 120px;
     display: none;
 }
 
-.signup-button{
+.signup-button {
     background-color: var(--button-color);
     width: 100px;
     height: 50px;
@@ -97,17 +118,17 @@ body{
     cursor: pointer;
 }
 
-.signup-cont{
+.signup-cont {
     display: flex;
     height: fit-content;
     align-items: center;
 }
 
-.signup-cont span{
+.signup-cont span {
     font-size: 20px;
 }
 
-.login-main-cont{
+.login-main-cont {
     display: flex;
     height: 100vh;
     flex-direction: column;
@@ -115,9 +136,7 @@ body{
 
 }
 
-
-
-.login-cont{
+.login-cont {
     width: 652px;
     height: 493px;
     margin-left: auto;
@@ -125,7 +144,7 @@ body{
     background-color: white;
 }
 
-.login-rights-cont{
+.login-rights-cont {
     width: 235px;
     height: 30px;
     margin-left: auto;
@@ -138,18 +157,18 @@ body{
     box-sizing: border-box;
 }
 
-.login-rights-cont a{
+.login-rights-cont a {
     color: var(--light-grey);
     text-decoration: none;
     transition: 0.1s;
 }
 
-.login-rights-cont a:hover{
+.login-rights-cont a:hover {
     font-weight: 700;
     color: var(--light-blue);
 }
 
-.login-cont{
+.login-cont {
     display: flex;
     border-radius: 30px;
     justify-content: center;
@@ -157,7 +176,7 @@ body{
     align-items: center;
 }
 
-.login-headline{
+.login-headline {
     width: 315px;
     height: 89px;
     color: rgb(0, 0, 0);
@@ -174,20 +193,20 @@ body{
     margin-top: 32px;
 }
 
-.line{
+.line {
     width: 150px;
     height: 3px;
     background-color: var(--light-blue);
 }
 
-form{
+form {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-.loginemail{
+.loginemail {
     background: url(../assets/img/mail.png)no-repeat 100%;
     background-size: 20px 16px;
     background-position-x: 370px;
@@ -205,7 +224,7 @@ form{
     box-sizing: border-box;
 }
 
-.loginpassword{
+.loginpassword {
     background: url(../assets/img/lock.png)no-repeat 100%;
     background-size: 16px 21px;
     background-position-x: 372px;
@@ -227,10 +246,11 @@ form{
 
 ::placeholder {
     color: var(--light-grey);
-    opacity: 1; /* Firefox */
+    opacity: 1;
+    /* Firefox */
 }
 
-.checkbox-cont{
+.checkbox-cont {
     width: 100%;
     margin-left: 39px;
     margin-bottom: 40px;
@@ -239,14 +259,14 @@ form{
     font-size: 16px;
 }
 
-.login-buttons-cont{
+.login-buttons-cont {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 32px;
 }
 
-.loginbutton{
+.loginbutton {
     width: 110px;
     height: 48px;
     background-color: var(--button-color);
@@ -262,12 +282,12 @@ form{
     transition: 0.3s;
 }
 
-.loginbutton:hover{
+.loginbutton:hover {
     background-color: var(--light-blue);
     box-shadow: rgb(0 0 0 / 20%) 1px 3px 5px 1px;
 }
 
-.loginguestbutton{
+.loginguestbutton {
     color: var(--button-color);
     width: 177px;
     height: 46px;
@@ -285,28 +305,27 @@ form{
     box-sizing: border-box;
 }
 
-.loginguestbutton:hover{
+.loginguestbutton:hover {
     border: solid 2px var(--light-blue);
     box-shadow: rgb(0 0 0 / 20%) 1px 3px 5px 1px;
     color: var(--light-blue);
 }
 
-.text-decoration-none{
+.text-decoration-none {
     text-decoration: none;
 }
 
 
-.checkbox-cont{
+.checkbox-cont {
     display: flex;
     align-items: center;
 }
 
-.checkbox-cont span{
+.checkbox-cont span {
     margin-left: 8px;
 }
 
-
-.checkboxlabel{
+.checkboxlabel {
     display: block;
     position: relative;
     padding-left: 35px;
@@ -317,17 +336,17 @@ form{
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-  }
+}
 
-  .logincheckbox{
+.logincheckbox {
     position: absolute;
     opacity: 0;
     cursor: pointer;
     height: 0;
     width: 0;
-  }
+}
 
-  .checkmark{
+.checkmark {
     position: absolute;
     top: 0;
     left: 0;
@@ -336,23 +355,23 @@ form{
     background-color: #ffffff;
     border-radius: 3px;
     border: 2px solid var(--button-color) !important;
-  }
+}
 
-  .checkboxlabel input:checked ~ .checkmark {
+.checkboxlabel input:checked~.checkmark {
     background-color: #000000;
-  }
+}
 
-  .checkmark:after {
+.checkmark:after {
     content: "";
     position: absolute;
     display: none;
-  }
+}
 
-  .checkboxlabel input:checked ~ .checkmark:after {
+.checkboxlabel input:checked~.checkmark:after {
     display: block;
-  }
+}
 
-  .checkboxlabel .checkmark:after {
+.checkboxlabel .checkmark:after {
     left: 4px;
     top: 0px;
     width: 4px;
@@ -362,25 +381,30 @@ form{
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
-  }
+}
 
-  .privacy-cont{
+.privacy-cont {
     display: flex;
     justify-content: space-around;
     align-items: center;
     font-size: 16px;
     margin-right: 16px;
-  }
+}
 
-  .privacy-cont span{
+.privacy-cont span {
     cursor: pointer;
-  }
+}
 
-  .ecrease-opacity{
+.ecrease-opacity {
     animation: encrease-opacity 1s ease-in-out forwards;
 }
 
-@keyframes encrease-opacity{
-    from { opacity: 0;}
-    to { opacity: 1;}
+@keyframes encrease-opacity {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }

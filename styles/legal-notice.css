@@ -1,8 +1,8 @@
-.legal-notice-btn{
+.legal-notice-btn {
     background-color: var(--button-selected);
 }
 
-.legal-notice-btn:hover{
+.legal-notice-btn:hover {
     background-color: var(--button-selected);
     color: var(--light-grey);
 }

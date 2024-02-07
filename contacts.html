@@ -1,21 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&display=swap"
-        rel="stylesheet">
-    <script src="script.js"></script>
-    <link rel="stylesheet" href="assets/templates/header.style.css">
-    <link rel="stylesheet" href="styles/contacts.css">
-    <link rel="stylesheet" href="styles/style.css">
-</head>
-<body onload="includeHTML()">
 
+    <link rel="stylesheet" href="./styles/font.css">
+    <link rel="stylesheet" href="./assets/templates/header.style.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/contacts.css">
+    <script src="./script.js" defer></script>
+    <script src="./js/contacts.js" defer></script>
+</head>
+
+<body onload="includeHTML()">
     <header id="main-header" w3-include-html="assets/templates/header.html"></header>
-    
+    <div class="contacts-container">
+        <div class="contacts-conllection">
+            <button class="add-contacts-btn">Add new Contact <img src="./assets/img/icons/person_add.png" alt=""
+                    srcset=""></button>
+            <div class="contacts-content" id="contacts-a">
+                <div class="list" id="list-INDEX">
+                    <span class="center ">A</span>
+                </div>
+                <div class="underline"></div>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
