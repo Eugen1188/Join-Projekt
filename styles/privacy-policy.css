@@ -1,10 +1,10 @@
 /* style button select*/
 
-.privacy-btn{
+.privacy-btn {
     background-color: var(--button-selected);
 }
 
-.privacy-btn:hover{
+.privacy-btn:hover {
     background-color: var(--button-selected);
     color: var(--light-grey);
 }
