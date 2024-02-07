@@ -1,9 +1,75 @@
 /* style button select*/
 
 .addtask-btn {
-    background-color: var(--button-selected);
+  background-color: var(--button-selected);
 }
 
 .addtask-btn:hover {
-    background-color: var(--button-selected);
+  background-color: var(--button-selected);
+}
+
+.task-headline {
+  margin-top: 206px;
+  margin-left: 328px;
+  font-size: 61px;
+  line-height: 73.2px;
+  font-weight: 700;
+  display: flex;
+  gap: 1px;
+  justify-content: flex-start;
+}
+
+.add-task-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.form-body {
+  display: flex;
+  width: 440px;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.addtask-side-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 440px;
+}
+
+.divider {
+  width: 1px;
+  background-color: black;
+  height: 300px;
+}
+
+.button-conatiner {
+  display: flex;
+  margin-top: 68px;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+label.radio-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+input[type="radio"]:checked + label.radio-button {
+  background-color: #e74c3c;
 }
