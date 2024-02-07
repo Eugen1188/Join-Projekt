@@ -17,6 +17,7 @@ function addTask() {
   let task = [
     {
       title: title.value,
+      status: { inProgress: false, awaitFeedback: false, done: false }, // true oder false werden im Board gesetzt
       taskDescription: taskDescription.value,
       contacts: contacts.value,
       createdAt: new Date().getTime(),
@@ -28,7 +29,7 @@ function addTask() {
   ];
 
   allTasks.push(task);
-  setItem(task[0]["title"], task);
+  setItem(task[0]["title"], task); // muss als neues Objekt in das Hauptarray/JSON gepusht werden
   console.log(allTasks);
 }
 
@@ -36,6 +37,6 @@ function checkTasks() {
   for (let i = 0; i < allTasks.length; i++) {
     const taskID = allTasks[i];
     let taskTitle = taskID[0]["title"];
-    console.log(taskTitle);
+    console.log(taskTitle); addTask.
   }
 }
