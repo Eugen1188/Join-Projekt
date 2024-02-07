@@ -7,3 +7,78 @@
 .board-btn:hover {
     background-color: var(--button-selected);
 }
+
+.board-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    inset: 96px 232px;
+    width: 1208px;
+    height: 232px;
+}
+
+.board-top-content {
+    width: 100%;
+    max-width: 1056px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.board-top-cont-left h2 {
+    font-size: 61px;
+    margin: 0;
+}
+
+.board-top-cont-right {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 32px;
+}
+
+.board-search-form form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 16px;
+    border: 1px solid #A8A8A8;
+    border-radius: 10px;
+    background-color: white;
+    padding: 7px 16px;
+}
+
+.board-search-form input {
+    border: none;
+    border-right: 2px solid #a8a8a863;
+    flex: 2;
+    color: #A8A8A8;
+    height: 32px;
+    padding: 0;
+}
+
+.board-search-form input:focus {
+    outline: none;
+}
+
+.board-search-form img{
+    cursor: pointer;
+}
+
+.board-add-button{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 11px 16px;
+    border-radius: 10px;
+    gap: 8px;
+    background-color: #2A3647;
+    color: white;
+}
+
+.board-add-button span{
+    font-size: 21px;
+    font-weight: 700;
+}
+
+

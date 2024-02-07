@@ -12,11 +12,34 @@
     <script src="script.js"></script>
     <script src="./scripts/board.js"></script>
 </head>
-
-<body onload="includeHTML(); testfunc()">
+<body onload="includeHTML()">
 
     <header id="main-header" w3-include-html="assets/templates/header.html"></header>
+    <div class="board-top">
+        <div class="board-top-content">
+            <div class="board-top-cont-left">
+                <h2>Board</h2>
+            </div>
+            <div class="board-top-cont-right">
+                <div class="board-search-form">
+                    <form>
+                        <input type="text" placeholder="Find Task">
+                        <img src="./assets/img/search.png" alt="search-button">
+                    </form>
+                </div>
+                <div class="board-add-button">
+                    <div>
+                        <span>Add Task</span>
+                    </div>
+                    <div>
+                        <img src="./assets/img/add.png" alt="add">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
 
+    </div>
 </body>
 
 </html>
