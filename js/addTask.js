@@ -37,6 +37,6 @@ function checkTasks() {
   for (let i = 0; i < allTasks.length; i++) {
     const taskID = allTasks[i];
     let taskTitle = taskID[0]["title"];
-    console.log(taskTitle); addTask.
+    console.log(taskTitle);
   }
 }
