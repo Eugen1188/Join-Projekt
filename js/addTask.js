@@ -28,8 +28,8 @@ function addTask() {
     },
   ];
 
-  allTasks.push(task[0]);
-  setItem("tasks", allTasks); // muss als neues Objekt in das Hauptarray/JSON gepusht werden
+  allTasks.push(task);
+  setItem("tasks_neu_neu", allTasks); // muss als neues Objekt in das Hauptarray/JSON gepusht werden
   console.log(allTasks);
 }
 
@@ -78,12 +78,11 @@ function showContacts() {
 }
 
 async function testfunc() {
-  let myArray = getItem("tasks");
+  let myArray = getItem("tasks_neu_neu");
   myArray
     .then((result) => {
-      let dummy;
-      dummy = JSON.parse(result.data.value);
-      allTasks.push(dummy[0]);
+      allTasks = JSON.parse(result.data.value);
+      // allTasks.push(result.data.value);
     })
     .catch((error) => {
       console.error("Ein Fehler ist aufgetreten:", error);
