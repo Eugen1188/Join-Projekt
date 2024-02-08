@@ -12,6 +12,15 @@ function templateCard(){
                         <span>Create a contact form and imprint page and so on until there is another text</span>
                     </div>
                 </div>
+                <div class="board-progress">
+                    <div class="task-progress-blank">
+                      <div class="task-progress"></div>
+                    </div>
+                    <div>
+                        <span>1/2 Subtasks</span>
+                    </div>
+                </div>
+
             </div>
     `
 }
