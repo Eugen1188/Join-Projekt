@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/board.css">
     <script src="script.js"></script>
-    <script src="./scripts/board.js"></script>
+    <script src="./js/board.js"></script>
+    <script src="./js/boardRender.js"></script>
+    <script src="./js/boardHtmlTemplate.js"></script>
 </head>
 
 <body onload="includeHTML()">
@@ -28,7 +30,7 @@
                         <img src="./assets/img/search.png" alt="search-button">
                     </form>
                 </div>
-                <div class="board-add-button">
+                <div class="board-add-button" onclick="renderCard()">
                     <div>
                         <span>Add Task</span>
                     </div>
@@ -71,25 +73,13 @@
         </div>
     </div>
     <div class="board-main">
-        <div class="board-card-section">
-            <div class="board-card">
-                
-            </div>
+        <div id="0" class="board-card-section">
         </div>
-        <div class="board-card-section">
-            <div class="board-card">
-                
-            </div>
+        <div id="1" class="board-card-section">
         </div>
-        <div class="board-card-section">
-            <div class="board-card">
-                
-            </div>
+        <div id="2" class="board-card-section">
         </div>
-        <div class="board-card-section">
-            <div class="board-card">
-                
-            </div>
+        <div id="3" class="board-card-section">
         </div>
     </div>
 </body>
