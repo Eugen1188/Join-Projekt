@@ -10,7 +10,6 @@
 
 .board-top {
     display: flex;
-    justify-content: center;
     align-items: center;
     position: fixed;
     inset: 96px 232px;
@@ -20,9 +19,10 @@
 
 .board-top-content {
     width: 100%;
-    max-width: 1056px;
+    max-width: 1080px;
     display: flex;
     justify-content: space-between;
+    padding: 0px 64px;
 }
 
 .board-top-cont-left h2 {
