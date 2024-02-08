@@ -5,7 +5,7 @@ function renderCard(){
         id.innerHTML = '';
         
         if (i == 0) {
-            for (let j = 0; j <= 1; j++) {
+            for (let j = 0; j <= 4; j++) {
                 const id = document.getElementById(`${i}`);
                 id.innerHTML += templateCard(); 
             }
