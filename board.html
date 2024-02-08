@@ -10,8 +10,11 @@
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/board.css">
     <script src="script.js"></script>
-    <script src="./scripts/board.js"></script>
+    <script src="./js/board.js"></script>
+    <script src="./js/boardRender.js"></script>
+    <script src="./js/boardHtmlTemplate.js"></script>
 </head>
+
 <body onload="includeHTML()">
 
     <header id="main-header" w3-include-html="assets/templates/header.html"></header>
@@ -27,7 +30,7 @@
                         <img src="./assets/img/search.png" alt="search-button">
                     </form>
                 </div>
-                <div class="board-add-button">
+                <div class="board-add-button" onclick="renderCard()">
                     <div>
                         <span>Add Task</span>
                     </div>
@@ -66,6 +69,28 @@
                 <div>
                     <span>Done</span>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="board-main">
+        <div id="0" class="board-card-section">
+            <div class="board-no-task">
+                <span>No tasks To do</span>
+            </div>
+        </div>
+        <div id="1" class="board-card-section">
+            <div class="board-no-task">
+                <span>No tasks To do</span>
+            </div>
+        </div>
+        <div id="2" class="board-card-section">
+            <div class="board-no-task">
+                <span>No tasks To do</span>
+            </div>
+        </div>
+        <div id="3" class="board-card-section">
+            <div class="board-no-task">
+                <span>No tasks To do</span>
             </div>
         </div>
     </div>

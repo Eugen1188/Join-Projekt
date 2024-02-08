@@ -10,7 +10,6 @@
 
 .board-top {
     display: flex;
-    justify-content: center;
     align-items: center;
     position: fixed;
     inset: 96px 232px;
@@ -20,9 +19,10 @@
 
 .board-top-content {
     width: 100%;
-    max-width: 1056px;
+    max-width: 1080px;
     display: flex;
     justify-content: space-between;
+    padding: 0px 64px;
 }
 
 .board-top-cont-left h2 {
@@ -63,54 +63,193 @@
     outline: none;
 }
 
-.board-search-form img{
+.board-search-form img {
     cursor: pointer;
 }
 
-.board-add-button{
+.board-add-button {
     display: flex;
     justify-content: center;
     align-items: flex-end;
     padding: 11px 16px;
     border-radius: 10px;
     gap: 8px;
-    background-color: #2A3647;
+    background-color: var(--button-color);
     color: white;
     cursor: pointer;
 }
 
-.board-add-button:active{
+.board-add-button:active {
     background-color: var(--light-blue);
 }
 
-.board-add-button span{
+.board-add-button span {
     font-size: 21px;
     font-weight: 700;
 }
 
-.board-title{
+.board-title {
     position: absolute;
     top: 200.5px;
+    left: 64px;
     display: flex;
     justify-content: space-between;
     width: 100%;
     max-width: 1056px;
-    padding: 0px 64px;
+    gap: 24px;
 }
 
-.board-title-content{
+.board-title-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 244px;
+    width: 252px;
+    min-width: 252px;
 }
 
-.board-title-content span{
+.board-title-content span {
     font-size: 20px;
     color: #42526E;
     font-weight: 700;
 }
 
-.board-title-content img{
+.board-title-content img {
     cursor: pointer;
+}
+
+.board-main {
+    display: flex;
+    position: fixed;
+    inset: 336px 232px;
+    padding: 0px 64px;
+    gap: 24px;
+    width: 1208px;
+    height: 100%;
+}
+
+
+
+.board-card-section {
+    width: 252px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    height: 60%;
+    overflow-y: scroll;
+}
+
+.board-card-section::-webkit-scrollbar {
+    display: none;
+}
+
+.board-card {
+    display: flex;
+    flex-direction: column;
+    width: 220px;
+    background-color: white;
+    border-radius: 24px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.08);
+    padding: 16px;
+    gap: 24px;
+    cursor: pointer;
+}
+
+.board-card:active {
+    cursor: grabbing;
+}
+
+.board-card-topic {
+    display: flex;
+    width: fit-content;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background-color: var(--topic-user);
+    color: white;
+    font-weight: 400;
+    padding: 4px 16px;
+}
+
+.board-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.board-card-content-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--button-color);
+}
+
+.max-lines {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* number of lines to show */
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    font-size: 16px;
+    font-weight: 400;
+    color: #A8A8A8;
+}
+
+.board-progress {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.board-progress span{
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.task-progress-blank {
+    width: 128px;
+    background-color: #F4F4F4;
+    border-radius: 8px;
+}
+
+.task-progress {
+    width: 50%;
+    height: 8px;
+    background-color: #4589FF;
+    border-radius: 8px;
+}
+
+.board-card-status{
+    display: flex;
+    justify-content: space-between;
+}
+
+.board-card-assignee{
+    display: flex;
+}
+
+.assignee{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    color: white;
+    font-size: 12px;
+    font-weight: 400;
+    border:1px solid white;
+    margin: 0px -4px;
+}
+
+.board-no-task{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #e7e7e7;
+    border: 2px dotted #A8A8A8;
+    border-radius: 10px;
+    height: 48px;
+    width: 248px;
+    color: #A8A8A8;
+
 }
