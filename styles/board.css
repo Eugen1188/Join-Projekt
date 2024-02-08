@@ -96,7 +96,7 @@
     justify-content: space-between;
     width: 100%;
     max-width: 1056px;
-    gap: 24px;
+    gap: 28px;
 }
 
 .board-title-content {
@@ -130,8 +130,9 @@
 
 
 .board-card-section {
-    width: 252px;
+    width: 256px;
     display: flex;
+    align-items: center;
     flex-direction: column;
     gap: 16px;
     height: 60%;
