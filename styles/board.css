@@ -11,10 +11,12 @@
 .board-top {
     display: flex;
     align-items: center;
-    position: fixed;
-    inset: 96px 232px;
-    width: 1208px;
+    position: absolute;
+    left: 232px;
+    width: calc(100% - 232px);
+    max-width: 1208px;
     height: 232px;
+
 }
 
 .board-top-content {
@@ -61,6 +63,18 @@
 
 .board-search-form input:focus {
     outline: none;
+}
+
+.board-search-form div{
+    width: 32px;
+    height: 32px;
+}
+
+.board-search-form div:hover{
+    background-color: #c5c5c536;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
 }
 
 .board-search-form img {
@@ -113,8 +127,13 @@
     font-weight: 700;
 }
 
-.board-title-content img {
+.add-svg{
     cursor: pointer;
+}
+
+.add-svg:hover rect, .add-svg:hover path {
+    stroke: #4589FF;
+
 }
 
 .board-main {
@@ -201,7 +220,7 @@
     align-items: center;
 }
 
-.board-progress span{
+.board-progress span {
     font-size: 12px;
     font-weight: 400;
 }
@@ -219,16 +238,16 @@
     border-radius: 8px;
 }
 
-.board-card-status{
+.board-card-status {
     display: flex;
     justify-content: space-between;
 }
 
-.board-card-assignee{
+.board-card-assignee {
     display: flex;
 }
 
-.assignee{
+.assignee {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -238,11 +257,11 @@
     color: white;
     font-size: 12px;
     font-weight: 400;
-    border:1px solid white;
+    border: 1px solid white;
     margin: 0px -4px;
 }
 
-.board-no-task{
+.board-no-task {
     display: flex;
     justify-content: center;
     align-items: center;
