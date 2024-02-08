@@ -1,4 +1,3 @@
-let allTasks = [];
 let checkedContacts = [];
 
 function addTask() {
@@ -29,8 +28,8 @@ function addTask() {
     },
   ];
 
-  allTasks.push(task);
-  setItem(task[0]["title"], task); // muss als neues Objekt in das Hauptarray/JSON gepusht werden
+  allTasks.push(task[0]);
+  setItem("tasks", allTasks); // muss als neues Objekt in das Hauptarray/JSON gepusht werden
   console.log(allTasks);
 }
 
@@ -56,7 +55,7 @@ function getContact() {
   contacts.forEach((contact) => {
     optionsHTML += `
     <div id="contactList" class="checkbox">
-     <label for="${contact.name}">${contact.name}</label>
+     <label for="${contact.name}">${contact.name} ${contact.lastname}</label>
      <input type="checkbox" name="contacts[]" value="${contact.name}" id="${contact.name}">
     </div>
       `;
@@ -76,4 +75,17 @@ function getCheckedContact() {
 function showContacts() {
   let id = document.getElementById("contact-values");
   id.classList.toggle("d-none");
+}
+
+async function testfunc() {
+  let myArray = getItem("tasks");
+  myArray
+    .then((result) => {
+      let dummy;
+      dummy = JSON.parse(result.data.value);
+      allTasks.push(dummy[0]);
+    })
+    .catch((error) => {
+      console.error("Ein Fehler ist aufgetreten:", error);
+    });
 }

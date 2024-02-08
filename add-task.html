@@ -12,7 +12,7 @@
     <script src="./js/contacts.js" defer></script>
     <script src="./js/addTask.js"></script>
   </head>
-  <body onload="includeHTML(); getContact()">
+  <body onload="includeHTML(); getContact();testfunc()">
     <header
       id="main-header"
       w3-include-html="assets/templates/header.html"
@@ -38,13 +38,12 @@
             ></textarea>
           </div>
 
-          <div class="input-container assigned-to-container">
+          <div
+            onclick="showContacts()"
+            class="input-container assigned-to-container"
+          >
             <div class="arrow">
-              <img
-                src="./assets/img/arrow_drop_downaa.svg"
-                alt=""
-                onclick="showContacts()"
-              />
+              <img src="./assets/img/arrow_drop_downaa.svg" alt="" />
             </div>
           </div>
           <div id="contact-values" class="d-none"></div>

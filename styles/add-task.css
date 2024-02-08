@@ -13,6 +13,8 @@
 }
 
 .task-headline h1 {
+  margin-block-start: 0;
+  margin-block-end: 0;
   font-size: 61px;
   font-weight: 700;
   display: flex;
@@ -25,10 +27,9 @@
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
-  position: fixed;
-  inset: 120px 328px;
-  width: 1208px;
-  height: 232px;
+  position: absolute;
+  left: 328px;
+  top: 206px;
 }
 
 .addtask-side-left {
@@ -129,13 +130,12 @@ input[type="radio"]:checked + label.radio-button {
 }
 
 input {
-  border-right: 2px solid #a8a8a863;
   color: #a8a8a8;
   font-size: 18px;
-  border: 1px solid #a8a8a8;
+  border: 1px solid #d1d1d1;
   border-radius: 10px;
   background-color: white;
-  padding: 12px 21px 12px 21px;
+  padding: 12px 21px;
 }
 
 textarea {
