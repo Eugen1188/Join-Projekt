@@ -1,242 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Join</title>
-    <link rel="stylesheet" href="./styles/font.css">
-    <link rel="stylesheet" href="./assets/templates/header.style.css">
-    <link rel="stylesheet" href="./styles/style.css">
-    <link rel="stylesheet" href="./styles/contacts.css">
+    <link rel="stylesheet" href="./styles/font.css" />
+    <link rel="stylesheet" href="./assets/templates/header.style.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/contacts.css" />
     <script src="./script.js" defer></script>
+    <script src="./js/addTask.js"></script>
     <script src="./js/contacts.js" defer></script>
-</head>
+  </head>
 
-<body onload="includeHTML()">
-    <header id="main-header" w3-include-html="assets/templates/header.html"></header>
+  <body onload="includeHTML()">
+    <header
+      id="main-header"
+      w3-include-html="assets/templates/header.html"
+    ></header>
     <div class="contacts-container">
-        <div class="contacts-conllection">
-            <button class="add-contacts-btn">Add new Contact <img src="./assets/img/icons/person_add.png" alt=""
-                    srcset=""></button>
-            <div class="contacts-content" id="contacts-a">
-                <div class="list" id="list-INDEX">
-                    <span class="list-char" id="char-INDEX">A</span>
-                </div>
-                <div class="underline"></div>
-                <div class="contact-data" id="contact-data-INDEX">
-                    <div class="initials-circle user-color-one">
-                        <!-- USER DATA -->
-                        <span>UD</span>
-                    </div>
-                    <div class="user-data-container">
-                        <div div="user-Data" id="user-Data-INDEX">
-                            <span>USER DATA</span>
-                            <a href="#">userData@gmx.de</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-data" id="contact-data-INDEX">
-                    <div class="initials-circle user-color-one">
-                        <!-- USER DATA -->
-                        <span>UD</span>
-                    </div>
-                    <div class="user-data-container">
-                        <div div="user-Data" id="user-Data-INDEX">
-                            <span>USER DATA</span>
-                            <a href="#">userData@gmx.de</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-data" id="contact-data-INDEX">
-                    <div class="initials-circle user-color-one">
-                        <!-- USER DATA -->
-                        <span>UD</span>
-                    </div>
-                    <div class="user-data-container">
-                        <div div="user-Data" id="user-Data-INDEX">
-                            <span>USER DATA</span>
-                            <a href="#">userData@gmx.de</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-data" id="contact-data-INDEX">
-                    <div class="initials-circle user-color-one">
-                        <!-- USER DATA -->
-                        <span>UD</span>
-                    </div>
-                    <div class="user-data-container">
-                        <div div="user-Data" id="user-Data-INDEX">
-                            <span>USER DATA</span>
-                            <a href="#">userData@gmx.de</a>
-                        </div>
-                    </div>
-                </div>
+      <div class="contacts-conllection">
+        <button class="add-contacts-btn">
+          Add new Contact
+          <img src="./assets/img/icons/person_add.png" alt="" srcset="" />
+        </button>
+        <div class="contacts-content" id="contacts-a">
+          <div class="list" id="list-INDEX">
+            <span class="list-char" id="char-INDEX">A</span>
+          </div>
+          <div class="underline"></div>
+          <div class="contact-data" id="contact-data-INDEX">
+            <div class="initials-circle user-color-one">
+              <!-- USER DATA -->
+              <span>UD</span>
             </div>
-            <div class="contacts-content" id="contacts-a">
-                <div class="list" id="list-INDEX">
-                    <span class="list-char" id="char-INDEX">A</span>
-                </div>
-                <div class="underline"></div>
-                <div class="contact-data" id="contact-data-INDEX">
-                    <div class="initials-circle user-color-one">
-                        <!-- USER DATA -->
-                        <span>UD</span>
-                    </div>
-                    <div class="user-data-container">
-                        <div div="user-Data" id="user-Data-INDEX">
-                            <span>USER DATA</span>
-                            <a href="#">userData@gmx.de</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-data" id="contact-data-INDEX">
-                    <div class="initials-circle user-color-one">
-                        <!-- USER DATA -->
-                        <span>UD</span>
-                    </div>
-                    <div class="user-data-container">
-                        <div div="user-Data" id="user-Data-INDEX">
-                            <span>USER DATA</span>
-                            <a href="#">userData@gmx.de</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-data" id="contact-data-INDEX">
-                    <div class="initials-circle user-color-one">
-                        <!-- USER DATA -->
-                        <span>UD</span>
-                    </div>
-                    <div class="user-data-container">
-                        <div div="user-Data" id="user-Data-INDEX">
-                            <span>USER DATA</span>
-                            <a href="#">userData@gmx.de</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-data" id="contact-data-INDEX">
-                    <div class="initials-circle user-color-one">
-                        <!-- USER DATA -->
-                        <span>UD</span>
-                    </div>
-                    <div class="user-data-container">
-                        <div div="user-Data" id="user-Data-INDEX">
-                            <span>USER DATA</span>
-                            <a href="#">userData@gmx.de</a>
-                        </div>
-                    </div>
-                </div>
+            <div class="user-data-container">
+              <div div="user-Data" id="user-Data-INDEX">
+                <span>USER DATA</span>
+                <a href="#">userData@gmx.de</a>
+              </div>
             </div>
-            <div class="contacts-content" id="contacts-a">
-                <div class="list" id="list-INDEX">
-                    <span class="list-char" id="char-INDEX">A</span>
-                </div>
-                <div class="underline"></div>
-                <div class="contact-data" id="contact-data-INDEX">
-                    <div class="initials-circle user-color-one">
-                        <!-- USER DATA -->
-                        <span>UD</span>
-                    </div>
-                    <div class="user-data-container">
-                        <div div="user-Data" id="user-Data-INDEX">
-                            <span>USER DATA</span>
-                            <a href="#">userData@gmx.de</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-data" id="contact-data-INDEX">
-                    <div class="initials-circle user-color-one">
-                        <!-- USER DATA -->
-                        <span>UD</span>
-                    </div>
-                    <div class="user-data-container">
-                        <div div="user-Data" id="user-Data-INDEX">
-                            <span>USER DATA</span>
-                            <a href="#">userData@gmx.de</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-data" id="contact-data-INDEX">
-                    <div class="initials-circle user-color-one">
-                        <!-- USER DATA -->
-                        <span>UD</span>
-                    </div>
-                    <div class="user-data-container">
-                        <div div="user-Data" id="user-Data-INDEX">
-                            <span>USER DATA</span>
-                            <a href="#">userData@gmx.de</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-data" id="contact-data-INDEX">
-                    <div class="initials-circle user-color-one">
-                        <!-- USER DATA -->
-                        <span>UD</span>
-                    </div>
-                    <div class="user-data-container">
-                        <div div="user-Data" id="user-Data-INDEX">
-                            <span>USER DATA</span>
-                            <a href="#">userData@gmx.de</a>
-                        </div>
-                    </div>
-                </div>
+          </div>
+          <div class="contact-data" id="contact-data-INDEX">
+            <div class="initials-circle user-color-one">
+              <!-- USER DATA -->
+              <span>UD</span>
             </div>
-            <div class="contacts-content" id="contacts-a">
-                <div class="list" id="list-INDEX">
-                    <span class="list-char" id="char-INDEX">A</span>
-                </div>
-                <div class="underline"></div>
-                <div class="contact-data" id="contact-data-INDEX">
-                    <div class="initials-circle user-color-one">
-                        <!-- USER DATA -->
-                        <span>UD</span>
-                    </div>
-                    <div class="user-data-container">
-                        <div div="user-Data" id="user-Data-INDEX">
-                            <span>USER DATA</span>
-                            <a href="#">userData@gmx.de</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-data" id="contact-data-INDEX">
-                    <div class="initials-circle user-color-one">
-                        <!-- USER DATA -->
-                        <span>UD</span>
-                    </div>
-                    <div class="user-data-container">
-                        <div div="user-Data" id="user-Data-INDEX">
-                            <span>USER DATA</span>
-                            <a href="#">userData@gmx.de</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-data" id="contact-data-INDEX">
-                    <div class="initials-circle user-color-one">
-                        <!-- USER DATA -->
-                        <span>UD</span>
-                    </div>
-                    <div class="user-data-container">
-                        <div div="user-Data" id="user-Data-INDEX">
-                            <span>USER DATA</span>
-                            <a href="#">userData@gmx.de</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-data" id="contact-data-INDEX">
-                    <div class="initials-circle user-color-one">
-                        <!-- USER DATA -->
-                        <span>UD</span>
-                    </div>
-                    <div class="user-data-container">
-                        <div div="user-Data" id="user-Data-INDEX">
-                            <span>USER DATA</span>
-                            <a href="#">userData@gmx.de</a>
-                        </div>
-                    </div>
-                </div>
+            <div class="user-data-container">
+              <div div="user-Data" id="user-Data-INDEX">
+                <span>USER DATA</span>
+                <a href="#">userData@gmx.de</a>
+              </div>
             </div>
+          </div>
+          <div class="contact-data" id="contact-data-INDEX">
+            <div class="initials-circle user-color-one">
+              <!-- USER DATA -->
+              <span>UD</span>
+            </div>
+            <div class="user-data-container">
+              <div div="user-Data" id="user-Data-INDEX">
+                <span>USER DATA</span>
+                <a href="#">userData@gmx.de</a>
+              </div>
+            </div>
+          </div>
+          <div class="contact-data" id="contact-data-INDEX">
+            <div class="initials-circle user-color-one">
+              <!-- USER DATA -->
+              <span>UD</span>
+            </div>
+            <div class="user-data-container">
+              <div div="user-Data" id="user-Data-INDEX">
+                <span>USER DATA</span>
+                <a href="#">userData@gmx.de</a>
+              </div>
+            </div>
+          </div>
         </div>
+        <div class="contacts-content" id="contacts-a">
+          <div class="list" id="list-INDEX">
+            <span class="list-char" id="char-INDEX">A</span>
+          </div>
+          <div class="underline"></div>
+          <div class="contact-data" id="contact-data-INDEX">
+            <div class="initials-circle user-color-one">
+              <!-- USER DATA -->
+              <span>UD</span>
+            </div>
+            <div class="user-data-container">
+              <div div="user-Data" id="user-Data-INDEX">
+                <span>USER DATA</span>
+                <a href="#">userData@gmx.de</a>
+              </div>
+            </div>
+          </div>
+          <div class="contact-data" id="contact-data-INDEX">
+            <div class="initials-circle user-color-one">
+              <!-- USER DATA -->
+              <span>UD</span>
+            </div>
+            <div class="user-data-container">
+              <div div="user-Data" id="user-Data-INDEX">
+                <span>USER DATA</span>
+                <a href="#">userData@gmx.de</a>
+              </div>
+            </div>
+          </div>
+          <div class="contact-data" id="contact-data-INDEX">
+            <div class="initials-circle user-color-one">
+              <!-- USER DATA -->
+              <span>UD</span>
+            </div>
+            <div class="user-data-container">
+              <div div="user-Data" id="user-Data-INDEX">
+                <span>USER DATA</span>
+                <a href="#">userData@gmx.de</a>
+              </div>
+            </div>
+          </div>
+          <div class="contact-data" id="contact-data-INDEX">
+            <div class="initials-circle user-color-one">
+              <!-- USER DATA -->
+              <span>UD</span>
+            </div>
+            <div class="user-data-container">
+              <div div="user-Data" id="user-Data-INDEX">
+                <span>USER DATA</span>
+                <a href="#">userData@gmx.de</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="contacts-content" id="contacts-a">
+          <div class="list" id="list-INDEX">
+            <span class="list-char" id="char-INDEX">A</span>
+          </div>
+          <div class="underline"></div>
+          <div class="contact-data" id="contact-data-INDEX">
+            <div class="initials-circle user-color-one">
+              <!-- USER DATA -->
+              <span>UD</span>
+            </div>
+            <div class="user-data-container">
+              <div div="user-Data" id="user-Data-INDEX">
+                <span>USER DATA</span>
+                <a href="#">userData@gmx.de</a>
+              </div>
+            </div>
+          </div>
+          <div class="contact-data" id="contact-data-INDEX">
+            <div class="initials-circle user-color-one">
+              <!-- USER DATA -->
+              <span>UD</span>
+            </div>
+            <div class="user-data-container">
+              <div div="user-Data" id="user-Data-INDEX">
+                <span>USER DATA</span>
+                <a href="#">userData@gmx.de</a>
+              </div>
+            </div>
+          </div>
+          <div class="contact-data" id="contact-data-INDEX">
+            <div class="initials-circle user-color-one">
+              <!-- USER DATA -->
+              <span>UD</span>
+            </div>
+            <div class="user-data-container">
+              <div div="user-Data" id="user-Data-INDEX">
+                <span>USER DATA</span>
+                <a href="#">userData@gmx.de</a>
+              </div>
+            </div>
+          </div>
+          <div class="contact-data" id="contact-data-INDEX">
+            <div class="initials-circle user-color-one">
+              <!-- USER DATA -->
+              <span>UD</span>
+            </div>
+            <div class="user-data-container">
+              <div div="user-Data" id="user-Data-INDEX">
+                <span>USER DATA</span>
+                <a href="#">userData@gmx.de</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="contacts-content" id="contacts-a">
+          <div class="list" id="list-INDEX">
+            <span class="list-char" id="char-INDEX">A</span>
+          </div>
+          <div class="underline"></div>
+          <div class="contact-data" id="contact-data-INDEX">
+            <div class="initials-circle user-color-one">
+              <!-- USER DATA -->
+              <span>UD</span>
+            </div>
+            <div class="user-data-container">
+              <div div="user-Data" id="user-Data-INDEX">
+                <span>USER DATA</span>
+                <a href="#">userData@gmx.de</a>
+              </div>
+            </div>
+          </div>
+          <div class="contact-data" id="contact-data-INDEX">
+            <div class="initials-circle user-color-one">
+              <!-- USER DATA -->
+              <span>UD</span>
+            </div>
+            <div class="user-data-container">
+              <div div="user-Data" id="user-Data-INDEX">
+                <span>USER DATA</span>
+                <a href="#">userData@gmx.de</a>
+              </div>
+            </div>
+          </div>
+          <div class="contact-data" id="contact-data-INDEX">
+            <div class="initials-circle user-color-one">
+              <!-- USER DATA -->
+              <span>UD</span>
+            </div>
+            <div class="user-data-container">
+              <div div="user-Data" id="user-Data-INDEX">
+                <span>USER DATA</span>
+                <a href="#">userData@gmx.de</a>
+              </div>
+            </div>
+          </div>
+          <div class="contact-data" id="contact-data-INDEX">
+            <div class="initials-circle user-color-one">
+              <!-- USER DATA -->
+              <span>UD</span>
+            </div>
+            <div class="user-data-container">
+              <div div="user-Data" id="user-Data-INDEX">
+                <span>USER DATA</span>
+                <a href="#">userData@gmx.de</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>

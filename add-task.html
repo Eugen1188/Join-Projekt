@@ -9,62 +9,76 @@
     <link rel="stylesheet" href="styles/add-task.css" />
     <link rel="stylesheet" href="styles/style.css" />
     <script src="./script.js"></script>
+    <script src="./js/contacts.js" defer></script>
     <script src="./js/addTask.js"></script>
   </head>
-  <body onload="includeHTML()">
+  <body onload="includeHTML(); getContact()">
     <header
       id="main-header"
       w3-include-html="assets/templates/header.html"
     ></header>
-    <div class="task-headline">
-      <h1>Add Task</h1>
-    </div>
     <div class="add-task-container">
+      <div class="task-headline">
+        <h1>Add Task</h1>
+      </div>
       <form class="add-task-form" id="form" onsubmit="return false;">
         <div class="addtask-side-left">
-          <label>Title</label>
-          <input id="title" type="text" />
-          <label>Description</label>
-          <textarea
-            required
-            name="Description"
-            id="taskDescription"
-            cols="30"
-            rows="10"
-          ></textarea>
-          <label for="contacts">Assigned to:</label>
-          <select id="contacts" name="contacts">
-            <option value="Hans">Hans</option>
-            <option value="Peter">Peter</option>
-            <option value="Werner">Werner</option>
-            <option value="Hansen">Hansen</option>
-          </select>
+          <div class="input-container">
+            <label>Title</label>
+            <input id="title" type="text" />
+          </div>
+          <div class="input-container">
+            <label>Description</label>
+            <textarea
+              required
+              name="Description"
+              id="taskDescription"
+              cols="30"
+              rows="10"
+            ></textarea>
+          </div>
+
+          <div class="input-container assigned-to-container">
+            <div class="arrow">
+              <img
+                src="./assets/img/arrow_drop_downaa.svg"
+                alt=""
+                onclick="showContacts()"
+              />
+            </div>
+          </div>
+          <div id="contact-values" class="d-none"></div>
         </div>
         <div class="divider"></div>
-        <div class="addtask-side">
-          <label>Due Date</label>
-          <input id="date" type="date" />
-          <span>Prio</span>
-          <div id="prio">
-            <input type="radio" id="urgent" name="priority" value="urgent" />
-            <label for="urgent" class="radio-button">Urgent</label>
-            <input type="radio" id="medium" name="priority" value="medium" />
-            <label for="medium" class="radio-button">Medium</label>
-            <input type="radio" id="low" name="priority" value="low" />
-            <label for="low" class="radio-button">Low</label>
+        <div class="addtask-side-right">
+          <div class="input-container">
+            <label>Due Date</label>
+            <input id="date" type="date" />
           </div>
-          <label for="category">Category</label>
-          <select id="category" name="category">
-            <option value="Marketing">Marketing</option>
-            <option value="Vertrieb">Vertrieb</option>
-            <option value="IT">IT</option>
-            <option value="Support">Support</option>
-          </select>
-          <div>
+          <div class="input-container">
+            <span>Prio</span>
+            <div id="prio">
+              <input type="radio" id="urgent" name="priority" value="urgent" />
+              <label for="urgent" class="radio-button">Urgent</label>
+              <input type="radio" id="medium" name="priority" value="medium" />
+              <label for="medium" class="radio-button">Medium</label>
+              <input type="radio" id="low" name="priority" value="low" />
+              <label for="low" class="radio-button">Low</label>
+            </div>
+          </div>
+          <div class="input-container">
+            <label for="category">Category</label>
+            <select id="category" name="category">
+              <option value="Marketing">Marketing</option>
+              <option value="Vertrieb">Vertrieb</option>
+              <option value="IT">IT</option>
+              <option value="Support">Support</option>
+            </select>
+          </div>
+          <div class="input-container">
             <span>Subtask</span>
             <input id="subtask" type="text" />
           </div>
-
           <div class="button-container">
             <button type="button">Clear</button>
             <button onclick="addTask()" type="submit">Create Task</button>

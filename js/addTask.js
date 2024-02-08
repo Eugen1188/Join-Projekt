@@ -1,9 +1,10 @@
-allTasks = [];
+let allTasks = [];
+let checkedContacts = [];
 
 function addTask() {
+  getCheckedContact();
   let title = document.getElementById("title");
   let taskDescription = document.getElementById("taskDescription");
-  let contacts = document.getElementById("contacts");
   let date = document.getElementById("date");
   let prioInputs = document.getElementsByName("priority");
   for (let i = 0; i < prioInputs.length; i++) {
@@ -19,7 +20,7 @@ function addTask() {
       title: title.value,
       status: { inProgress: false, awaitFeedback: false, done: false }, // true oder false werden im Board gesetzt
       taskDescription: taskDescription.value,
-      contacts: contacts.value,
+      contacts: checkedContacts,
       createdAt: new Date().getTime(),
       date: date.value,
       prio: prio,
@@ -33,10 +34,46 @@ function addTask() {
   console.log(allTasks);
 }
 
-function checkTasks() {
-  for (let i = 0; i < allTasks.length; i++) {
-    const taskID = allTasks[i];
-    let taskTitle = taskID[0]["title"];
-    console.log(taskTitle);
-  }
+/**
+ * Lädt Kontakte in ein Dropdown-Menü.
+ * @function getContact
+ * @returns {void}
+ */
+
+function getContact() {
+  /**
+   * Das HTML-Element des Dropdown-Menüs, in das die Kontakte geladen werden sollen.
+   * @type {HTMLElement}
+   */
+  let selectElement = document.getElementById("contact-values");
+  selectElement.innerHTML = "";
+  /**
+   * Der HTML-String, der die Optionen für das Dropdown-Menü enthält.
+   * @type {string}
+   */
+  let optionsHTML = "";
+  // Durchläuft jedes Kontaktobjekt und erstellt eine Option für das Dropdown-Menü.
+  contacts.forEach((contact) => {
+    optionsHTML += `
+    <div id="contactList" class="checkbox">
+     <label for="${contact.name}">${contact.name}</label>
+     <input type="checkbox" name="contacts[]" value="${contact.name}" id="${contact.name}">
+    </div>
+      `;
+  });
+  // Fügt die erstellten Optionen dem Dropdown-Menü hinzu.
+  selectElement.innerHTML = optionsHTML;
+}
+
+function getCheckedContact() {
+  document
+    .querySelectorAll('input[name="contacts[]"]:checked')
+    .forEach((checkbox) => {
+      checkedContacts.push(checkbox.value);
+    });
+}
+
+function showContacts() {
+  let id = document.getElementById("contact-values");
+  id.classList.toggle("d-none");
 }

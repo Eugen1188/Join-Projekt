@@ -1,6 +1,16 @@
 const STORAGE_TOKEN = "B0S7VW5J7TMVF1N3C8G1FX6TF8A9FYUYYTJ8W60E";
 const STORAGE_URL = "https://remote-storage.developerakademie.org/item";
 
+/**
+ * Speichert einen Wert im Speicher.
+ * @async
+ * @function setItem
+ * @param {string} key - Der Schlüssel, unter dem der Wert gespeichert werden soll.
+ * @param {*} value - Der Wert, der gespeichert werden soll.
+ * @returns {Promise<Object>} Ein Promise, das das Ergebnis des Speicherns zurückgibt.
+ * @throws {Error} - Ein Fehler tritt auf, wenn das Speichern fehlschlägt.
+ */
+
 async function setItem(key, value) {
   const payload = { key, value, token: STORAGE_TOKEN };
   return fetch(STORAGE_URL, {
@@ -8,6 +18,15 @@ async function setItem(key, value) {
     body: JSON.stringify(payload), // definiert was gesendet wird
   }).then((res) => res.json());
 }
+
+/**
+ * Ruft einen Wert aus dem Speicher ab.
+ * @async
+ * @function getItem
+ * @param {string} key - Der Schlüssel des Werts, der abgerufen werden soll.
+ * @returns {Promise<Object>} Ein Promise, das das abgerufene Ergebnis zurückgibt.
+ * @throws {Error} - Ein Fehler tritt auf, wenn das Abrufen fehlschlägt.
+ */
 
 async function getItem(key) {
   const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
