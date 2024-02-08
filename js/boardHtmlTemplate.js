@@ -20,6 +20,17 @@ function templateCard(){
                         <span>1/2 Subtasks</span>
                     </div>
                 </div>
+                <div class="board-card-status">
+                    <div class="board-card-assignee">
+                        <div class="assignee" style="background-color: #42526E">KM</div>
+                        <div class="assignee" style="background-color: #b550bb">CF</div>
+                        <div class="assignee" style="background-color: #a4e36a">DS</div>
+                        <div class="assignee" style="background-color: #e3be6a">EF</div>
+                    </div>
+                    <div>
+                        <img src="./assets/img/prioritylow.png" alt="prio-low">
+                    </div>
+                </div>
 
             </div>
     `
