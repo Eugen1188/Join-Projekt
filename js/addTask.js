@@ -2,6 +2,7 @@ let checkedContacts = [];
 
 function addTask() {
   getCheckedContact();
+
   let title = document.getElementById("title");
   let taskDescription = document.getElementById("taskDescription");
   let date = document.getElementById("date");
@@ -13,7 +14,6 @@ function addTask() {
   }
   let category = document.getElementById("category");
   let subtask = document.getElementById("subtask");
-
   let task = [
     {
       title: title.value,
@@ -27,10 +27,9 @@ function addTask() {
       subtask: subtask.value,
     },
   ];
-
+  console.log(task);
   allTasks.push(task);
-  setItem("tasks_neu_neu", allTasks); // muss als neues Objekt in das Hauptarray/JSON gepusht werden
-  console.log(allTasks);
+  setItem("tasks_neu", allTasks); // muss als neues Objekt in das Hauptarray/JSON gepusht werden
 }
 
 /**
@@ -65,6 +64,7 @@ function getContact() {
 }
 
 function getCheckedContact() {
+  checkedContacts = [];
   document
     .querySelectorAll('input[name="contacts[]"]:checked')
     .forEach((checkbox) => {
