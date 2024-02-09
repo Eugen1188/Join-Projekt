@@ -71,7 +71,7 @@
   align-items: center;
 }
 
-.arrow svg:hover {
+svg:hover {
   background-color: #d1d1d1;
   border-radius: 50%;
 }
@@ -124,6 +124,17 @@ input[type="radio"] {
   width: 440px;
 }
 
+.svg-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.svg-container svg {
+  position: absolute;
+  margin-right: 46px;
+}
+
 label.radio-button {
   display: inline-block;
   padding: 10px 20px;
@@ -139,6 +150,9 @@ input[type="radio"]:checked + label.radio-button {
 }
 
 input {
+  width: 440px;
+  padding-block: 0;
+  padding-inline: 0;
   color: #a8a8a8;
   font-size: 18px;
   border: 1px solid #d1d1d1;

@@ -2,6 +2,16 @@ let checkedContacts = [];
 let initials = [];
 let subtasks = [];
 
+function getInput() {
+  let subtask = document.getElementById("subtask").value;
+  return subtask;
+}
+
+function pushSubtask() {
+  let subtask = getInput();
+  subtasks.push(subtask);
+}
+
 async function addTask() {
   getCheckedContact();
   let id = allTasks.length;
@@ -11,7 +21,7 @@ async function addTask() {
   let prioInputs = document.getElementsByName("priority");
   for (let i = 0; i < prioInputs.length; i++) {
     if (prioInputs[i].checked) {
-      prio = prioInputs[i].value;
+      let prio = prioInputs[i].value;
     }
   }
   let category = document.getElementById("category");
