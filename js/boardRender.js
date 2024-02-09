@@ -41,7 +41,6 @@ function renderCheckState(data) {
             renderCardTodo(task);
         }
     }
-
     checkIfTasksAvailable();
 }
 
@@ -62,20 +61,31 @@ function checkIfTasksAvailable() {
 
 function renderCardTodo(task) {
     boardSection = document.getElementById('todo');
-    boardSection.innerHTML += templateCard(task)
+    boardSection.innerHTML += templateCard(task);
 }
 
 function renderCardInProgress(task){
     boardSection = document.getElementById('in-progress');
-    boardSection.innerHTML += templateCard(task)
+    boardSection.innerHTML += templateCard(task);
 }
 
 function renderCardAwaitFeedback(task){
     boardSection = document.getElementById('await-feedback');
-    boardSection.innerHTML += templateCard(task)
+    boardSection.innerHTML += templateCard(task);
 }
 
 function renderCardDone(task){
     boardSection = document.getElementById('done');
-    boardSection.innerHTML += templateCard(task)
+    boardSection.innerHTML += templateCard(task);
+}
+
+function renderCardAssignee(data){
+    let textHTML = '';
+    for (let i = 0; i < data.length; i++) {
+        const assignee = data[i];
+
+        textHTML += templateCardAssignee(assignee);
+    }
+
+    return textHTML
 }

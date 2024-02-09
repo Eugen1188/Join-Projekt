@@ -31,7 +31,7 @@ async function addTask() {
   ];
   console.log(task);
   await allTasks.push(task);
-  setItem("tasks_neu", allTasks); // muss als neues Objekt in das Hauptarray/JSON gepusht werden
+  setItem("test_board", allTasks); // muss als neues Objekt in das Hauptarray/JSON gepusht werden
 }
 
 /**
@@ -83,7 +83,7 @@ function showContacts() {
 }
 
 async function testfunc() {
-  let myArray = getItem("tasks_neu");
+  let myArray = getItem("test_board");
   await myArray
     .then((result) => {
       allTasks = JSON.parse(result.data.value);

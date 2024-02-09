@@ -1,6 +1,6 @@
-function templateCard(task){
+function templateCard(task) {
     return `
-            <div class="board-card">
+            <div draggable="true" class="board-card">
                 <div class="board-card-topic">
                     <span>User Story</span>
                 </div>
@@ -22,10 +22,7 @@ function templateCard(task){
                 </div>
                 <div class="board-card-status">
                     <div class="board-card-assignee">
-                        <div class="assignee" style="background-color: #42526E">KM</div>
-                        <div class="assignee" style="background-color: #b550bb">CF</div>
-                        <div class="assignee" style="background-color: #a4e36a">DS</div>
-                        <div class="assignee" style="background-color: #e3be6a">EF</div>
+                        ${renderCardAssignee(task.initials)}
                     </div>
                     <div>
                         <img src="./assets/img/prioritylow.png" alt="prio-low">
@@ -36,10 +33,16 @@ function templateCard(task){
     `
 }
 
-function templateNoTask(){
+function templateNoTask() {
     return `
         <div class="board-no-task">
             <span>No tasks To do</span>
         </div>
+    `
+}
+
+function templateCardAssignee(assignee) {
+    return `
+    <div class="assignee" style="background-color: #42526E">${assignee}</div>
     `
 }
