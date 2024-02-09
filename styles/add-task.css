@@ -107,6 +107,10 @@
   margin-top: 68px;
 }
 
+.add-subtask {
+  display: flex;
+}
+
 input[type="radio"] {
   display: none;
 }

@@ -4,7 +4,7 @@ let subtasks = [];
 
 async function addTask() {
   getCheckedContact();
-
+  let id = allTasks.length;
   let title = document.getElementById("title");
   let taskDescription = document.getElementById("taskDescription");
   let date = document.getElementById("date");
@@ -18,6 +18,7 @@ async function addTask() {
   //let subtask = document.getElementById("subtask");
   let task = [
     {
+      id: id,
       title: title.value,
       status: { inProgress: false, awaitFeedback: false, done: false }, // true oder false werden im Board gesetzt
       taskDescription: taskDescription.value,
