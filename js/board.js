@@ -4,8 +4,6 @@ function testfunction() {
 }
 
 async function initBoard(){
-    let dummy;
     await testfunc();
-    dummy = allTasks;
     renderCheckState(dummy);
 }
