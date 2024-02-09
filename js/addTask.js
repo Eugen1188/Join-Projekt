@@ -1,6 +1,7 @@
 let checkedContacts = [];
+let initials = [];
 
-function addTask() {
+async function addTask() {
   getCheckedContact();
 
   let title = document.getElementById("title");
@@ -20,15 +21,16 @@ function addTask() {
       status: { inProgress: false, awaitFeedback: false, done: false }, // true oder false werden im Board gesetzt
       taskDescription: taskDescription.value,
       contacts: checkedContacts,
+      initials: initials,
       createdAt: new Date().getTime(),
       date: date.value,
       prio: prio,
       category: category.value,
-      subtask: subtask.value,
+      subtask: { subtask: subtask.value },
     },
   ];
   console.log(task);
-  allTasks.push(task);
+  await allTasks.push(task);
   setItem("tasks_neu", allTasks); // muss als neues Objekt in das Hauptarray/JSON gepusht werden
 }
 
@@ -55,7 +57,9 @@ function getContact() {
     optionsHTML += `
     <div id="contactList" class="checkbox">
      <label for="${contact.name}">${contact.name} ${contact.lastname}</label>
-     <input type="checkbox" name="contacts[]" value="${contact.name}" id="${contact.name}">
+     <input type="checkbox" name="contacts[]" value="${
+       contact.name + " " + contact.lastname
+     }" id="${contact.name}">
     </div>
       `;
   });
@@ -70,6 +74,7 @@ function getCheckedContact() {
     .forEach((checkbox) => {
       checkedContacts.push(checkbox.value);
     });
+  getInitalias();
 }
 
 function showContacts() {
@@ -78,8 +83,8 @@ function showContacts() {
 }
 
 async function testfunc() {
-  let myArray = getItem("tasks_neu_neu");
-  myArray
+  let myArray = getItem("tasks_neu");
+  await myArray
     .then((result) => {
       allTasks = JSON.parse(result.data.value);
       // allTasks.push(result.data.value);
@@ -87,4 +92,18 @@ async function testfunc() {
     .catch((error) => {
       console.error("Ein Fehler ist aufgetreten:", error);
     });
+}
+
+function getInitalias() {
+  checkedContacts.forEach((contact) => {
+    // trennt den string bei " " in einzelne strings auf.
+    const nameParts = contact.split(" ");
+    // zwischenspeicher leerer String
+    let initial = "";
+    nameParts.forEach((part) => {
+      // part[0] ist der erste Buchstabe des strings
+      initial += part[0].toUpperCase();
+    });
+    initials.push(initial);
+  });
 }

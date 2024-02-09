@@ -14,7 +14,7 @@ let allTasks = [];
 
 async function setItem(key, value) {
   const payload = { key, value, token: STORAGE_TOKEN };
-  return fetch(STORAGE_URL, {
+  return await fetch(STORAGE_URL, {
     method: "POST", // fügt Daten hinzu
     body: JSON.stringify(payload), // definiert was gesendet wird
   }).then((res) => res.json());

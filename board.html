@@ -16,7 +16,7 @@
     <script src="./js/addTask.js"></script>
 </head>
 
-<body onload="includeHTML();testfunc()">
+<body onload="includeHTML();initBoard()">
 
     <header id="main-header" w3-include-html="assets/templates/header.html"></header>
     <div class="board-top">
@@ -88,22 +88,22 @@
         </div>
     </div>
     <div class="board-main">
-        <div id="0" class="board-card-section">
+        <div id="todo" class="board-card-section">
             <div class="board-no-task">
                 <span>No tasks To do</span>
             </div>
         </div>
-        <div id="1" class="board-card-section">
+        <div id="in-progress" class="board-card-section">
             <div class="board-no-task">
                 <span>No tasks To do</span>
             </div>
         </div>
-        <div id="2" class="board-card-section">
+        <div id="await-feedback" class="board-card-section">
             <div class="board-no-task">
                 <span>No tasks To do</span>
             </div>
         </div>
-        <div id="3" class="board-card-section">
+        <div id="done" class="board-card-section">
             <div class="board-no-task">
                 <span>No tasks To do</span>
             </div>
