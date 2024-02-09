@@ -7,3 +7,7 @@ async function initBoard(){
     await testfunc();
     renderCheckState(allTasks);
 }
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}

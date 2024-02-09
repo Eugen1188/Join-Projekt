@@ -88,22 +88,22 @@
         </div>
     </div>
     <div class="board-main">
-        <div id="todo" class="board-card-section">
+        <div id="todo" class="board-card-section" ondrop="moveTo('todo')" ondragover="allowDrop(event)">
             <div class="board-no-task">
                 <span>No tasks To do</span>
             </div>
         </div>
-        <div id="in-progress" class="board-card-section">
+        <div id="in-progress" class="board-card-section" ondrop="moveTo('in-progress')" ondragover="allowDrop(event)">
             <div class="board-no-task">
                 <span>No tasks To do</span>
             </div>
         </div>
-        <div id="await-feedback" class="board-card-section">
+        <div id="await-feedback" class="board-card-section" ondrop="moveTo('await-feedback')" ondragover="allowDrop(event)">
             <div class="board-no-task">
                 <span>No tasks To do</span>
             </div>
         </div>
-        <div id="done" class="board-card-section">
+        <div id="done" class="board-card-section" ondrop="moveTo('done')" ondragover="allowDrop(event)">
             <div class="board-no-task">
                 <span>No tasks To do</span>
             </div>

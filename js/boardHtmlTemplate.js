@@ -2,7 +2,7 @@ function templateCard(task) {
     return `
             <div draggable="true" class="board-card">
                 <div class="board-card-topic">
-                    <span>User Story</span>
+                    <span>${task.category}</span>
                 </div>
                 <div class="board-card-content">
                     <div class="board-card-content-title">
