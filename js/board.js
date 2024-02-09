@@ -5,5 +5,5 @@ function testfunction() {
 
 async function initBoard(){
     await testfunc();
-    renderCheckState(dummy);
+    renderCheckState(allTasks);
 }
