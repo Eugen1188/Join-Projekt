@@ -1,6 +1,6 @@
 let checkedContacts = [];
 
-function addTask() {
+async function addTask() {
   getCheckedContact();
 
   let title = document.getElementById("title");
@@ -28,7 +28,7 @@ function addTask() {
     },
   ];
   console.log(task);
-  allTasks.push(task);
+  await allTasks.push(task);
   setItem("tasks_neu", allTasks); // muss als neues Objekt in das Hauptarray/JSON gepusht werden
 }
 
