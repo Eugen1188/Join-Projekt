@@ -87,7 +87,6 @@ async function testfunc() {
   await myArray
     .then((result) => {
       allTasks = JSON.parse(result.data.value);
-      // allTasks.push(result.data.value);
     })
     .catch((error) => {
       console.error("Ein Fehler ist aufgetreten:", error);

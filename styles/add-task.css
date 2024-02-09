@@ -71,6 +71,11 @@
   align-items: center;
 }
 
+.arrow svg:hover {
+  background-color: #d1d1d1;
+  border-radius: 50%;
+}
+
 .divider {
   width: 1px;
   background-color: #d1d1d1;
