@@ -1,4 +1,4 @@
-function templateCard(){
+function templateCard(task){
     return `
             <div class="board-card">
                 <div class="board-card-topic">
@@ -6,10 +6,10 @@ function templateCard(){
                 </div>
                 <div class="board-card-content">
                     <div class="board-card-content-title">
-                        <span>Title</span>
+                        <span>${task.title}</span>
                     </div>
                     <div class="max-lines">
-                        <span>Create a contact form and imprint page and so on until there is another text</span>
+                        <span>${task.taskDescription}</span>
                     </div>
                 </div>
                 <div class="board-progress">
@@ -33,5 +33,13 @@ function templateCard(){
                 </div>
 
             </div>
+    `
+}
+
+function templateNoTask(){
+    return `
+        <div class="board-no-task">
+            <span>No tasks To do</span>
+        </div>
     `
 }

@@ -79,7 +79,7 @@ function showContacts() {
 
 async function testfunc() {
   let myArray = getItem("tasks_neu_neu");
-  myArray
+  await myArray
     .then((result) => {
       allTasks = JSON.parse(result.data.value);
       // allTasks.push(result.data.value);
