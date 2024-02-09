@@ -3,22 +3,6 @@ tasksInProgress = [];
 tasksAwaitFeedback = [];
 tasksDone = [];
 
-function renderCard() {
-
-    for (let i = 0; i < 4; i++) {
-        const id = document.getElementById(`${i}`);
-        id.innerHTML = '';
-
-        if (i == 0) {
-            for (let j = 0; j <= 4; j++) {
-                const id = document.getElementById(`${i}`);
-                id.innerHTML += templateCard();
-            }
-        } else {
-            id.innerHTML = templateCard();
-        }
-    }
-}
 
 function renderCheckState(data) {
 
@@ -44,12 +28,14 @@ function renderCheckState(data) {
     checkIfTasksAvailable();
 }
 
+
 function clearBoard() {
     document.getElementById('todo').innerHTML = '';
     document.getElementById('in-progress').innerHTML = '';
     document.getElementById('await-feedback').innerHTML = '';
     document.getElementById('done').innerHTML = '';
 }
+
 
 function checkIfTasksAvailable() {
     if (tasksTodo.length == 0) { document.getElementById('todo').innerHTML = templateNoTask() };
@@ -64,20 +50,24 @@ function renderCardTodo(task) {
     boardSection.innerHTML += templateCard(task);
 }
 
+
 function renderCardInProgress(task){
     boardSection = document.getElementById('in-progress');
     boardSection.innerHTML += templateCard(task);
 }
+
 
 function renderCardAwaitFeedback(task){
     boardSection = document.getElementById('await-feedback');
     boardSection.innerHTML += templateCard(task);
 }
 
+
 function renderCardDone(task){
     boardSection = document.getElementById('done');
     boardSection.innerHTML += templateCard(task);
 }
+
 
 function renderCardAssignee(data){
     let textHTML = '';

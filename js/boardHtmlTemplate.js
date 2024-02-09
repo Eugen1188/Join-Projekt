@@ -25,7 +25,7 @@ function templateCard(task) {
                         ${renderCardAssignee(task.initials)}
                     </div>
                     <div>
-                        <img src="./assets/img/prioritylow.png" alt="prio-low">
+                        <img src="./assets/img/${task.prio}.png" alt="prio-low">
                     </div>
                 </div>
 
