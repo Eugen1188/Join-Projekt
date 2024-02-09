@@ -1,5 +1,6 @@
 let checkedContacts = [];
 let initials = [];
+let subtasks = [];
 
 async function addTask() {
   getCheckedContact();
@@ -14,7 +15,7 @@ async function addTask() {
     }
   }
   let category = document.getElementById("category");
-  let subtask = document.getElementById("subtask");
+  //let subtask = document.getElementById("subtask");
   let task = [
     {
       title: title.value,
@@ -26,7 +27,7 @@ async function addTask() {
       date: date.value,
       prio: prio,
       category: category.value,
-      subtask: { subtask: subtask.value },
+      subtask: subtasks,
     },
   ];
   console.log(task);
