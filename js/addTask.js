@@ -32,7 +32,7 @@ async function addTask() {
     },
   ];
   console.log(task);
-  await allTasks.push(task);
+  allTasks.push(task);
   setItem("test_board", allTasks); // muss als neues Objekt in das Hauptarray/JSON gepusht werden
 }
 
