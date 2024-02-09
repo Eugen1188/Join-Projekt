@@ -1,11 +1,10 @@
-tasksTodo = [];
-tasksInProgress = [];
-tasksAwaitFeedback = [];
-tasksDone = [];
+let tasksTodo = [];
+let tasksInProgress = [];
+let tasksAwaitFeedback = [];
+let tasksDone = [];
 
 
 function renderCheckState(data) {
-
     clearBoard();
 
     for (let i = 0; i < data.length; i++) {
@@ -34,6 +33,10 @@ function clearBoard() {
     document.getElementById('in-progress').innerHTML = '';
     document.getElementById('await-feedback').innerHTML = '';
     document.getElementById('done').innerHTML = '';
+    tasksTodo = [];
+    tasksInProgress = [];
+    tasksAwaitFeedback = [];
+    tasksDone = [];
 }
 
 
@@ -51,25 +54,25 @@ function renderCardTodo(task) {
 }
 
 
-function renderCardInProgress(task){
+function renderCardInProgress(task) {
     boardSection = document.getElementById('in-progress');
     boardSection.innerHTML += templateCard(task);
 }
 
 
-function renderCardAwaitFeedback(task){
+function renderCardAwaitFeedback(task) {
     boardSection = document.getElementById('await-feedback');
     boardSection.innerHTML += templateCard(task);
 }
 
 
-function renderCardDone(task){
+function renderCardDone(task) {
     boardSection = document.getElementById('done');
     boardSection.innerHTML += templateCard(task);
 }
 
 
-function renderCardAssignee(data){
+function renderCardAssignee(data) {
     let textHTML = '';
     for (let i = 0; i < data.length; i++) {
         const assignee = data[i];

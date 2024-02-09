@@ -143,12 +143,23 @@ h1 {
     align-items: center;
     height: 168px;
     justify-content: space-evenly;
+    cursor: pointer;
 }
+
+/* deadline-cont hover effects */
 
 .deadline-cont:hover {
     height: 178px;
     width: 570px;
+    background-color: var(--button-color);
 }
+
+.deadline-cont:hover span {
+    color: white;
+}
+
+
+/* ------------------------------ */
 
 .urgent-count {
     font-size: 64px;
@@ -227,12 +238,22 @@ h1 {
     justify-content: center;
     width: 168px;
     height: 168px;
+    cursor: pointer;
 }
+
+/* tasks-in-board-cont hover effects */
 
 .tasks-in-board-cont:hover {
     width: 178px;
     height: 178px;
+    background-color: var(--button-color);
 }
+
+.tasks-in-board-cont:hover span {
+    color: white;
+}
+
+/* ---------------------------- */
 
 .tasks-in-board-help-hover-cont {
     height: 198px;
