@@ -7,7 +7,6 @@
     --light-blue: #29ABE2;
     --button-selected: #091931;
     --contacts-link-color: #007CEE;
-    --contacts-scrollbar-color: #A8A8A8;
 }
 
 * {
@@ -34,6 +33,8 @@
     justify-content: center;
     top: 96px;
     left: 232px;
+    background-color: #ffffff;
+    box-shadow: 0px 1px 3px 0px #CDCDCD;
 }
 
 .contacts-conllection {
@@ -61,7 +62,7 @@
 .btn-container {
     height: 96px;
     width: 352px;
-    background-color: var(--background-color-site);
+    background-color: #ffffff;
     display: flex;
     justify-self: center;
     align-items: center;
@@ -152,7 +153,7 @@
     width: 352px;
     height: 16px;
     margin: 8px 0px;
-    gap:10px;
+    gap: 10px;
     border-bottom: 1px solid rgba(0, 0, 0, 10%);
 }
 
@@ -165,25 +166,86 @@
     color: var(--background-color-site);
 }
 
-.singl-contact-headline {
+.single-content-container {
+}
+
+.single-contact-headline {
     position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     top: 206px;
     left: 743px;
     gap: 30;
     width: 569px;
     height: 73px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
 }
 
-.singl-contact-headline h1 {
+.single-contact-headline h1 {
     font-weight: 700;
     font-size: 61px;
 }
 
-.singl-contact-headline span {
+.single-contact-data-container {
+    position: absolute;
+    top: 311px;
+    left: 750px;
+    gap: 21px;
+    width: 461px;
+    height: 364px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.single-contact-headline span {
     font-size: 25px;
+}
+
+.single-data-headline {
+    width: 461px;
+    height: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.big-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--background-color-site);
+    font-weight: 500;
+    font-size: 47px;
+}
+
+.single-contact-name-card {
+    width: 287px;
+    height: 88px;
+    gap: 5px;
+    font-size: 47px;
+}
+
+.icons-contacts {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.icons-contacts img {
+    height: 24px;
+    width: 24px;
+    margin-right: 3px;
+}
+
+.contacts-icon-container {
+    display: flex;
+    gap: 13px;
 }
 
 .vertical-bar {
@@ -229,5 +291,4 @@
 
 .wraper {
     display: flex;
-
 }

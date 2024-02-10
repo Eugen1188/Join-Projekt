@@ -12,3 +12,13 @@ let contacts = [
     phone: "016215415742",
   },
 ];
+
+
+async function editContact(index) {
+
+}
+
+
+async function deleteContact(index) {
+  
+}
