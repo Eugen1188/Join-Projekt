@@ -235,6 +235,7 @@
     display: flex;
     align-items: center;
     gap: 3px;
+    cursor: pointer;
 }
 
 .icons-contacts img {
@@ -247,6 +248,31 @@
     display: flex;
     gap: 13px;
 }
+
+.contact-info-headline {
+    width: 207px;
+    height: 74px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.contact-info-card {
+    width: 140px;
+    height: 128px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contact-info-value {
+    width: 124px;
+    height: 53px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
 
 .vertical-bar {
     height: 59px;
