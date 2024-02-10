@@ -14,6 +14,8 @@ body {
     height: 100vh;
     background-color: var(--background-color-site);
     position: relative;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 .animation-main-cont {
