@@ -20,7 +20,7 @@
 
 .contacts-container {
     width: 456px;
-    height: 928px;
+    height: 100vh;
     position: fixed;
     overflow-y: scroll;
     padding: 0;
@@ -191,10 +191,8 @@
     left: 750px;
     gap: 21px;
     min-width: 456px;
-    height: 364px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 }
 
 .single-contact-headline span {
