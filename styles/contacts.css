@@ -190,7 +190,7 @@
     top: 311px;
     left: 750px;
     gap: 21px;
-    width: 461px;
+    min-width: 456px;
     height: 364px;
     display: flex;
     flex-direction: column;
@@ -202,11 +202,10 @@
 }
 
 .single-data-headline {
-    width: 461px;
     height: 120px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 54px;
 }
 
 .big-circle {
@@ -223,10 +222,9 @@
 }
 
 .single-contact-name-card {
-    width: 287px;
     height: 88px;
-    gap: 5px;
     font-size: 47px;
+    flex: 1;
 }
 
 .icons-contacts {

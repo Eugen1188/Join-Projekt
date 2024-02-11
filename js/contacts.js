@@ -61,10 +61,16 @@ let contacts = [
   }
 ];
 
+// currently sorted by first name only, will be changed soon
+const sortedUsers = contacts.sort((a, b) => {
+  const result = a.name.localeCompare(b.name);
+  return result;
+})
+
 function editContact(id) {
-  const nameValue = document.getElementById("name").value;
-  const emailValue = document.getElementById("email").value;
-  const phoneValue = document.getElementById("phone").value;
+  const nameValue = document.getElementById("name").value.trim();
+  const emailValue = document.getElementById("email").value.trim();
+  const phoneValue = document.getElementById("phone").value.trim();
   for (let i = 0; i < contacts.length; i++) {
     if (contacts[i].id === id) {
       if (nameValue || emailValue || phoneValue) {
@@ -84,6 +90,7 @@ function editContact(id) {
     }
   }
 }
+
 
 async function deleteContact(index) {
 
