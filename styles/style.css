@@ -18,6 +18,10 @@ body {
     overflow-x: hidden;
 }
 
+.d-none{
+    display: none!important;
+}
+
 .animation-main-cont {
     position: absolute;
     display: flex;

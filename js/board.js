@@ -36,9 +36,13 @@ async function moveTo(id) {
         allTasks[currentDraggedElement][0].status.done = true;
         await setItem("test_board", allTasks);
         initBoard();
-    }else if (id == 'todo') {
+    } else if (id == 'todo') {
         await setItem("test_board", allTasks);
         initBoard();
     }
 
+}
+
+function closeOverlay() {
+    document.getElementById('overlay').classList.add('d-none');
 }
