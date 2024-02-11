@@ -61,12 +61,22 @@ let contacts = [
   }
 ];
 
-// currently sorted by first name only, will be changed soon
-const sortedUsers = contacts.sort((a, b) => {
-  const result = a.name.localeCompare(b.name);
-  return result;
-})
+let id = 10;
 
+// currently sorted by first name only, will be changed soon
+function sortArrayByFirstname() {
+  contacts.sort((a, b) => {
+    const result = a.name.localeCompare(b.name);
+    return result;
+  })
+}
+
+
+/**
+ *Updates the data of a person, only updates the data whose field is also filled in
+ * @param {number} id - is needed to find the person to be updated
+ * @returns - if nothing has been filled in, the function terminates and does not return a value
+ */
 function editContact(id) {
   const nameValue = document.getElementById("name").value.trim();
   const emailValue = document.getElementById("email").value.trim();
@@ -101,5 +111,18 @@ function renderContacts() {
 }
 
 function checkValues(name, email, phone) {
+
+}
+
+/**
+ * Saves the user in the current contacts array and sorts them by first name
+ */
+async function saveNewUserData() {
+  id++
+  const name = document.getElementById("name").value.trim()
+  const email = document.getElementById("email").value.trim()
+  const phone = document.getElementById("phone").value.trim()
+  contacts.push({ id: id, name: name, email: email, phone: phone })
+  sortArrayByFirstname()
 
 }
