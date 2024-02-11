@@ -44,5 +44,10 @@ async function moveTo(id) {
 }
 
 function closeOverlay() {
+    document.getElementById('overlay-card').classList.add('task-overlay-translate-out')
+    setTimeout(displayCloseOverlay,1000)
+}
+
+function displayCloseOverlay(){
     document.getElementById('overlay').classList.add('d-none');
 }
