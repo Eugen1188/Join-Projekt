@@ -1,61 +1,71 @@
 let contacts = [
   {
     id: 1,
-    name: "Werner Müller",
+    name: "Werner",
+    lastname: "Müller",
     email: "werner@irgendwas.com",
     phone: "0461669548",
   },
   {
     id: 2,
-    name: "Peter Hansen",
+    name: "Peter",
+    lastname: "Hansen",
     email: "perter@gmx.de",
     phone: "016215415742",
   },
   {
     id: 3,
-    name: "Sabine Schmidt",
+    name: "Sabine",
+    lastname: "Schmidt",
     email: "sabine@example.com",
     phone: "03012345678",
   },
   {
     id: 4,
-    name: "Michael Meier",
+    name: "Michael",
+    lastname: "Meier",
     email: "michael@example.com",
     phone: "017612345678",
   },
   {
     id: 5,
-    name: "Lisa Müller",
+    name: "Lisa",
+    lastname: "Müller",
     email: "lisa@example.com",
     phone: "049157865432",
   },
   {
     id: 6,
-    name: "Thomas Schulz",
+    name: "Thomas",
+    lastname: "Schulz",
     email: "thomas@example.com",
     phone: "071123456789",
   },
   {
     id: 7,
-    name: "Anna Fischer",
+    name: "Anna",
+    lastname: "Fischer",
     email: "anna@example.com",
     phone: "020112345678",
   },
   {
     id: 8,
-    name: "Stefan Wagner",
+    name: "Stefan",
+    lastname: "Wagner",
     email: "stefan@example.com",
     phone: "091123456789",
   },
   {
     id: 9,
-    name: "Julia Klein",
+    name: "Julia",
+    lastname: "Klein",
     email: "julia@example.com",
     phone: "022156789012",
   },
   {
     id: 10,
-    name: "Andreas Schneider",
+    name: "Andreas",
+    lastname: "Schneider",
     email: "andreas@example.com",
     phone: "015112345678",
   }
@@ -64,12 +74,12 @@ let contacts = [
 let id = 10;
 
 // currently sorted by first name only, will be changed soon
-function sortArrayByFirstname() {
-  contacts.sort((a, b) => {
-    const result = a.name.localeCompare(b.name);
-    return result;
-  })
-}
+// function sortArrayByFirstname() {
+//   contacts.sort((a, b) => {
+//     const result = a.name.localeCompare(b.name);
+//     return result;
+//   })
+// }
 
 
 /**
@@ -102,7 +112,7 @@ function editContact(id) {
 }
 
 
-async function deleteContact(index) {
+async function deleteContact(id) {
 
 }
 
@@ -120,9 +130,9 @@ function checkValues(name, email, phone) {
 async function saveNewUserData() {
   id++
   const name = document.getElementById("name").value.trim()
+  const firstname = name.split(' ');
+  const lastname = name.split(' ');
   const email = document.getElementById("email").value.trim()
   const phone = document.getElementById("phone").value.trim()
-  contacts.push({ id: id, name: name, email: email, phone: phone })
-  sortArrayByFirstname()
-
+  contacts.push({ id: id, name: firstname[0], lastname: lastname[(lastname.length - 1)], email: email, phone: phone })
 }
