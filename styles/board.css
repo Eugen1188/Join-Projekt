@@ -65,12 +65,12 @@
     outline: none;
 }
 
-.board-search-form div{
+.board-search-form div {
     width: 32px;
     height: 32px;
 }
 
-.board-search-form div:hover{
+.board-search-form div:hover {
     background-color: #c5c5c536;
     border-radius: 50%;
     width: 32px;
@@ -127,11 +127,12 @@
     font-weight: 700;
 }
 
-.add-svg{
+.add-svg {
     cursor: pointer;
 }
 
-.add-svg:hover rect, .add-svg:hover path {
+.add-svg:hover rect,
+.add-svg:hover path {
     stroke: #4589FF;
 
 }
@@ -272,4 +273,72 @@
     width: 248px;
     color: #A8A8A8;
 
+}
+
+.task-overlay {
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.task-overlay-bg {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.2);
+    height: 100vh;
+    width: 100vw;
+    z-index: 1000
+}
+
+.task-overlay-content{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    position: absolute;
+    width: 525px;
+    height: 871px;
+    background-color: white;
+    z-index: 2000;
+    border-radius: 30px;
+    padding: 48px 40px;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
+}
+
+.task-overlay-top{
+    display: flex;
+    justify-content: space-between;
+}
+
+.task-overlay-top img{
+    cursor: pointer;
+}
+
+.task-overlay-title{
+    font-size: 61px;
+    font-weight: 700;
+}
+
+.task-overlay-text{
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.task-overlay-section{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.task-overlay-text-fix{
+    color: #2a362a;
+}
+
+.board-prio-pad{
+    padding-left: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
