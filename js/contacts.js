@@ -70,7 +70,7 @@ let contacts = [
     phone: "015112345678",
   }
 ];
-
+let sortedUsers;
 let id = 10;
 
 // currently sorted by first name only, will be changed soon
@@ -80,7 +80,6 @@ let id = 10;
 //     return result;
 //   })
 // }
-
 
 /**
  *Updates the data of a person, only updates the data whose field is also filled in
@@ -111,7 +110,6 @@ function editContact(id) {
   }
 }
 
-
 async function deleteContact(id) {
 
 }
@@ -135,4 +133,13 @@ async function saveNewUserData() {
   const email = document.getElementById("email").value.trim()
   const phone = document.getElementById("phone").value.trim()
   contacts.push({ id: id, name: firstname[0], lastname: lastname[(lastname.length - 1)], email: email, phone: phone })
+  sortArrayByUserName();
+}
+
+function sortArrayByUserName() {
+  sortedUsers = contacts.sort((a, b) => {
+    const result = a.name.localeCompare(b.name);
+
+    return result !== 0 ? result : a.lastname.localeCompare(b.lastname);
+  })
 }
