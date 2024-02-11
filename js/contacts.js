@@ -132,14 +132,34 @@ async function saveNewUserData() {
   const lastname = name.split(' ');
   const email = document.getElementById("email").value.trim()
   const phone = document.getElementById("phone").value.trim()
+  if (checkEmailAddress(email)) {
+    return
+  }
   contacts.push({ id: id, name: firstname[0], lastname: lastname[(lastname.length - 1)], email: email, phone: phone })
   sortArrayByUserName();
 }
 
+/**
+ * Sorts contacts array by first an lastname
+ */
 function sortArrayByUserName() {
   sortedUsers = contacts.sort((a, b) => {
     const result = a.name.localeCompare(b.name);
-
     return result !== 0 ? result : a.lastname.localeCompare(b.lastname);
   })
+}
+
+/**
+ *Compares the email in the contacts array, if the email exists it returns a value,
+  which can be intercepted in an if query to jump out of the function
+ * @param {string} email - is required to compare the emails
+ * @returns
+ */
+function checkEmailAddress(email) {
+  for (let i = 0; i < contacts.length; i++) {
+    const existingEmail = contacts[i].email;
+    if (existingEmail === email) {
+      return "This email is already in use"
+    }
+  }
 }
