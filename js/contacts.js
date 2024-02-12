@@ -1,78 +1,7 @@
-let contacts = [
-  {
-    id: 1,
-    name: "Werner",
-    lastname: "Müller",
-    email: "werner@irgendwas.com",
-    phone: "0461669548",
-  },
-  {
-    id: 2,
-    name: "Peter",
-    lastname: "Hansen",
-    email: "perter@gmx.de",
-    phone: "016215415742",
-  },
-  {
-    id: 3,
-    name: "Sabine",
-    lastname: "Schmidt",
-    email: "sabine@example.com",
-    phone: "03012345678",
-  },
-  {
-    id: 4,
-    name: "Michael",
-    lastname: "Meier",
-    email: "michael@example.com",
-    phone: "017612345678",
-  },
-  {
-    id: 5,
-    name: "Lisa",
-    lastname: "Müller",
-    email: "lisa@example.com",
-    phone: "049157865432",
-  },
-  {
-    id: 6,
-    name: "Thomas",
-    lastname: "Schulz",
-    email: "thomas@example.com",
-    phone: "071123456789",
-  },
-  {
-    id: 7,
-    name: "Anna",
-    lastname: "Fischer",
-    email: "anna@example.com",
-    phone: "020112345678",
-  },
-  {
-    id: 8,
-    name: "Stefan",
-    lastname: "Wagner",
-    email: "stefan@example.com",
-    phone: "091123456789",
-  },
-  {
-    id: 9,
-    name: "Julia",
-    lastname: "Klein",
-    email: "julia@example.com",
-    phone: "022156789012",
-  },
-  {
-    id: 10,
-    name: "Andreas",
-    lastname: "Schneider",
-    email: "andreas@example.com",
-    phone: "015112345678",
-  }
-];
+let contacts = [];
 let userData = [];
 let sortedUsers;
-let id = 10;
+let id;
 
 /**
  *Updates the data of a person, only updates the data whose field is also filled in
@@ -103,7 +32,36 @@ function editContact(id) {
   }
 }
 
-function initContacts() {
+async function testfuncContacts(key, array) {
+  let myArray = getItem(key);
+  await myArray
+    .then((result) => {
+      array = JSON.parse(result.data.value);
+      console.log(array);
+    })
+    .catch((error) => {
+      console.error("Ein Fehler ist aufgetreten:", error);
+    });
+}
+
+
+/**If the code is adopted, replace getItem with getItemContacts */
+async function getItemContacts(key) {
+  const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
+  try {
+    let response = await fetch(url)
+    if (response.ok) {
+      const responseData = await response.json()
+      return JSON.parse(responseData.data.value)
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function initContacts() {
+  contacts = await getItemContacts("contacts")
+  id = await getItemContacts("id")
   renderContacts()
 }
 
@@ -137,7 +95,8 @@ async function saveNewUserData() {
     return
   }
   userData.push({ id: id, name: firstname[0], lastname: lastname[(lastname.length - 1)], email: email, phone: phone, password: password })
-  // insert API storage here no aweit required as it ends here
+  await setItem("userData", userData)
+
 }
 
 /** adds a new contact to Contactlist */
@@ -148,12 +107,13 @@ async function addNewContactToContactlist() {
   const lastname = name.split(' ');
   let email = document.getElementById("email").value.trim()
   let phone = document.getElementById("phone").value.trim()
-  if (checkEmailAddress(email,contacts)) {
+  if (checkEmailAddress(email, contacts)) {
     return
   }
   contacts.push({ id: id, name: firstname[0], lastname: lastname[(lastname.length - 1)], email: email, phone: phone })
   renderContacts()
-  // insert API storage here no aweit required as it ends here
+  await setItem("id", id)
+  setItem("contacts", contacts)
 }
 
 /**
@@ -171,7 +131,7 @@ function sortArrayByUserName() {
  *Compares the email in the contacts array, if the email exists it returns a value,
   which can be intercepted in an if query to jump out of the function
  * @param {string} email - is required to compare the emails
- * @param {string} string - must be filled with "c" if the contacts array is to be used
+ * @param {array} array - which array should be searched for the emails
  * @returns
  */
 function checkEmailAddress(email, array) {
