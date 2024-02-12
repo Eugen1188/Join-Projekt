@@ -113,17 +113,13 @@ function initContacts() {
  */
 async function deleteContact(id) {
   const userId = id;
-  for (let i  = 0; i < contacts.length; i++) {
+  for (let i = 0; i < contacts.length; i++) {
     const userId = contacts[i].id;
     if (userId === userId) {
       contacts.splice(1, i)
       break;
     }
   }
-}
-
-function renderContacts() {
-  renderContacts()
 }
 
 /**
@@ -140,7 +136,7 @@ async function saveNewUserData() {
   if (checkEmailAddress(email, "d")) {
     return
   }
-  userData.push({ id: id, name: firstname[0], lastname: lastname[(lastname.length - 1)], email: email, phone: phone, password: password})
+  userData.push({ id: id, name: firstname[0], lastname: lastname[(lastname.length - 1)], email: email, phone: phone, password: password })
   // insert API storage here no aweit required as it ends here
 }
 
@@ -155,7 +151,7 @@ async function addNewContactToContactlist() {
   if (checkEmailAddress(email, "c")) {
     return
   }
-  contacts.push({ id: id, name: firstname[0], lastname: lastname[(lastname.length - 1)], email: email, phone: phone})
+  contacts.push({ id: id, name: firstname[0], lastname: lastname[(lastname.length - 1)], email: email, phone: phone })
   renderContacts()
   // insert API storage here no aweit required as it ends here
 }
@@ -197,8 +193,8 @@ function renderContacts() {
   list.innerHTML = ""
   list.innerHTML += contactDataHTML(0)
   list.innerHTML += contactUserCardHtml(0)
-  for (let i = 1; i < contacts.length - 1 ; i++) {
-    if (contacts[i].name.charAt(0) != contacts[i -1].name.charAt(0)) {
+  for (let i = 1; i < contacts.length - 1; i++) {
+    if (contacts[i].name.charAt(0) != contacts[i - 1].name.charAt(0)) {
       list.innerHTML += contactDataHTML(i)
       list.innerHTML += contactUserCardHtml(i)
     } else {
@@ -213,6 +209,6 @@ function addNewUser() {
   let email = document.getElementById('email-reg');
   let password = document.getElementById('password-reg');
   let confirm_password = document.getElementById('rep-password-reg');
-  contacts.push({name: name.value, email: email.value, password: password.value});
+  contacts.push({ name: name.value, email: email.value, password: password.value });
   console.log(contacts);
 }
