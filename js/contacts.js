@@ -163,3 +163,15 @@ function checkEmailAddress(email) {
     }
   }
 }
+
+/* neuen User anlegen */
+
+function addNewUser() {
+
+  let name = document.getElementById('name-reg');
+  let email = document.getElementById('email-reg');
+  let password = document.getElementById('password-reg');
+  let confirm_password = document.getElementById('rep-password-reg');
+  contacts.push({name: name.value, email: email.value, password: password.value});
+  console.log(contacts);
+}
