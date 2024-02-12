@@ -50,9 +50,9 @@
                 </div>
                 <div class="add-svg">
                     <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="1" y="1.5" width="22" height="22" rx="7" stroke="#2A3647" stroke-width="2"/>
-                        <path d="M12 8.5V16.5" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
-                        <path d="M16 12.5754L8 12.5754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
+                        <rect x="1" y="1.5" width="22" height="22" rx="7" stroke="#2A3647" stroke-width="2" />
+                        <path d="M12 8.5V16.5" stroke="#2A3647" stroke-width="2" stroke-linecap="round" />
+                        <path d="M16 12.5754L8 12.5754" stroke="#2A3647" stroke-width="2" stroke-linecap="round" />
                     </svg>
                 </div>
             </div>
@@ -62,9 +62,9 @@
                 </div>
                 <div class="add-svg">
                     <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="1" y="1.5" width="22" height="22" rx="7" stroke="#2A3647" stroke-width="2"/>
-                        <path d="M12 8.5V16.5" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
-                        <path d="M16 12.5754L8 12.5754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
+                        <rect x="1" y="1.5" width="22" height="22" rx="7" stroke="#2A3647" stroke-width="2" />
+                        <path d="M12 8.5V16.5" stroke="#2A3647" stroke-width="2" stroke-linecap="round" />
+                        <path d="M16 12.5754L8 12.5754" stroke="#2A3647" stroke-width="2" stroke-linecap="round" />
                     </svg>
                 </div>
             </div>
@@ -74,9 +74,9 @@
                 </div>
                 <div class="add-svg">
                     <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="1" y="1.5" width="22" height="22" rx="7" stroke="#2A3647" stroke-width="2"/>
-                        <path d="M12 8.5V16.5" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
-                        <path d="M16 12.5754L8 12.5754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
+                        <rect x="1" y="1.5" width="22" height="22" rx="7" stroke="#2A3647" stroke-width="2" />
+                        <path d="M12 8.5V16.5" stroke="#2A3647" stroke-width="2" stroke-linecap="round" />
+                        <path d="M16 12.5754L8 12.5754" stroke="#2A3647" stroke-width="2" stroke-linecap="round" />
                     </svg>
                 </div>
             </div>
@@ -98,7 +98,8 @@
                 <span>No tasks To do</span>
             </div>
         </div>
-        <div id="await-feedback" class="board-card-section" ondrop="moveTo('await-feedback')" ondragover="allowDrop(event)">
+        <div id="await-feedback" class="board-card-section" ondrop="moveTo('await-feedback')"
+            ondragover="allowDrop(event)">
             <div class="board-no-task">
                 <span>No tasks To do</span>
             </div>
@@ -109,28 +110,10 @@
             </div>
         </div>
     </div>
-    <div class="task-overlay" id="overlay">
+    <div class="task-overlay d-none" id="overlay">
         <div class="task-overlay-bg"></div>
         <div class="task-overlay-content" id="overlay-card">
-            <div class="task-overlay-top">
-                <div class="board-card-topic">
-                    <span>User Story</span>
-                </div>
-                <img src="./assets/img/Close.png" alt="close" onclick="closeOverlay()">
-            </div>
-            <span class="task-overlay-title">Kochwelt recipe page random text test</span>
-            <span class="task-overlay-text">Dies ist eine Beschreibung der Aufgabe die zu tun ist und das auch noch in extra lang zu testzwecken</span>
-            <div class="task-overlay-section">
-                <span class="task-overlay-text task-overlay-text-fix">Due date:</span>
-                <span class="task-overlay-text">10/03/2033</span>
-            </div>
-            <div class="task-overlay-section">
-                <span class="task-overlay-text task-overlay-text-fix">Priority:</span>
-                <span class="task-overlay-text board-prio-pad">Medium <img src="./assets/img/medium.png" alt=""></span>
-            </div>
-            <div class="task-overlay-assigned">
-                <span class="task-overlay-text task-overlay-text-fix">Assigned to:</span>
-            </div>
+
         </div>
     </div>
 </body>

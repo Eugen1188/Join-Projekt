@@ -148,10 +148,11 @@ async function saveNewUserData() {
   const lastname = name.split(' ');
   const email = document.getElementById("email").value.trim()
   const phone = document.getElementById("phone").value.trim()
+  const password = document.getElementById("password").value.trim()
   if (checkEmailAddress(email)) {
     return
   }
-  contacts.push({ id: id, name: firstname[0], lastname: lastname[(lastname.length - 1)], email: email, phone: phone })
+  contacts.push({ id: id, name: firstname[0], lastname: lastname[(lastname.length - 1)], email: email, phone: phone, password: password})
   renderContacts()
 }
 
@@ -194,4 +195,15 @@ function renderContacts() {
       list.innerHTML += contactUserCardHtml(i)
     }
   }
+}
+/* neuen User anlegen */
+
+function addNewUser() {
+
+  let name = document.getElementById('name-reg');
+  let email = document.getElementById('email-reg');
+  let password = document.getElementById('password-reg');
+  let confirm_password = document.getElementById('rep-password-reg');
+  contacts.push({name: name.value, email: email.value, password: password.value});
+  console.log(contacts);
 }

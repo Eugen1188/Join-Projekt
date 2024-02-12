@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./styles/font.css">
     <link rel="stylesheet" href="styles/style.css">
     <script src="script.js" defer></script>
+    <script src="js/contacts.js"></script>
 </head>
 
 <body>
@@ -38,14 +39,14 @@
         <div class="login-top-cont">
             <div class="signup-cont ecrease-opacity">
                 <span>Not a Join user?</span>
-                <div class="signup-button">Sign up</div>
+                <div class="signup-button" id="signup-btn" onclick="regNewUser()">Sign up</div>
             </div>
         </div>
 
 
 
 
-        <div class="login-cont ecrease-opacity">
+        <div class="login-cont ecrease-opacity" id="login-menu">
 
             <div class="login-headline">
                 <span>Log in</span>
@@ -75,6 +76,47 @@
             <div class="login-buttons-cont">
                 <a href="#" class="text-decoration-none loginbutton">Log in</a>
                 <a href="summary.html" class="text-decoration-none loginguestbutton">Guest Log in</a>
+            </div>
+
+        </div>
+
+        <div class="reg-cont ecrease-opacity d-none" id="reg-user-menu">
+
+            <div class="reg-headline">
+                <div class="reg-headline-with-back-btn">
+                    <img src="assets/img/back_arrow.png" onclick="closeRegMenu()" alt="">
+                    <span>Sign up</span>
+                    <div></div>
+                </div>
+                <div class="line">
+
+                </div>
+            </div>
+
+
+            <div class="form-cont">
+                <form action="summary.html">
+                    <input class="loginname" type="text" name="email" id="name-reg" placeholder="Name">
+                    <input class="loginemail" type="email" name="email" id="email-reg" placeholder="Email">
+                    <input class="loginpassword" type="password" name="" id="password-reg" placeholder="Password">
+                    <input class="loginpassword" type="password" name="" id="rep-password-reg" placeholder="Confirm Password">
+
+                    <div class="checkbox-cont">
+
+                        <label class="checkboxlabel"> <span>I accept the<a class="privacy-policy-span">Pricavy policy</a> </span>
+                            <input class="logincheckbox" type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+
+                    </div>
+
+                </form>
+
+
+            </div>
+
+            <div class="login-buttons-cont">
+                <a href="#" class="text-decoration-none loginbutton" onclick="addNewUser()">Sign up</a>
             </div>
 
         </div>

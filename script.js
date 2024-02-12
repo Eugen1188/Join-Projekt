@@ -35,6 +35,28 @@ async function getItem(key) {
   return await fetch(url).then((res) => res.json());
 }
 
+
+/* Öffnet Menü, um neuen user zu registrieren */
+
+function regNewUser() {
+let loginmenu = document.getElementById('login-menu');
+let regmenu = document.getElementById('reg-user-menu');
+loginmenu.classList.add('d-none')
+regmenu.classList.remove('d-none')
+console.log("reg menu gefönnet")
+}
+
+/* Schließe Menü zum Registrieren */
+
+function closeRegMenu() {
+  let loginmenu = document.getElementById('login-menu');
+  let regmenu = document.getElementById('reg-user-menu');
+  loginmenu.classList.remove('d-none')
+  regmenu.classList.add('d-none')
+  console.log("reg menu gefönnet")
+  }
+
+
 function includeHTML() {
   var z, i, elmnt, file, xhttp;
   /* Loop through a collection of all HTML elements: */
