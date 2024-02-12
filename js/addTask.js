@@ -13,6 +13,65 @@ function pushSubtask() {
   let taskState = false;
   subtasks.push(subtask);
   taskStates.push(taskState);
+  showSubtasks();
+}
+
+function showSubtasks() {
+  let showSubtasks = document.getElementById("showSubtasks");
+  showSubtasks.innerHTML = "";
+  subtasks.forEach((subtask, index) => {
+    showSubtasks.innerHTML += `
+      <li id="subtask_${index}">${subtask} <a href="#" onclick="deleteSubtask(${index})">X</a> <a href="#" onclick="editSubtask(${index})">edit</a></li>
+    `;
+  });
+}
+
+function deleteSubtask(index) {
+  subtasks.splice(index, 1);
+  showSubtasks();
+}
+
+function editSubtask(index) {
+  let subtaskToEdit = document.getElementById(`subtask_${index}`);
+  let subtaskText = subtasks[index];
+  let inputField = `
+  <input id="changedSubtaskValue" type="text" value="${subtaskText}" >`;
+  let saveButton = `<a href="#" onclick="saveEditedSubtask(${index})">Save</a>`;
+  subtaskToEdit.innerHTML = inputField + saveButton;
+  subtaskToEdit.querySelector("input").focus();
+}
+
+function saveEditedSubtask(index) {
+  let newSubtaskValue = document.getElementById("changedSubtaskValue").value;
+  subtasks[index] = newSubtaskValue;
+  showSubtasks();
+}
+
+//HTML Validierung funktioniert nicht da onsubmit false ist
+function validateForm() {
+  getCheckedContact();
+  let submitButton = document.getElementById("submitButton"); // disabled = false // sollte man button deaktivieren wenn die inputs fehlerhaft sind ? ..;
+  let contacts = checkedContacts.length;
+  let title = document.getElementById("title").value;
+  let taskDescription = document.getElementById("taskDescription").value;
+  let date = document.getElementById("date").value;
+  let prioInputs = document.getElementsByName("priority");
+  for (let i = 0; i < prioInputs.length; i++) {
+    if (prioInputs[i].checked) {
+      prio = prioInputs[i].value;
+    }
+  }
+  if (prio !== "low" && prio !== "medium" && prio !== "urgent") {
+    alert("select a Prio Value !");
+  } else if (contacts < 1) {
+    alert("select a Contact !");
+  } else if (title == "") {
+    alert("Enter a Title !");
+  } else if (taskDescription == "") {
+    alert("Enter a Description!");
+  } else if (date == "") {
+    alert("select a Date !");
+  } else addTask();
 }
 
 async function addTask() {
@@ -23,13 +82,13 @@ async function addTask() {
   let date = document.getElementById("date");
   let prioInputs = document.getElementsByName("priority");
   let prio;
+  // prio wird nicht mit let oder const deklariert, da prio eine globale Varibale sein muss uum außerhalb der schleife verfügbar zu sein. siehe task
   for (let i = 0; i < prioInputs.length; i++) {
     if (prioInputs[i].checked) {
       prio = prioInputs[i].value;
     }
   }
   let category = document.getElementById("category");
-  //let subtask = document.getElementById("subtask");
   let task = [
     {
       id: id,
@@ -43,11 +102,14 @@ async function addTask() {
       prio: prio,
       category: category.value,
       subtask: {subtask:subtasks,taskstate:taskStates}
+      subtask: { subastk: subtasks, taskstate: { setstate: "whatever" } },
     },
   ];
   console.log(task);
   allTasks.push(task);
-  setItem("test_board", allTasks); // muss als neues Objekt in das Hauptarray/JSON gepusht werden
+  setItem("test_board", allTasks);
+  //weiterleitung auf Board nach Taskerstellung
+  //window.location.href = "http://127.0.0.1:5500/board.html";
 }
 
 /**
@@ -73,7 +135,7 @@ function getContact() {
     optionsHTML += `
     <div id="contactList" class="checkbox">
      <label for="${contact.name}">${contact.name} ${contact.lastname}</label>
-     <input type="checkbox" name="contacts[]" value="${
+     <input  type="checkbox" name="contacts" value="${
        contact.name + " " + contact.lastname
      }" id="${contact.name}">
     </div>
@@ -86,7 +148,7 @@ function getContact() {
 function getCheckedContact() {
   checkedContacts = [];
   document
-    .querySelectorAll('input[name="contacts[]"]:checked')
+    .querySelectorAll('input[name="contacts"]:checked')
     .forEach((checkbox) => {
       checkedContacts.push(checkbox.value);
     });
