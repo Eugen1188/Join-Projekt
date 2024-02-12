@@ -70,16 +70,9 @@ let contacts = [
     phone: "015112345678",
   }
 ];
+let userData = [];
 let sortedUsers;
 let id = 10;
-
-// currently sorted by first name only, will be changed soon
-// function sortArrayByFirstname() {
-//   contacts.sort((a, b) => {
-//     const result = a.name.localeCompare(b.name);
-//     return result;
-//   })
-// }
 
 /**
  *Updates the data of a person, only updates the data whose field is also filled in
@@ -110,20 +103,27 @@ function editContact(id) {
   }
 }
 
-async function deleteContact(id) {
-
-}
-
-function renderContacts() {
-
-}
-
-function checkValues(name, email, phone) {
-
+function initContacts() {
+  renderContacts()
 }
 
 /**
- * Saves the user in the current contacts array and sorts them by first name
+ * löscht den user aus dem array
+ * @param {number} id - is required to find the desired user to be deleted
+ */
+async function deleteContact(id) {
+  const userId = id;
+  for (let i = 0; i < contacts.length; i++) {
+    const userId = contacts[i].id;
+    if (userId === userId) {
+      contacts.splice(1, i)
+      break;
+    }
+  }
+}
+
+/**
+ * Saves the user in userData array and
  */
 async function saveNewUserData() {
   id++
@@ -132,11 +132,28 @@ async function saveNewUserData() {
   const lastname = name.split(' ');
   const email = document.getElementById("email").value.trim()
   const phone = document.getElementById("phone").value.trim()
-  if (checkEmailAddress(email)) {
+  const password = document.getElementById("password").value.trim()
+  if (checkEmailAddress(email, userData)) {
+    return
+  }
+  userData.push({ id: id, name: firstname[0], lastname: lastname[(lastname.length - 1)], email: email, phone: phone, password: password })
+  // insert API storage here no aweit required as it ends here
+}
+
+/** adds a new contact to Contactlist */
+async function addNewContactToContactlist() {
+  id++
+  let name = document.getElementById("name").value.trim()
+  const firstname = name.split(' ');
+  const lastname = name.split(' ');
+  let email = document.getElementById("email").value.trim()
+  let phone = document.getElementById("phone").value.trim()
+  if (checkEmailAddress(email,contacts)) {
     return
   }
   contacts.push({ id: id, name: firstname[0], lastname: lastname[(lastname.length - 1)], email: email, phone: phone })
-  sortArrayByUserName();
+  renderContacts()
+  // insert API storage here no aweit required as it ends here
 }
 
 /**
@@ -150,28 +167,47 @@ function sortArrayByUserName() {
 }
 
 /**
+ * /**
  *Compares the email in the contacts array, if the email exists it returns a value,
   which can be intercepted in an if query to jump out of the function
  * @param {string} email - is required to compare the emails
+ * @param {string} string - must be filled with "c" if the contacts array is to be used
  * @returns
  */
-function checkEmailAddress(email) {
-  for (let i = 0; i < contacts.length; i++) {
-    const existingEmail = contacts[i].email;
+function checkEmailAddress(email, array) {
+  for (let i = 0; i < array.length; i++) {
+    const existingEmail = array[i].email;
     if (existingEmail === email) {
       return "This email is already in use"
     }
   }
 }
 
+/**
+ * renders the maps, always makes a capital letter when a new charAt(0) is reached
+ */
+function renderContacts() {
+  sortArrayByUserName()
+  const list = document.getElementById("contact-list");
+  list.innerHTML = ""
+  list.innerHTML += contactDataHTML(0)
+  list.innerHTML += contactUserCardHtml(0)
+  for (let i = 1; i < contacts.length - 1; i++) {
+    if (contacts[i].name.charAt(0) != contacts[i - 1].name.charAt(0)) {
+      list.innerHTML += contactDataHTML(i)
+      list.innerHTML += contactUserCardHtml(i)
+    } else {
+      list.innerHTML += contactUserCardHtml(i)
+    }
+  }
+}
 /* neuen User anlegen */
 
 function addNewUser() {
-
   let name = document.getElementById('name-reg');
   let email = document.getElementById('email-reg');
   let password = document.getElementById('password-reg');
   let confirm_password = document.getElementById('rep-password-reg');
-  contacts.push({name: name.value, email: email.value, password: password.value});
+  contacts.push({ name: name.value, email: email.value, password: password.value });
   console.log(contacts);
 }

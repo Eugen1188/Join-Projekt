@@ -76,9 +76,27 @@ function renderCardAssignee(data) {
     let textHTML = '';
     for (let i = 0; i < data.length; i++) {
         const assignee = data[i];
-
         textHTML += templateCardAssignee(assignee);
     }
-
     return textHTML
+}
+
+// parameter für namen hinzufügen
+function renderOverlayAssignee(data) {
+    let textHTML = '';
+    for (let i = 0; i < data.contacts.length; i++) {
+        const assignee = data.initials[i];
+        const name = data.contacts[i]
+        textHTML += templateOverlayAssignee(assignee, name);
+    }
+    return textHTML
+}
+
+function renderTaskOverlay(index) {
+    let overlay = document.getElementById('overlay-card');
+    let taskIndex = allTasks[index][0]
+    console.log(taskIndex)
+    overlay.innerHTML = '';
+    overlay.innerHTML = templateTaskOverlay(taskIndex);
+    openOverlay();
 }

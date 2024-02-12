@@ -20,7 +20,6 @@
 
 .contacts-container {
     width: 456px;
-    height: 100vh;
     position: fixed;
     overflow-y: scroll;
     padding: 0;
@@ -28,6 +27,7 @@
     justify-content: center;
     top: 96px;
     left: 232px;
+    bottom: 0;
     background-color: #ffffff;
     box-shadow: 0px 1px 3px 0px #CDCDCD;
 }
@@ -68,6 +68,11 @@
     align-items: center;
 }
 
+.user-Data {
+    display: flex;
+    flex-direction: column;
+}
+
 .add-contacts-btn {
     width: 352px;
     height: 56px;
@@ -93,8 +98,6 @@
     background-color: var(--light-blue)
 }
 
-.set-contact-to-active {}
-
 .list {
     width: 352px;
     height: 58px;
@@ -114,7 +117,6 @@
     padding: 15px 24px;
     gap: 35px;
     display: flex;
-    justify-content: space-around;
 }
 
 .contact-data a {
@@ -140,13 +142,17 @@
 }
 
 .initials-circle {
-    height: 42px;
-    width: 42px;
+    height: 42px ;
+    min-width: 42px;
     border-radius: 45px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: var(--background-color-site);
+}
+
+.initials-circle span {
+    font-size: 12px;
 }
 
 .underline {

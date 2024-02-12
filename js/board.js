@@ -1,4 +1,5 @@
 let currentDraggedElement;
+let checkedSubtasks = [];
 
 function testfunction() {
     console.log(allTasks[0][0]);
@@ -44,10 +45,39 @@ async function moveTo(id) {
 }
 
 function closeOverlay() {
+    document.getElementById('overlay-card').classList.remove('task-overlay-translate-in')
     document.getElementById('overlay-card').classList.add('task-overlay-translate-out')
-    setTimeout(displayCloseOverlay,1000)
+    setTimeout(displayCloseOverlay,250)
+}
+
+function openOverlay(index){
+    displayOpenOverlay();
+    setTimeout(slideInOverlay, 75)
+}
+
+function slideInOverlay(){
+    document.getElementById('overlay-card').classList.add('task-overlay-translate-in')
+}
+
+function displayOpenOverlay(){
+    document.getElementById('overlay').classList.remove('d-none');
+    document.getElementById('overlay-card').classList.remove('task-overlay-translate-out')
 }
 
 function displayCloseOverlay(){
     document.getElementById('overlay').classList.add('d-none');
+}
+
+function checkedSubtask(subtask){
+
+    //Subtasks brauch ein object für die task und den jeweiligen wert ob diese ausgeführt wurde
+    let subtaskDom = document.getElementById(`sub${subtask}`);
+
+    if (subtaskDom.alt == 'checked'){
+        subtaskDom.src = `./assets/img/checkbuttonempty.png`;
+        subtaskDom.alt = 'unchecked';
+    }else if(subtaskDom.alt == 'unchecked'){
+        subtaskDom.src = `./assets/img/checkbuttonchecked.png`;
+        subtaskDom.alt = 'checked';
+    }
 }

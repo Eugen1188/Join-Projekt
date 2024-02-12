@@ -467,6 +467,10 @@ form {
     animation: encrease-opacity 1s ease-in-out forwards;
 }
 
+.pointer {
+    cursor: pointer;
+}
+
 @keyframes encrease-opacity {
     from {
         opacity: 0;

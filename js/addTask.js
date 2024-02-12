@@ -47,7 +47,7 @@ function saveEditedSubtask(index) {
 //HTML Validierung funktioniert nicht da onsubmit false ist
 function validateForm() {
   getCheckedContact();
-  let submitButton = document.getElementById("submitButton"); // disabled = false // sollte man button deaktivieren wenn die inputs fehlerhaft sind ? .. ;
+  let submitButton = document.getElementById("submitButton"); // disabled = false // sollte man button deaktivieren wenn die inputs fehlerhaft sind ? ..;
   let contacts = checkedContacts.length;
   let title = document.getElementById("title").value;
   let taskDescription = document.getElementById("taskDescription").value;
