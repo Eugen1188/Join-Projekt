@@ -11,7 +11,7 @@ function contactDataHTML(index) {
 
 function contactUserCardHtml(index) {
     return /*html*/ `
-        <div class="contact-data" id="contact-data-${index}">
+        <div class="contact-data pointer" id="contact-data-${index}">
             <div class="initials-circle user-color-one">
                 <!-- USER DATA -->
                 <span>${contacts[index].name.charAt(0).toUpperCase() + contacts[index].lastname.charAt(0).toUpperCase()}</span>
