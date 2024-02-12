@@ -370,8 +370,18 @@
 }
 
 .task-subtask{
+    width: fit-content;
     display: flex;
     align-items: center;
     gap: 16px;
     padding: 6px 16px;
+    border-radius: 8px;
+}
+
+.task-subtask img{
+    cursor: pointer;
+}
+
+.task-subtask:hover{
+    background-color: rgba(0, 0, 0, 0.1);
 }

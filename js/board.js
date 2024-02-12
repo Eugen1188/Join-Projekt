@@ -1,4 +1,5 @@
 let currentDraggedElement;
+let checkedSubtasks = [];
 
 function testfunction() {
     console.log(allTasks[0][0]);
@@ -50,4 +51,18 @@ function closeOverlay() {
 
 function displayCloseOverlay(){
     document.getElementById('overlay').classList.add('d-none');
+}
+
+function checkedSubtask(subtask){
+
+    //Subtasks brauch ein object für die task und den jeweiligen wert ob diese ausgeführt wurde
+    let subtaskDom = document.getElementById(`sub${subtask}`);
+
+    if (subtaskDom.alt == 'checked'){
+        subtaskDom.src = `./assets/img/checkbuttonempty.png`;
+        subtaskDom.alt = 'unchecked';
+    }else if(subtaskDom.alt == 'unchecked'){
+        subtaskDom.src = `./assets/img/checkbuttonchecked.png`;
+        subtaskDom.alt = 'checked';
+    }
 }
