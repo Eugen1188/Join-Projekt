@@ -70,6 +70,7 @@ let contacts = [
     phone: "015112345678",
   }
 ];
+let userData = [];
 let sortedUsers;
 let id = 10;
 
@@ -106,7 +107,6 @@ function initContacts() {
   renderContacts()
 }
 
-
 /**
  * löscht den user aus dem array
  * @param {number} id - is required to find the desired user to be deleted
@@ -127,7 +127,7 @@ function renderContacts() {
 }
 
 /**
- * Saves the user in the current contacts array and sorts them by first name
+ * Saves the user in userData array and
  */
 async function saveNewUserData() {
   id++
@@ -137,10 +137,25 @@ async function saveNewUserData() {
   const email = document.getElementById("email").value.trim()
   const phone = document.getElementById("phone").value.trim()
   const password = document.getElementById("password").value.trim()
-  if (checkEmailAddress(email)) {
+  if (checkEmailAddress(email, "d")) {
     return
   }
-  contacts.push({ id: id, name: firstname[0], lastname: lastname[(lastname.length - 1)], email: email, phone: phone, password: password})
+  userData.push({ id: id, name: firstname[0], lastname: lastname[(lastname.length - 1)], email: email, phone: phone, password: password})
+  // insert API storage here no aweit required as it ends here
+}
+
+/** adds a new contact to Contactlist */
+async function addNewContactToContactlist() {
+  id++
+  let name = document.getElementById("name").value.trim()
+  const firstname = name.split(' ');
+  const lastname = name.split(' ');
+  let email = document.getElementById("email").value.trim()
+  let phone = document.getElementById("phone").value.trim()
+  if (checkEmailAddress(email, "c")) {
+    return
+  }
+  contacts.push({ id: id, name: firstname[0], lastname: lastname[(lastname.length - 1)], email: email, phone: phone})
   renderContacts()
   // insert API storage here no aweit required as it ends here
 }
@@ -156,14 +171,17 @@ function sortArrayByUserName() {
 }
 
 /**
+ * /**
  *Compares the email in the contacts array, if the email exists it returns a value,
   which can be intercepted in an if query to jump out of the function
  * @param {string} email - is required to compare the emails
+ * @param {string} string - must be filled with "c" if the contacts array is to be used
  * @returns
  */
-function checkEmailAddress(email) {
-  for (let i = 0; i < contacts.length; i++) {
-    const existingEmail = contacts[i].email;
+function checkEmailAddress(email, string) {
+  let array = string === "c" ? contacts : userData;
+  for (let i = 0; i < array.length; i++) {
+    const existingEmail = array[i].email;
     if (existingEmail === email) {
       return "This email is already in use"
     }
