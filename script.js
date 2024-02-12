@@ -14,7 +14,7 @@ let allTasks = [];
 
 async function setItem(key, value) {
   const payload = { key, value, token: STORAGE_TOKEN };
-  return fetch(STORAGE_URL, {
+  return await fetch(STORAGE_URL, {
     method: "POST", // fügt Daten hinzu
     body: JSON.stringify(payload), // definiert was gesendet wird
   }).then((res) => res.json());
@@ -34,6 +34,28 @@ async function getItem(key) {
   console.log(url);
   return await fetch(url).then((res) => res.json());
 }
+
+
+/* Öffnet Menü, um neuen user zu registrieren */
+
+function regNewUser() {
+let loginmenu = document.getElementById('login-menu');
+let regmenu = document.getElementById('reg-user-menu');
+loginmenu.classList.add('d-none')
+regmenu.classList.remove('d-none')
+console.log("reg menu gefönnet")
+}
+
+/* Schließe Menü zum Registrieren */
+
+function closeRegMenu() {
+  let loginmenu = document.getElementById('login-menu');
+  let regmenu = document.getElementById('reg-user-menu');
+  loginmenu.classList.remove('d-none')
+  regmenu.classList.add('d-none')
+  console.log("reg menu gefönnet")
+  }
+
 
 function includeHTML() {
   var z, i, elmnt, file, xhttp;

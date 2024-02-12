@@ -1,22 +1,37 @@
 let checkedContacts = [];
 let initials = [];
+<<<<<<< HEAD
+=======
+let subtasks = [];
+>>>>>>> a9383a804a688df05e983cbaf64f59ab740b271c
 
-function addTask() {
+function getInput() {
+  let subtask = document.getElementById("subtask").value;
+  return subtask;
+}
+
+function pushSubtask() {
+  let subtask = getInput();
+  subtasks.push(subtask);
+}
+
+async function addTask() {
   getCheckedContact();
-
+  let id = allTasks.length;
   let title = document.getElementById("title");
   let taskDescription = document.getElementById("taskDescription");
   let date = document.getElementById("date");
   let prioInputs = document.getElementsByName("priority");
   for (let i = 0; i < prioInputs.length; i++) {
     if (prioInputs[i].checked) {
-      prio = prioInputs[i].value;
+      let prio = prioInputs[i].value;
     }
   }
   let category = document.getElementById("category");
-  let subtask = document.getElementById("subtask");
+  //let subtask = document.getElementById("subtask");
   let task = [
     {
+      id: id,
       title: title.value,
       status: { inProgress: false, awaitFeedback: false, done: false }, // true oder false werden im Board gesetzt
       taskDescription: taskDescription.value,
@@ -26,12 +41,20 @@ function addTask() {
       date: date.value,
       prio: prio,
       category: category.value,
+<<<<<<< HEAD
       subtask: { subtask: subtask.value },
+=======
+      subtask: subtasks,
+>>>>>>> a9383a804a688df05e983cbaf64f59ab740b271c
     },
   ];
   console.log(task);
   allTasks.push(task);
+<<<<<<< HEAD
   setItem("tasks_neu_neu", allTasks); // muss als neues Objekt in das Hauptarray/JSON gepusht werden
+=======
+  setItem("test_board", allTasks); // muss als neues Objekt in das Hauptarray/JSON gepusht werden
+>>>>>>> a9383a804a688df05e983cbaf64f59ab740b271c
 }
 
 /**
@@ -83,11 +106,14 @@ function showContacts() {
 }
 
 async function testfunc() {
-  let myArray = getItem("tasks_neu_neu");
+  let myArray = getItem("test_board");
   await myArray
     .then((result) => {
       allTasks = JSON.parse(result.data.value);
+<<<<<<< HEAD
       //allTasks.push(result.data.value);
+=======
+>>>>>>> a9383a804a688df05e983cbaf64f59ab740b271c
     })
     .catch((error) => {
       console.error("Ein Fehler ist aufgetreten:", error);
