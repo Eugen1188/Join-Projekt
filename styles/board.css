@@ -286,7 +286,10 @@
 }
 
 .task-overlay-translate-out {
-    transform: translate(2000px);
+    translate: 100vw;
+}
+.task-overlay-translate-in {
+    translate: calc(-100vw - 262.5px);
 }
 
 .task-overlay-bg {
@@ -302,13 +305,14 @@
     flex-direction: column;
     gap: 24px;
     position: absolute;
+    left: 150vw;
     width: 525px;
     background-color: white;
     z-index: 2000;
     border-radius: 30px;
     padding: 48px 40px;
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
-    transition: transform 1s ease-in-out;
+    transition: all 500ms ease-in-out;
 }
 
 .task-overlay-top {

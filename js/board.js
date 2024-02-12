@@ -45,8 +45,23 @@ async function moveTo(id) {
 }
 
 function closeOverlay() {
+    document.getElementById('overlay-card').classList.remove('task-overlay-translate-in')
     document.getElementById('overlay-card').classList.add('task-overlay-translate-out')
-    setTimeout(displayCloseOverlay,1000)
+    setTimeout(displayCloseOverlay,250)
+}
+
+function openOverlay(index){
+    displayOpenOverlay();
+    setTimeout(slideInOverlay, 250)
+}
+
+function slideInOverlay(){
+    document.getElementById('overlay-card').classList.add('task-overlay-translate-in')
+}
+
+function displayOpenOverlay(){
+    document.getElementById('overlay').classList.remove('d-none');
+    document.getElementById('overlay-card').classList.remove('task-overlay-translate-out')
 }
 
 function displayCloseOverlay(){
