@@ -52,7 +52,7 @@ function closeOverlay() {
 
 function openOverlay(index){
     displayOpenOverlay();
-    setTimeout(slideInOverlay, 250)
+    setTimeout(slideInOverlay, 75)
 }
 
 function slideInOverlay(){
