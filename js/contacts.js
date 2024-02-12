@@ -73,14 +73,6 @@ let contacts = [
 let sortedUsers;
 let id = 10;
 
-// currently sorted by first name only, will be changed soon
-// function sortArrayByFirstname() {
-//   contacts.sort((a, b) => {
-//     const result = a.name.localeCompare(b.name);
-//     return result;
-//   })
-// }
-
 /**
  *Updates the data of a person, only updates the data whose field is also filled in
  * @param {number} id - is needed to find the person to be updated
@@ -134,10 +126,6 @@ function renderContacts() {
   renderContacts()
 }
 
-function checkValues(name, email, phone) {
-
-}
-
 /**
  * Saves the user in the current contacts array and sorts them by first name
  */
@@ -154,6 +142,7 @@ async function saveNewUserData() {
   }
   contacts.push({ id: id, name: firstname[0], lastname: lastname[(lastname.length - 1)], email: email, phone: phone, password: password})
   renderContacts()
+  // insert API storage here no aweit required as it ends here
 }
 
 /**
@@ -181,6 +170,9 @@ function checkEmailAddress(email) {
   }
 }
 
+/**
+ * renders the maps, always makes a capital letter when a new charAt(0) is reached
+ */
 function renderContacts() {
   sortArrayByUserName()
   const list = document.getElementById("contact-list");
@@ -199,7 +191,6 @@ function renderContacts() {
 /* neuen User anlegen */
 
 function addNewUser() {
-
   let name = document.getElementById('name-reg');
   let email = document.getElementById('email-reg');
   let password = document.getElementById('password-reg');
