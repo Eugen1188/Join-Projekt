@@ -102,7 +102,6 @@ async function addTask() {
       prio: prio,
       category: category.value,
       subtask: {subtask:subtasks,taskstate:taskStates}
-      subtask: { subastk: subtasks, taskstate: { setstate: "whatever" } },
     },
   ];
   console.log(task);
