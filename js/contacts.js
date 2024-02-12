@@ -32,19 +32,6 @@ function editContact(id) {
   }
 }
 
-async function testfuncContacts(key, array) {
-  let myArray = getItem(key);
-  await myArray
-    .then((result) => {
-      array = JSON.parse(result.data.value);
-      console.log(array);
-    })
-    .catch((error) => {
-      console.error("Ein Fehler ist aufgetreten:", error);
-    });
-}
-
-
 /**If the code is adopted, replace getItem with getItemContacts */
 async function getItemContacts(key) {
   const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
