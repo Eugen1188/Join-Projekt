@@ -133,7 +133,7 @@ async function saveNewUserData() {
   const email = document.getElementById("email").value.trim()
   const phone = document.getElementById("phone").value.trim()
   const password = document.getElementById("password").value.trim()
-  if (checkEmailAddress(email, "d")) {
+  if (checkEmailAddress(email, userData)) {
     return
   }
   userData.push({ id: id, name: firstname[0], lastname: lastname[(lastname.length - 1)], email: email, phone: phone, password: password })
@@ -148,7 +148,7 @@ async function addNewContactToContactlist() {
   const lastname = name.split(' ');
   let email = document.getElementById("email").value.trim()
   let phone = document.getElementById("phone").value.trim()
-  if (checkEmailAddress(email, "c")) {
+  if (checkEmailAddress(email,contacts)) {
     return
   }
   contacts.push({ id: id, name: firstname[0], lastname: lastname[(lastname.length - 1)], email: email, phone: phone })
@@ -174,8 +174,7 @@ function sortArrayByUserName() {
  * @param {string} string - must be filled with "c" if the contacts array is to be used
  * @returns
  */
-function checkEmailAddress(email, string) {
-  let array = string === "c" ? contacts : userData;
+function checkEmailAddress(email, array) {
   for (let i = 0; i < array.length; i++) {
     const existingEmail = array[i].email;
     if (existingEmail === email) {
