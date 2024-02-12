@@ -11,11 +11,11 @@
     <link rel="stylesheet" href="./styles/contacts.css" />
     <script src="./script.js" defer></script>
     <script src="./js/addTask.js"></script>
-    <script src="./js/contactsHtmlTemplate.js" defer></script>
+    <script src="./js/contactsHtmlTemplate.js"></script>
     <script src="./js/contacts.js" defer></script>
 </head>
 
-<body onload="includeHTML()">
+<body onload="includeHTML(); initContacts()">
     <header id="main-header" w3-include-html="assets/templates/header.html"></header>
     <div class="wraper">
         <div class="contacts-container">
@@ -28,23 +28,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="contacts-content" id="contacts-a">
-                    <div class="list" id="list-INDEX">
-                        <span class="list-char" id="char-INDEX">A</span>
-                    </div>
-                    <div class="underline"></div>
-                    <div class="contact-data" id="contact-data-INDEX">
-                        <div class="initials-circle user-color-one">
-                            <!-- USER DATA -->
-                            <span>UD</span>
-                        </div>
-                        <div class="user-data-container">
-                            <div div="user-Data" id="user-Data-INDEX">
-                                <span>USER DATA</span>
-                                <a href="#">userData@gmx.de</a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="contacts-content" id="contact-list">
                 </div>
             </div>
         </div>

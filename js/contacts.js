@@ -110,12 +110,28 @@ function editContact(id) {
   }
 }
 
-async function deleteContact(id) {
+function initContacts() {
+  renderContacts()
+}
 
+
+/**
+ * löscht den user aus dem array
+ * @param {number} id - is required to find the desired user to be deleted
+ */
+async function deleteContact(id) {
+  const userId = id;
+  for (let i  = 0; i < contacts.length; i++) {
+    const userId = contacts[i].id;
+    if (userId === userId) {
+      contacts.splice(1, i)
+      break;
+    }
+  }
 }
 
 function renderContacts() {
-
+  renderContacts()
 }
 
 function checkValues(name, email, phone) {
@@ -136,7 +152,7 @@ async function saveNewUserData() {
     return
   }
   contacts.push({ id: id, name: firstname[0], lastname: lastname[(lastname.length - 1)], email: email, phone: phone })
-  sortArrayByUserName();
+  renderContacts()
 }
 
 /**
@@ -160,6 +176,22 @@ function checkEmailAddress(email) {
     const existingEmail = contacts[i].email;
     if (existingEmail === email) {
       return "This email is already in use"
+    }
+  }
+}
+
+function renderContacts() {
+  sortArrayByUserName()
+  const list = document.getElementById("contact-list");
+  list.innerHTML = ""
+  list.innerHTML += contactDataHTML(0)
+  list.innerHTML += contactUserCardHtml(0)
+  for (let i = 1; i < contacts.length - 1 ; i++) {
+    if (contacts[i].name.charAt(0) != contacts[i -1].name.charAt(0)) {
+      list.innerHTML += contactDataHTML(i)
+      list.innerHTML += contactUserCardHtml(i)
+    } else {
+      list.innerHTML += contactUserCardHtml(i)
     }
   }
 }
