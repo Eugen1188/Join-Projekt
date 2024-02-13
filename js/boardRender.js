@@ -102,11 +102,39 @@ function renderTaskOverlay(index) {
 }
 
 
-function renderSubtask(task){
-    let textHTML ='';
+function renderSubtask(task) {
+    let textHTML = '';
+    let imgSource = '';
+
+    console.log(task)
     for (let i = 0; i < task.subtask.subtask.length; i++) {
         const subtask = task.subtask.subtask[i];
-        textHTML += templateOverlaySubtask(i,subtask);
+        const substate = task.subtask.taskstate[i];
+
+        if (substate == true) {
+            imgSource = './assets/img/checkbuttonchecked.png'
+        }else if(substate == false){
+            imgSource = './assets/img/checkbuttonempty.png'
+        }
+
+        textHTML += templateOverlaySubtask(i, subtask, task, imgSource);
     }
     return textHTML;
+}
+
+function renderProgressBar(task) { 
+    let progressLength = task.subtask.subtask.length;
+    let taskState = task.subtask.taskstate;
+    let finishedSubtasks = taskState.filter(Boolean).length;
+    let width = ((100/progressLength)*finishedSubtasks);
+
+    return templateProgressBar(width);
+}
+
+function renderProgressAmount(task){
+    let progressLength = task.subtask.subtask.length;
+    let taskState = task.subtask.taskstate;
+    let finishedSubtasks = taskState.filter(Boolean).length;
+
+    return `${finishedSubtasks} / ${progressLength}`;
 }

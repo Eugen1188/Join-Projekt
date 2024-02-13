@@ -48,6 +48,7 @@ function closeOverlay() {
     document.getElementById('overlay-card').classList.remove('task-overlay-translate-in')
     document.getElementById('overlay-card').classList.add('task-overlay-translate-out')
     setTimeout(displayCloseOverlay,250)
+    initBoard();
 }
 
 function openOverlay(index){
@@ -68,16 +69,21 @@ function displayCloseOverlay(){
     document.getElementById('overlay').classList.add('d-none');
 }
 
-function checkedSubtask(subtask){
+function checkedSubtask(subtask, id){
 
     //Subtasks brauch ein object für die task und den jeweiligen wert ob diese ausgeführt wurde
     let subtaskDom = document.getElementById(`sub${subtask}`);
 
-    if (subtaskDom.alt == 'checked'){
+
+    if (allTasks[id][0].subtask.taskstate[subtask] == true){
         subtaskDom.src = `./assets/img/checkbuttonempty.png`;
         subtaskDom.alt = 'unchecked';
-    }else if(subtaskDom.alt == 'unchecked'){
+        allTasks[id][0].subtask.taskstate[subtask] = false;
+
+    }else if(allTasks[id][0].subtask.taskstate[subtask] == false){
         subtaskDom.src = `./assets/img/checkbuttonchecked.png`;
         subtaskDom.alt = 'checked';
+        allTasks[id][0].subtask.taskstate[subtask] = true;
     }
+    setItem("test_board", allTasks);
 }

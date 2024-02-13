@@ -13,11 +13,9 @@ function templateCard(task) {
                     </div>
                 </div>
                 <div class="board-progress">
-                    <div class="task-progress-blank">
-                      <div class="task-progress"></div>
-                    </div>
+                    ${renderProgressBar(task)}
                     <div>
-                        <span>1/2 Subtasks</span>
+                        <span>${renderProgressAmount(task)} Subtasks</span>
                     </div>
                 </div>
                 <div class="board-card-status">
@@ -89,7 +87,7 @@ function templateTaskOverlay(task) {
     `
 }
 
-function templateOverlayAssignee(assignee, name){
+function templateOverlayAssignee(assignee, name) {
     return `
         <div class="task-overlay-assignee">
             <div class="assignee" style="background-color: #42526E">${assignee}</div>
@@ -98,11 +96,19 @@ function templateOverlayAssignee(assignee, name){
     `
 }
 
-function templateOverlaySubtask(index,subtask){
+function templateOverlaySubtask(index, subtask, task, source) {
     return `
             <div class="task-subtask">
-                <img id="sub${index}" onclick="checkedSubtask(${index})" src="./assets/img/checkbuttonempty.png" alt="unchecked">
+                <img id="sub${index}" onclick="checkedSubtask(${index}, ${task.id})" src="${source}">
                 <span>${subtask}</span>
             </div>
+    `
+}
+
+function templateProgressBar(progress) {
+    return `
+        <div class="task-progress-blank">
+          <div class="task-progress" style="width:${progress}%"></div>
+        </div>
     `
 }
