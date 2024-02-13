@@ -162,6 +162,10 @@
     display: none;
 }
 
+.index-behind{
+    z-index: -1;
+}
+
 .board-card {
     display: flex;
     flex-direction: column;

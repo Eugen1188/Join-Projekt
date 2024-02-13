@@ -104,6 +104,7 @@ function checkCategory(category) {
 
 function rotateCard(id) {
     let overflow = document.getElementsByClassName('board-card-section');
+
     document.getElementById(`card${id}`).classList.add('card-rotate');
     for (let i = 0; i < overflow.length; i++) {
         overflow[i].classList.add('card-rotate-overflow');
@@ -127,6 +128,10 @@ function rotateCard(id) {
  }
 
  function removeGhostCard(id){
-    document.getElementById(id).remove();
-    lockout=false;
+    let ghost = document.getElementById(id);
+
+    if (ghost) {
+        document.getElementById(id).remove();
+        lockout=false;    
+    }
  }
