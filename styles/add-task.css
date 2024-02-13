@@ -170,14 +170,14 @@ label.radio-button {
   align-items: center;
   display: flex;
   font-size: 21px;
-  padding: 10px 20px;
+  padding: 16px 10px 16px 10px;
   justify-content: center;
   background-color: white;
   color: black;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 10px;
   margin-right: 10px;
-  height: 56px;
+  height: 40px;
   width: 136px;
   gap: 8px;
 }
