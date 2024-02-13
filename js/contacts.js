@@ -59,8 +59,7 @@ async function initContacts() {
 async function deleteContact(id) {
   const userId = id;
   for (let i = 0; i < contacts.length; i++) {
-    const userId = contacts[i].id;
-    if (userId === userId) {
+    if (userId === contacts[i].id) {
       contacts.splice(1, i)
       break;
     }
@@ -82,7 +81,8 @@ async function saveNewUserData() {
     return
   }
   userData.push({ id: id, name: firstname[0], lastname: lastname[(lastname.length - 1)], email: email, phone: phone, password: password })
-  await setItem("userData", userData)
+  setItem("id", id)
+  setItem("userData", userData)
 
 }
 
@@ -99,7 +99,7 @@ async function addNewContactToContactlist() {
   }
   contacts.push({ id: id, name: firstname[0], lastname: lastname[(lastname.length - 1)], email: email, phone: phone })
   renderContacts()
-  await setItem("id", id)
+  setItem("id", id)
   setItem("contacts", contacts)
 }
 
