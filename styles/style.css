@@ -1,10 +1,20 @@
 :root {
+<<<<<<< HEAD
   --background-color-site: #f6f7f8;
   --button-color: #2a3647;
   --light-grey: #d1d1d1;
   --light-blue: #29abe2;
   --button-selected: #091931;
   --topic-user: #0038ff;
+=======
+    --background-color-site: #F6F7F8;
+    --button-color: #2A3647;
+    --light-grey: #D1D1D1;
+    --light-blue: #29ABE2;
+    --button-selected: #091931;
+    --topic-user: #0038FF;
+    --topic-technical: #1FD7C1;
+>>>>>>> db8b058a58beaab83a29f6e8976e3203b6a892be
 }
 
 body {

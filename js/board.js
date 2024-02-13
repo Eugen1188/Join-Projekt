@@ -87,3 +87,12 @@ function checkedSubtask(subtask, id){
     }
     setItem("test_board", allTasks);
 }
+
+function checkCategory(category){
+    if (category == 'User Story') {
+        return `var(--topic-user)`
+    }else if (category == 'Technical Task'){
+        return `var(--topic-technical)`
+    }
+
+}
