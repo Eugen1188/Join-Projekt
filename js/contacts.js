@@ -24,6 +24,8 @@ function editContact(id) {
         if (phoneValue) {
           contacts[i].phone = phoneValue;
         }
+        renderContacts()
+        setItem("contacts", contacts)
         break;
       } else {
         return;
@@ -61,6 +63,8 @@ async function deleteContact(id) {
   for (let i = 0; i < contacts.length; i++) {
     if (userId === contacts[i].id) {
       contacts.splice(1, i)
+      renderContacts()
+      setItem("contacts", contacts)
       break;
     }
   }
