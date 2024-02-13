@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", function () {
   let low = document.getElementById("low");
   let medium = document.getElementById("medium");
   let urgent = document.getElementById("urgent");
-
   low.addEventListener("click", handleClick);
   low.addEventListener("click", changeIconColor);
   medium.addEventListener("click", handleClick);
@@ -43,12 +42,10 @@ function changeIconColor(event) {
   let urgentIcon = document.getElementById("urgent-icon");
   let mediumIcon = document.getElementById("medium-icon");
   let lowIcon = document.getElementById("low-icon");
-
   let icons = [urgentIcon, mediumIcon, lowIcon];
   icons.forEach((icon) => {
     icon.classList.remove("fill-btn-white");
   });
-
   if (priorityIcon == "urgent") {
     urgentIcon.classList.add("fill-btn-white");
   } else if (priorityIcon == "medium") {
@@ -109,7 +106,7 @@ function validateForm() {
   if (checkedContacts.length == 0) {
     getCheckedContact();
   }
-  let submitButton = document.getElementById("submitButton"); // disabled = false // sollte man button deaktivieren wenn die inputs fehlerhaft sind ? ..;
+  // let submitButton = document.getElementById("submitButton"); // disabled = false // sollte man button deaktivieren wenn die inputs fehlerhaft sind ? ..;
   let lengthCheckedContacts = checkedContacts.length;
   let prioInputs = document.getElementsByName("priority");
   for (let i = 0; i < prioInputs.length; i++) {
