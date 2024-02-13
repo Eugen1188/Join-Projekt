@@ -4,6 +4,50 @@ let subtasks = [];
 let taskStates = [];
 let tempContacts = [];
 
+document.addEventListener("DOMContentLoaded", function () {
+  let low = document.getElementById("low");
+  let medium = document.getElementById("medium");
+  let urgent = document.getElementById("urgent");
+
+  low.addEventListener("click", handleClick);
+  medium.addEventListener("click", handleClick);
+  urgent.addEventListener("click", handleClick);
+  urgent.addEventListener("click", changeIconColor);
+});
+
+function handleClick(event) {
+  let priority = event.target.value;
+
+  document.documentElement.style.setProperty(
+    "--prio-button-selected",
+    getButtonColor(priority)
+  );
+}
+
+function getButtonColor(priority) {
+  if (priority === "low") {
+    return "#7AE229";
+  } else if (priority === "medium") {
+    return "#FFA800";
+  } else if (priority === "urgent") {
+    return "#FF3D00";
+  } else {
+    return "white";
+  }
+}
+
+function changeIconColor(event) {
+  let priorityIcon = event.target.value;
+  let urgentIcon = document.getElementById("urgent-icon");
+  let mediumIcon = document.getElementById("medium-icon");
+  let lowIcon = document.getElementById("low-icon");
+
+  if (priorityIcon == "urgent") {
+    console.log(priorityIcon);
+    urgentIcon.classList.add("fill-btn-white");
+  }
+}
+
 function getInput() {
   let subtask = document.getElementById("subtask").value;
   return subtask;
