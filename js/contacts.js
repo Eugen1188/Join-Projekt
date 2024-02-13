@@ -1,4 +1,85 @@
-let contacts = [];
+let contacts = [{
+  id: 1,
+  name: "Max",
+  lastname: "Mustermann",
+  email: "max@example.com",
+  phone: "123-456-7890",
+  initials: "MM",
+},
+{
+  id: 2,
+  name: "Anna",
+  lastname: "Musterfrau",
+  email: "anna@example.com",
+  phone: "987-654-3210",
+  initials: "AM",
+},
+{
+  id: 3,
+  name: "John",
+  lastname: "Doe",
+  email: "john@example.com",
+  phone: "555-123-4567",
+  initials: "JD",
+},
+{
+  id: 4,
+  name: "Jane",
+  lastname: "Doe",
+  email: "jane@example.com",
+  phone: "555-987-6543",
+  initials: "JD",
+},
+{
+  id: 5,
+  name: "Alice",
+  lastname: "Smith",
+  email: "alice@example.com",
+  phone: "321-654-9870",
+  initials: "AS",
+},
+{
+  id: 6,
+  name: "Bob",
+  lastname: "Johnson",
+  email: "bob@example.com",
+  phone: "888-222-3333",
+  initials: "BJ",
+},
+{
+  id: 7,
+  name: "Emily",
+  lastname: "Davis",
+  email: "emily@example.com",
+  phone: "777-777-7777",
+  initials: "ED",
+},
+{
+  id: 8,
+  name: "Michael",
+  lastname: "Brown",
+  email: "michael@example.com",
+  phone: "666-666-6666",
+  initials: "MB",
+},
+{
+  id: 9,
+  name: "Sarah",
+  lastname: "Wilson",
+  email: "sarah@example.com",
+  phone: "444-444-4444",
+  initials: "SW",
+},
+{
+  id: 10,
+  name: "David",
+  lastname: "Lee",
+  email: "david@example.com",
+  phone: "222-888-9999",
+  initials: "DL",
+  }
+];
+
 let userData = [];
 let sortedUsers;
 let id;
@@ -82,9 +163,18 @@ async function saveNewUserData() {
   const phone = document.getElementById("phone").value.trim()
   const password = document.getElementById("password").value.trim()
   if (checkEmailAddress(email, userData)) {
+    id--
     return
   }
-  userData.push({ id: id, name: firstname[0], lastname: lastname[(lastname.length - 1)], email: email, phone: phone, password: password })
+  userData.push({
+    id: id,
+    name: firstname[0],
+    lastname: lastname[(lastname.length - 1)],
+    email: email,
+    phone: phone,
+    password: password,
+    initials: firstname.charAt(0) + lastname.charAt(0)
+  })
   setItem("id", id)
   setItem("userData", userData)
 
@@ -99,9 +189,17 @@ async function addNewContactToContactlist() {
   let email = document.getElementById("email").value.trim()
   let phone = document.getElementById("phone").value.trim()
   if (checkEmailAddress(email, contacts)) {
+    id--
     return
   }
-  contacts.push({ id: id, name: firstname[0], lastname: lastname[(lastname.length - 1)], email: email, phone: phone })
+  contacts.push({
+    id: id,
+    name: firstname[0],
+    lastname: lastname[(lastname.length - 1)],
+    email: email,
+    phone: phone,
+    initials: firstname.charAt(0) + lastname.charAt(0),
+  })
   renderContacts()
   setItem("id", id)
   setItem("contacts", contacts)
@@ -162,3 +260,11 @@ function addNewUser() {
   contacts.push({ name: name.value, email: email.value, password: password.value });
   console.log(contacts);
 }
+
+
+function renderSingleContactOverview(id) {
+  const singlContactDataContainer = document.getElementById("single-contact-data-container")
+  singlContactDataContainer.innerHTML = "";
+  singlContactDataContainer.innerHTML += singleContactOverview(id)
+}
+
