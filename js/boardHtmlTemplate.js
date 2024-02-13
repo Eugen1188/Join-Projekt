@@ -1,7 +1,7 @@
 function templateCard(task) {
     return `
             <div onclick="renderTaskOverlay(${task.id})" draggable="true" ondragstart="startDragging(${task.id})" class="board-card">
-                <div class="board-card-topic">
+                <div class="board-card-topic" style="background-color:${checkCategory(task.category)}">
                     <span>${task.category}</span>
                 </div>
                 <div class="board-card-content">
