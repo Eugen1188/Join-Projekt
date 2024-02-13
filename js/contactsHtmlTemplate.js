@@ -12,7 +12,7 @@ function contactDataHTML(index) {
 function contactUserCardHtml(index) {
     return /*html*/ `
         <div class="contact-data pointer" id="contact-data-${index}" onclick="renderSingleContactOverview(${index})">
-            <div class="initials-circle user-color-one">
+            <div class="initials-circle ${contacts[index].circleColor}">
                 <!-- USER DATA -->
                 <span>${contacts[index].name.charAt(0).toUpperCase() + contacts[index].lastname.charAt(0).toUpperCase()}</span>
             </div>
@@ -26,11 +26,10 @@ function contactUserCardHtml(index) {
     `
 }
 
-
 function singleContactOverview(index) {
     return /*html*/ `
         <div class="single-data-headline">
-            <div class="big-circle user-color-one">${contacts[index].initials}</div>
+            <div class="big-circle ${contacts[index].circleColor}">${contacts[index].initials}</div>
             <div class="single-contact-name-card">
                 <span class="single-contacts-name">${contacts[index].name + " " + contacts[index].lastname}</span>
                 <div class="contacts-icon-container">

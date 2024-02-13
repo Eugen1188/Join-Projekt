@@ -1,85 +1,4 @@
-let contacts = [{
-  id: 1,
-  name: "Max",
-  lastname: "Mustermann",
-  email: "max@example.com",
-  phone: "123-456-7890",
-  initials: "MM",
-},
-{
-  id: 2,
-  name: "Anna",
-  lastname: "Musterfrau",
-  email: "anna@example.com",
-  phone: "987-654-3210",
-  initials: "AM",
-},
-{
-  id: 3,
-  name: "John",
-  lastname: "Doe",
-  email: "john@example.com",
-  phone: "555-123-4567",
-  initials: "JD",
-},
-{
-  id: 4,
-  name: "Jane",
-  lastname: "Doe",
-  email: "jane@example.com",
-  phone: "555-987-6543",
-  initials: "JD",
-},
-{
-  id: 5,
-  name: "Alice",
-  lastname: "Smith",
-  email: "alice@example.com",
-  phone: "321-654-9870",
-  initials: "AS",
-},
-{
-  id: 6,
-  name: "Bob",
-  lastname: "Johnson",
-  email: "bob@example.com",
-  phone: "888-222-3333",
-  initials: "BJ",
-},
-{
-  id: 7,
-  name: "Emily",
-  lastname: "Davis",
-  email: "emily@example.com",
-  phone: "777-777-7777",
-  initials: "ED",
-},
-{
-  id: 8,
-  name: "Michael",
-  lastname: "Brown",
-  email: "michael@example.com",
-  phone: "666-666-6666",
-  initials: "MB",
-},
-{
-  id: 9,
-  name: "Sarah",
-  lastname: "Wilson",
-  email: "sarah@example.com",
-  phone: "444-444-4444",
-  initials: "SW",
-},
-{
-  id: 10,
-  name: "David",
-  lastname: "Lee",
-  email: "david@example.com",
-  phone: "222-888-9999",
-  initials: "DL",
-  }
-];
-
+let contacts = [];
 let userData = [];
 let sortedUsers;
 let id;
@@ -199,6 +118,7 @@ async function addNewContactToContactlist() {
     email: email,
     phone: phone,
     initials: firstname.charAt(0) + lastname.charAt(0),
+    circleColor: getRandomColor(),
   })
   renderContacts()
   setItem("id", id)
@@ -261,10 +181,48 @@ function addNewUser() {
   console.log(contacts);
 }
 
-
 function renderSingleContactOverview(id) {
   const singlContactDataContainer = document.getElementById("single-contact-data-container")
   singlContactDataContainer.innerHTML = "";
   singlContactDataContainer.innerHTML += singleContactOverview(id)
 }
 
+function getRandomColor() {
+  let number = Math.floor(Math.random(16)) * 1
+  switch (number) {
+    case 1:
+      return "user-color-one"
+    case 2:
+      return "user-color-tow"
+    case 3:
+      return "user-color-three"
+    case 4:
+      return "user-color-four"
+    case 5:
+      return "user-color-five"
+    case 6:
+      return "user-color-six"
+    case 7:
+      return "user-color-seven"
+    case 8:
+      return "user-color-eight"
+    case 9:
+      return "user-color-nine"
+    case 10:
+      return "user-color-ten"
+    case 11:
+      return "user-color-eleven"
+    case 12:
+      return "user-color-twelve"
+    case 13:
+      return "user-color-thirteen"
+    case 14:
+      return "user-color-fourteen"
+    case 15:
+      return "user-color-ten"
+    case 16:
+      return "user-color-ten"
+    default:
+      return "user-color-one"
+  }
+}
