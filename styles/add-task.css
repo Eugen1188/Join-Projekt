@@ -22,18 +22,28 @@
   justify-content: flex-start;
 }
 
-.add-task-container {
+.task-headline {
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-direction: column;
+  align-items: center;
   position: absolute;
   left: 328px;
   top: 206px;
+  max-width: 1208px;
+  height: 232px;
+}
+
+.add-task-container {
+  display: flex;
+  position: fixed;
+  inset: 336px 328px;
+  width: 1208px;
 }
 
 .addtask-side-left {
   display: flex;
+  position: absolute;
+  left: 328px;
+  top: 327px;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
@@ -42,10 +52,23 @@
 }
 
 .input-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 8px;
   width: 440px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.fill-btn-white path {
+  fill: white;
+}
+
+.due-date-icon {
+  position: absolute;
+  top: 38px;
+  right: 12px;
 }
 
 .assigned-to-container {
@@ -71,12 +94,10 @@
   align-items: center;
 }
 
-svg:hover {
-  background-color: #d1d1d1;
-  border-radius: 50%;
-}
-
 .divider {
+  position: absolute;
+  left: 816.25px;
+  top: 327px;
   width: 1px;
   background-color: #d1d1d1;
   height: 424px;
@@ -84,6 +105,9 @@ svg:hover {
 
 .addtask-side-right {
   display: flex;
+  position: absolute;
+  top: 327px;
+  left: 864.25px;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
@@ -94,6 +118,8 @@ svg:hover {
 .add-task-form {
   display: flex;
   flex-direction: row;
+  position: absolute;
+  max-width: 1208px;
 }
 
 .form-body {
@@ -130,27 +156,49 @@ input[type="radio"] {
   align-items: center;
 }
 
+.required-icon {
+  color: #ff8190;
+}
+
 .svg-container svg {
   position: absolute;
-  margin-right: 46px;
+
+  right: 12px;
 }
 
 label.radio-button {
-  display: inline-block;
+  align-items: center;
+  display: flex;
   padding: 10px 20px;
-  background-color: var(--button-color);
-  color: #fff;
+  justify-content: center;
+  background-color: white;
+  color: black;
   cursor: pointer;
   border-radius: 5px;
   margin-right: 10px;
+  height: 56px;
+  width: 136px;
+  gap: 8px;
+}
+
+label img {
+  width: 24px;
+  gap: 8px;
 }
 
 input[type="radio"]:checked + label.radio-button {
-  background-color: var(--button-selected);
+  background-color: var(--prio-button-selected);
 }
 
-input {
+.prio-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+select {
   width: 440px;
+  height: 48px;
   padding-block: 0;
   padding-inline: 0;
   color: #a8a8a8;
@@ -158,7 +206,20 @@ input {
   border: 1px solid #d1d1d1;
   border-radius: 10px;
   background-color: white;
-  padding: 12px 21px;
+  padding: 12px 21px 12px 21px;
+}
+
+input {
+  width: 398px;
+  height: 24px;
+  padding-block: 0;
+  padding-inline: 0;
+  color: #a8a8a8;
+  font-size: 18px;
+  border: 1px solid #d1d1d1;
+  border-radius: 10px;
+  background-color: white;
+  padding: 12px 21px 12px 21px;
 }
 
 textarea {
