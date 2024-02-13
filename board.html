@@ -88,23 +88,22 @@
         </div>
     </div>
     <div class="board-main">
-        <div id="todo" class="board-card-section" ondrop="moveTo('todo')" ondragover="allowDrop(event)">
+        <div id="todo" class="board-card-section" ondragleave="removeGhostCard('ghostcard')" ondrop="moveTo('todo')" ondragover="allowDrop(event);renderGhostCard('todo')">
             <div class="board-no-task">
                 <span>No tasks To do</span>
             </div>
         </div>
-        <div id="in-progress" class="board-card-section" ondrop="moveTo('in-progress')" ondragover="allowDrop(event)">
+        <div id="in-progress" class="board-card-section" ondragleave="removeGhostCard('ghostcard')" ondrop="moveTo('in-progress')" ondragover="allowDrop(event);renderGhostCard('in-progress')">
             <div class="board-no-task">
                 <span>No tasks To do</span>
             </div>
         </div>
-        <div id="await-feedback" class="board-card-section" ondrop="moveTo('await-feedback')"
-            ondragover="allowDrop(event)">
+        <div id="await-feedback" class="board-card-section" ondragleave="removeGhostCard('ghostcard')" ondrop="moveTo('await-feedback')" ondragover="allowDrop(event);renderGhostCard('await-feedback')">
             <div class="board-no-task">
                 <span>No tasks To do</span>
             </div>
         </div>
-        <div id="done" class="board-card-section" ondrop="moveTo('done')" ondragover="allowDrop(event)">
+        <div id="done" class="board-card-section" ondragleave="removeGhostCard('ghostcard')" ondrop="moveTo('done')" ondragover="allowDrop(event);renderGhostCard('done')">
             <div class="board-no-task">
                 <span>No tasks To do</span>
             </div>

@@ -148,15 +148,15 @@
 }
 
 
-
 .board-card-section {
     width: 256px;
     display: flex;
     align-items: center;
     flex-direction: column;
     gap: 16px;
-    height: 60%;
+    height: calc(100vh - 328px);
     overflow-y: scroll;
+    z-index: 1000;
 }
 
 .board-card-section::-webkit-scrollbar {
@@ -173,6 +173,16 @@
     padding: 16px;
     gap: 24px;
     cursor: pointer;
+    z-index: 3000;
+    
+}
+
+.card-rotate{
+    rotate: 15deg;
+}
+
+.card-rotate-overflow{
+    overflow: visible!important;
 }
 
 .board-card:active {
@@ -400,4 +410,20 @@
     display: flex;
     align-items: center;
     cursor: pointer;
+}
+
+.ghost-card{
+    width: 220px;
+    height: 222px;
+    border: 2px dotted rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 24px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.08);
+    padding: 16px;
+    pointer-events: none;
+}
+
+#in-progress-ghost{
+    height: 100%;
+    width: 100%;
 }

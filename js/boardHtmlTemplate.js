@@ -1,6 +1,6 @@
 function templateCard(task) {
     return `
-            <div onclick="renderTaskOverlay(${task.id})" draggable="true" ondragstart="startDragging(${task.id})" class="board-card">
+            <div id="card${task.id}" onclick="renderTaskOverlay(${task.id})" draggable="true" ondragstart="startDragging(${task.id}); rotateCard(${task.id})" class="board-card">
                 <div class="board-card-topic" style="background-color:${checkCategory(task.category)}">
                     <span>${task.category}</span>
                 </div>
@@ -110,5 +110,11 @@ function templateProgressBar(progress) {
         <div class="task-progress-blank">
           <div class="task-progress" style="width:${progress}%"></div>
         </div>
+    `
+}
+
+function templateGhostCard(){
+    return `
+        <div id="ghostcard" class="ghost-card"></div>
     `
 }
