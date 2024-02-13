@@ -169,6 +169,7 @@ input[type="radio"] {
 label.radio-button {
   align-items: center;
   display: flex;
+  font-size: 21px;
   padding: 10px 20px;
   justify-content: center;
   background-color: white;
@@ -188,6 +189,8 @@ label img {
 
 input[type="radio"]:checked + label.radio-button {
   background-color: var(--prio-button-selected);
+  color: white;
+  font-weight: 700;
 }
 
 .prio-container {

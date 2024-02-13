@@ -10,7 +10,9 @@ document.addEventListener("DOMContentLoaded", function () {
   let urgent = document.getElementById("urgent");
 
   low.addEventListener("click", handleClick);
+  low.addEventListener("click", changeIconColor);
   medium.addEventListener("click", handleClick);
+  medium.addEventListener("click", changeIconColor);
   urgent.addEventListener("click", handleClick);
   urgent.addEventListener("click", changeIconColor);
 });
@@ -42,9 +44,17 @@ function changeIconColor(event) {
   let mediumIcon = document.getElementById("medium-icon");
   let lowIcon = document.getElementById("low-icon");
 
+  let icons = [urgentIcon, mediumIcon, lowIcon];
+  icons.forEach((icon) => {
+    icon.classList.remove("fill-btn-white");
+  });
+
   if (priorityIcon == "urgent") {
-    console.log(priorityIcon);
     urgentIcon.classList.add("fill-btn-white");
+  } else if (priorityIcon == "medium") {
+    mediumIcon.classList.add("fill-btn-white");
+  } else if (priorityIcon == "low") {
+    lowIcon.classList.add("fill-btn-white");
   }
 }
 
