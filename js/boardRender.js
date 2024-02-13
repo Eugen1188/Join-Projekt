@@ -100,3 +100,13 @@ function renderTaskOverlay(index) {
     overlay.innerHTML = templateTaskOverlay(taskIndex);
     openOverlay();
 }
+
+
+function renderSubtask(task){
+    let textHTML ='';
+    for (let i = 0; i < task.subtask.subtask.length; i++) {
+        const subtask = task.subtask.subtask[i];
+        textHTML += templateOverlaySubtask(i,subtask);
+    }
+    return textHTML;
+}
