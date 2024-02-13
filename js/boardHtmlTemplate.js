@@ -72,14 +72,7 @@ function templateTaskOverlay(task) {
         <div class="task-overlay-subtasks">
             <span class="task-overlay-text task-overlay-text-fix">Subtasks</span>
             <div id="overlay-subtask-container">
-                <div class="task-subtask">
-                    <img id="sub0" onclick="checkedSubtask(0)" src="./assets/img/checkbuttonchecked.png" alt="checked">
-                    <span>This is a subtask thats completed</span>
-                </div>
-                <div class="task-subtask">
-                    <img id="sub1" onclick="checkedSubtask(1)" src="./assets/img/checkbuttonempty.png" alt="unchecked">
-                    <span>This is a subtask thats not completed</span>
-                </div>   
+                ${renderSubtask(task)}
             </div>
         </div>
         <div class="overlay-menu">
@@ -102,5 +95,14 @@ function templateOverlayAssignee(assignee, name){
             <div class="assignee" style="background-color: #42526E">${assignee}</div>
             <span>${name}</span>
         </div>
+    `
+}
+
+function templateOverlaySubtask(index,subtask){
+    return `
+            <div class="task-subtask">
+                <img id="sub${index}" onclick="checkedSubtask(${index})" src="./assets/img/checkbuttonempty.png" alt="unchecked">
+                <span>${subtask}</span>
+            </div>
     `
 }
