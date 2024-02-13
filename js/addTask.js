@@ -49,35 +49,29 @@ function saveEditedSubtask(index) {
 }
 
 //HTML Validierung funktioniert nicht da onsubmit false ist
-//Habe ich erstmal deaktiviert, da diese funktion doppelte Initalien erstellt.
+// getCheckedContact() darf nur einmal ausgeführt werden, da dort auch die Initalien dran hängen
 function validateForm() {
-  getCheckedContact();
+  // die if Bedingung ist notwendig, da im Fehlerfall die getCheckedContact() funktion erneut ausgeführt und somit dubletten erzeugt werden
+  if (checkedContacts.length == 0) {
+    getCheckedContact();
+  }
   let submitButton = document.getElementById("submitButton"); // disabled = false // sollte man button deaktivieren wenn die inputs fehlerhaft sind ? ..;
   let lengthCheckedContacts = checkedContacts.length;
-  let title = document.getElementById("title").value;
-  let taskDescription = document.getElementById("taskDescription").value;
-  let date = document.getElementById("date").value;
   let prioInputs = document.getElementsByName("priority");
   for (let i = 0; i < prioInputs.length; i++) {
     if (prioInputs[i].checked) {
       prio = prioInputs[i].value;
     }
   }
-  if (prio !== "low" && prio !== "medium" && prio !== "urgent") {
-    alert("select a Prio Value !");
-  } else if (lengthCheckedContacts < 1) {
+  if (lengthCheckedContacts < 1) {
     alert("select a Contact !");
-  } else if (title == "") {
-    alert("Enter a Title !");
-  } else if (taskDescription == "") {
-    alert("Enter a Description!");
-  } else if (date == "") {
-    alert("select a Date !");
+  } else if (prio !== "low" && prio !== "medium" && prio !== "urgent") {
+    alert("select a Prio Value !");
   } else addTask();
 }
 
 async function addTask() {
-  getCheckedContact();
+  //getCheckedContact();
   let id = allTasks.length;
   let title = document.getElementById("title");
   let taskDescription = document.getElementById("taskDescription");
@@ -108,7 +102,7 @@ async function addTask() {
   ];
   console.log(task);
   allTasks.push(task);
-  setItem("test_board", allTasks);
+  //setItem("test_board", allTasks);
   //weiterleitung auf Board nach Taskerstellung
   //window.location.href = "http://127.0.0.1:5500/board.html";
 }

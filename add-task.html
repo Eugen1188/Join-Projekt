@@ -21,7 +21,11 @@
       <div class="task-headline">
         <h1>Add Task</h1>
       </div>
-      <form class="add-task-form" id="form" onsubmit="return false;">
+      <form
+        class="add-task-form"
+        id="form"
+        onsubmit="validateForm();return false"
+      >
         <div class="addtask-side-left">
           <div class="input-container">
             <label>Title</label>
@@ -134,9 +138,7 @@
           </div>
           <div class="button-container">
             <button type="button">Clear</button>
-            <button id="submitButton" type="submit" onclick="addTask() ">
-              Create Task
-            </button>
+            <button id="submitButton" type="submit">Create Task</button>
           </div>
         </div>
       </form>
