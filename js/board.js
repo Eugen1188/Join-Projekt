@@ -1,6 +1,7 @@
 let currentDraggedElement;
 let checkedSubtasks = [];
 let lockout;
+
 function testfunction() {
     console.log(allTasks[0][0]);
     console.log(allTasks[1]);
@@ -46,7 +47,6 @@ async function moveTo(id) {
         await initBoard();
         addOverflow();
     }
-
 }
 
 function closeOverlay() {
@@ -56,7 +56,7 @@ function closeOverlay() {
     initBoard();
 }
 
-function openOverlay(index) {
+function openOverlay() {
     displayOpenOverlay();
     setTimeout(slideInOverlay, 75)
 }
@@ -76,7 +76,6 @@ function displayCloseOverlay() {
 
 function checkedSubtask(subtask, id) {
 
-    //Subtasks brauch ein object für die task und den jeweiligen wert ob diese ausgeführt wurde
     let subtaskDom = document.getElementById(`sub${subtask}`);
 
 
@@ -111,12 +110,14 @@ function rotateCard(id) {
     }
  }
 
+
  function addOverflow(){
     let overflow = document.getElementsByClassName('board-card-section');
     for (let i = 0; i < overflow.length; i++) {
         overflow[i].classList.remove('card-rotate-overflow');
     }
  }
+
 
  function renderGhostCard(id){
 

@@ -133,8 +133,7 @@ function renderProgressBar(task) {
 
 function renderProgressAmount(task){
     let progressLength = task.subtask.subtask.length;
-    let taskState = task.subtask.taskstate;
-    let finishedSubtasks = taskState.filter(Boolean).length;
+    let taskState = task.subtask.taskstate.filter(Boolean).length;
 
-    return `${finishedSubtasks} / ${progressLength}`;
+    return `${taskState} / ${progressLength}`;
 }
