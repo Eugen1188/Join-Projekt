@@ -2,6 +2,7 @@ let checkedContacts = [];
 let initials = [];
 let subtasks = [];
 let taskStates = [];
+let tempContacts = [];
 
 function getInput() {
   let subtask = document.getElementById("subtask").value;
@@ -48,10 +49,11 @@ function saveEditedSubtask(index) {
 }
 
 //HTML Validierung funktioniert nicht da onsubmit false ist
+//Habe ich erstmal deaktiviert, da diese funktion doppelte Initalien erstellt.
 function validateForm() {
   getCheckedContact();
   let submitButton = document.getElementById("submitButton"); // disabled = false // sollte man button deaktivieren wenn die inputs fehlerhaft sind ? ..;
-  let contacts = checkedContacts.length;
+  let lengthCheckedContacts = checkedContacts.length;
   let title = document.getElementById("title").value;
   let taskDescription = document.getElementById("taskDescription").value;
   let date = document.getElementById("date").value;
@@ -63,7 +65,7 @@ function validateForm() {
   }
   if (prio !== "low" && prio !== "medium" && prio !== "urgent") {
     alert("select a Prio Value !");
-  } else if (contacts < 1) {
+  } else if (lengthCheckedContacts < 1) {
     alert("select a Contact !");
   } else if (title == "") {
     alert("Enter a Title !");
@@ -101,7 +103,7 @@ async function addTask() {
       date: date.value,
       prio: prio,
       category: category.value,
-      subtask: {subtask:subtasks,taskstate:taskStates}
+      subtask: { subtask: subtasks, taskstate: taskStates },
     },
   ];
   console.log(task);
@@ -111,6 +113,23 @@ async function addTask() {
   //window.location.href = "http://127.0.0.1:5500/board.html";
 }
 
+async function getItemContacts(key) {
+  const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
+  try {
+    let response = await fetch(url);
+    if (response.ok) {
+      const responseData = await response.json();
+      return JSON.parse(responseData.data.value);
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function initContacts() {
+  tempContacts = await getItemContacts("contacts");
+  getContact();
+}
 /**
  * Lädt Kontakte in ein Dropdown-Menü.
  * @function getContact
@@ -130,7 +149,7 @@ function getContact() {
    */
   let optionsHTML = "";
   // Durchläuft jedes Kontaktobjekt und erstellt eine Option für das Dropdown-Menü.
-  contacts.forEach((contact) => {
+  tempContacts.forEach((contact) => {
     optionsHTML += `
     <div id="contactList" class="checkbox">
      <label for="${contact.name}">${contact.name} ${contact.lastname}</label>

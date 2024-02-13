@@ -9,10 +9,10 @@
     <link rel="stylesheet" href="styles/add-task.css" />
     <link rel="stylesheet" href="styles/style.css" />
     <script src="./script.js"></script>
-    <script src="./js/contacts.js" defer></script>
+
     <script src="./js/addTask.js"></script>
   </head>
-  <body onload="includeHTML(); getContact();testfunc()">
+  <body onload="includeHTML(); initContacts();testfunc()">
     <header
       id="main-header"
       w3-include-html="assets/templates/header.html"
@@ -134,7 +134,7 @@
           </div>
           <div class="button-container">
             <button type="button">Clear</button>
-            <button id="submitButton" type="submit" onclick="validateForm() ">
+            <button id="submitButton" type="submit" onclick="addTask() ">
               Create Task
             </button>
           </div>
