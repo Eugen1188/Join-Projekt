@@ -74,7 +74,7 @@ function templateTaskOverlay(task) {
             </div>
         </div>
         <div class="overlay-menu">
-            <div class="overlay-menu-content">
+            <div class="overlay-menu-content" onclick="deleteTask(${task.id})">
                 <img src="./assets/img/icons/delete.png" alt="delete">
                 <span>Delete</span>
             </div>

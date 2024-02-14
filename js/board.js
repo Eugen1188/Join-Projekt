@@ -120,13 +120,12 @@ function rotateCard(id) {
 
 
  function renderGhostCard(id){
-
     if (lockout!=true){
         document.getElementById(id).innerHTML += templateGhostCard();
         lockout = true;
     }
-
  }
+
 
  function removeGhostCard(id){
     let ghost = document.getElementById(id);
@@ -135,4 +134,14 @@ function rotateCard(id) {
         document.getElementById(id).remove();
         lockout=false;    
     }
+ }
+
+ 
+ function deleteTask(index){
+    allTasks.splice(index,1);
+    for (let i = 0; i < allTasks.length; i++) {
+        allTasks[i][0].id=i;
+    }
+    setItem("test_board", allTasks);
+    closeOverlay();
  }
