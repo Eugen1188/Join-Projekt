@@ -203,7 +203,6 @@ async function addNewContactToContactlist() {
     id--
     return
   }
-  console.log(firstname[0].charAt(0));
   contacts.push({
     id: id,
     name: firstCharToUpperCase(firstname[(0)]),
@@ -326,4 +325,27 @@ function firstCharToUpperCase(name) {
 function firstCharToLowerCase(name) {
   let toUpper = name.charAt(0).toLowerCase + name.substring(1);
   return toUpper
+}
+
+function renderAddNewContact() {
+  let card = document.getElementById("edit-card")
+  card.innerHTML = ""
+  card.innerHTML += contactsCardHTML("Edit contact", "", "addNewContactToContactlist")
+}
+
+function closeRenderContactCard() {
+  let card = document.getElementById("edit-card")
+  let name = document.getElementById("name").value
+  let email = document.getElementById("email").value
+  let phone = document.getElementById("phone").value
+  name = ""
+  email = ""
+  phone = ""
+  card.innerHTML = ""
+}
+
+function renderEditContact() {
+  let card = document.getElementById("edit-card")
+  card.innerHTML = ""
+  card.innerHTML += contactsCardHTML("Add contact", "Tasks are better with a team!", "editContact")
 }
