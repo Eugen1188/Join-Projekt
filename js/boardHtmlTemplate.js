@@ -87,10 +87,10 @@ function templateTaskOverlay(task) {
     `
 }
 
-function templateOverlayAssignee(assignee, name) {
+function templateOverlayAssignee(assignee, name,color) {
     return `
         <div class="task-overlay-assignee">
-            <div class="assignee" style="background-color: #42526E">${assignee}</div>
+            <div class="assignee ${color}">${assignee}</div>
             <span>${name}</span>
         </div>
     `

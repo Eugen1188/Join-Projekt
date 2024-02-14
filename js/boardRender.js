@@ -101,7 +101,8 @@ function renderOverlayAssignee(data) {
     for (let i = 0; i < data.contacts.length; i++) {
         const assignee = data.initials[i];
         const name = data.contacts[i]
-        textHTML += templateOverlayAssignee(assignee, name);
+        const color = data.circleColor[i]
+        textHTML += templateOverlayAssignee(assignee, name, color);
     }
     return textHTML
 }
