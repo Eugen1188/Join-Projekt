@@ -1,5 +1,6 @@
 let currentDraggedElement;
 let checkedSubtasks = [];
+let searchedTask = [];
 let lockout;
 
 function testfunction() {
@@ -10,7 +11,7 @@ function testfunction() {
 async function initBoard() {
     await testfunc();
     renderCheckState(allTasks);
-    lockout=false;
+    lockout = false;
 }
 
 function allowDrop(ev) {
@@ -108,40 +109,53 @@ function rotateCard(id) {
     for (let i = 0; i < overflow.length; i++) {
         overflow[i].classList.add('card-rotate-overflow');
     }
- }
+}
 
 
- function addOverflow(){
+function addOverflow() {
     let overflow = document.getElementsByClassName('board-card-section');
     for (let i = 0; i < overflow.length; i++) {
         overflow[i].classList.remove('card-rotate-overflow');
     }
- }
+}
 
 
- function renderGhostCard(id){
-    if (lockout!=true){
+function renderGhostCard(id) {
+    if (lockout != true) {
         document.getElementById(id).innerHTML += templateGhostCard();
         lockout = true;
     }
- }
+}
 
 
- function removeGhostCard(id){
+function removeGhostCard(id) {
     let ghost = document.getElementById(id);
 
     if (ghost) {
         document.getElementById(id).remove();
-        lockout=false;    
+        lockout = false;
     }
- }
+}
 
- 
- function deleteTask(index){
-    allTasks.splice(index,1);
+
+function deleteTask(index) {
+    allTasks.splice(index, 1);
     for (let i = 0; i < allTasks.length; i++) {
-        allTasks[i][0].id=i;
+        allTasks[i][0].id = i;
     }
     setItem("test_board", allTasks);
     closeOverlay();
- }
+}
+
+function searchTask() {
+    let searchValue = document.getElementById('board-search-task').value.toLowerCase();
+    searchedTask = [];
+
+    for (let i = 0; i < allTasks.length; i++) {
+
+        if (allTasks[i][0].title.toLowerCase().indexOf(searchValue) !== -1) {
+            searchedTask.push(allTasks[i]);
+        }
+    }
+    renderCheckState(searchedTask);
+}
