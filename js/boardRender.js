@@ -80,9 +80,12 @@ function renderCard(task, id) {
  */
 function renderCardAssignee(data) {
     let textHTML = '';
-    for (let i = 0; i < data.length; i++) {
-        const assignee = data[i];
-        textHTML += templateCardAssignee(assignee);
+    console.log(data)
+    for (let i = 0; i < data.initials.length; i++) {
+        const assignee = data.initials[i];
+        const color = data.circleColor[i]
+        console.log(assignee);
+        textHTML += templateCardAssignee(assignee,color);
     }
     return textHTML
 }

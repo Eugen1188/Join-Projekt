@@ -20,7 +20,7 @@ function templateCard(task) {
                 </div>
                 <div class="board-card-status">
                     <div class="board-card-assignee">
-                        ${renderCardAssignee(task.initials)}
+                        ${renderCardAssignee(task)}
                     </div>
                     <div>
                         <img src="./assets/img/${task.prio}.png" alt="prio-low">
@@ -39,9 +39,9 @@ function templateNoTask() {
     `
 }
 
-function templateCardAssignee(assignee) {
+function templateCardAssignee(assignee, color) {
     return `
-    <div class="assignee" style="background-color: #42526E">${assignee}</div>
+    <div class="assignee ${color}" >${assignee}</div>
     `
 }
 

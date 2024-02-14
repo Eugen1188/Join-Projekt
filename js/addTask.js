@@ -155,7 +155,7 @@ async function addTask() {
   ];
   console.log(task);
   allTasks.push(task);
-  //setItem("test_board", allTasks);
+  setItem("test_board", allTasks);
   //weiterleitung auf Board nach Taskerstellung
   //window.location.href = "http://127.0.0.1:5500/board.html";
 }
