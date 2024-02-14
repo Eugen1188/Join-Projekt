@@ -87,7 +87,7 @@
 }
 
 .contact-values {
-  width: 440px;
+  width: calc(440px - 42px);
   box-shadow: 0px 4px 4px 0px #0000001a;
   display: flex;
   border-radius: 10px;
@@ -97,6 +97,7 @@
   overflow-y: scroll;
   min-height: 40%;
   background-color: white;
+  padding: 16px 21px;
 }
 
 .contact-list-name-initials {
