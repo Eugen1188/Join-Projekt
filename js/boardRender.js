@@ -3,7 +3,12 @@ let tasksInProgress = [];
 let tasksAwaitFeedback = [];
 let tasksDone = [];
 
-
+/**
+ * this function clears the whole board and after that it renders the tasks
+ * in regard of the task status.
+ * 
+ * @param {Object} data - JSON with all Tasks data
+ */
 async function renderCheckState(data) {
     await clearBoard();
 
@@ -12,22 +17,25 @@ async function renderCheckState(data) {
 
         if (task.status.inProgress == true) {
             tasksInProgress.push(task);
-            renderCardInProgress(task);
+            renderCard(task, 'in-progress');
         } else if (task.status.awaitFeedback == true) {
             tasksAwaitFeedback.push(task);
-            renderCardAwaitFeedback(task);
+            renderCard(task, 'await-feedback');
         } else if (task.status.done == true) {
             tasksDone.push(task);
-            renderCardDone(task);
+            renderCard(task, 'done');
         } else {
             tasksTodo.push(task);
-            renderCardTodo(task);
+            renderCard(task, 'todo');
         }
     }
     checkIfTasksAvailable();
 }
 
 
+/**
+ * this function clears the board and all board dependant arrays
+ */
 function clearBoard() {
     document.getElementById('todo').innerHTML = '';
     document.getElementById('in-progress').innerHTML = '';
@@ -40,6 +48,10 @@ function clearBoard() {
 }
 
 
+/**
+ * this function checks if there are tasks in the section, if not the template for noTask
+ * will be rendered.
+ */
 function checkIfTasksAvailable() {
     if (tasksTodo.length == 0) { document.getElementById('todo').innerHTML = templateNoTask() };
     if (tasksInProgress.length == 0) { document.getElementById('in-progress').innerHTML = templateNoTask() };
@@ -48,30 +60,24 @@ function checkIfTasksAvailable() {
 }
 
 
-function renderCardTodo(task) {
-    boardSection = document.getElementById('todo');
+/**
+ * this function renders the card in regard of the given task and section id
+ * 
+ * @param {Object} task - data of the task
+ * @param {string} id - id of the section 
+ */
+function renderCard(task, id) {
+    boardSection = document.getElementById(id);
     boardSection.innerHTML += templateCard(task);
 }
 
 
-function renderCardInProgress(task) {
-    boardSection = document.getElementById('in-progress');
-    boardSection.innerHTML += templateCard(task);
-}
-
-
-function renderCardAwaitFeedback(task) {
-    boardSection = document.getElementById('await-feedback');
-    boardSection.innerHTML += templateCard(task);
-}
-
-
-function renderCardDone(task) {
-    boardSection = document.getElementById('done');
-    boardSection.innerHTML += templateCard(task);
-}
-
-
+/**
+ * this function gets the assignees and renders them in the html template
+ * 
+ * @param {Array} data - provides assignees as an array
+ * @returns html template with Assignees
+ */
 function renderCardAssignee(data) {
     let textHTML = '';
     for (let i = 0; i < data.length; i++) {
@@ -81,7 +87,12 @@ function renderCardAssignee(data) {
     return textHTML
 }
 
-// parameter für namen hinzufügen
+
+/**
+ * 
+ * @param {*} data 
+ * @returns 
+ */
 function renderOverlayAssignee(data) {
     let textHTML = '';
     for (let i = 0; i < data.contacts.length; i++) {
@@ -91,6 +102,7 @@ function renderOverlayAssignee(data) {
     }
     return textHTML
 }
+
 
 function renderTaskOverlay(index) {
     let overlay = document.getElementById('overlay-card');
@@ -122,6 +134,7 @@ function renderSubtask(task) {
     return textHTML;
 }
 
+
 function renderProgressBar(task) { 
     let progressLength = task.subtask.subtask.length;
     let taskState = task.subtask.taskstate;
@@ -130,6 +143,7 @@ function renderProgressBar(task) {
 
     return templateProgressBar(width);
 }
+
 
 function renderProgressAmount(task){
     let progressLength = task.subtask.subtask.length;

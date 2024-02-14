@@ -19,7 +19,7 @@ async function initBoard() {
 /**
  * function to allow the drop event
  * 
- * @param {Event} ev - catch the incoming event
+ * @param {event} ev - catch the incoming event
  * @author Kevin Mueller 
  */
 function allowDrop(ev) {
@@ -48,7 +48,6 @@ async function moveTo(id) {
     allTasks[currentDraggedElement][0].status.inProgress = false;
     allTasks[currentDraggedElement][0].status.awaitFeedback = false;
     allTasks[currentDraggedElement][0].status.done = false;
-
 
     if (id == 'in-progress') {
         allTasks[currentDraggedElement][0].status.inProgress = true;
@@ -136,9 +135,7 @@ function displayCloseOverlay() {
  * @author Kevin Mueller
  */
 function checkedSubtask(subtask, id) {
-
     let subtaskDom = document.getElementById(`sub${subtask}`);
-
 
     if (allTasks[id][0].subtask.taskstate[subtask] == true) {
         subtaskDom.src = `./assets/img/checkbuttonempty.png`;
