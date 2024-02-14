@@ -128,10 +128,6 @@
     background-color: var(--button-selected);
 }
 
-.contact-data:active .initials-circle {
-    border: 2px solid var(--background-color-site);
-}
-
 .set-contact-to-active {
     color: var(--background-color-site);
     background-color: var(--button-selected);
@@ -149,6 +145,7 @@
     justify-content: center;
     align-items: center;
     color: var(--background-color-site);
+    border: 2px solid var(--background-color-site);
 }
 
 .initials-circle span {
@@ -319,26 +316,20 @@
 }
 
 .edit-card-header {
-    height: 89px;
-    width: 100%;
+    min-width: 467px;
     font-weight: 700;
     font-size: 61px;
-    line-height: 73.2px;
     color: var(--background-color-site);
     position: relative;
-}
-
-.edit-card-header::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 15%;
-    height: 1px;
-    background-color: var(--light-blue);
 }
 
 .small-card-text {
     font-size: 27px;
     font-weight: 400;
+    display: block;
+}
+
+.small-underline {
+    width: 20%;
+    border-bottom: 1px solid var(--light-blue);
 }

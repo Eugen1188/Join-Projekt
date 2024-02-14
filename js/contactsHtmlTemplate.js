@@ -1,4 +1,3 @@
-
 /**
  * Renders the first letter of the contact array
  * @param {number} index - Array index required to display the first letter
@@ -24,7 +23,6 @@ function contactUserCardHtml(index) {
     return /*html*/ `
         <div class="contact-data pointer" id="contact-data-${index}" onclick="renderSingleContactOverview(${index})">
             <div class="initials-circle ${contacts[index].circleColor}">
-                <!-- USER DATA -->
                 <span>${contacts[index].initials}</span>
             </div>
             <div class="user-data-container">
@@ -75,7 +73,6 @@ function singleContactOverview(index) {
         </div>
     `
 }
-
 
 /**
  * Is required to display the form fields
