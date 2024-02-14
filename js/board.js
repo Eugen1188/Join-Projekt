@@ -259,4 +259,5 @@ function searchTask() {
         }
     }
     renderCheckState(searchedTask);
+    return false
 }
