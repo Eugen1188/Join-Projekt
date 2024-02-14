@@ -87,12 +87,16 @@
 }
 
 .contact-values {
+  width: 440px;
+  box-shadow: 0px 4px 4px 0px #0000001a;
   display: flex;
+  border-radius: 10px;
   flex-direction: column;
   align-items: flex-end;
   gap: 8px;
   overflow-y: scroll;
   min-height: 40%;
+  background-color: white;
 }
 
 .contact-list-name-initials {
@@ -118,17 +122,33 @@
 }
 
 .contact-list-name-container {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 440px;
 }
 
 .contact-list-checkbox-icon {
   display: flex;
 }
 
+.input-container-contacts {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
+}
+
 .arrow {
+  top: 40px;
+  right: 12px;
+  cursor: pointer;
+  position: absolute;
   flex-grow: 1;
   display: flex;
   justify-content: flex-end;
@@ -267,6 +287,7 @@ input {
 
 textarea {
   border: none;
+  resize: none;
   border-radius: 10px;
   background-color: white;
   padding: 7px 16px;

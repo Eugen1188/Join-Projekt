@@ -175,48 +175,25 @@ async function getItemContacts(key) {
 
 async function initContacts() {
   tempContacts = await getItemContacts("contacts");
-  getContact();
+  getAllContacts();
 }
 
-function getContact() {
+function getAllContacts() {
+  displayContacts(tempContacts);
+}
+
+function displayContacts(contacts) {
   let selectElement = document.getElementById("contact-values");
   selectElement.innerHTML = "";
   let optionsHTML = "";
-  tempContacts.forEach((contact, index) => {
-    optionsHTML += `
-      <div id="contact_${index}" onclick="getClickedContact(${index},${contact.id})" class="contact-list-name-container pointer">
-  <div class="contact-list-name-initials">
-    <div  class="contact-list-circle-element ${contact.circleColor}">
-      <span>${contact.initials}</span>
-    </div>
-    <div class="contact-list-name-element">
-      <span>${contact.name}</span>
-      <span>${contact.lastname}</span>
-    </div>
-  </div>
-  <div id="checkboxIcon_${index}" class="contact-list-checkbox-icon">
-    <svg
-      width="25"
-      height="24"
-      viewBox="0 0 25 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <rect
-        x="4.38818"
-        y="4"
-        width="16"
-        height="16"
-        rx="3"
-        stroke="#2A3647"
-        stroke-width="2"
-      />
-    </svg>
-  </div>
-</div>
-      `;
+  contacts.forEach((contact, index) => {
+    optionsHTML += generateContactHTML(contact, index);
   });
   selectElement.innerHTML = optionsHTML;
+}
+
+function displayFilteredContacts(filteredContacts) {
+  displayContacts(filteredContacts);
 }
 
 function getClickedContact(index, contactId) {
@@ -227,34 +204,32 @@ function getClickedContact(index, contactId) {
     if (contactIndex !== -1) {
       checkedContacts.splice(contactIndex, 1);
     }
-    iconToChange.innerHTML = `
-      <svg
-        width="25"
-        height="24"
-        viewBox="0 0 25 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <rect
-          x="4.38818"
-          y="4"
-          width="16"
-          height="16"
-          rx="3"
-          stroke="#2A3647"
-          stroke-width="2"
-        />
-      </svg>
-    `;
+    iconToChange.innerHTML = renderBoxIcon();
   } else {
     checkedContacts.push(contactId);
-    iconToChange.innerHTML = `
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M20 11V17C20 18.6569 18.6569 20 17 20H7C5.34315 20 4 18.6569 4 17V7C4 5.34315 5.34315 4 7 4H15" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
-        <path d="M8 12L12 16L20 4.5" stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    `;
+    iconToChange.innerHTML = renderCheckedIcon();
   }
+}
+
+function filterContacts() {
+  // Input-Wert abrufen
+  let filterValue = document
+    .getElementById("contactAssignInput")
+    .value.trim()
+    .toUpperCase();
+  // Wenn das Eingabefeld leer ist, getAllContacts aufrufen, um alle Kontakte anzuzeigen
+  if (filterValue === "") {
+    getAllContacts();
+    return;
+  }
+  // Neue Liste für gefilterte Kontakte erstellen
+  let filteredContacts = tempContacts.filter((contact) => {
+    // Den Filter auf Namen anwenden
+    let fullName = `${contact.name.toUpperCase()}`;
+    return fullName.includes(filterValue);
+  });
+  // Neue Kontakte als Liste anzeigen
+  displayFilteredContacts(filteredContacts);
 }
 
 function getCheckedContact() {
@@ -278,8 +253,76 @@ function getCheckedContact() {
 }
 
 function showContacts() {
+  let arrow = document.getElementById("arrowContactInput");
   let id = document.getElementById("contact-values");
   id.classList.toggle("d-none");
+  arrow.classList.toggle("rotate-180");
+}
+
+function renderBoxIcon() {
+  return `
+      <svg
+        width="25"
+        height="24"
+        viewBox="0 0 25 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect
+          x="4.38818"
+          y="4"
+          width="16"
+          height="16"
+          rx="3"
+          stroke="#2A3647"
+          stroke-width="2"
+        />
+      </svg>
+    `;
+}
+
+function renderCheckedIcon() {
+  return `
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 11V17C20 18.6569 18.6569 20 17 20H7C5.34315 20 4 18.6569 4 17V7C4 5.34315 5.34315 4 7 4H15" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
+        <path d="M8 12L12 16L20 4.5" stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    `;
+}
+
+function generateContactHTML(contact, index) {
+  return `
+    <div id="contact_${index}" onclick="getClickedContact(${index},${contact.id})" class="contact-list-name-container pointer">
+      <div class="contact-list-name-initials">
+        <div  class="contact-list-circle-element ${contact.circleColor}">
+          <span>${contact.initials}</span>
+        </div>
+        <div class="contact-list-name-element">
+          <span>${contact.name}</span>
+          <span>${contact.lastname}</span>
+        </div>
+      </div>
+      <div id="checkboxIcon_${index}" class="contact-list-checkbox-icon">
+        <svg
+          width="25"
+          height="24"
+          viewBox="0 0 25 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            x="4.38818"
+            y="4"
+            width="16"
+            height="16"
+            rx="3"
+            stroke="#2A3647"
+            stroke-width="2"
+          />
+        </svg>
+      </div>
+    </div>
+  `;
 }
 
 async function testfunc() {
