@@ -29,7 +29,6 @@
   left: 328px;
   top: 206px;
   max-width: 1208px;
-  height: 232px;
 }
 
 .add-task-container {
@@ -160,7 +159,6 @@
 .add-task-form {
   display: flex;
   flex-direction: row;
-  position: absolute;
   max-width: 1208px;
 }
 
