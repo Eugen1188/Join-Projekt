@@ -168,13 +168,13 @@ async function deleteContact(id) {
  */
 async function saveNewUserData() {
   id++
-  const name = document.getElementById("name").value.trim()
+  const name = document.getElementById("name-reg").value.trim()
   const firstname = name.split(' ');
   const lastname = name.split(' ');
-  const email = document.getElementById("email").value.trim()
-  const phone = document.getElementById("phone").value.trim()
-  const password = document.getElementById("password").value.trim()
-  if (checkEmailAddress(email, userData)) {
+  const email = document.getElementById("email-reg").value.trim()
+  const password = document.getElementById("password-reg").value.trim()
+  const passwordRep = document.getElementById("rep-password-reg").value.trim()
+  if (checkEmailAddress(email, userData) || password != passwordRep) {
     id--
     return
   }
@@ -183,7 +183,6 @@ async function saveNewUserData() {
     name: firstname[0],
     lastname: lastname[(lastname.length - 1)],
     email: email,
-    phone: phone,
     password: password,
     initials: firstname[0].charAt(0).toUpperCase() + lastname[0].charAt(0)
   })
