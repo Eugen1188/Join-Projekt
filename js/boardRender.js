@@ -83,7 +83,7 @@ function renderCardAssignee(data) {
     for (let i = 0; i < data.initials.length; i++) {
         const assignee = data.initials[i];
         const color = data.circleColor[i]
-        textHTML += templateCardAssignee(assignee,color);
+        textHTML += templateCardAssignee(assignee, color);
     }
     return textHTML
 }
@@ -125,7 +125,7 @@ function renderSubtask(task) {
 
         if (substate == true) {
             imgSource = './assets/img/checkbuttonchecked.png'
-        }else if(substate == false){
+        } else if (substate == false) {
             imgSource = './assets/img/checkbuttonempty.png'
         }
         textHTML += templateOverlaySubtask(i, subtask, task, imgSource);
@@ -134,17 +134,20 @@ function renderSubtask(task) {
 }
 
 
-function renderProgressBar(task) { 
+function renderProgressBar(task) {
     let progressLength = task.subtask.subtask.length;
     let taskState = task.subtask.taskstate;
     let finishedSubtasks = taskState.filter(Boolean).length;
-    let width = ((100/progressLength)*finishedSubtasks);
-
-    return templateProgressBar(width);
+    let width = ((100 / progressLength) * finishedSubtasks);
+    if (progressLength > 0) {
+        return templateProgressBar(width);
+    } else { 
+        return ``
+    }
 }
 
 
-function renderProgressAmount(task){
+function renderProgressAmount(task) {
     let progressLength = task.subtask.subtask.length;
     let taskState = task.subtask.taskstate.filter(Boolean).length;
 

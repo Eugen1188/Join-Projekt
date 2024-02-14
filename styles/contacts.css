@@ -83,8 +83,9 @@
     font-size: 21px;
     line-height: 25.2px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
+    gap: 16px;
     color: var(--background-color-site);
     background-color: var(--button-color);
 }
@@ -123,13 +124,19 @@
     color: var(--contacts-link-color);
 }
 
+.contact-data:hover {
+    background-color: rgba(0, 0, 0, 10%);
+}
+
 .contact-data:active {
     color: var(--background-color-site);
     background-color: var(--button-selected);
 }
 
-.contact-data:active .initials-circle {
-    border: 2px solid var(--background-color-site);
+.contact-data::after {
+    color: var(--background-color-site);
+    background-color: var(--button-selected);
+
 }
 
 .set-contact-to-active {
@@ -137,9 +144,6 @@
     background-color: var(--button-selected);
 }
 
-.contact-data:hover {
-    background-color: rgba(0, 0, 0, 10%);
-}
 
 .initials-circle {
     height: 42px;
@@ -149,6 +153,7 @@
     justify-content: center;
     align-items: center;
     color: var(--background-color-site);
+    border: 2px solid var(--background-color-site);
 }
 
 .initials-circle span {
@@ -301,7 +306,7 @@
 }
 
 .edit-card-headline {
-    width: 453px;
+    width: 467px;
     height: 592px;
     padding: 66px 46px;
     background-color: var(--button-color);
@@ -319,26 +324,20 @@
 }
 
 .edit-card-header {
-    height: 89px;
-    width: 100%;
     font-weight: 700;
     font-size: 61px;
-    line-height: 73.2px;
     color: var(--background-color-site);
-    position: relative;
-}
-
-.edit-card-header::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 15%;
-    height: 1px;
-    background-color: var(--light-blue);
+    display: flex;
+    flex-direction: column;
 }
 
 .small-card-text {
     font-size: 27px;
     font-weight: 400;
+    display: inline-block;
+}
+
+.small-underline {
+    width: 25%;
+    border-bottom: 1px solid var(--light-blue);
 }
