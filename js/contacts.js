@@ -1,4 +1,95 @@
-let contacts = [];
+let contacts = [
+  {
+    id: 1,
+    name: "Max",
+    lastname: "Mustermann",
+    email: "max@example.com",
+    phone: "123-456-7890",
+    initials: "MM",
+    circleColor: "user-color-one"
+  },
+  {
+    id: 2,
+    name: "Anna",
+    lastname: "Musterfrau",
+    email: "anna@example.com",
+    phone: "987-654-3210",
+    initials: "AM",
+    circleColor: "user-color-two"
+  },
+  {
+    id: 3,
+    name: "John",
+    lastname: "Doe",
+    email: "john@example.com",
+    phone: "555-123-4567",
+    initials: "JD",
+    circleColor: "user-color-three"
+  },
+  {
+    id: 4,
+    name: "Jane",
+    lastname: "Doe",
+    email: "jane@example.com",
+    phone: "555-987-6543",
+    initials: "JD",
+    circleColor: "user-color-four"
+  },
+  {
+    id: 5,
+    name: "Alice",
+    lastname: "Smith",
+    email: "alice@example.com",
+    phone: "321-654-9870",
+    initials: "AS",
+    circleColor: "user-color-five"
+  },
+  {
+    id: 6,
+    name: "Bob",
+    lastname: "Johnson",
+    email: "bob@example.com",
+    phone: "888-222-3333",
+    initials: "BJ",
+    circleColor: "user-color-six"
+  },
+  {
+    id: 7,
+    name: "Emily",
+    lastname: "Davis",
+    email: "emily@example.com",
+    phone: "777-777-7777",
+    initials: "ED",
+    circleColor: "user-color-seven"
+  },
+  {
+    id: 8,
+    name: "Michael",
+    lastname: "Brown",
+    email: "michael@example.com",
+    phone: "666-666-6666",
+    initials: "MB",
+    circleColor: "user-color-eight"
+  },
+  {
+    id: 9,
+    name: "Sarah",
+    lastname: "Wilson",
+    email: "sarah@example.com",
+    phone: "444-444-4444",
+    initials: "SW",
+    circleColor: "user-color-nine"
+  },
+  {
+    id: 10,
+    name: "David",
+    lastname: "Lee",
+    email: "david@example.com",
+    phone: "222-888-9999",
+    initials: "DL",
+    circleColor: "user-color-ten"
+  }
+];
 let userData = [];
 let sortedUsers;
 let id;
@@ -49,7 +140,7 @@ async function getItemContacts(key) {
 }
 
 async function initContacts() {
-  contacts = await getItemContacts("contacts")
+  // contacts = await getItemContacts("contacts")
   id = await getItemContacts("id")
   renderContacts()
 }
@@ -62,9 +153,9 @@ async function deleteContact(id) {
   const userId = id;
   for (let i = 0; i < contacts.length; i++) {
     if (userId === contacts[i].id) {
-      contacts.splice(1, i)
+      contacts.splice(i, 1)
       renderContacts()
-      setItem("contacts", contacts)
+      // setItem("contacts", contacts)
       break;
     }
   }
@@ -111,13 +202,14 @@ async function addNewContactToContactlist() {
     id--
     return
   }
+  console.log(firstname[0].charAt(0));
   contacts.push({
     id: id,
     name: firstname[0],
     lastname: lastname[(lastname.length - 1)],
     email: email,
     phone: phone,
-    initials: firstname.charAt(0) + lastname.charAt(0),
+    initials: firstname[0].charAt(0) + lastname[lastname.length -1].charAt(0),
     circleColor: getRandomColor(),
   })
   renderContacts()
@@ -188,7 +280,7 @@ function renderSingleContactOverview(id) {
 }
 
 function getRandomColor() {
-  let number = Math.floor(Math.random(16)) * 1
+  let number = Math.floor(Math.random()* 15) +1
   switch (number) {
     case 1:
       return "user-color-one"
@@ -205,7 +297,7 @@ function getRandomColor() {
     case 7:
       return "user-color-seven"
     case 8:
-      return "user-color-eight"
+      return "user-color-eigth"
     case 9:
       return "user-color-nine"
     case 10:
@@ -219,9 +311,7 @@ function getRandomColor() {
     case 14:
       return "user-color-fourteen"
     case 15:
-      return "user-color-ten"
-    case 16:
-      return "user-color-ten"
+      return "user-color-fifteen"
     default:
       return "user-color-one"
   }
