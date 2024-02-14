@@ -80,11 +80,9 @@ function renderCard(task, id) {
  */
 function renderCardAssignee(data) {
     let textHTML = '';
-    console.log(data)
     for (let i = 0; i < data.initials.length; i++) {
         const assignee = data.initials[i];
         const color = data.circleColor[i]
-        console.log(assignee);
         textHTML += templateCardAssignee(assignee,color);
     }
     return textHTML
@@ -111,7 +109,6 @@ function renderOverlayAssignee(data) {
 function renderTaskOverlay(index) {
     let overlay = document.getElementById('overlay-card');
     let taskIndex = allTasks[index][0]
-    console.log(taskIndex)
     overlay.innerHTML = '';
     overlay.innerHTML = templateTaskOverlay(taskIndex);
     openOverlay();
@@ -122,7 +119,6 @@ function renderSubtask(task) {
     let textHTML = '';
     let imgSource = '';
 
-    console.log(task)
     for (let i = 0; i < task.subtask.subtask.length; i++) {
         const subtask = task.subtask.subtask[i];
         const substate = task.subtask.taskstate[i];
