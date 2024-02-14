@@ -416,7 +416,7 @@
 .ghost-card{
     width: 220px;
     height: 222px;
-    border: 2px dotted rgba(0, 0, 0, 0.1);
+    border: 2px dotted rgba(0, 0, 0, 0.2);
     background-color: transparent;
     border-radius: 24px;
     padding: 16px;
