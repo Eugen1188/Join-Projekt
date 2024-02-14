@@ -282,7 +282,7 @@ function renderSingleContactOverview(id) {
 }
 
 function getRandomColor() {
-  let number = Math.floor(Math.random()* 15) +1
+  let number = Math.floor(Math.random() * 15) + 1
   switch (number) {
     case 1:
       return "user-color-one"
@@ -332,7 +332,7 @@ function firstCharToLowerCase(name) {
 function renderAddNewContact() {
   let card = document.getElementById("edit-card")
   card.innerHTML = ""
-  card.innerHTML += contactsCardHTML("Edit contact", "", "addNewContactToContactlist")
+  card.innerHTML += contactsCardHTML("Add contact", "Tasks are better with a team!", "editContact")
 }
 
 function closeRenderContactCard() {
@@ -349,5 +349,5 @@ function closeRenderContactCard() {
 function renderEditContact() {
   let card = document.getElementById("edit-card")
   card.innerHTML = ""
-  card.innerHTML += contactsCardHTML("Add contact", "Tasks are better with a team!", "editContact")
+  card.innerHTML += contactsCardHTML("Edit contact", "", "addNewContactToContactlist")
 }
