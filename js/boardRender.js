@@ -128,7 +128,6 @@ function renderSubtask(task) {
         }else if(substate == false){
             imgSource = './assets/img/checkbuttonempty.png'
         }
-
         textHTML += templateOverlaySubtask(i, subtask, task, imgSource);
     }
     return textHTML;
