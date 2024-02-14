@@ -337,3 +337,8 @@
     height: 1px;
     background-color: var(--light-blue);
 }
+
+.small-card-text {
+    font-size: 27px;
+    font-weight: 400;
+}

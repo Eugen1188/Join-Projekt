@@ -4,8 +4,8 @@ let tasksAwaitFeedback = [];
 let tasksDone = [];
 
 
-function renderCheckState(data) {
-    clearBoard();
+async function renderCheckState(data) {
+    await clearBoard();
 
     for (let i = 0; i < data.length; i++) {
         const task = data[i][0];
