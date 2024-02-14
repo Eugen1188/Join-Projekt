@@ -1,7 +1,7 @@
 let contacts = [
   {
     id: 1,
-    name: "max",
+    name: "Max",
     lastname: "Mustermann",
     email: "max@example.com",
     phone: "123-456-7890",
@@ -92,7 +92,7 @@ let contacts = [
 ];
 let userData = [];
 let sortedUsers;
-let id;
+let id = 10;
 
 /**
  *Updates the data of a person, only updates the data whose field is also filled in
@@ -208,7 +208,7 @@ async function addNewContactToContactlist() {
     id: id,
     name: firstCharToUpperCase(firstname[(0)]),
     lastname: firstCharToUpperCase(lastname[(lastname.length - 1)]),
-    email: email,
+    email: email.toLowerCase(),
     phone: phone,
     initials: firstname[0].charAt(0).toUpperCase() + lastname[lastname.length -1].charAt(0).toUpperCase(),
     circleColor: getRandomColor(),
@@ -254,7 +254,7 @@ function renderContacts() {
   list.innerHTML = ""
   list.innerHTML += contactDataHTML(0)
   list.innerHTML += contactUserCardHtml(0)
-  for (let i = 1; i < contacts.length - 1; i++) {
+  for (let i = 1; i < contacts.length; i++) {
     if (contacts[i].name.charAt(0) != contacts[i - 1].name.charAt(0)) {
       list.innerHTML += contactDataHTML(i)
       list.innerHTML += contactUserCardHtml(i)
@@ -320,5 +320,10 @@ function getRandomColor() {
 
 function firstCharToUpperCase(name) {
   let toUpper = name.charAt(0).toUpperCase() + name.substring(1);
+  return toUpper
+}
+
+function firstCharToLowerCase(name) {
+  let toUpper = name.charAt(0).toLowerCase + name.substring(1);
   return toUpper
 }
