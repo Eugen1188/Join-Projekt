@@ -14,7 +14,7 @@ function contactUserCardHtml(index) {
         <div class="contact-data pointer" id="contact-data-${index}" onclick="renderSingleContactOverview(${index})">
             <div class="initials-circle ${contacts[index].circleColor}">
                 <!-- USER DATA -->
-                <span>${contacts[index].name.charAt(0).toUpperCase() + contacts[index].lastname.charAt(0).toUpperCase()}</span>
+                <span>${contacts[index].initials}</span>
             </div>
             <div class="user-data-container">
                 <div class="user-Data" id="user-Data-${index}">

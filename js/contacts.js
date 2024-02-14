@@ -1,7 +1,7 @@
 let contacts = [
   {
     id: 1,
-    name: "Max",
+    name: "max",
     lastname: "Mustermann",
     email: "max@example.com",
     phone: "123-456-7890",
@@ -140,7 +140,7 @@ async function getItemContacts(key) {
 }
 
 async function initContacts() {
-  // contacts = await getItemContacts("contacts")
+  contacts = await getItemContacts("contacts")
   id = await getItemContacts("id")
   renderContacts()
 }
@@ -155,7 +155,8 @@ async function deleteContact(id) {
     if (userId === contacts[i].id) {
       contacts.splice(i, 1)
       renderContacts()
-      // setItem("contacts", contacts)
+      document.getElementById("single-contact-data-container").innerHTML = ""
+      setItem("contacts", contacts)
       break;
     }
   }
@@ -183,7 +184,7 @@ async function saveNewUserData() {
     email: email,
     phone: phone,
     password: password,
-    initials: firstname.charAt(0) + lastname.charAt(0)
+    initials: firstname.charAt(0).toUpperCase() + lastname.charAt(0)
   })
   setItem("id", id)
   setItem("userData", userData)
@@ -193,7 +194,7 @@ async function saveNewUserData() {
 /** adds a new contact to Contactlist */
 async function addNewContactToContactlist() {
   id++
-  let name = document.getElementById("name").value.trim()
+  let name = document.getElementById("name").value.toLowerCase().trim()
   const firstname = name.split(' ');
   const lastname = name.split(' ');
   let email = document.getElementById("email").value.trim()
@@ -205,11 +206,11 @@ async function addNewContactToContactlist() {
   console.log(firstname[0].charAt(0));
   contacts.push({
     id: id,
-    name: firstname[0],
-    lastname: lastname[(lastname.length - 1)],
+    name: firstCharToUpperCase(firstname[(0)]),
+    lastname: firstCharToUpperCase(lastname[(lastname.length - 1)]),
     email: email,
     phone: phone,
-    initials: firstname[0].charAt(0) + lastname[lastname.length -1].charAt(0),
+    initials: firstname[0].charAt(0).toUpperCase() + lastname[lastname.length -1].charAt(0).toUpperCase(),
     circleColor: getRandomColor(),
   })
   renderContacts()
@@ -315,4 +316,9 @@ function getRandomColor() {
     default:
       return "user-color-one"
   }
+}
+
+function firstCharToUpperCase(name) {
+  let toUpper = name.charAt(0).toUpperCase() + name.substring(1);
+  return toUpper
 }
