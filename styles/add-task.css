@@ -87,6 +87,46 @@
   width: 24px;
 }
 
+.contact-values {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.contact-list-name-initials {
+  display: flex;
+  gap: 16px;
+}
+
+.contact-list-circle-element {
+  justify-content: center;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+}
+
+.contact-list-name-element {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.contact-list-name-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 440px;
+}
+
+.contact-list-checkbox-icon {
+  display: flex;
+}
+
 .arrow {
   flex-grow: 1;
   display: flex;

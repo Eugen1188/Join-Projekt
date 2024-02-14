@@ -493,62 +493,64 @@ form {
 }
 
 .user-color-one {
-  background-color: #FF7A00;
+  background-color: #ff7a00;
 }
 
 .user-color-two {
-  background-color: #FF5EB3;
+  background-color: #ff5eb3;
 }
 
 .user-color-three {
-  background-color: #6E52FF;
+  background-color: #6e52ff;
 }
 
 .user-color-four {
-  background-color: #9327FF;
+  background-color: #9327ff;
 }
 
 .user-color-five {
-  background-color: #00BEE8;
+  background-color: #00bee8;
 }
 
 .user-color-six {
-  background-color: #1FD7C1;
+  background-color: #1fd7c1;
 }
 
 .user-color-seven {
-  background-color: #FF745E;
+  background-color: #ff745e;
 }
 
-.user-color-eigth {
-  background-color: #FC71FF;
+.user-color-eight {
+  background-color: #fc71ff;
+}
+
+.user-color-nine {
+  background-color: #fc71ff;
 }
 
 .user-color-ten {
-  background-color: #FFC701;
+  background-color: #ffc701;
 }
 
 .user-color-eleven {
-  background-color: #0038FF;
+  background-color: #0038ff;
 }
 
 .user-color-twelve {
-  background-color: #C3FF2B;
+  background-color: #c3ff2b;
 }
 
 .user-color-thirteen {
-  background-color: #FFE62B;
+  background-color: #ffe62b;
 }
 
 .user-color-fourteen {
-  background-color: #FF4646;
+  background-color: #ff4646;
 }
 
 .user-color-fifteen {
-  background-color: #FFBB2B;
+  background-color: #ffbb2b;
 }
-
-
 
 @keyframes encrease-opacity {
   from {
