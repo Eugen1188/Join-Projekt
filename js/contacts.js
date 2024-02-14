@@ -94,6 +94,12 @@ let userData = [];
 let sortedUsers;
 let id = 10;
 
+async function initContacts() {
+  contacts = await getItemContacts("contacts")
+  id = await getItemContacts("id")
+  renderContacts()
+}
+
 /**
  *Updates the data of a person, only updates the data whose field is also filled in
  * @param {number} id - is needed to find the person to be updated
@@ -130,19 +136,14 @@ async function getItemContacts(key) {
   const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
   try {
     let response = await fetch(url)
-    if (response.ok) {
-      const responseData = await response.json()
-      return JSON.parse(responseData.data.value)
+    if (!response.ok) {
+      throw new Error("Failed to fetch data")
     }
+    const responseData = await response.json()
+    return JSON.parse(responseData.data.value)
   } catch (error) {
     console.error(error);
   }
-}
-
-async function initContacts() {
-  contacts = await getItemContacts("contacts")
-  id = await getItemContacts("id")
-  renderContacts()
 }
 
 /**
@@ -184,7 +185,7 @@ async function saveNewUserData() {
     email: email,
     phone: phone,
     password: password,
-    initials: firstname.charAt(0).toUpperCase() + lastname.charAt(0)
+    initials: firstname[0].charAt(0).toUpperCase() + lastname[0].charAt(0)
   })
   setItem("id", id)
   setItem("userData", userData)
@@ -195,8 +196,9 @@ async function saveNewUserData() {
 async function addNewContactToContactlist() {
   id++
   let name = document.getElementById("name").value.toLowerCase().trim()
-  const firstname = name.split(' ');
-  const lastname = name.split(' ');
+  let helper = name.split(' ')
+  const firstname = helper[0]
+  const lastname = helper[helper.length - 1]
   let email = document.getElementById("email").value.trim()
   let phone = document.getElementById("phone").value.trim()
   if (checkEmailAddress(email, contacts)) {
@@ -205,11 +207,11 @@ async function addNewContactToContactlist() {
   }
   contacts.push({
     id: id,
-    name: firstCharToUpperCase(firstname[(0)]),
-    lastname: firstCharToUpperCase(lastname[(lastname.length - 1)]),
+    name: firstCharToUpperCase(firstname),
+    lastname: firstCharToUpperCase(lastname),
     email: email.toLowerCase(),
     phone: phone,
-    initials: firstname[0].charAt(0).toUpperCase() + lastname[lastname.length -1].charAt(0).toUpperCase(),
+    initials: firstname.charAt(0).toUpperCase() + lastname.charAt(0).toUpperCase(),
     circleColor: getRandomColor(),
   })
   renderContacts()
@@ -280,7 +282,7 @@ function renderSingleContactOverview(id) {
 }
 
 function getRandomColor() {
-  let number = Math.floor(Math.random()* 15) +1
+  let number = Math.floor(Math.random() * 15) + 1
   switch (number) {
     case 1:
       return "user-color-one"
@@ -330,7 +332,7 @@ function firstCharToLowerCase(name) {
 function renderAddNewContact() {
   let card = document.getElementById("edit-card")
   card.innerHTML = ""
-  card.innerHTML += contactsCardHTML("Edit contact", "", "addNewContactToContactlist")
+  card.innerHTML += contactsCardHTML("Add contact", "Tasks are better with a team!", "editContact")
 }
 
 function closeRenderContactCard() {
@@ -347,5 +349,5 @@ function closeRenderContactCard() {
 function renderEditContact() {
   let card = document.getElementById("edit-card")
   card.innerHTML = ""
-  card.innerHTML += contactsCardHTML("Add contact", "Tasks are better with a team!", "editContact")
+  card.innerHTML += contactsCardHTML("Edit contact", "", "addNewContactToContactlist")
 }
