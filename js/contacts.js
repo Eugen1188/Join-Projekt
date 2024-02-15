@@ -92,7 +92,8 @@ let contacts = [
 ];
 let userData = [];
 let sortedUsers;
-let id = 10;
+let id = 11;
+let lastActivePerson;
 
 async function initContacts() {
   contacts = await getItemContacts("contacts")
@@ -106,14 +107,16 @@ async function initContacts() {
  * @returns - if nothing has been filled in, the function terminates and does not return a value
  */
 function editContact(id) {
-  const nameValue = document.getElementById("name").value.trim();
-  const emailValue = document.getElementById("email").value.trim();
+  const nameValue = document.getElementById("name").value.trim().toLowerCase();
+  const emailValue = document.getElementById("email").value.trim().toLowerCase();
   const phoneValue = document.getElementById("phone").value.trim();
   for (let i = 0; i < contacts.length; i++) {
     if (contacts[i].id === id) {
       if (nameValue || emailValue || phoneValue) {
         if (nameValue) {
-          contacts[i].name = nameValue;
+          let editName = nameValue.splice(" ")
+          contacts[i].name = editName[0];
+          contacts[i].lastname = editName[editName.length -1];
         }
         if (emailValue) {
           contacts[i].email = emailValue;
@@ -167,7 +170,6 @@ async function deleteContact(id) {
  * Saves the user in userData array and
  */
 async function saveNewUserData() {
-  id++
   const name = document.getElementById("name-reg").value.trim()
   const firstname = name.split(' ');
   const lastname = name.split(' ');
@@ -175,7 +177,6 @@ async function saveNewUserData() {
   const password = document.getElementById("password-reg").value.trim()
   const passwordRep = document.getElementById("rep-password-reg").value.trim()
   if (checkEmailAddress(email, userData) || password != passwordRep) {
-    id--
     return
   }
   userData.push({
@@ -186,6 +187,7 @@ async function saveNewUserData() {
     password: password,
     initials: firstname[0].charAt(0).toUpperCase() + lastname[0].charAt(0)
   })
+  id++
   setItem("id", id)
   setItem("userData", userData)
 
@@ -193,7 +195,6 @@ async function saveNewUserData() {
 
 /** adds a new contact to Contactlist */
 async function addNewContactToContactlist() {
-  id++
   let name = document.getElementById("name").value.toLowerCase().trim()
   let helper = name.split(' ')
   const firstname = helper[0]
@@ -201,7 +202,6 @@ async function addNewContactToContactlist() {
   let email = document.getElementById("email").value.trim()
   let phone = document.getElementById("phone").value.trim()
   if (checkEmailAddress(email, contacts)) {
-    id--
     return
   }
   contacts.push({
@@ -213,6 +213,7 @@ async function addNewContactToContactlist() {
     initials: firstname.charAt(0).toUpperCase() + lastname.charAt(0).toUpperCase(),
     circleColor: getRandomColor(),
   })
+  id++
   renderContacts()
   setItem("id", id)
   setItem("contacts", contacts)
@@ -264,10 +265,22 @@ function renderContacts() {
   }
 }
 
+
+/**
+ * Render a single person in a more detailed view
+ * @param {number} id - the id is needed to render the right person
+ */
 function renderSingleContactOverview(id) {
   const singlContactDataContainer = document.getElementById("single-contact-data-container")
+  setPersonToActive(id)
   singlContactDataContainer.innerHTML = "";
-  singlContactDataContainer.innerHTML += singleContactOverview(id)
+  const element = document.querySelector('.single-contact-data-container');
+  element.style.marginLeft = '1000px';
+  element.style.transition = 'margin-left 1s';
+  setTimeout(() => {
+    singlContactDataContainer.innerHTML += singleContactOverview(id)
+    element.style.marginLeft = '0';
+  }, 200);
 }
 
 function getRandomColor() {
@@ -339,4 +352,18 @@ function renderEditContact() {
   let card = document.getElementById("edit-card")
   card.innerHTML = ""
   card.innerHTML += contactsCardHTML("Edit contact", "", "addNewContactToContactlist")
+}
+
+function setPersonToActive(id) {
+  let activPerson = document.getElementById(`contact-data-${id}`)
+  activPerson.classList.add("pointerEvents")
+  if (lastActivePerson >= 0) {
+    let lastPersconActive = document.getElementById(`contact-data-${lastActivePerson}`)
+    lastPersconActive.classList.remove("set-contact-to-active")
+    lastPersconActive.classList.remove("pointerEvents")
+
+  }
+  activPerson.classList.add("set-contact-to-active")
+  lastActivePerson = id
+
 }
