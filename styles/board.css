@@ -307,8 +307,13 @@
 .task-overlay-translate-out {
     translate: 100vw;
 }
+
 .task-overlay-translate-in {
     translate: calc(-100vw - 262.5px);
+}
+
+.task-overlay-translate-in-task {
+    translate: calc(-50vw - 558px);
 }
 
 .task-overlay-bg {
@@ -436,4 +441,7 @@
     border-radius: 30px;
     z-index: 1000;
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
+    left: 100vw;
+    transition: all 125ms ease-in-out;
+
 }

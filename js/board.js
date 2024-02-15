@@ -1,4 +1,3 @@
-
 let currentDraggedElement;
 let checkedSubtasks = [];
 let searchedTask = [];
@@ -93,10 +92,14 @@ function closeOverlay() {
  * @author Kevin Mueller 
  */
 function openOverlay() {
-    displayOpenOverlay();
+    displayOpenOverlay('overlay-card');
     setTimeout(slideInOverlay, 75)
 }
 
+function openAddTaskOverlay() {
+    displayOpenOverlay('overlay-add-task');
+    setTimeout(slideInOverlayAddTask, 75)
+}
 
 /**
  * help function to slide in the overlay with a setTimeout
@@ -107,19 +110,25 @@ function slideInOverlay() {
     document.getElementById('overlay-card').classList.add('task-overlay-translate-in')
 }
 
+function slideInOverlayAddTask() {
+    document.getElementById('overlay-add-task').classList.add('task-overlay-translate-in-task')
+}
+
 
 /**
  * help function to display the overlay with a setTimeout
  * 
  * @author Kevin Mueller 
  */
-function displayOpenOverlay() {
+function displayOpenOverlay(id) {
     document.getElementById('overlay').classList.remove('d-none');
-    document.getElementById('overlay-card').classList.remove('task-overlay-translate-out')
+    document.getElementById(id).classList.remove('task-overlay-translate-out')
 }
 
-function displayAddTaskOverlay(){
+function displayAddTaskOverlay() {
     document.getElementById('overlay').classList.remove('d-none');
+    document.getElementById('overlay-add-task').classList.remove('task-overlay-translate-out')
+    openAddTaskOverlay();
 }
 
 

@@ -142,7 +142,7 @@ function renderProgressBar(task) {
     let width = ((100 / progressLength) * finishedSubtasks);
     if (progressLength > 0) {
         return templateProgressBar(width);
-    } else { 
+    } else {
         return ``
     }
 }
@@ -155,17 +155,17 @@ function renderProgressAmount(task) {
     return `${taskState} / ${progressLength}`;
 }
 
-function renderAddTaskOverlay(){
+function renderAddTaskOverlay() {
     document.getElementById('overlay-add-task').innerHTML = templateAddTaskBoard();
 
-        let low = document.getElementById("low");
-        let medium = document.getElementById("medium");
-        let urgent = document.getElementById("urgent");
-        low.addEventListener("click", handleClick);
-        low.addEventListener("click", changeIconColor);
-        medium.addEventListener("click", handleClick);
-        medium.addEventListener("click", changeIconColor);
-        urgent.addEventListener("click", handleClick);
-        urgent.addEventListener("click", changeIconColor);
-   
+    let low = document.getElementById("low");
+    let medium = document.getElementById("medium");
+    let urgent = document.getElementById("urgent");
+    low.addEventListener("click", handleClick);
+    low.addEventListener("click", changeIconColor);
+    medium.addEventListener("click", handleClick);
+    medium.addEventListener("click", changeIconColor);
+    urgent.addEventListener("click", handleClick);
+    urgent.addEventListener("click", changeIconColor);
+
 }
