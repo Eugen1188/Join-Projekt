@@ -8,11 +8,15 @@ let taskStates = [];
 let tempContacts = [];
 let contactIds = [];
 
-document.addEventListener("DOMContentLoaded", function () {
-  let showSubTaskDiv = document.getElementById("showSubtasks");
-  showSubTaskDiv.addEventListener("mouseover", testHover);
-  showSubTaskDiv.addEventListener("mouseout", mouseOut);
-});
+if (window.location.href === 'http://127.0.0.1:5500/add-task.html') {
+  document.addEventListener("DOMContentLoaded", function () {
+    let showSubTaskDiv = document.getElementById("showSubtasks");
+    showSubTaskDiv.addEventListener("mouseover", testHover);
+    showSubTaskDiv.addEventListener("mouseout", mouseOut);
+  });
+}
+
+
 
 function testHover() {
   subtasks.forEach((element, index) => {

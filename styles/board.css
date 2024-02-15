@@ -351,6 +351,7 @@
 .task-overlay-title {
     font-size: 61px;
     font-weight: 700;
+    word-wrap: break-word;
 }
 
 .task-overlay-text {

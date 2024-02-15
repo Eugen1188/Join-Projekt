@@ -124,6 +124,7 @@ function templateAddTaskBoard(){
     return `
             <div class="task-headline">
                 <h1>Add Task</h1>
+                <img src="./assets/img/close.png" alt="close">
             </div>
             <form class="add-task-form" id="form" onsubmit="validateForm();return false">
                 ${templateAddTaskLeft()}
