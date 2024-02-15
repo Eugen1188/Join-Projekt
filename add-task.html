@@ -27,7 +27,7 @@
       <div class="addtask-side-left">
         <div class="input-container">
           <label>Title <span class="required-icon">*</span></label>
-          <input required id="title" type="text" />
+          <input class="input-addtask" required id="title" type="text" />
         </div>
         <div class="input-container">
           <label>Description</label>
@@ -42,6 +42,7 @@
         <div class="input-container-contacts">
           <label>Assigned to</label>
           <input
+            class="input-addtask"
             id="contactAssignInput"
             onclick="showContacts()"
             onkeyup="filterContacts()"
@@ -84,6 +85,7 @@
         <div class="input-container">
           <label>Due Date <span class="required-icon">*</span></label>
           <input
+            class="input-addtask"
             id="date"
             type="text"
             placeholder="dd/mm/yyyy"
@@ -121,7 +123,7 @@
         <div class="input-container">
           <span>Prio</span>
           <div id="prio" class="prio-container">
-            <input type="radio" id="urgent" name="priority" value="urgent" />
+            <input class="input-addtask" type="radio" id="urgent" name="priority" value="urgent" />
             <label
               for="urgent"
               class="radio-button"
@@ -158,7 +160,7 @@
               </svg>
             </label>
 
-            <input type="radio" id="medium" name="priority" value="medium" />
+            <input class="input-addtask" type="radio" id="medium" name="priority" value="medium" />
             <label
               for="medium"
               class="radio-button"
@@ -194,7 +196,7 @@
                 </defs>
               </svg>
             </label>
-            <input type="radio" id="low" name="priority" value="low" />
+            <input class="input-addtask" type="radio" id="low" name="priority" value="low" />
             <label
               for="low"
               class="radio-button"
@@ -233,7 +235,7 @@
         <div class="input-container">
           <label>Subtask</label>
           <div class="add-subtask">
-            <input id="subtask" type="text" onkeyup="getInput()" />
+            <input class="input-addtask" id="subtask" type="text" onkeyup="getInput()" />
             <div class="svg-container">
               <svg
                 width="25"
