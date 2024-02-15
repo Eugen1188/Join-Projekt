@@ -154,7 +154,5 @@ function renderProgressAmount(task) {
 }
 
 function renderAddTaskOverlay() {
-    document.getElementById("overlay-add-task").innerHTML =
-    templateAddTaskBoard();
-
+    document.getElementById("overlay-add-task").innerHTML = templateAddTaskBoard();
 }

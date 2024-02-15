@@ -9,11 +9,11 @@ let lockout;
  * @author Kevin Mueller
  */
 async function initBoard() {
-  await testfunc();
-  renderCheckState(allTasks);
-  await renderAddTaskOverlay();
-  initContacts();
-  lockout = false;
+    await testfunc();
+    renderCheckState(allTasks);
+    await renderAddTaskOverlay();
+    initContacts();
+    lockout = false;
 }
 
 /**
@@ -23,7 +23,7 @@ async function initBoard() {
  * @author Kevin Mueller
  */
 function allowDrop(ev) {
-  ev.preventDefault();
+    ev.preventDefault();
 }
 
 /**
@@ -33,7 +33,7 @@ function allowDrop(ev) {
  * @author Kevin Mueller
  */
 function startDragging(id) {
-  currentDraggedElement = id;
+    currentDraggedElement = id;
 }
 
 /**
@@ -43,30 +43,30 @@ function startDragging(id) {
  * @author Kevin Mueller
  */
 async function moveTo(id) {
-  allTasks[currentDraggedElement][0].status.inProgress = false;
-  allTasks[currentDraggedElement][0].status.awaitFeedback = false;
-  allTasks[currentDraggedElement][0].status.done = false;
+    allTasks[currentDraggedElement][0].status.inProgress = false;
+    allTasks[currentDraggedElement][0].status.awaitFeedback = false;
+    allTasks[currentDraggedElement][0].status.done = false;
 
-  if (id == "in-progress") {
-    allTasks[currentDraggedElement][0].status.inProgress = true;
-    await setItem("test_board", allTasks);
-    await initBoard();
-    addOverflow();
-  } else if (id == "await-feedback") {
-    allTasks[currentDraggedElement][0].status.awaitFeedback = true;
-    await setItem("test_board", allTasks);
-    await initBoard();
-    addOverflow();
-  } else if (id == "done") {
-    allTasks[currentDraggedElement][0].status.done = true;
-    await setItem("test_board", allTasks);
-    await initBoard();
-    addOverflow();
-  } else if (id == "todo") {
-    await setItem("test_board", allTasks);
-    await initBoard();
-    addOverflow();
-  }
+    if (id == "in-progress") {
+        allTasks[currentDraggedElement][0].status.inProgress = true;
+        await setItem("test_board", allTasks);
+        await initBoard();
+        addOverflow();
+    } else if (id == "await-feedback") {
+        allTasks[currentDraggedElement][0].status.awaitFeedback = true;
+        await setItem("test_board", allTasks);
+        await initBoard();
+        addOverflow();
+    } else if (id == "done") {
+        allTasks[currentDraggedElement][0].status.done = true;
+        await setItem("test_board", allTasks);
+        await initBoard();
+        addOverflow();
+    } else if (id == "todo") {
+        await setItem("test_board", allTasks);
+        await initBoard();
+        addOverflow();
+    }
 }
 
 /**
@@ -75,14 +75,17 @@ async function moveTo(id) {
  * @author Kevin Mueller
  */
 function closeOverlay() {
-  document
-    .getElementById("overlay-card")
-    .classList.remove("task-overlay-translate-in");
-  document
-    .getElementById("overlay-card")
-    .classList.add("task-overlay-translate-out");
-  setTimeout(displayCloseOverlay, 250);
-  initBoard();
+    document.getElementById("overlay-card").classList.remove("task-overlay-translate-in");
+    document.getElementById("overlay-card").classList.add("task-overlay-translate-out");
+    setTimeout(displayCloseOverlay, 250);
+    initBoard();
+}
+
+function closeOverlayAddTask(){
+    document.getElementById("overlay-add-task").classList.remove("task-overlay-translate-in-task");
+    document.getElementById("overlay-add-task").classList.add("task-overlay-translate-out");
+    setTimeout(displayCloseOverlay, 250);
+    initBoard();
 }
 
 /**
@@ -91,13 +94,13 @@ function closeOverlay() {
  * @author Kevin Mueller
  */
 function openOverlay() {
-  displayOpenOverlay("overlay-card");
-  setTimeout(slideInOverlay, 75);
+    displayOpenOverlay("overlay-card");
+    setTimeout(slideInOverlay, 75);
 }
 
 function openAddTaskOverlay() {
-  displayOpenOverlay("overlay-add-task");
-  setTimeout(slideInOverlayAddTask, 75);
+    displayOpenOverlay("overlay-add-task");
+    setTimeout(slideInOverlayAddTask, 75);
 }
 
 /**
@@ -106,15 +109,11 @@ function openAddTaskOverlay() {
  * @author Kevin Mueller
  */
 function slideInOverlay() {
-  document
-    .getElementById("overlay-card")
-    .classList.add("task-overlay-translate-in");
+    document.getElementById("overlay-card").classList.add("task-overlay-translate-in");
 }
 
 function slideInOverlayAddTask() {
-  document
-    .getElementById("overlay-add-task")
-    .classList.add("task-overlay-translate-in-task");
+    document.getElementById("overlay-add-task").classList.add("task-overlay-translate-in-task");
 }
 
 /**
@@ -123,16 +122,14 @@ function slideInOverlayAddTask() {
  * @author Kevin Mueller
  */
 function displayOpenOverlay(id) {
-  document.getElementById("overlay").classList.remove("d-none");
-  document.getElementById(id).classList.remove("task-overlay-translate-out");
+    document.getElementById("overlay").classList.remove("d-none");
+    document.getElementById(id).classList.remove("task-overlay-translate-out");
 }
 
 function displayAddTaskOverlay() {
-  document.getElementById("overlay").classList.remove("d-none");
-  document
-    .getElementById("overlay-add-task")
-    .classList.remove("task-overlay-translate-out");
-  openAddTaskOverlay();
+    document.getElementById("overlay").classList.remove("d-none");
+    document.getElementById("overlay-add-task").classList.remove("task-overlay-translate-out");
+    openAddTaskOverlay();
 }
 
 /**
@@ -141,7 +138,7 @@ function displayAddTaskOverlay() {
  * @author Kevin Mueller
  */
 function displayCloseOverlay() {
-  document.getElementById("overlay").classList.add("d-none");
+    document.getElementById("overlay").classList.add("d-none");
 }
 
 /**
@@ -152,18 +149,18 @@ function displayCloseOverlay() {
  * @author Kevin Mueller
  */
 function checkedSubtask(subtask, id) {
-  let subtaskDom = document.getElementById(`sub${subtask}`);
+    let subtaskDom = document.getElementById(`sub${subtask}`);
 
-  if (allTasks[id][0].subtask.taskstate[subtask] == true) {
-    subtaskDom.src = `./assets/img/checkbuttonempty.png`;
-    subtaskDom.alt = "unchecked";
-    allTasks[id][0].subtask.taskstate[subtask] = false;
-  } else if (allTasks[id][0].subtask.taskstate[subtask] == false) {
-    subtaskDom.src = `./assets/img/checkbuttonchecked.png`;
-    subtaskDom.alt = "checked";
-    allTasks[id][0].subtask.taskstate[subtask] = true;
-  }
-  setItem("test_board", allTasks);
+    if (allTasks[id][0].subtask.taskstate[subtask] == true) {
+        subtaskDom.src = `./assets/img/checkbuttonempty.png`;
+        subtaskDom.alt = "unchecked";
+        allTasks[id][0].subtask.taskstate[subtask] = false;
+    } else if (allTasks[id][0].subtask.taskstate[subtask] == false) {
+        subtaskDom.src = `./assets/img/checkbuttonchecked.png`;
+        subtaskDom.alt = "checked";
+        allTasks[id][0].subtask.taskstate[subtask] = true;
+    }
+    setItem("test_board", allTasks);
 }
 
 /**
@@ -174,11 +171,11 @@ function checkedSubtask(subtask, id) {
  * @author Kevin Mueller
  */
 function checkCategory(category) {
-  if (category == "User Story") {
-    return `var(--topic-user)`;
-  } else if (category == "Technical Task") {
-    return `var(--topic-technical)`;
-  }
+    if (category == "User Story") {
+        return `var(--topic-user)`;
+    } else if (category == "Technical Task") {
+        return `var(--topic-technical)`;
+    }
 }
 
 /**
@@ -188,12 +185,12 @@ function checkCategory(category) {
  * @author Kevin Mueller
  */
 function rotateCard(id) {
-  let overflow = document.getElementsByClassName("board-card-section");
+    let overflow = document.getElementsByClassName("board-card-section");
 
-  document.getElementById(`card${id}`).classList.add("card-rotate");
-  for (let i = 0; i < overflow.length; i++) {
-    overflow[i].classList.add("card-rotate-overflow");
-  }
+    document.getElementById(`card${id}`).classList.add("card-rotate");
+    for (let i = 0; i < overflow.length; i++) {
+        overflow[i].classList.add("card-rotate-overflow");
+    }
 }
 
 /**
@@ -202,10 +199,10 @@ function rotateCard(id) {
  * @author Kevin Mueller
  */
 function addOverflow() {
-  let overflow = document.getElementsByClassName("board-card-section");
-  for (let i = 0; i < overflow.length; i++) {
-    overflow[i].classList.remove("card-rotate-overflow");
-  }
+    let overflow = document.getElementsByClassName("board-card-section");
+    for (let i = 0; i < overflow.length; i++) {
+        overflow[i].classList.remove("card-rotate-overflow");
+    }
 }
 
 /**
@@ -215,10 +212,10 @@ function addOverflow() {
  * @author Kevin Mueller
  */
 function renderGhostCard(id) {
-  if (lockout != true) {
-    document.getElementById(id).innerHTML += templateGhostCard();
-    lockout = true;
-  }
+    if (lockout != true) {
+        document.getElementById(id).innerHTML += templateGhostCard();
+        lockout = true;
+    }
 }
 
 /**
@@ -228,12 +225,12 @@ function renderGhostCard(id) {
  * @author Kevin Mueller
  */
 function removeGhostCard(id) {
-  let ghost = document.getElementById(id);
+    let ghost = document.getElementById(id);
 
-  if (ghost) {
-    document.getElementById(id).remove();
-    lockout = false;
-  }
+    if (ghost) {
+        document.getElementById(id).remove();
+        lockout = false;
+    }
 }
 
 /**
@@ -258,15 +255,15 @@ async function deleteTask(index) {
  * @author Kevin Mueller
  */
 function searchTask() {
-  let searchValue = document
-    .getElementById("board-search-task")
-    .value.toLowerCase();
-  searchedTask = [];
+    let searchValue = document
+        .getElementById("board-search-task")
+        .value.toLowerCase();
+    searchedTask = [];
 
-  for (let i = 0; i < allTasks.length; i++) {
-    if (allTasks[i][0].title.toLowerCase().indexOf(searchValue) !== -1) {
-      searchedTask.push(allTasks[i]);
+    for (let i = 0; i < allTasks.length; i++) {
+        if (allTasks[i][0].title.toLowerCase().indexOf(searchValue) !== -1) {
+            searchedTask.push(allTasks[i]);
+        }
     }
-  }
-  renderCheckState(searchedTask);
+    renderCheckState(searchedTask);
 }
