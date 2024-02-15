@@ -64,14 +64,7 @@ function showSubtasks() {
   showSubtasks.innerHTML = "";
   subtasks.forEach((subtask, index) => {
     showSubtasks.innerHTML += `
-      <li id="subtask_${index}">${subtask} <a href="#" onclick="deleteSubtask(${index})">X</a> <a href="#" onclick="editSubtask(${index})">edit</a></li>
-    `;
-    document
-      .getElementById(`subtask_${index}`)
-      .addEventListener("mouseover", mouseIn);
-    document
-      .getElementById(`subtask_${index}`)
-      .addEventListener("mouseout", mouseOut);
+      <li onmouseover="mouseIn()" onmouseout="mouseOut()" id="subtask_${index}">${subtask} <a href="#" onclick="deleteSubtask(${index})">X</a> <a href="#" onclick="editSubtask(${index})">edit</a></li>      `;
   });
 }
 
