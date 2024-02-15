@@ -5,11 +5,14 @@
  */
 function contactDataHTML(index) {
     return /*html*/ `
-        <div class="contacts-content" id="contacts-${index}">
+        <div class="contacts-content">
             <div class="list">
                 <span class="list-char" id="char-${index}">${contacts[index].name.charAt(0).toUpperCase()}</span>
             </div>
             <div class="underline"></div>
+            <div id="contacts-${index}">
+
+            </div>
         </div>
     `
 }

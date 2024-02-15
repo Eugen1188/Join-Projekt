@@ -107,14 +107,16 @@ async function initContacts() {
  * @returns - if nothing has been filled in, the function terminates and does not return a value
  */
 function editContact(id) {
-  const nameValue = document.getElementById("name").value.trim();
-  const emailValue = document.getElementById("email").value.trim();
+  const nameValue = document.getElementById("name").value.trim().toLowerCase();
+  const emailValue = document.getElementById("email").value.trim().toLowerCase();
   const phoneValue = document.getElementById("phone").value.trim();
   for (let i = 0; i < contacts.length; i++) {
     if (contacts[i].id === id) {
       if (nameValue || emailValue || phoneValue) {
         if (nameValue) {
-          contacts[i].name = nameValue;
+          let editName = nameValue.splice(" ")
+          contacts[i].name = editName[0];
+          contacts[i].lastname = editName[editName.length -1];
         }
         if (emailValue) {
           contacts[i].email = emailValue;
