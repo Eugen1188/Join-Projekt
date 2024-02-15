@@ -248,12 +248,12 @@ function removeGhostCard(id) {
  * @param {number} index - index of the given task
  * @author Kevin Mueller
  */
-function deleteTask(index) {
-    allTasks.splice(index, 1);
+async function deleteTask(index) {
+    await allTasks.splice(index, 1);
     for (let i = 0; i < allTasks.length; i++) {
         allTasks[i][0].id = i;
     }
-    setItem("test_board", allTasks);
+    await setItem("test_board", allTasks);
     closeOverlay();
 }
 
