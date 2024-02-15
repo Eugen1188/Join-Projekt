@@ -166,6 +166,27 @@
   transform: rotate(180deg);
 }
 
+.subtask-selected {
+  background-color:#A8A8A8;
+}
+
+.show-subtasks{
+  margin-block-start: 0;
+  list-style-type: disc;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+}
+
+
+.subtask-container{
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px  16px;
+}
+
+
 .arrow {
   top: 40px;
   right: 12px;
