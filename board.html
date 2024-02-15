@@ -18,10 +18,7 @@
   </head>
 
   <body onload="includeHTML();initBoard()">
-    <header
-      id="main-header"
-      w3-include-html="assets/templates/header.html"
-    ></header>
+    <header id="main-header" w3-include-html="assets/templates/header.html"></header>
     <div class="board-top">
       <div class="board-top-content">
         <div class="board-top-cont-left">
@@ -30,18 +27,9 @@
         <div class="board-top-cont-right">
           <div class="board-search-form">
             <form onsubmit="searchTask(); return false">
-              <input
-                type="text"
-                id="board-search-task"
-                placeholder="Find Task"
-                autocomplete="off"
-              />
+              <input type="text" id="board-search-task" placeholder="Find Task" autocomplete="off"/>
               <div>
-                <img
-                  src="./assets/img/search.png"
-                  alt="search-button"
-                  onclick="searchTask()"
-                />
+                <img src="./assets/img/search.png" alt="search-button" onclick="searchTask()"/>
               </div>
             </form>
           </div>
@@ -60,35 +48,11 @@
           <div>
             <span>To do</span>
           </div>
-          <div class="add-svg">
-            <svg
-              width="24"
-              height="25"
-              viewBox="0 0 24 25"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect
-                x="1"
-                y="1.5"
-                width="22"
-                height="22"
-                rx="7"
-                stroke="#2A3647"
-                stroke-width="2"
-              />
-              <path
-                d="M12 8.5V16.5"
-                stroke="#2A3647"
-                stroke-width="2"
-                stroke-linecap="round"
-              />
-              <path
-                d="M16 12.5754L8 12.5754"
-                stroke="#2A3647"
-                stroke-width="2"
-                stroke-linecap="round"
-              />
+          <div class="add-svg" onclick="displayAddTaskOverlay()">
+            <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="1" y="1.5" width="22" height="22" rx="7" stroke="#2A3647" stroke-width="2"/>
+              <path  d="M12 8.5V16.5" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
+              <path d="M16 12.5754L8 12.5754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
             </svg>
           </div>
         </div>
@@ -96,35 +60,11 @@
           <div>
             <span>In Progress</span>
           </div>
-          <div class="add-svg">
-            <svg
-              width="24"
-              height="25"
-              viewBox="0 0 24 25"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect
-                x="1"
-                y="1.5"
-                width="22"
-                height="22"
-                rx="7"
-                stroke="#2A3647"
-                stroke-width="2"
-              />
-              <path
-                d="M12 8.5V16.5"
-                stroke="#2A3647"
-                stroke-width="2"
-                stroke-linecap="round"
-              />
-              <path
-                d="M16 12.5754L8 12.5754"
-                stroke="#2A3647"
-                stroke-width="2"
-                stroke-linecap="round"
-              />
+          <div class="add-svg" onclick="displayAddTaskOverlay()">
+            <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="1" y="1.5" width="22" height="22" rx="7" stroke="#2A3647" stroke-width="2"/>
+              <path d="M12 8.5V16.5" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
+              <path d="M16 12.5754L8 12.5754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
             </svg>
           </div>
         </div>
@@ -132,35 +72,11 @@
           <div>
             <span>Await feedback</span>
           </div>
-          <div class="add-svg">
-            <svg
-              width="24"
-              height="25"
-              viewBox="0 0 24 25"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect
-                x="1"
-                y="1.5"
-                width="22"
-                height="22"
-                rx="7"
-                stroke="#2A3647"
-                stroke-width="2"
-              />
-              <path
-                d="M12 8.5V16.5"
-                stroke="#2A3647"
-                stroke-width="2"
-                stroke-linecap="round"
-              />
-              <path
-                d="M16 12.5754L8 12.5754"
-                stroke="#2A3647"
-                stroke-width="2"
-                stroke-linecap="round"
-              />
+          <div class="add-svg" onclick="displayAddTaskOverlay()">
+            <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="1" y="1.5" width="22" height="22" rx="7" stroke="#2A3647" stroke-width="2"/>
+              <path d="M12 8.5V16.5" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
+              <path d="M16 12.5754L8 12.5754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
             </svg>
           </div>
         </div>
@@ -172,46 +88,22 @@
       </div>
     </div>
     <div class="board-main">
-      <div
-        id="todo"
-        class="board-card-section"
-        ondragleave="removeGhostCard('ghostcard')"
-        ondrop="moveTo('todo')"
-        ondragover="allowDrop(event);renderGhostCard('todo')"
-      >
+      <div id="todo" class="board-card-section" ondragleave="removeGhostCard('ghostcard')" ondrop="moveTo('todo')" ondragover="allowDrop(event);renderGhostCard('todo')">
         <div class="board-no-task">
           <span>No tasks To do</span>
         </div>
       </div>
-      <div
-        id="in-progress"
-        class="board-card-section"
-        ondragleave="removeGhostCard('ghostcard')"
-        ondrop="moveTo('in-progress')"
-        ondragover="allowDrop(event);renderGhostCard('in-progress')"
-      >
+      <div id="in-progress" class="board-card-section" ondragleave="removeGhostCard('ghostcard')" ondrop="moveTo('in-progress')" ondragover="allowDrop(event);renderGhostCard('in-progress')">
         <div class="board-no-task">
           <span>No tasks To do</span>
         </div>
       </div>
-      <div
-        id="await-feedback"
-        class="board-card-section"
-        ondragleave="removeGhostCard('ghostcard')"
-        ondrop="moveTo('await-feedback')"
-        ondragover="allowDrop(event);renderGhostCard('await-feedback')"
-      >
+      <div id="await-feedback" class="board-card-section" ondragleave="removeGhostCard('ghostcard')" ondrop="moveTo('await-feedback')" ondragover="allowDrop(event);renderGhostCard('await-feedback')">
         <div class="board-no-task">
           <span>No tasks To do</span>
         </div>
       </div>
-      <div
-        id="done"
-        class="board-card-section"
-        ondragleave="removeGhostCard('ghostcard')"
-        ondrop="moveTo('done')"
-        ondragover="allowDrop(event);renderGhostCard('done')"
-      >
+      <div id="done" class="board-card-section" ondragleave="removeGhostCard('ghostcard')" ondrop="moveTo('done')" ondragover="allowDrop(event);renderGhostCard('done')">
         <div class="board-no-task">
           <span>No tasks To do</span>
         </div>

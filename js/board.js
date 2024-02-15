@@ -188,9 +188,9 @@ function rotateCard(id) {
     let overflow = document.getElementsByClassName("board-card-section");
 
     document.getElementById(`card${id}`).classList.add("card-rotate");
-    for (let i = 0; i < overflow.length; i++) {
+/*     for (let i = 0; i < overflow.length; i++) {
         overflow[i].classList.add("card-rotate-overflow");
-    }
+    } */
 }
 
 /**

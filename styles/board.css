@@ -8,12 +8,12 @@
     background-color: var(--button-selected);
 }
 
-.addtask-btn{
-    background-color: #2A3647!important;
+.addtask-btn {
+    background-color: #2A3647 !important;
 }
 
-.addtask-btn:hover{
-    background-color: #4c6ea1!important;
+.addtask-btn:hover {
+    background-color: #4c6ea1 !important;
 }
 
 .board-top {
@@ -152,7 +152,8 @@
     padding: 0px 64px;
     gap: 24px;
     width: 1208px;
-    height: 100%;
+    height: calc(100% - 328px);
+    overflow-y: scroll;
 }
 
 
@@ -163,14 +164,14 @@
     flex-direction: column;
     gap: 16px;
     height: calc(100vh - 328px);
-    overflow-y: scroll;
+
 }
 
 .board-card-section::-webkit-scrollbar {
     display: none;
 }
 
-.index-behind{
+.index-behind {
     z-index: -1;
 }
 
@@ -186,12 +187,8 @@
     cursor: pointer;
 }
 
-.card-rotate{
-    rotate: 15deg;
-}
-
-.card-rotate-overflow{
-    overflow: visible!important;
+.card-rotate {
+    rotate: 5deg;
 }
 
 .board-card:active {
@@ -375,7 +372,8 @@
     align-items: center;
     gap: 8px;
 }
-.task-overlay-assigned{
+
+.task-overlay-assigned {
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -388,17 +386,17 @@
     padding: 7px 16px;
 }
 
-.task-overlay-assignee span{
+.task-overlay-assignee span {
     font-size: 19px;
 }
 
-.task-overlay-subtasks{
+.task-overlay-subtasks {
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
-.task-subtask{
+.task-subtask {
     width: fit-content;
     display: flex;
     align-items: center;
@@ -408,23 +406,23 @@
     cursor: pointer;
 }
 
-.task-subtask:hover{
+.task-subtask:hover {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
-.overlay-menu{
+.overlay-menu {
     display: flex;
     justify-content: flex-end;
     gap: 8px;
 }
 
-.overlay-menu-content{
+.overlay-menu-content {
     display: flex;
     align-items: center;
     cursor: pointer;
 }
 
-.ghost-card{
+.ghost-card {
     width: 220px;
     height: 222px;
     border: 2px dotted rgba(0, 0, 0, 0.2);
@@ -434,7 +432,7 @@
     pointer-events: none;
 }
 
-.add-task-overlay{
+.add-task-overlay {
     position: fixed;
     width: 1116px;
     height: 870px;
