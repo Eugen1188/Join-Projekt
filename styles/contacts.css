@@ -345,3 +345,7 @@
     width: 25%;
     border-bottom: 1px solid var(--light-blue);
 }
+
+.pointerEvents {
+    pointer-events: none;
+}
