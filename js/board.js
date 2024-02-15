@@ -12,6 +12,7 @@ let lockout;
 async function initBoard() {
     await testfunc();
     renderCheckState(allTasks);
+    initContacts();
     lockout = false;
 }
 

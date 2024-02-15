@@ -317,7 +317,7 @@
     gap: 24px;
     position: absolute;
     left: 150vw;
-    width: 525px;
+    width: calc(525px - 80px);
     background-color: white;
     z-index: 2000;
     border-radius: 30px;
