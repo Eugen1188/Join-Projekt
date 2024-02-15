@@ -177,7 +177,29 @@
     color: var(--background-color-site);
 }
 
-.single-content-container {}
+.single-contact-data-container {
+    margin-left: 1000px;
+    position: absolute;
+    top: 311px;
+    left: 743px;
+    gap: 21px;
+    right: -1000px;
+    min-width: 456px;
+    display: flex;
+    flex-direction: column;
+    animation: slideFromRight 2s forwards;
+}
+
+@keyframes slideFromRight {
+    0% {
+        margin-left: 1000px;
+    }
+
+    100% {
+        margin-left: 0;
+    }
+}
+
 
 .single-contact-headline {
     position: absolute;
@@ -189,6 +211,8 @@
     gap: 30;
     width: 569px;
     height: 73px;
+    transition: all 125ms ease-in
+
 }
 
 .single-contact-headline h1 {
@@ -196,15 +220,6 @@
     font-size: 61px;
 }
 
-.single-contact-data-container {
-    position: absolute;
-    top: 311px;
-    left: 750px;
-    gap: 21px;
-    min-width: 456px;
-    display: flex;
-    flex-direction: column;
-}
 
 .single-contact-headline span {
     font-size: 25px;

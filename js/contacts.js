@@ -92,7 +92,7 @@ let contacts = [
 ];
 let userData = [];
 let sortedUsers;
-let id = 10;
+let id = 11;
 
 async function initContacts() {
   contacts = await getItemContacts("contacts")
@@ -167,7 +167,6 @@ async function deleteContact(id) {
  * Saves the user in userData array and
  */
 async function saveNewUserData() {
-  id++
   const name = document.getElementById("name-reg").value.trim()
   const firstname = name.split(' ');
   const lastname = name.split(' ');
@@ -175,7 +174,6 @@ async function saveNewUserData() {
   const password = document.getElementById("password-reg").value.trim()
   const passwordRep = document.getElementById("rep-password-reg").value.trim()
   if (checkEmailAddress(email, userData) || password != passwordRep) {
-    id--
     return
   }
   userData.push({
@@ -186,6 +184,7 @@ async function saveNewUserData() {
     password: password,
     initials: firstname[0].charAt(0).toUpperCase() + lastname[0].charAt(0)
   })
+  id++
   setItem("id", id)
   setItem("userData", userData)
 
@@ -193,7 +192,6 @@ async function saveNewUserData() {
 
 /** adds a new contact to Contactlist */
 async function addNewContactToContactlist() {
-  id++
   let name = document.getElementById("name").value.toLowerCase().trim()
   let helper = name.split(' ')
   const firstname = helper[0]
@@ -201,7 +199,6 @@ async function addNewContactToContactlist() {
   let email = document.getElementById("email").value.trim()
   let phone = document.getElementById("phone").value.trim()
   if (checkEmailAddress(email, contacts)) {
-    id--
     return
   }
   contacts.push({
@@ -213,6 +210,7 @@ async function addNewContactToContactlist() {
     initials: firstname.charAt(0).toUpperCase() + lastname.charAt(0).toUpperCase(),
     circleColor: getRandomColor(),
   })
+  id++
   renderContacts()
   setItem("id", id)
   setItem("contacts", contacts)
@@ -340,3 +338,4 @@ function renderEditContact() {
   card.innerHTML = ""
   card.innerHTML += contactsCardHTML("Edit contact", "", "addNewContactToContactlist")
 }
+
