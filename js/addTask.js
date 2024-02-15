@@ -8,17 +8,26 @@ let taskStates = [];
 let tempContacts = [];
 let contactIds = [];
 
-document.addEventListener("DOMContentLoaded", function () {
-  let low = document.getElementById("low");
-  let medium = document.getElementById("medium");
-  let urgent = document.getElementById("urgent");
-  low.addEventListener("click", handleClick);
-  low.addEventListener("click", changeIconColor);
-  medium.addEventListener("click", handleClick);
-  medium.addEventListener("click", changeIconColor);
-  urgent.addEventListener("click", handleClick);
-  urgent.addEventListener("click", changeIconColor);
-});
+
+if (window.location.href === 'http://127.0.0.1:5500/add-task.html') {
+  eventListenerAddTask();
+}
+
+
+function eventListenerAddTask(){
+  document.addEventListener("DOMContentLoaded", function () {
+    let low = document.getElementById("low");
+    let medium = document.getElementById("medium");
+    let urgent = document.getElementById("urgent");
+    low.addEventListener("click", handleClick);
+    low.addEventListener("click", changeIconColor);
+    medium.addEventListener("click", handleClick);
+    medium.addEventListener("click", changeIconColor);
+    urgent.addEventListener("click", handleClick);
+    urgent.addEventListener("click", changeIconColor);
+  });
+  
+}
 
 function handleClick(event) {
   let priority = event.target.value;

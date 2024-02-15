@@ -273,7 +273,7 @@ select {
   padding: 12px 21px 12px 21px;
 }
 
-input {
+.input-addtask {
   width: 398px;
   height: 24px;
   padding-block: 0;

@@ -8,6 +8,10 @@
     background-color: var(--button-selected);
 }
 
+.addtask-btn{
+    background-color: #2A3647!important;
+}
+
 .board-top {
     display: flex;
     align-items: center;

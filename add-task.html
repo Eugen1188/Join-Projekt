@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="styles/add-task.css" />
   <link rel="stylesheet" href="styles/style.css" />
   <script src="./script.js"></script>
-
   <script src="./js/addTask.js"></script>
 </head>
 
@@ -23,7 +22,7 @@
     <div class="addtask-side-left">
       <div class="input-container">
         <label>Title <span class="required-icon">*</span></label>
-        <input required id="title" type="text" />
+        <input class="input-addtask" required id="title" type="text" />
       </div>
       <div class="input-container">
         <label>Description</label>
@@ -31,7 +30,7 @@
       </div>
       <div class="input-container-contacts">
         <label>Assigned to</label>
-        <input id="contactAssignInput" onclick="showContacts()" onkeyup="filterContacts()" type="text" />
+        <input class="input-addtask" id="contactAssignInput" onclick="showContacts()" onkeyup="filterContacts()" type="text" />
 
         <svg id="arrowContactInput" class="arrow" onclick="showContacts()" width="24" height="24" viewBox="0 0 24 24"
           fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -52,7 +51,7 @@
     <div class="addtask-side-right">
       <div class="input-container">
         <label>Due Date <span class="required-icon">*</span></label>
-        <input id="date" type="text" placeholder="dd/mm/yyyy" pattern="\d{2}/\d{2}/\d{4}" required />
+        <input class="input-addtask" id="date" type="text" placeholder="dd/mm/yyyy" pattern="\d{2}/\d{2}/\d{4}" required />
         <div class="due-date-icon">
           <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <mask id="mask0_138036_1819" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25"
@@ -70,7 +69,7 @@
       <div class="input-container">
         <span>Prio</span>
         <div id="prio" class="prio-container">
-          <input type="radio" id="urgent" name="priority" value="urgent" />
+          <input class="input-addtask" type="radio" id="urgent" name="priority" value="urgent" />
           <label for="urgent" class="radio-button">Urgent
             <svg id="urgent-icon" width="21" height="16" viewBox="0 0 21 16" fill="none"
               xmlns="http://www.w3.org/2000/svg">
@@ -90,7 +89,7 @@
             </svg>
           </label>
 
-          <input type="radio" id="medium" name="priority" value="medium" />
+          <input class="input-addtask" type="radio" id="medium" name="priority" value="medium" />
           <label for="medium" class="radio-button">Medium
             <svg id="medium-icon" width="21" height="8" viewBox="0 0 21 8" fill="none"
               xmlns="http://www.w3.org/2000/svg">
@@ -109,7 +108,7 @@
               </defs>
             </svg>
           </label>
-          <input type="radio" id="low" name="priority" value="low" />
+          <input class="input-addtask" type="radio" id="low" name="priority" value="low" />
           <label for="low" class="radio-button">Low
             <svg id="low-icon" width="21" height="16" viewBox="0 0 21 16" fill="none"
               xmlns="http://www.w3.org/2000/svg">
@@ -134,7 +133,7 @@
       <div class="input-container">
         <label>Subtask</label>
         <div class="add-subtask">
-          <input id="subtask" type="text" onkeyup="getInput()" />
+          <input class="input-addtask" id="subtask" type="text" onkeyup="getInput()" />
           <div class="svg-container">
             <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg"
               onclick="pushSubtask()">

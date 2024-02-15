@@ -3,6 +3,7 @@ let tasksInProgress = [];
 let tasksAwaitFeedback = [];
 let tasksDone = [];
 
+
 /**
  * this function clears the whole board and after that it renders the tasks
  * in regard of the task status.
@@ -152,4 +153,19 @@ function renderProgressAmount(task) {
     let taskState = task.subtask.taskstate.filter(Boolean).length;
 
     return `${taskState} / ${progressLength}`;
+}
+
+function renderAddTaskOverlay(){
+    document.getElementById('overlay-add-task').innerHTML = templateAddTaskBoard();
+
+        let low = document.getElementById("low");
+        let medium = document.getElementById("medium");
+        let urgent = document.getElementById("urgent");
+        low.addEventListener("click", handleClick);
+        low.addEventListener("click", changeIconColor);
+        medium.addEventListener("click", handleClick);
+        medium.addEventListener("click", changeIconColor);
+        urgent.addEventListener("click", handleClick);
+        urgent.addEventListener("click", changeIconColor);
+   
 }

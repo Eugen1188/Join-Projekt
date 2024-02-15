@@ -12,6 +12,7 @@ let lockout;
 async function initBoard() {
     await testfunc();
     renderCheckState(allTasks);
+    await renderAddTaskOverlay();
     initContacts();
     lockout = false;
 }
@@ -115,6 +116,10 @@ function slideInOverlay() {
 function displayOpenOverlay() {
     document.getElementById('overlay').classList.remove('d-none');
     document.getElementById('overlay-card').classList.remove('task-overlay-translate-out')
+}
+
+function displayAddTaskOverlay(){
+    document.getElementById('overlay').classList.remove('d-none');
 }
 
 
