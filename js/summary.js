@@ -6,6 +6,7 @@ async function renderSummeryTasks(){
     tasksInProgress();
     tasksToDo();
     tasksAwaitingFeedback()
+    tasksDone();
 }
 
 function tasksInBoard() {
@@ -41,7 +42,7 @@ function tasksAwaitingFeedback() {
     }
 }
 
-function tasksToDo(){
+function tasksToDo() {
     let tasksToDo = document.getElementById('tasks_number_to_do');
     let count = 0;
 
@@ -50,5 +51,17 @@ function tasksToDo(){
         if(!element.status.inProgress && !element.status.done && !element.status.awaitFeedback)
         count++
     tasksToDo.innerHTML = count;
+    }
+}
+
+function tasksDone() {
+    let tasksDone = document.getElementById('tasks_number_done');
+    let count = 0;
+
+    for (let i = 0; i < allTasks.length; i++) {
+        const element = allTasks[i][0];
+        if(element.status.done == true)
+        count++
+    tasksDone.innerHTML = count;
     }
 }
