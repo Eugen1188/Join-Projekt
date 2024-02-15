@@ -8,27 +8,6 @@ let taskStates = [];
 let tempContacts = [];
 let contactIds = [];
 
-if (window.location.href === 'http://127.0.0.1:5500/add-task.html') {
-  document.addEventListener("DOMContentLoaded", function () {
-    let showSubTaskDiv = document.getElementById("showSubtasks");
-    showSubTaskDiv.addEventListener("mouseover", testHover);
-    showSubTaskDiv.addEventListener("mouseout", mouseOut);
-  });
-}
-
-
-
-function testHover() {
-  subtasks.forEach((element, index) => {
-    console.log(element, index);
-  });
-  console.log("rein");
-}
-
-function mouseOut() {
-  console.log("raus");
-}
-
 function handleClick(value) {
   let priority = value;
   document.documentElement.style.setProperty(
@@ -87,7 +66,21 @@ function showSubtasks() {
     showSubtasks.innerHTML += `
       <li id="subtask_${index}">${subtask} <a href="#" onclick="deleteSubtask(${index})">X</a> <a href="#" onclick="editSubtask(${index})">edit</a></li>
     `;
+    document
+      .getElementById(`subtask_${index}`)
+      .addEventListener("mouseover", mouseIn);
+    document
+      .getElementById(`subtask_${index}`)
+      .addEventListener("mouseout", mouseOut);
   });
+}
+
+function mouseIn() {
+  console.log("rein");
+}
+
+function mouseOut() {
+  console.log("raus");
 }
 
 function deleteSubtask(index) {
