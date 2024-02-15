@@ -1,5 +1,4 @@
 
-
 async function renderSummeryTasks(){
     await testfunc();
     tasksInBoard();
@@ -7,6 +6,7 @@ async function renderSummeryTasks(){
     tasksToDo();
     tasksAwaitingFeedback()
     tasksDone();
+    tasksUrgent();
 }
 
 function tasksInBoard() {
@@ -63,5 +63,19 @@ function tasksDone() {
         if(element.status.done == true)
         count++
     tasksDone.innerHTML = count;
+    }
+}
+
+function tasksUrgent() {
+    let urgentTasks = document.getElementById('tasks_number_urgent');
+    let count = 0;
+
+    for (let i = 0; i < allTasks.length; i++) {
+        const element = allTasks[i][0];
+        if(element.prio == "urgent"){
+            count++
+        }
+        
+    urgentTasks.innerHTML = count;
     }
 }
