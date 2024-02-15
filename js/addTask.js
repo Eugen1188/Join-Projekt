@@ -8,7 +8,8 @@ let taskStates = [];
 let tempContacts = [];
 let contactIds = [];
 
-document.addEventListener("DOMContentLoaded", function () {
+/**
+ * document.addEventListener("DOMContentLoaded", function () {
   let low = document.getElementById("low");
   let medium = document.getElementById("medium");
   let urgent = document.getElementById("urgent");
@@ -19,30 +20,19 @@ document.addEventListener("DOMContentLoaded", function () {
   urgent.addEventListener("click", handleClick);
   urgent.addEventListener("click", changeIconColor);
 });
+ * 
+ */
 
-function handleClick(event) {
-  let priority = event.target.value;
-
+function handleClick(value) {
+  let priority = value;
   document.documentElement.style.setProperty(
     "--prio-button-selected",
     getButtonColor(priority)
   );
 }
 
-function getButtonColor(priority) {
-  if (priority === "low") {
-    return "#7AE229";
-  } else if (priority === "medium") {
-    return "#FFA800";
-  } else if (priority === "urgent") {
-    return "#FF3D00";
-  } else {
-    return "white";
-  }
-}
-
-function changeIconColor(event) {
-  let priorityIcon = event.target.value;
+function invertSvgFills(value) {
+  let priorityIcon = value;
   let urgentIcon = document.getElementById("urgent-icon");
   let mediumIcon = document.getElementById("medium-icon");
   let lowIcon = document.getElementById("low-icon");
@@ -56,6 +46,18 @@ function changeIconColor(event) {
     mediumIcon.classList.add("fill-btn-white");
   } else if (priorityIcon == "low") {
     lowIcon.classList.add("fill-btn-white");
+  }
+}
+
+function getButtonColor(priority) {
+  if (priority === "low") {
+    return "#7AE229";
+  } else if (priority === "medium") {
+    return "#FFA800";
+  } else if (priority === "urgent") {
+    return "#FF3D00";
+  } else {
+    return "white";
   }
 }
 
@@ -198,6 +200,8 @@ function displayFilteredContacts(filteredContacts) {
 
 function getClickedContact(index, contactId) {
   let iconToChange = document.getElementById(`checkboxIcon_${index}`);
+  let contactCard = document.getElementById(`contact_${index}`);
+  let checkBoxIconColor = document.getElementById(`checkboxIcon_${index}`);
   let isChecked = checkedContacts.includes(contactId);
   if (isChecked) {
     let contactIndex = checkedContacts.indexOf(contactId);
@@ -205,9 +209,13 @@ function getClickedContact(index, contactId) {
       checkedContacts.splice(contactIndex, 1);
     }
     iconToChange.innerHTML = renderBoxIcon();
+    contactCard.classList.remove("active");
+    checkBoxIconColor.classList.remove("stroke-wht");
   } else {
     checkedContacts.push(contactId);
     iconToChange.innerHTML = renderCheckedIcon();
+    contactCard.classList.add("active");
+    checkBoxIconColor.classList.add("stroke-wht");
   }
 }
 
@@ -294,7 +302,7 @@ function generateContactHTML(contact, index) {
   return `
     <div id="contact_${index}" onclick="getClickedContact(${index},${contact.id})" class="contact-list-name-container pointer">
       <div class="contact-list-name-initials">
-        <div  class="contact-list-circle-element ${contact.circleColor}">
+        <div  class="initials-circle ${contact.circleColor}">
           <span>${contact.initials}</span>
         </div>
         <div class="contact-list-name-element">

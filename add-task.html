@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="assets/templates/header.style.css" />
     <link rel="stylesheet" href="styles/add-task.css" />
     <link rel="stylesheet" href="styles/style.css" />
+
     <script src="./script.js"></script>
 
     <script src="./js/addTask.js"></script>
@@ -123,7 +124,10 @@
           <span>Prio</span>
           <div id="prio" class="prio-container">
             <input type="radio" id="urgent" name="priority" value="urgent" />
-            <label for="urgent" class="radio-button"
+            <label
+              for="urgent"
+              class="radio-button"
+              onclick="invertSvgFills('urgent'); handleClick('urgent')"
               >Urgent
               <svg
                 id="urgent-icon"
@@ -157,7 +161,10 @@
             </label>
 
             <input type="radio" id="medium" name="priority" value="medium" />
-            <label for="medium" class="radio-button"
+            <label
+              for="medium"
+              class="radio-button"
+              onclick="invertSvgFills('medium');handleClick('medium')"
               >Medium
               <svg
                 id="medium-icon"
@@ -190,7 +197,10 @@
               </svg>
             </label>
             <input type="radio" id="low" name="priority" value="low" />
-            <label for="low" class="radio-button"
+            <label
+              for="low"
+              class="radio-button"
+              onclick="invertSvgFills('low');handleClick('low')"
               >Low
               <svg
                 id="low-icon"
@@ -225,7 +235,7 @@
         <div class="input-container">
           <label>Subtask</label>
           <div class="add-subtask">
-            <input  id="subtask" type="text" onkeyup="getInput()" />
+            <input id="subtask" type="text" onkeyup="getInput()" />
             <div class="svg-container">
               <svg
                 width="25"
