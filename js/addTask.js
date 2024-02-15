@@ -2,56 +2,41 @@ let checkedContacts = [];
 let subtasks = [];
 let finalContactData = [];
 let contactName = [];
+let subtasks = [];
+let finalContactData = [];
+let contactName = [];
 let initials = [];
+let circleColors = [];
 let circleColors = [];
 let taskStates = [];
 let tempContacts = [];
 let contactIds = [];
 
+/**
+ * document.addEventListener("DOMContentLoaded", function () {
+  let low = document.getElementById("low");
+  let medium = document.getElementById("medium");
+  let urgent = document.getElementById("urgent");
+  low.addEventListener("click", handleClick);
+  low.addEventListener("click", changeIconColor);
+  medium.addEventListener("click", handleClick);
+  medium.addEventListener("click", changeIconColor);
+  urgent.addEventListener("click", handleClick);
+  urgent.addEventListener("click", changeIconColor);
+});
+ * 
+ */
 
-if (window.location.href === 'http://127.0.0.1:5500/add-task.html') {
-  eventListenerAddTask();
-}
-
-
-function eventListenerAddTask(){
-  document.addEventListener("DOMContentLoaded", function () {
-    let low = document.getElementById("low");
-    let medium = document.getElementById("medium");
-    let urgent = document.getElementById("urgent");
-    low.addEventListener("click", handleClick);
-    low.addEventListener("click", changeIconColor);
-    medium.addEventListener("click", handleClick);
-    medium.addEventListener("click", changeIconColor);
-    urgent.addEventListener("click", handleClick);
-    urgent.addEventListener("click", changeIconColor);
-  });
-  
-}
-
-function handleClick(event) {
-  let priority = event.target.value;
-
+function handleClick(value) {
+  let priority = value;
   document.documentElement.style.setProperty(
     "--prio-button-selected",
     getButtonColor(priority)
   );
 }
 
-function getButtonColor(priority) {
-  if (priority === "low") {
-    return "#7AE229";
-  } else if (priority === "medium") {
-    return "#FFA800";
-  } else if (priority === "urgent") {
-    return "#FF3D00";
-  } else {
-    return "white";
-  }
-}
-
-function changeIconColor(event) {
-  let priorityIcon = event.target.value;
+function invertSvgFills(value) {
+  let priorityIcon = value;
   let urgentIcon = document.getElementById("urgent-icon");
   let mediumIcon = document.getElementById("medium-icon");
   let lowIcon = document.getElementById("low-icon");
@@ -65,6 +50,18 @@ function changeIconColor(event) {
     mediumIcon.classList.add("fill-btn-white");
   } else if (priorityIcon == "low") {
     lowIcon.classList.add("fill-btn-white");
+  }
+}
+
+function getButtonColor(priority) {
+  if (priority === "low") {
+    return "#7AE229";
+  } else if (priority === "medium") {
+    return "#FFA800";
+  } else if (priority === "urgent") {
+    return "#FF3D00";
+  } else {
+    return "white";
   }
 }
 
@@ -116,6 +113,7 @@ function saveEditedSubtask(index) {
 // getCheckedContact() darf nur einmal ausgeführt werden, da dort auch die Initalien dran hängen
 function validateForm() {
   getCheckedContact();
+  getCheckedContact();
   let lengthCheckedContacts = checkedContacts.length;
   let prioInputs = document.getElementsByName("priority");
   for (let i = 0; i < prioInputs.length; i++) {
@@ -150,10 +148,14 @@ async function addTask() {
       title: title.value,
       contactDataAsArray: finalContactData,
       contactIds: contactIds,
+      contactDataAsArray: finalContactData,
+      contactIds: contactIds,
       status: { inProgress: false, awaitFeedback: false, done: false }, // true oder false werden im Board gesetzt
       taskDescription: taskDescription.value,
       contacts: contactName,
+      contacts: contactName,
       initials: initials,
+      circleColor: circleColors,
       circleColor: circleColors,
       createdAt: new Date().getTime(),
       date: date.value,
@@ -185,7 +187,14 @@ async function getItemContacts(key) {
 async function initContacts() {
   tempContacts = await getItemContacts("contacts");
   getAllContacts();
+  getAllContacts();
 }
+
+function getAllContacts() {
+  displayContacts(tempContacts);
+}
+
+function displayContacts(contacts) {
 
 function getAllContacts() {
   displayContacts(tempContacts);
@@ -195,6 +204,8 @@ function displayContacts(contacts) {
   let selectElement = document.getElementById("contact-values");
   selectElement.innerHTML = "";
   let optionsHTML = "";
+  contacts.forEach((contact, index) => {
+    optionsHTML += generateContactHTML(contact, index);
   contacts.forEach((contact, index) => {
     optionsHTML += generateContactHTML(contact, index);
   });
@@ -207,6 +218,8 @@ function displayFilteredContacts(filteredContacts) {
 
 function getClickedContact(index, contactId) {
   let iconToChange = document.getElementById(`checkboxIcon_${index}`);
+  let contactCard = document.getElementById(`contact_${index}`);
+  let checkBoxIconColor = document.getElementById(`checkboxIcon_${index}`);
   let isChecked = checkedContacts.includes(contactId);
   if (isChecked) {
     let contactIndex = checkedContacts.indexOf(contactId);
@@ -214,9 +227,13 @@ function getClickedContact(index, contactId) {
       checkedContacts.splice(contactIndex, 1);
     }
     iconToChange.innerHTML = renderBoxIcon();
+    contactCard.classList.remove("active");
+    checkBoxIconColor.classList.remove("stroke-wht");
   } else {
     checkedContacts.push(contactId);
     iconToChange.innerHTML = renderCheckedIcon();
+    contactCard.classList.add("active");
+    checkBoxIconColor.classList.add("stroke-wht");
   }
 }
 
@@ -259,9 +276,27 @@ function getCheckedContact() {
       }
     });
   });
+  checkedContacts.forEach((contactId) => {
+    tempContacts.forEach((contact) => {
+      if (contactId === contact.id) {
+        contactName.push(contact.name + " " + contact.lastname);
+        initials.push(contact.initials);
+        circleColors.push(contact.circleColor);
+        contactIds.push(contact.id);
+        finalContactData.push({
+          id: contact.id,
+          name: contact.name,
+          lastname: contact.lastname,
+          initials: contact.initials,
+          circleColor: contact.circleColor,
+        });
+      }
+    });
+  });
 }
 
 function showContacts() {
+  let arrow = document.getElementById("arrowContactInput");
   let arrow = document.getElementById("arrowContactInput");
   let id = document.getElementById("contact-values");
   id.classList.toggle("d-none");
@@ -303,7 +338,7 @@ function generateContactHTML(contact, index) {
   return `
     <div id="contact_${index}" onclick="getClickedContact(${index},${contact.id})" class="contact-list-name-container pointer">
       <div class="contact-list-name-initials">
-        <div  class="contact-list-circle-element ${contact.circleColor}">
+        <div  class="initials-circle ${contact.circleColor}">
           <span>${contact.initials}</span>
         </div>
         <div class="contact-list-name-element">
@@ -342,5 +377,6 @@ async function testfunc() {
     })
     .catch((error) => {
       console.error("Ein Fehler ist aufgetreten:", error);
+    });
     });
 }

@@ -64,6 +64,10 @@
   fill: white;
 }
 
+.stroke-wht svg path {
+  stroke: white;
+}
+
 .due-date-icon {
   position: absolute;
   top: 38px;
@@ -105,16 +109,6 @@
   gap: 16px;
 }
 
-.contact-list-circle-element {
-  justify-content: center;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  border-radius: 50%;
-  width: 45px;
-  height: 45px;
-}
-
 .contact-list-name-element {
   display: flex;
   justify-content: center;
@@ -122,11 +116,38 @@
   gap: 4px;
 }
 
+.contact-list-name-container:hover {
+  background-color: rgba(0, 0, 0, 10%);
+}
+
+.initials-circle {
+  height: 42px;
+  min-width: 42px;
+  border-radius: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--background-color-site);
+  border: 2px solid var(--background-color-site);
+}
+
+.contact-list-name-container:active {
+  color: var(--background-color-site);
+  background-color: var(--button-selected);
+}
+
+.active {
+  color: var(--background-color-site);
+  background-color: var(--button-color);
+  border-radius: 10px;
+}
+
 .contact-list-name-container {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 7px 16px;
 }
 
 .contact-list-checkbox-icon {
@@ -146,6 +167,10 @@
 }
 
 .arrow {
+  top: 40px;
+  right: 12px;
+  cursor: pointer;
+  position: absolute;
   top: 40px;
   right: 12px;
   cursor: pointer;
@@ -288,6 +313,7 @@ select {
 
 textarea {
   border: none;
+  resize: none;
   resize: none;
   border-radius: 10px;
   background-color: white;
