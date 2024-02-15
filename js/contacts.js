@@ -354,7 +354,7 @@ function renderEditContact() {
 
 function setPersonToActive(id) {
   let activPerson = document.getElementById(`contact-data-${id}`)
-  if (lastActivePerson) {
+  if (lastActivePerson >= 0) {
     let lastPersconActive = document.getElementById(`contact-data-${lastActivePerson}`)
     lastPersconActive.classList.remove("set-contact-to-active")
 
