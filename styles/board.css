@@ -12,6 +12,10 @@
     background-color: #2A3647!important;
 }
 
+.addtask-btn:hover{
+    background-color: #4c6ea1!important;
+}
+
 .board-top {
     display: flex;
     align-items: center;
