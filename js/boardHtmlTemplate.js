@@ -98,8 +98,8 @@ function templateOverlayAssignee(assignee, name,color) {
 
 function templateOverlaySubtask(index, subtask, task, source) {
     return `
-            <div class="task-subtask">
-                <img id="sub${index}" onclick="checkedSubtask(${index}, ${task.id})" src="${source}">
+            <div class="task-subtask" onclick="checkedSubtask(${index}, ${task.id})">
+                <img id="sub${index}" src="${source}">
                 <span>${subtask}</span>
             </div>
     `

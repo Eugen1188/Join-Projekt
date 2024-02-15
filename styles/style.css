@@ -298,10 +298,7 @@ form {
   border-radius: 10px;
   font-size: 20px;
   margin-bottom: 24px;
-  padding-left: 21px;
-  padding-right: 21px;
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding: 12px 21px;
   box-sizing: border-box;
 }
 
