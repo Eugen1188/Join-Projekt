@@ -142,6 +142,7 @@
 .set-contact-to-active {
     color: var(--background-color-site);
     background-color: var(--button-selected);
+    z-index: 1;
 }
 
 
@@ -178,7 +179,6 @@
 }
 
 .single-contact-data-container {
-    margin-left: 1000px;
     position: absolute;
     top: 311px;
     left: 743px;
@@ -187,17 +187,6 @@
     min-width: 456px;
     display: flex;
     flex-direction: column;
-    animation: slideFromRight 2s forwards;
-}
-
-@keyframes slideFromRight {
-    0% {
-        margin-left: 1000px;
-    }
-
-    100% {
-        margin-left: 0;
-    }
 }
 
 

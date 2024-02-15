@@ -93,6 +93,7 @@ let contacts = [
 let userData = [];
 let sortedUsers;
 let id = 11;
+let lastActivePerson;
 
 async function initContacts() {
   contacts = await getItemContacts("contacts")
@@ -262,10 +263,22 @@ function renderContacts() {
   }
 }
 
+
+/**
+ * Render a single person in a more detailed view
+ * @param {number} id - the id is needed to render the right person
+ */
 function renderSingleContactOverview(id) {
   const singlContactDataContainer = document.getElementById("single-contact-data-container")
+  setPersonToActive(id)
   singlContactDataContainer.innerHTML = "";
-  singlContactDataContainer.innerHTML += singleContactOverview(id)
+  const element = document.querySelector('.single-contact-data-container');
+  element.style.marginLeft = '1000px';
+  element.style.transition = 'margin-left 1s';
+  setTimeout(() => {
+    singlContactDataContainer.innerHTML += singleContactOverview(id)
+    element.style.marginLeft = '0';
+  }, 200);
 }
 
 function getRandomColor() {
@@ -339,3 +352,13 @@ function renderEditContact() {
   card.innerHTML += contactsCardHTML("Edit contact", "", "addNewContactToContactlist")
 }
 
+function setPersonToActive(id) {
+  let activPerson = document.getElementById(`contact-data-${id}`)
+  if (lastActivePerson) {
+    let lastPersconActive = document.getElementById(`contact-data-${lastActivePerson}`)
+    lastPersconActive.classList.remove("set-contact-to-active")
+
+  }
+  activPerson.classList.add("set-contact-to-active")
+  lastActivePerson = id
+}
