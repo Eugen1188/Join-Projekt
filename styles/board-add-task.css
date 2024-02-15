@@ -1,0 +1,42 @@
+.task-headline {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 74px;
+    top: 64px;
+    max-width: 1208px;
+}
+
+.addtask-side-left {
+    display: flex;
+    position: absolute;
+    top: 174px;
+    left: 74px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 440px;
+    height: 376px;
+}
+
+.divider {
+    position: absolute;
+    left: 562.25px;
+    top: 174px;
+    width: 1px;
+    background-color: #d1d1d1;
+    height: 424px;
+}
+
+.addtask-side-right {
+    display: flex;
+    position: absolute;
+    top: 174px;
+    left: 610.25px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 440px;
+    height: 376px;
+}
+
