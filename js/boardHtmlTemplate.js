@@ -20,7 +20,7 @@ function templateCard(task) {
                 </div>
                 <div class="board-card-status">
                     <div class="board-card-assignee">
-                        ${renderCardAssignee(task.initials)}
+                        ${renderCardAssignee(task)}
                     </div>
                     <div>
                         <img src="./assets/img/${task.prio}.png" alt="prio-low">
@@ -39,9 +39,9 @@ function templateNoTask() {
     `
 }
 
-function templateCardAssignee(assignee) {
+function templateCardAssignee(assignee, color) {
     return `
-    <div class="assignee" style="background-color: #42526E">${assignee}</div>
+    <div class="assignee ${color}" >${assignee}</div>
     `
 }
 
@@ -74,7 +74,7 @@ function templateTaskOverlay(task) {
             </div>
         </div>
         <div class="overlay-menu">
-            <div class="overlay-menu-content">
+            <div class="overlay-menu-content" onclick="deleteTask(${task.id})">
                 <img src="./assets/img/icons/delete.png" alt="delete">
                 <span>Delete</span>
             </div>
@@ -87,10 +87,10 @@ function templateTaskOverlay(task) {
     `
 }
 
-function templateOverlayAssignee(assignee, name) {
+function templateOverlayAssignee(assignee, name,color) {
     return `
         <div class="task-overlay-assignee">
-            <div class="assignee" style="background-color: #42526E">${assignee}</div>
+            <div class="assignee ${color}">${assignee}</div>
             <span>${name}</span>
         </div>
     `

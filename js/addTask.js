@@ -1,10 +1,15 @@
 let checkedContacts = [];
-let initials = [];
 let subtasks = [];
+let finalContactData = [];
+let contactName = [];
+let initials = [];
+let circleColors = [];
 let taskStates = [];
 let tempContacts = [];
+let contactIds = [];
 
-document.addEventListener("DOMContentLoaded", function () {
+/**
+ * document.addEventListener("DOMContentLoaded", function () {
   let low = document.getElementById("low");
   let medium = document.getElementById("medium");
   let urgent = document.getElementById("urgent");
@@ -15,30 +20,19 @@ document.addEventListener("DOMContentLoaded", function () {
   urgent.addEventListener("click", handleClick);
   urgent.addEventListener("click", changeIconColor);
 });
+ * 
+ */
 
-function handleClick(event) {
-  let priority = event.target.value;
-
+function handleClick(value) {
+  let priority = value;
   document.documentElement.style.setProperty(
     "--prio-button-selected",
     getButtonColor(priority)
   );
 }
 
-function getButtonColor(priority) {
-  if (priority === "low") {
-    return "#7AE229";
-  } else if (priority === "medium") {
-    return "#FFA800";
-  } else if (priority === "urgent") {
-    return "#FF3D00";
-  } else {
-    return "white";
-  }
-}
-
-function changeIconColor(event) {
-  let priorityIcon = event.target.value;
+function invertSvgFills(value) {
+  let priorityIcon = value;
   let urgentIcon = document.getElementById("urgent-icon");
   let mediumIcon = document.getElementById("medium-icon");
   let lowIcon = document.getElementById("low-icon");
@@ -52,6 +46,18 @@ function changeIconColor(event) {
     mediumIcon.classList.add("fill-btn-white");
   } else if (priorityIcon == "low") {
     lowIcon.classList.add("fill-btn-white");
+  }
+}
+
+function getButtonColor(priority) {
+  if (priority === "low") {
+    return "#7AE229";
+  } else if (priority === "medium") {
+    return "#FFA800";
+  } else if (priority === "urgent") {
+    return "#FF3D00";
+  } else {
+    return "white";
   }
 }
 
@@ -102,11 +108,7 @@ function saveEditedSubtask(index) {
 //HTML Validierung funktioniert nicht da onsubmit false ist
 // getCheckedContact() darf nur einmal ausgeführt werden, da dort auch die Initalien dran hängen
 function validateForm() {
-  // die if Bedingung ist notwendig, da im Fehlerfall die getCheckedContact() funktion erneut ausgeführt und somit dubletten erzeugt werden
-  if (checkedContacts.length == 0) {
-    getCheckedContact();
-  }
-  // let submitButton = document.getElementById("submitButton"); // disabled = false // sollte man button deaktivieren wenn die inputs fehlerhaft sind ? ..;
+  getCheckedContact();
   let lengthCheckedContacts = checkedContacts.length;
   let prioInputs = document.getElementsByName("priority");
   for (let i = 0; i < prioInputs.length; i++) {
@@ -122,7 +124,6 @@ function validateForm() {
 }
 
 async function addTask() {
-  //getCheckedContact();
   let id = allTasks.length;
   let title = document.getElementById("title");
   let taskDescription = document.getElementById("taskDescription");
@@ -140,10 +141,13 @@ async function addTask() {
     {
       id: id,
       title: title.value,
+      contactDataAsArray: finalContactData,
+      contactIds: contactIds,
       status: { inProgress: false, awaitFeedback: false, done: false }, // true oder false werden im Board gesetzt
       taskDescription: taskDescription.value,
-      contacts: checkedContacts,
+      contacts: contactName,
       initials: initials,
+      circleColor: circleColors,
       createdAt: new Date().getTime(),
       date: date.value,
       prio: prio,
@@ -173,54 +177,160 @@ async function getItemContacts(key) {
 
 async function initContacts() {
   tempContacts = await getItemContacts("contacts");
-  getContact();
+  getAllContacts();
 }
-/**
- * Lädt Kontakte in ein Dropdown-Menü.
- * @function getContact
- * @returns {void}
- */
 
-function getContact() {
-  /**
-   * Das HTML-Element des Dropdown-Menüs, in das die Kontakte geladen werden sollen.
-   * @type {HTMLElement}
-   */
+function getAllContacts() {
+  displayContacts(tempContacts);
+}
+
+function displayContacts(contacts) {
   let selectElement = document.getElementById("contact-values");
   selectElement.innerHTML = "";
-  /**
-   * Der HTML-String, der die Optionen für das Dropdown-Menü enthält.
-   * @type {string}
-   */
   let optionsHTML = "";
-  // Durchläuft jedes Kontaktobjekt und erstellt eine Option für das Dropdown-Menü.
-  tempContacts.forEach((contact) => {
-    optionsHTML += `
-    <div id="contactList" class="checkbox">
-     <label for="${contact.name}">${contact.name} ${contact.lastname}</label>
-     <input  type="checkbox" name="contacts" value="${
-       contact.name + " " + contact.lastname
-     }" id="${contact.name}">
-    </div>
-      `;
+  contacts.forEach((contact, index) => {
+    optionsHTML += generateContactHTML(contact, index);
   });
-  // Fügt die erstellten Optionen dem Dropdown-Menü hinzu.
   selectElement.innerHTML = optionsHTML;
 }
 
+function displayFilteredContacts(filteredContacts) {
+  displayContacts(filteredContacts);
+}
+
+function getClickedContact(index, contactId) {
+  let iconToChange = document.getElementById(`checkboxIcon_${index}`);
+  let contactCard = document.getElementById(`contact_${index}`);
+  let checkBoxIconColor = document.getElementById(`checkboxIcon_${index}`);
+  let isChecked = checkedContacts.includes(contactId);
+  if (isChecked) {
+    let contactIndex = checkedContacts.indexOf(contactId);
+    if (contactIndex !== -1) {
+      checkedContacts.splice(contactIndex, 1);
+    }
+    iconToChange.innerHTML = renderBoxIcon();
+    contactCard.classList.remove("active");
+    checkBoxIconColor.classList.remove("stroke-wht");
+  } else {
+    checkedContacts.push(contactId);
+    iconToChange.innerHTML = renderCheckedIcon();
+    contactCard.classList.add("active");
+    checkBoxIconColor.classList.add("stroke-wht");
+  }
+}
+
+function filterContacts() {
+  // Input-Wert abrufen
+  let filterValue = document
+    .getElementById("contactAssignInput")
+    .value.trim()
+    .toUpperCase();
+  // Wenn das Eingabefeld leer ist, getAllContacts aufrufen, um alle Kontakte anzuzeigen
+  if (filterValue === "") {
+    getAllContacts();
+    return;
+  }
+  // Neue Liste für gefilterte Kontakte erstellen
+  let filteredContacts = tempContacts.filter((contact) => {
+    // Den Filter auf Namen anwenden
+    let fullName = `${contact.name.toUpperCase()}`;
+    return fullName.includes(filterValue);
+  });
+  // Neue Kontakte als Liste anzeigen
+  displayFilteredContacts(filteredContacts);
+}
+
 function getCheckedContact() {
-  checkedContacts = [];
-  document
-    .querySelectorAll('input[name="contacts"]:checked')
-    .forEach((checkbox) => {
-      checkedContacts.push(checkbox.value);
+  checkedContacts.forEach((contactId) => {
+    tempContacts.forEach((contact) => {
+      if (contactId === contact.id) {
+        contactName.push(contact.name + " " + contact.lastname);
+        initials.push(contact.initials);
+        circleColors.push(contact.circleColor);
+        contactIds.push(contact.id);
+        finalContactData.push({
+          id: contact.id,
+          name: contact.name,
+          lastname: contact.lastname,
+          initials: contact.initials,
+          circleColor: contact.circleColor,
+        });
+      }
     });
-  getInitalias();
+  });
 }
 
 function showContacts() {
+  let arrow = document.getElementById("arrowContactInput");
   let id = document.getElementById("contact-values");
   id.classList.toggle("d-none");
+  arrow.classList.toggle("rotate-180");
+}
+
+function renderBoxIcon() {
+  return `
+      <svg
+        width="25"
+        height="24"
+        viewBox="0 0 25 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect
+          x="4.38818"
+          y="4"
+          width="16"
+          height="16"
+          rx="3"
+          stroke="#2A3647"
+          stroke-width="2"
+        />
+      </svg>
+    `;
+}
+
+function renderCheckedIcon() {
+  return `
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 11V17C20 18.6569 18.6569 20 17 20H7C5.34315 20 4 18.6569 4 17V7C4 5.34315 5.34315 4 7 4H15" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
+        <path d="M8 12L12 16L20 4.5" stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    `;
+}
+
+function generateContactHTML(contact, index) {
+  return `
+    <div id="contact_${index}" onclick="getClickedContact(${index},${contact.id})" class="contact-list-name-container pointer">
+      <div class="contact-list-name-initials">
+        <div  class="initials-circle ${contact.circleColor}">
+          <span>${contact.initials}</span>
+        </div>
+        <div class="contact-list-name-element">
+          <span>${contact.name}</span>
+          <span>${contact.lastname}</span>
+        </div>
+      </div>
+      <div id="checkboxIcon_${index}" class="contact-list-checkbox-icon">
+        <svg
+          width="25"
+          height="24"
+          viewBox="0 0 25 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            x="4.38818"
+            y="4"
+            width="16"
+            height="16"
+            rx="3"
+            stroke="#2A3647"
+            stroke-width="2"
+          />
+        </svg>
+      </div>
+    </div>
+  `;
 }
 
 async function testfunc() {
@@ -232,18 +342,4 @@ async function testfunc() {
     .catch((error) => {
       console.error("Ein Fehler ist aufgetreten:", error);
     });
-}
-
-function getInitalias() {
-  checkedContacts.forEach((contact) => {
-    // trennt den string bei " " in einzelne strings auf.
-    const nameParts = contact.split(" ");
-    // zwischenspeicher leerer String
-    let initial = "";
-    nameParts.forEach((part) => {
-      // part[0] ist der erste Buchstabe des strings
-      initial += part[0].toUpperCase();
-    });
-    initials.push(initial);
-  });
 }

@@ -22,9 +22,9 @@
             <div class="contacts-conllection">
                 <div class="contatcs-btn-bg">
                     <div class="btn-container">
-                        <button class="add-contacts-btn">
+                        <button class="add-contacts-btn" onclick="renderAddNewContact()">
                             Add new Contact
-                            <img src="./assets/img/icons/person_add.png" alt="" srcset="" />
+                            <img src="./assets/img/icons/person_add.png"/>
                         </button>
                     </div>
                 </div>
@@ -39,9 +39,26 @@
                 <span>Better with a Team</span>
             </div>
             <div class="single-contact-data-container" id="single-contact-data-container">
-                
             </div>
         </div>
+        <div id="edit-card"></div>
+        <!-- <div class="edit-card">
+            <div class="edit-card-headline">
+                <img src="./assets/img/icons/join-logo.png" alt="">
+                <div class="edit-card-header">
+                    Edit contact
+                </div>
+                <div class="small-underline"></div>
+            </div>
+            <div class="edit-card-form">
+                <form onsubmit="addNewContactToContactlist(); return false">
+                    <input type="text" placeholder="Name" id="name">
+                    <input type="email" placeholder="E-Mail" id="email">
+                    <input type="number" placeholder="Phone" id="phone">
+                    <button>Send</button>
+                </form>
+            </div>
+        </div> -->
     </div>
 </body>
 

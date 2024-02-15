@@ -492,6 +492,66 @@ form {
   cursor: pointer;
 }
 
+.user-color-one {
+  background-color: #ff7a00;
+}
+
+.user-color-two {
+  background-color: #ff5eb3;
+}
+
+.user-color-three {
+  background-color: #6e52ff;
+}
+
+.user-color-four {
+  background-color: #9327ff;
+}
+
+.user-color-five {
+  background-color: #00bee8;
+}
+
+.user-color-six {
+  background-color: #1fd7c1;
+}
+
+.user-color-seven {
+  background-color: #ff745e;
+}
+
+.user-color-eight {
+  background-color: #fc71ff;
+}
+
+.user-color-nine {
+  background-color: #fc71ff;
+}
+
+.user-color-ten {
+  background-color: #ffc701;
+}
+
+.user-color-eleven {
+  background-color: #0038ff;
+}
+
+.user-color-twelve {
+  background-color: #c3ff2b;
+}
+
+.user-color-thirteen {
+  background-color: #ffe62b;
+}
+
+.user-color-fourteen {
+  background-color: #ff4646;
+}
+
+.user-color-fifteen {
+  background-color: #ffbb2b;
+}
+
 @keyframes encrease-opacity {
   from {
     opacity: 0;
