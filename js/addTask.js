@@ -2,7 +2,11 @@ let checkedContacts = [];
 let subtasks = [];
 let finalContactData = [];
 let contactName = [];
+let subtasks = [];
+let finalContactData = [];
+let contactName = [];
 let initials = [];
+let circleColors = [];
 let circleColors = [];
 let taskStates = [];
 let tempContacts = [];
@@ -109,6 +113,7 @@ function saveEditedSubtask(index) {
 // getCheckedContact() darf nur einmal ausgeführt werden, da dort auch die Initalien dran hängen
 function validateForm() {
   getCheckedContact();
+  getCheckedContact();
   let lengthCheckedContacts = checkedContacts.length;
   let prioInputs = document.getElementsByName("priority");
   for (let i = 0; i < prioInputs.length; i++) {
@@ -143,10 +148,14 @@ async function addTask() {
       title: title.value,
       contactDataAsArray: finalContactData,
       contactIds: contactIds,
+      contactDataAsArray: finalContactData,
+      contactIds: contactIds,
       status: { inProgress: false, awaitFeedback: false, done: false }, // true oder false werden im Board gesetzt
       taskDescription: taskDescription.value,
       contacts: contactName,
+      contacts: contactName,
       initials: initials,
+      circleColor: circleColors,
       circleColor: circleColors,
       createdAt: new Date().getTime(),
       date: date.value,
@@ -178,7 +187,14 @@ async function getItemContacts(key) {
 async function initContacts() {
   tempContacts = await getItemContacts("contacts");
   getAllContacts();
+  getAllContacts();
 }
+
+function getAllContacts() {
+  displayContacts(tempContacts);
+}
+
+function displayContacts(contacts) {
 
 function getAllContacts() {
   displayContacts(tempContacts);
@@ -188,6 +204,8 @@ function displayContacts(contacts) {
   let selectElement = document.getElementById("contact-values");
   selectElement.innerHTML = "";
   let optionsHTML = "";
+  contacts.forEach((contact, index) => {
+    optionsHTML += generateContactHTML(contact, index);
   contacts.forEach((contact, index) => {
     optionsHTML += generateContactHTML(contact, index);
   });
@@ -258,9 +276,27 @@ function getCheckedContact() {
       }
     });
   });
+  checkedContacts.forEach((contactId) => {
+    tempContacts.forEach((contact) => {
+      if (contactId === contact.id) {
+        contactName.push(contact.name + " " + contact.lastname);
+        initials.push(contact.initials);
+        circleColors.push(contact.circleColor);
+        contactIds.push(contact.id);
+        finalContactData.push({
+          id: contact.id,
+          name: contact.name,
+          lastname: contact.lastname,
+          initials: contact.initials,
+          circleColor: contact.circleColor,
+        });
+      }
+    });
+  });
 }
 
 function showContacts() {
+  let arrow = document.getElementById("arrowContactInput");
   let arrow = document.getElementById("arrowContactInput");
   let id = document.getElementById("contact-values");
   id.classList.toggle("d-none");
@@ -341,5 +377,6 @@ async function testfunc() {
     })
     .catch((error) => {
       console.error("Ein Fehler ist aufgetreten:", error);
+    });
     });
 }

@@ -8,6 +8,14 @@
     background-color: var(--button-selected);
 }
 
+.addtask-btn{
+    background-color: #2A3647!important;
+}
+
+.addtask-btn:hover{
+    background-color: #4c6ea1!important;
+}
+
 .board-top {
     display: flex;
     align-items: center;
@@ -175,7 +183,7 @@
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.08);
     padding: 16px;
     gap: 24px;
-    cursor: pointer;   
+    cursor: pointer;
 }
 
 .card-rotate{
@@ -299,8 +307,13 @@
 .task-overlay-translate-out {
     translate: 100vw;
 }
+
 .task-overlay-translate-in {
     translate: calc(-100vw - 262.5px);
+}
+
+.task-overlay-translate-in-task {
+    translate: calc(-50vw - 558px);
 }
 
 .task-overlay-bg {
@@ -317,7 +330,7 @@
     gap: 24px;
     position: absolute;
     left: 150vw;
-    width: 525px;
+    width: calc(525px - 80px);
     background-color: white;
     z-index: 2000;
     border-radius: 30px;
@@ -391,9 +404,6 @@
     gap: 16px;
     padding: 6px 16px;
     border-radius: 8px;
-}
-
-.task-subtask img{
     cursor: pointer;
 }
 
@@ -421,4 +431,17 @@
     border-radius: 24px;
     padding: 16px;
     pointer-events: none;
+}
+
+.add-task-overlay{
+    position: relative;
+    width: 1116px;
+    height: 870px;
+    background-color: white;
+    border-radius: 30px;
+    z-index: 1000;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
+    left: 100vw;
+    transition: all 125ms ease-in-out;
+
 }
