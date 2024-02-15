@@ -68,14 +68,19 @@ function tasksDone() {
 
 function tasksUrgent() {
     let urgentTasks = document.getElementById('tasks_number_urgent');
+    let nextUrgentDate = document.getElementById('next_urgent_task_date');
     let count = 0;
+    let urgentDate = 0;
 
     for (let i = 0; i < allTasks.length; i++) {
         const element = allTasks[i][0];
         if(element.prio == "urgent"){
-            count++
+            count++;
+            console.log(element.date)
+            urgentDate = element.date;
         }
         
     urgentTasks.innerHTML = count;
+    nextUrgentDate.innerHTML = urgentDate;
     }
 }
