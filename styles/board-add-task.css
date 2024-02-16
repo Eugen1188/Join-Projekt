@@ -1,10 +1,18 @@
 .task-headline {
+    position: relative;
     display: flex;
     align-items: center;
     position: absolute;
     left: 74px;
     top: 64px;
-    max-width: 1208px;
+    width: 100%;
+}
+
+.task-headline img{
+    position: absolute;
+    top: 0px;
+    right: 128px;
+    cursor: pointer;
 }
 
 .addtask-side-left {
@@ -40,3 +48,10 @@
     height: 376px;
 }
 
+.input-container textarea{
+    border: 1px solid #D1D1D1;
+}
+
+.radio-button{
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
+}
