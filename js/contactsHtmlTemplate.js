@@ -62,7 +62,7 @@ function singleContactOverview(index) {
             </div>
         </div>
         <div class="contact-info-headline">
-            <span>Concat Information</span>
+            <span>Contact Information</span>
         </div>
         <div class="contact-info-card" >
             <div class="contact-info-value">
@@ -71,7 +71,7 @@ function singleContactOverview(index) {
             </div>
             <div class="contact-info-value">
                 <span>Phone</span>
-                <span>${contacts[index].phone}</span>
+                ${contacts[index].phone}
             </div>
         </div>
     `
@@ -84,9 +84,9 @@ function singleContactOverview(index) {
  * @param {String} functionName - function name to be used renderAddNewContact or renderEditContact
  * @returns
  */
-function contactsCardHTML(cardName, secondText,functionName) {
+function contactsCardHTML(cardName, secondText,functionName, id) {
     return /*html*/ `
-        <div class="edit-card">
+        <div class="edit-card" data-id="${id}">
             <div class="edit-card-headline">
                 <img src="./assets/img/icons/join-logo.png" alt="">
                 <div class="edit-card-header">

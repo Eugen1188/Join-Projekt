@@ -142,7 +142,6 @@
 .set-contact-to-active {
     color: var(--background-color-site);
     background-color: var(--button-selected);
-    z-index: 1;
 }
 
 
@@ -260,7 +259,6 @@
 }
 
 .contact-info-headline {
-    width: 207px;
     height: 74px;
     font-size: 20px;
     display: flex;
@@ -268,7 +266,6 @@
 }
 
 .contact-info-card {
-    width: 140px;
     height: 128px;
     display: flex;
     flex-direction: column;
@@ -281,11 +278,15 @@
 }
 
 .contact-info-value {
-    width: 124px;
     height: 53px;
     display: flex;
     flex-direction: column;
     gap: 15px;
+}
+
+.contact-info-value span {
+    font-weight: 700;
+    font-size: 16px;
 }
 
 .vertical-bar {
@@ -303,7 +304,7 @@
     position: absolute;
     background-color: grey;
     border-radius: 16px;
-    top: 400px;
+    top: 300px;
     left: 450px;
     display: flex;
     gap: 12px;

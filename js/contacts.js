@@ -106,31 +106,31 @@ async function initContacts() {
  * @param {number} id - is needed to find the person to be updated
  * @returns - if nothing has been filled in, the function terminates and does not return a value
  */
-function editContact(id) {
-  const nameValue = document.getElementById("name").value.trim().toLowerCase();
-  const emailValue = document.getElementById("email").value.trim().toLowerCase();
+async function editContact() {
+  const nameValue = document.getElementById("name").value.trim();
+  const emailValue = document.getElementById("email").value.trim();
   const phoneValue = document.getElementById("phone").value.trim();
-  for (let i = 0; i < contacts.length; i++) {
-    if (contacts[i].id === id) {
-      if (nameValue || emailValue || phoneValue) {
-        if (nameValue) {
-          let editName = nameValue.splice(" ")
-          contacts[i].name = editName[0];
-          contacts[i].lastname = editName[editName.length -1];
-        }
-        if (emailValue) {
-          contacts[i].email = emailValue;
-        }
-        if (phoneValue) {
-          contacts[i].phone = phoneValue;
-        }
+  console.log(nameValue);
+  console.log(emailValue);
+  console.log(phoneValue);
+  if (nameValue && emailValue && phoneValue) {
+    for (let i = 0; i < contacts.length; i++) {
+      console.log("lastActivPerson ", lastActivePerson);
+      console.log("contact ", contacts[i].id);
+      console.log(contacts[i] === lastActivePerson);
+      if (contacts[i].id === contacts[lastActivePerson].id) {
+        let editName = nameValue.split(" ")
+        contacts[i].name = editName[0];
+        contacts[i].lastname = editName.slice(1).join(" ");
+        contacts[i].email = emailValue;
+        contacts[i].phone = phoneValue;
         renderContacts()
         setItem("contacts", contacts)
         break;
-      } else {
-        return;
       }
     }
+  } else {
+    return
   }
 }
 
@@ -265,7 +265,6 @@ function renderContacts() {
   }
 }
 
-
 /**
  * Render a single person in a more detailed view
  * @param {number} id - the id is needed to render the right person
@@ -276,11 +275,74 @@ function renderSingleContactOverview(id) {
   singlContactDataContainer.innerHTML = "";
   const element = document.querySelector('.single-contact-data-container');
   element.style.marginLeft = '1000px';
-  element.style.transition = 'margin-left 1s';
+  element.style.transition = 'margin-left 1s ease';
   setTimeout(() => {
     singlContactDataContainer.innerHTML += singleContactOverview(id)
     element.style.marginLeft = '0';
   }, 200);
+}
+
+
+/**
+ *capitalizes the first letter
+ * @param {String} name - User name
+ * @returns {String} - returns the name with the first letter capitalized
+ */
+function firstCharToUpperCase(name) {
+  let toUpper = name.charAt(0).toUpperCase() + name.substring(1);
+  return toUpper
+}
+
+
+/**
+ *Sets all letters to lower case
+ * @param {String} name - the name to be written in lower case
+ * @returns {String}  - returns the name as a lowercase string
+ */
+function firstCharToLowerCase(name) {
+  let toLower = name.toLowerCase()
+  return toLower
+}
+
+function renderAddNewContact() {
+  let card = document.getElementById("edit-card")
+  card.innerHTML = ""
+  card.innerHTML += contactsCardHTML("Add contact", "Tasks are better with a team!", "addNewContactToContactlist", "")
+}
+
+function closeRenderContactCard() {
+  let card = document.getElementById("edit-card")
+  let name = document.getElementById("name").value
+  let email = document.getElementById("email").value
+  let phone = document.getElementById("phone").value
+  name = ""
+  email = ""
+  phone = ""
+  card.innerHTML = ""
+}
+
+
+function renderEditContact() {
+  let card = document.getElementById("edit-card")
+  card.innerHTML = ""
+  card.innerHTML += contactsCardHTML("Edit contact", "", "editContact")
+}
+
+/**
+ * Sets the clicked card to active and colors it, if another card is clicked, the last card is reset to normal state
+ * @param {Number} id -
+ */
+function setPersonToActive(id) {
+  let activPerson = document.getElementById(`contact-data-${id}`)
+  activPerson.classList.add("pointerEvents")
+  if (lastActivePerson >= 0) {
+    let lastPersconActive = document.getElementById(`contact-data-${lastActivePerson}`)
+    lastPersconActive.classList.remove("set-contact-to-active")
+    lastPersconActive.classList.remove("pointerEvents")
+
+  }
+  activPerson.classList.add("set-contact-to-active")
+  lastActivePerson = id
 }
 
 function getRandomColor() {
@@ -319,51 +381,4 @@ function getRandomColor() {
     default:
       return "user-color-one"
   }
-}
-
-function firstCharToUpperCase(name) {
-  let toUpper = name.charAt(0).toUpperCase() + name.substring(1);
-  return toUpper
-}
-
-function firstCharToLowerCase(name) {
-  let toUpper = name.charAt(0).toLowerCase + name.substring(1);
-  return toUpper
-}
-
-function renderAddNewContact() {
-  let card = document.getElementById("edit-card")
-  card.innerHTML = ""
-  card.innerHTML += contactsCardHTML("Add contact", "Tasks are better with a team!", "editContact")
-}
-
-function closeRenderContactCard() {
-  let card = document.getElementById("edit-card")
-  let name = document.getElementById("name").value
-  let email = document.getElementById("email").value
-  let phone = document.getElementById("phone").value
-  name = ""
-  email = ""
-  phone = ""
-  card.innerHTML = ""
-}
-
-function renderEditContact() {
-  let card = document.getElementById("edit-card")
-  card.innerHTML = ""
-  card.innerHTML += contactsCardHTML("Edit contact", "", "addNewContactToContactlist")
-}
-
-function setPersonToActive(id) {
-  let activPerson = document.getElementById(`contact-data-${id}`)
-  activPerson.classList.add("pointerEvents")
-  if (lastActivePerson >= 0) {
-    let lastPersconActive = document.getElementById(`contact-data-${lastActivePerson}`)
-    lastPersconActive.classList.remove("set-contact-to-active")
-    lastPersconActive.classList.remove("pointerEvents")
-
-  }
-  activPerson.classList.add("set-contact-to-active")
-  lastActivePerson = id
-
 }
