@@ -1,18 +1,15 @@
 /**
  * Renders the first letter of the contact array
  * @param {number} index - Array index required to display the first letter
- * @returns
+ * @returns - HTML
  */
 function contactDataHTML(index) {
     return /*html*/ `
         <div class="contacts-content">
             <div class="list">
-                <span class="list-char" id="char-${index}">${contacts[index].name.charAt(0).toUpperCase()}</span>
+                <span class="list-char">${contacts[index].name.charAt(0).toUpperCase()}</span>
             </div>
             <div class="underline"></div>
-            <div id="contacts-${index}">
-
-            </div>
         </div>
     `
 }
@@ -20,7 +17,7 @@ function contactDataHTML(index) {
 /**
  * together with a for loop can render all contacts
  * @param {number} index - Array index required to display the contact
- * @returns
+ * @returns - HTML
  */
 function contactUserCardHtml(index) {
     return /*html*/ `
@@ -41,7 +38,7 @@ function contactUserCardHtml(index) {
 /**
  * Renders the large display when clicking on a contact in Contacts
  * @param {number} index - array index of the person to be displayed
- * @returns
+ * @returns - HTML
  */
 function singleContactOverview(index) {
     return /*html*/ `
@@ -82,9 +79,9 @@ function singleContactOverview(index) {
  * @param {String} cardName - Heading of the card
  * @param {String}  - additional text to be displayed
  * @param {String} functionName - function name to be used renderAddNewContact or renderEditContact
- * @returns
+ * @returns - HTML
  */
-function contactsCardHTML(cardName, secondText,functionName, id) {
+function contactsCardHTML(cardName, secondText, functionName, id) {
     return /*html*/ `
         <div class="edit-card" data-id="${id}">
             <div class="edit-card-headline">

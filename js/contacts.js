@@ -104,8 +104,8 @@ async function initContacts() {
 /**
  *Updates the data of a person, only updates the data whose field is also filled in
  * @param {number} id - is needed to find the person to be updated
- * @returns - if nothing has been filled in, the function terminates and does not return a value
- */
+ * @returns {void} - returns nothing
+ * */
 async function editContact() {
   const nameValue = document.getElementById("name").value.trim();
   const emailValue = document.getElementById("email").value.trim();
@@ -134,7 +134,10 @@ async function editContact() {
   }
 }
 
-/**If the code is adopted, replace getItem with getItemContacts */
+/**If the code is adopted, replace getItem with getItemContacts
+ * @param {string} key - is required to find the desired data
+ * @returns {array} - returns the contacts array
+ */
 async function getItemContacts(key) {
   const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
   try {
@@ -235,7 +238,7 @@ function sortArrayByUserName() {
   which can be intercepted in an if query to jump out of the function
  * @param {string} email - is required to compare the emails
  * @param {array} array - which array should be searched for the emails
- * @returns
+ * @returns {string} - returns a string if the email is already in use
  */
 function checkEmailAddress(email, array) {
   for (let i = 0; i < array.length; i++) {
@@ -267,7 +270,7 @@ function renderContacts() {
 
 /**
  * Render a single person in a more detailed view
- * @param {number} id - the id is needed to render the right person
+ * @param {number} id - is required to find the desired user
  */
 function renderSingleContactOverview(id) {
   const singlContactDataContainer = document.getElementById(
@@ -284,22 +287,20 @@ function renderSingleContactOverview(id) {
   }, 200);
 }
 
-
 /**
  *capitalizes the first letter
  * @param {String} name - User name
- * @returns {String} - returns the name with the first letter capitalized
+ * @returns {String} - returns the name in upper case
  */
 function firstCharToUpperCase(name) {
   let toUpper = name.charAt(0).toUpperCase() + name.substring(1);
   return toUpper
 }
 
-
 /**
  *Sets all letters to lower case
- * @param {String} name - the name to be written in lower case
- * @returns {String}  - returns the name as a lowercase string
+ * @param {String} name - User name
+ * @returns {String}  - returns the name in lower case
  */
 function firstCharToLowerCase(name) {
   let toLower = name.toLowerCase()
@@ -323,7 +324,6 @@ function closeRenderContactCard() {
   card.innerHTML = ""
 }
 
-
 function renderEditContact() {
   let card = document.getElementById("edit-card")
   card.innerHTML = ""
@@ -332,7 +332,7 @@ function renderEditContact() {
 
 /**
  * Sets the clicked card to active and colors it, if another card is clicked, the last card is reset to normal state
- * @param {Number} id -
+ * @param {Number} id - the id of the clicked card
  */
 function setPersonToActive(id) {
   let activPerson = document.getElementById(`contact-data-${id}`)
@@ -426,6 +426,10 @@ function renderEditContact() {
   );
 }
 
+/**
+ * Sets the clicked card to active and colors it, if another card is clicked, the last card is reset to normal state
+ * @param {Number} id - the id of the clicked card
+ */
 function setPersonToActive(id) {
   let activPerson = document.getElementById(`contact-data-${id}`);
   activPerson.classList.add("pointerEvents");
