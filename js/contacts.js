@@ -104,40 +104,40 @@ async function initContacts() {
 /**
  *Updates the data of a person, only updates the data whose field is also filled in
  * @param {number} id - is needed to find the person to be updated
- * @returns - if nothing has been filled in, the function terminates and does not return a value
- */
-function editContact(id) {
-  const nameValue = document.getElementById("name").value.trim().toLowerCase();
-  const emailValue = document
-    .getElementById("email")
-    .value.trim()
-    .toLowerCase();
+ * @returns {void} - returns nothing
+ * */
+async function editContact() {
+  const nameValue = document.getElementById("name").value.trim();
+  const emailValue = document.getElementById("email").value.trim();
   const phoneValue = document.getElementById("phone").value.trim();
-  for (let i = 0; i < contacts.length; i++) {
-    if (contacts[i].id === id) {
-      if (nameValue || emailValue || phoneValue) {
-        if (nameValue) {
-          let editName = nameValue.splice(" ");
-          contacts[i].name = editName[0];
-          contacts[i].lastname = editName[editName.length - 1];
-        }
-        if (emailValue) {
-          contacts[i].email = emailValue;
-        }
-        if (phoneValue) {
-          contacts[i].phone = phoneValue;
-        }
-        renderContacts();
-        setItem("contacts", contacts);
+  console.log(nameValue);
+  console.log(emailValue);
+  console.log(phoneValue);
+  if (nameValue && emailValue && phoneValue) {
+    for (let i = 0; i < contacts.length; i++) {
+      console.log("lastActivPerson ", lastActivePerson);
+      console.log("contact ", contacts[i].id);
+      console.log(contacts[i] === lastActivePerson);
+      if (contacts[i].id === contacts[lastActivePerson].id) {
+        let editName = nameValue.split(" ")
+        contacts[i].name = editName[0];
+        contacts[i].lastname = editName.slice(1).join(" ");
+        contacts[i].email = emailValue;
+        contacts[i].phone = phoneValue;
+        renderContacts()
+        setItem("contacts", contacts)
         break;
-      } else {
-        return;
       }
     }
+  } else {
+    return
   }
 }
 
-/**If the code is adopted, replace getItem with getItemContacts */
+/**If the code is adopted, replace getItem with getItemContacts
+ * @param {string} key - is required to find the desired data
+ * @returns {array} - returns the contacts array
+ */
 async function getItemContacts(key) {
   const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
   try {
@@ -238,7 +238,7 @@ function sortArrayByUserName() {
   which can be intercepted in an if query to jump out of the function
  * @param {string} email - is required to compare the emails
  * @param {array} array - which array should be searched for the emails
- * @returns
+ * @returns {string} - returns a string if the email is already in use
  */
 function checkEmailAddress(email, array) {
   for (let i = 0; i < array.length; i++) {
@@ -270,7 +270,7 @@ function renderContacts() {
 
 /**
  * Render a single person in a more detailed view
- * @param {number} id - the id is needed to render the right person
+ * @param {number} id - is required to find the desired user
  */
 function renderSingleContactOverview(id) {
   const singlContactDataContainer = document.getElementById(
@@ -278,13 +278,73 @@ function renderSingleContactOverview(id) {
   );
   setPersonToActive(id);
   singlContactDataContainer.innerHTML = "";
-  const element = document.querySelector(".single-contact-data-container");
-  element.style.marginLeft = "1000px";
-  element.style.transition = "margin-left 1s";
+  const element = document.querySelector('.single-contact-data-container');
+  element.style.marginLeft = '1000px';
+  element.style.transition = 'margin-left 1s ease';
   setTimeout(() => {
     singlContactDataContainer.innerHTML += singleContactOverview(id);
     element.style.marginLeft = "0";
   }, 200);
+}
+
+/**
+ *capitalizes the first letter
+ * @param {String} name - User name
+ * @returns {String} - returns the name in upper case
+ */
+function firstCharToUpperCase(name) {
+  let toUpper = name.charAt(0).toUpperCase() + name.substring(1);
+  return toUpper
+}
+
+/**
+ *Sets all letters to lower case
+ * @param {String} name - User name
+ * @returns {String}  - returns the name in lower case
+ */
+function firstCharToLowerCase(name) {
+  let toLower = name.toLowerCase()
+  return toLower
+}
+
+function renderAddNewContact() {
+  let card = document.getElementById("edit-card")
+  card.innerHTML = ""
+  card.innerHTML += contactsCardHTML("Add contact", "Tasks are better with a team!", "addNewContactToContactlist", "")
+}
+
+function closeRenderContactCard() {
+  let card = document.getElementById("edit-card")
+  let name = document.getElementById("name").value
+  let email = document.getElementById("email").value
+  let phone = document.getElementById("phone").value
+  name = ""
+  email = ""
+  phone = ""
+  card.innerHTML = ""
+}
+
+function renderEditContact() {
+  let card = document.getElementById("edit-card")
+  card.innerHTML = ""
+  card.innerHTML += contactsCardHTML("Edit contact", "", "editContact")
+}
+
+/**
+ * Sets the clicked card to active and colors it, if another card is clicked, the last card is reset to normal state
+ * @param {Number} id - the id of the clicked card
+ */
+function setPersonToActive(id) {
+  let activPerson = document.getElementById(`contact-data-${id}`)
+  activPerson.classList.add("pointerEvents")
+  if (lastActivePerson >= 0) {
+    let lastPersconActive = document.getElementById(`contact-data-${lastActivePerson}`)
+    lastPersconActive.classList.remove("set-contact-to-active")
+    lastPersconActive.classList.remove("pointerEvents")
+
+  }
+  activPerson.classList.add("set-contact-to-active")
+  lastActivePerson = id
 }
 
 function getRandomColor() {
@@ -366,6 +426,10 @@ function renderEditContact() {
   );
 }
 
+/**
+ * Sets the clicked card to active and colors it, if another card is clicked, the last card is reset to normal state
+ * @param {Number} id - the id of the clicked card
+ */
 function setPersonToActive(id) {
   let activPerson = document.getElementById(`contact-data-${id}`);
   activPerson.classList.add("pointerEvents");
