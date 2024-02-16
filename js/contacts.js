@@ -4,7 +4,7 @@ let contacts = [
     name: "Max",
     lastname: "Mustermann",
     email: "max@example.com",
-    phone: "123-456-7890",
+    phone: "+495689876241",
     initials: "MM",
     circleColor: "user-color-one",
   },
@@ -13,7 +13,7 @@ let contacts = [
     name: "Anna",
     lastname: "Musterfrau",
     email: "anna@example.com",
-    phone: "987-654-3210",
+    phone: "+495689876242",
     initials: "AM",
     circleColor: "user-color-two",
   },
@@ -22,7 +22,7 @@ let contacts = [
     name: "John",
     lastname: "Doe",
     email: "john@example.com",
-    phone: "555-123-4567",
+    phone: "+495689876243",
     initials: "JD",
     circleColor: "user-color-three",
   },
@@ -31,7 +31,7 @@ let contacts = [
     name: "Jane",
     lastname: "Doe",
     email: "jane@example.com",
-    phone: "555-987-6543",
+    phone: "+495689876244",
     initials: "JD",
     circleColor: "user-color-four",
   },
@@ -40,7 +40,7 @@ let contacts = [
     name: "Alice",
     lastname: "Smith",
     email: "alice@example.com",
-    phone: "321-654-9870",
+    phone: "+495689876245",
     initials: "AS",
     circleColor: "user-color-five",
   },
@@ -49,7 +49,7 @@ let contacts = [
     name: "Bob",
     lastname: "Johnson",
     email: "bob@example.com",
-    phone: "888-222-3333",
+    phone: "+495689876246",
     initials: "BJ",
     circleColor: "user-color-six",
   },
@@ -58,7 +58,7 @@ let contacts = [
     name: "Emily",
     lastname: "Davis",
     email: "emily@example.com",
-    phone: "777-777-7777",
+    phone: "+495689876247",
     initials: "ED",
     circleColor: "user-color-seven",
   },
@@ -67,7 +67,7 @@ let contacts = [
     name: "Michael",
     lastname: "Brown",
     email: "michael@example.com",
-    phone: "666-666-6666",
+    phone: "+495689876248",
     initials: "MB",
     circleColor: "user-color-eight",
   },
@@ -76,7 +76,7 @@ let contacts = [
     name: "Sarah",
     lastname: "Wilson",
     email: "sarah@example.com",
-    phone: "444-444-4444",
+    phone: "+495639826249",
     initials: "SW",
     circleColor: "user-color-nine",
   },
@@ -85,7 +85,7 @@ let contacts = [
     name: "David",
     lastname: "Lee",
     email: "david@example.com",
-    phone: "222-888-9999",
+    phone: "+495689876250",
     initials: "DL",
     circleColor: "user-color-ten",
   },
@@ -152,9 +152,9 @@ async function getItemContacts(key) {
   }
 }
 
-/**
- * löscht den user aus dem array
- * @param {number} id - is required to find the desired user to be deleted
+
+/** deletes a contact from the contact list
+ * @param {number} id - is required to find the desired user
  */
 async function deleteContact(id) {
   const userId = id;
@@ -171,6 +171,8 @@ async function deleteContact(id) {
 
 /**
  * Saves the user in userData array and
+ * sets the id to the next number
+ * @returns {void} - returns nothing
  */
 async function saveNewUserData() {
   const name = document.getElementById("name-reg").value.trim();
@@ -195,7 +197,10 @@ async function saveNewUserData() {
   setItem("userData", userData);
 }
 
-/** adds a new contact to Contactlist */
+
+/** adds a new contact to Contactlist and sets the id to the next number
+ * @returns {void} - returns nothing
+ */
 async function addNewContactToContactlist() {
   let name = document.getElementById("name").value.toLowerCase().trim();
   let helper = name.split(" ");
@@ -211,7 +216,7 @@ async function addNewContactToContactlist() {
     name: firstCharToUpperCase(firstname),
     lastname: firstCharToUpperCase(lastname),
     email: email.toLowerCase(),
-    phone: phone,
+    phone: formatPhoneNumber(phone),
     initials:
       firstname.charAt(0).toUpperCase() + lastname.charAt(0).toUpperCase(),
     circleColor: getRandomColor(),
@@ -222,9 +227,7 @@ async function addNewContactToContactlist() {
   setItem("contacts", contacts);
 }
 
-/**
- * Sorts contacts array by first an lastname
- */
+/** sets the item in the local storage  */
 function sortArrayByUserName() {
   sortedUsers = contacts.sort((a, b) => {
     const result = a.name.localeCompare(b.name);
@@ -442,4 +445,16 @@ function setPersonToActive(id) {
   }
   activPerson.classList.add("set-contact-to-active");
   lastActivePerson = id;
+}
+
+
+
+function formatPhoneNumber(phoneNumber) {
+  let cleaned = ('' + phoneNumber).replace(/\D/g, '');
+  let match = cleaned.match(/^(\d{2})(\d{4})(\d{3})(\d{2})(\d{1})$/);
+  if (match) {
+    let countryCode = match[1] === '0' ? '+49' : '+' + match[1];
+    return countryCode + ' ' + match[2] + ' ' + match[3] + ' ' + match[4] + ' ' + match[5];
+  }
+  return phoneNumber;
 }

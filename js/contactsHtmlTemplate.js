@@ -68,7 +68,7 @@ function singleContactOverview(index) {
             </div>
             <div class="contact-info-value">
                 <span>Phone</span>
-                ${contacts[index].phone}
+                ${formatPhoneNumber(contacts[index].phone)}
             </div>
         </div>
     `
@@ -96,7 +96,7 @@ function contactsCardHTML(cardName, secondText, functionName, id) {
                 <form onsubmit="${functionName}(); return false">
                     <input type="text" placeholder="Name" id="name">
                     <input type="email" placeholder="E-Mail" id="email">
-                    <input type="number" placeholder="Phone" id="phone">
+                    <input type="tel" placeholder="Phone" id="phone">
                     <button>Send</button>
                     <button onclick="closeRenderContactCard()">CLOSE</button>
                 </form>
