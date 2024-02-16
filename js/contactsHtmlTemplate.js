@@ -63,12 +63,12 @@ function singleContactOverview(index) {
         </div>
         <div class="contact-info-card" >
             <div class="contact-info-value">
-                <span>Email</span>
+                <span class="single-contact-data-headline-font">Email</span>
                 <a href="#">${contacts[index].email}</a>
             </div>
             <div class="contact-info-value">
-                <span>Phone</span>
-                ${formatPhoneNumber(contacts[index].phone)}
+                <span class="single-contact-data-headline-font">Phone</span>
+                <span class="pointer second-cart-font">${formatPhoneNumber(contacts[index].phone)}</span>
             </div>
         </div>
     `
@@ -81,7 +81,7 @@ function singleContactOverview(index) {
  * @param {String} functionName - function name to be used renderAddNewContact or renderEditContact
  * @returns - HTML
  */
-function contactsCardHTML(cardName, secondText, functionName, id) {
+function contactsCardHTML(cardName, secondText, functionName) {
     return /*html*/ `
         <div class="edit-card" data-id="${id}">
             <div class="edit-card-headline">
@@ -96,7 +96,7 @@ function contactsCardHTML(cardName, secondText, functionName, id) {
                 <form onsubmit="${functionName}(); return false">
                     <input type="text" placeholder="Name" id="name">
                     <input type="email" placeholder="E-Mail" id="email">
-                    <input type="tel" placeholder="Phone" id="phone">
+                    <input type="tel" placeholder="Phone" id="phone" maxlength="11">
                     <button>Send</button>
                     <button onclick="closeRenderContactCard()">CLOSE</button>
                 </form>

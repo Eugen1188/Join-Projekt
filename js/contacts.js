@@ -110,14 +110,8 @@ async function editContact() {
   const nameValue = document.getElementById("name").value.trim();
   const emailValue = document.getElementById("email").value.trim();
   const phoneValue = document.getElementById("phone").value.trim();
-  console.log(nameValue);
-  console.log(emailValue);
-  console.log(phoneValue);
   if (nameValue && emailValue && phoneValue) {
     for (let i = 0; i < contacts.length; i++) {
-      console.log("lastActivPerson ", lastActivePerson);
-      console.log("contact ", contacts[i].id);
-      console.log(contacts[i] === lastActivePerson);
       if (contacts[i].id === contacts[lastActivePerson].id) {
         let editName = nameValue.split(" ")
         contacts[i].name = editName[0];
@@ -196,7 +190,6 @@ async function saveNewUserData() {
   setItem("id", id);
   setItem("userData", userData);
 }
-
 
 /** adds a new contact to Contactlist and sets the id to the next number
  * @returns {void} - returns nothing
@@ -313,7 +306,7 @@ function firstCharToLowerCase(name) {
 function renderAddNewContact() {
   let card = document.getElementById("edit-card")
   card.innerHTML = ""
-  card.innerHTML += contactsCardHTML("Add contact", "Tasks are better with a team!", "addNewContactToContactlist", "")
+  card.innerHTML += contactsCardHTML("Add contact", "Tasks are better with a team!", "addNewContactToContactlist")
 }
 
 function closeRenderContactCard() {
@@ -404,7 +397,7 @@ function renderAddNewContact() {
   card.innerHTML += contactsCardHTML(
     "Add contact",
     "Tasks are better with a team!",
-    "editContact"
+    "addNewContactToContactlist"
   );
 }
 
@@ -425,7 +418,7 @@ function renderEditContact() {
   card.innerHTML += contactsCardHTML(
     "Edit contact",
     "",
-    "addNewContactToContactlist"
+    "editContact"
   );
 }
 
