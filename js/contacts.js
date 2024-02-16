@@ -447,8 +447,11 @@ function setPersonToActive(id) {
   lastActivePerson = id;
 }
 
-
-
+/**
+ * Formats a phone number by removing any non-numeric characters and adding a country code if missing.
+ * @param {string} phone - The phone number to format.
+ * @returns {string} - The formatted phone number.
+ */
 function formatPhoneNumber(phoneNumber) {
   let cleaned = ('' + phoneNumber).replace(/\D/g, '');
   let match = cleaned.match(/^(\d{2})(\d{4})(\d{3})(\d{2})(\d{1})$/);
