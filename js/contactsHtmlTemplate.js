@@ -94,9 +94,9 @@ function contactsCardHTML(cardName, secondText, functionName) {
             </div>
             <div class="edit-card-form">
                 <form onsubmit="${functionName}(); return false">
-                    <input type="text" placeholder="Name" id="name">
-                    <input type="email" placeholder="E-Mail" id="email">
-                    <input type="tel" placeholder="Phone" id="phone" maxlength="11">
+                    <input class="edit-card-from-input" type="text" placeholder="Name" id="name">
+                    <input class="edit-card-from-input" type="email" placeholder="E-Mail" id="email">
+                    <input class="edit-card-from-input" type="tel" placeholder="Phone" id="phone" maxlength="11">
                     <button>Send</button>
                     <button onclick="closeRenderContactCard()">CLOSE</button>
                 </form>
