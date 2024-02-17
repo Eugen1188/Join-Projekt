@@ -407,37 +407,26 @@
     font-weight: 700;
 }
 
-.edit-card-form input {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    width: 422px;
-}
-
 .edit-card-from-input {
     width: 422px;
     height: 50px;
     border-radius: 10px;
-    padding: 13px 21px
+    padding: 13px 21px;
+    background-repeat: no-repeat;
+    background-position: 95% 50%;
+    background-size: 24px;
+    padding-right: 21px;
 }
 
 #name {
-    background-image: url('path/to/your/image.png');
-    background-repeat: no-repeat;
-    padding-left: 30px;
-    /* Platz für das Bild */
+    background-image: url('../assets/img/icons/person.png');
 }
 
 #email {
-    background-image: url('path/to/your/image.png');
-    background-repeat: no-repeat;
-    padding-left: 30px;
-    /* Platz für das Bild */
+    background-image: url('../assets/img/icons/mail.png');
+
 }
 
 #phone {
-    background-image: url('path/to/your/image.png');
-    background-repeat: no-repeat;
-    padding-left: 30px;
-    /* Platz für das Bild */
+    background-image: url('../assets/img/icons/call.png');
 }
