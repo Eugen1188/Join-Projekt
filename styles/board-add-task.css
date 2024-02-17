@@ -8,7 +8,7 @@
     width: 100%;
 }
 
-.task-headline img{
+.task-headline img {
     position: absolute;
     top: 0px;
     right: 128px;
@@ -48,10 +48,88 @@
     height: 376px;
 }
 
-.input-container textarea{
+.input-container textarea {
     border: 1px solid #D1D1D1;
 }
 
-.radio-button{
+.radio-button {
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+.task-overlay-edit {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    position: absolute;
+    width: calc(525px - 80px);
+    background-color: white;
+    z-index: 2000;
+    border-radius: 30px;
+    padding: 48px 40px 48px 40px;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
+    height: calc(930px - 96px);
+}
+
+.task-overlay-edit-top {
+    display: flex;
+    cursor: pointer;
+    align-self: flex-end;
+
+}
+
+.task-overlay-edit-content {
+    display: flex;
+    flex-direction: column;
+    max-width: 443px;
+    height: 697px;
+    gap: 32px;
+}
+
+.scrollbar {
+    overflow-y: scroll;
+    width: 472px;
+}
+
+.input-addtask-edit {
+    width: calc(445px - 46px);
+    height: 24px;
+    padding-block: 0;
+    padding-inline: 0;
+    color: #a8a8a8;
+    font-size: 18px;
+    border: 1px solid #d1d1d1;
+    border-radius: 10px;
+    background-color: white;
+    padding: 11px 21px;
+}
+
+.input-container-edit {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 440px;
+}
+
+.input-container-edit span, .contacts-span{
+    font-size: 20px;
+    color: #2A3647;
+}
+
+.input-container-edit textarea {
+    width: calc(445px - 36px);
+    border: 1px solid lightgray;
+}
+
+.due-date-icon {
+    top: 42px;
+}
+
+label.radio-button {
+    margin-right: 0px;
+    padding: 16px 0px;
+}
+
+.contact-values-edit{
+    max-height: 304px;
 }
