@@ -10,9 +10,10 @@
     <script src="script.js" defer></script>
     <script src="./js/contactsHtmlTemplate.js"></script>
     <script src="./js/contacts.js"></script>
+    <script src="./js/register_login.js"></script>
 </head>
 
-<body onload="initContacts()"> 
+<body onload="initRegisteredContacts()"> 
 
 
 
@@ -57,13 +58,13 @@
 
             <div class="form-cont">
                 <form action="summary.html">
-                    <input class="loginemail" type="email" name="email" id="email" placeholder="Email">
-                    <input class="loginpassword" type="password" name="" id="password" placeholder="Password">
+                    <input class="loginemail" type="email" name="email" id="email" placeholder="Email" required>
+                    <input class="loginpassword" type="password" name="" id="password" placeholder="Password" required>
 
                     <div class="checkbox-cont">
 
                         <label class="checkboxlabel"> <span>Remember me</span>
-                            <input class="logincheckbox" type="checkbox">
+                            <input class="logincheckbox" type="checkbox" id="rememberMe">
                             <span class="checkmark"></span>
                         </label>
 
@@ -75,7 +76,7 @@
             </div>
 
             <div class="login-buttons-cont">
-                <a href="#" class="text-decoration-none loginbutton">Log in</a>
+                <a href="#" class="text-decoration-none loginbutton" onclick="logIn()">Log in</a>
                 <a href="summary.html" class="text-decoration-none loginguestbutton">Guest Log in</a>
             </div>
 

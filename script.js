@@ -42,7 +42,6 @@ let loginmenu = document.getElementById('login-menu');
 let regmenu = document.getElementById('reg-user-menu');
 loginmenu.classList.add('d-none')
 regmenu.classList.remove('d-none')
-console.log("reg menu gefönnet")
 }
 
 /* Schließe Menü zum Registrieren */
@@ -52,7 +51,6 @@ function closeRegMenu() {
   let regmenu = document.getElementById('reg-user-menu');
   loginmenu.classList.remove('d-none')
   regmenu.classList.add('d-none')
-  console.log("reg menu gefönnet")
   }
 
 
