@@ -208,7 +208,7 @@
 .edit-card-form-input form {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 32px;
     width: 422px;
 }
 
@@ -245,13 +245,17 @@
     align-self: start;
 }
 
+.card-circle-center {
+    margin-bottom: 32px;
+}
+
 .edit-card-btn {
     height: 55px;
     padding: 15px 25px;
     border-radius: 8px;
     font-size: 21px;
     display: flex;
-    gap: 16px;
+    gap: 8px;
     align-self: start;
 }
 
@@ -459,7 +463,7 @@
     width: 32px;
     height: 32px;
     position: relative;
-    top: 100px;
+    top: 70px;
     left: 690px;
 }
 
