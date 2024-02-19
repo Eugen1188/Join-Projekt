@@ -177,11 +177,12 @@
     width: 1212px;
     height: 592px;
     position: absolute;
-    background-color: grey;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
     border-radius: 16px;
     top: 300px;
     left: 450px;
     display: flex;
+    background-color: var(--background-color-site);
 }
 
 .edit-card-form {
@@ -190,8 +191,10 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    padding: 10px 10px 10px 40px;
-
+    padding: 10px;
+    background-color: var(--background-color-site);
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
 }
 
 .edit-card-form-input form {
@@ -430,6 +433,9 @@
 .close-btn {
     width: 32px;
     height: 32px;
+    position: relative;
+    top: 100px;
+    left: 690px;
 }
 
 .close-btn img {
