@@ -1,4 +1,4 @@
-let contacts = [
+ let contacts = [
   {
     id: 1,
     name: "Max",
