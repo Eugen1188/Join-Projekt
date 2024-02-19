@@ -92,14 +92,24 @@ function contactsCardHTML(cardName, secondText, functionName) {
                 </div>
                 <div class="small-underline"></div>
             </div>
+            <div class="close-btn pointer">
+                <img src="./assets/img/icons/close.png" alt="" onclick="closeRenderContactCard()">
+            </div>
             <div class="edit-card-form">
-                <form onsubmit="${functionName}(); return false">
-                    <input class="edit-card-from-input" type="text" placeholder="Name" id="name">
-                    <input class="edit-card-from-input" type="email" placeholder="E-Mail" id="email">
-                    <input class="edit-card-from-input" type="tel" placeholder="Phone" id="phone" maxlength="11">
-                    <button>Send</button>
-                    <button onclick="closeRenderContactCard()">CLOSE</button>
-                </form>
+                <div class="big-circle user-color-eleven">
+                    <span>UD</span>
+                </div>
+                <div class="edit-card-form-input">
+                    <form onsubmit="${functionName}(); return false">
+                        <input class="edit-card-from-input pointer" type="text" placeholder="Name" id="name">
+                        <input class="edit-card-from-input pointer" type="email" placeholder="E-Mail" id="email">
+                        <input class="edit-card-from-input pointer" type="tel" placeholder="Phone" id="phone" maxlength="11">
+                        <div class="edit-card-btn">
+                            <button>Send</button>
+                            <button onclick="closeRenderContactCard()">CLOSE</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     `
