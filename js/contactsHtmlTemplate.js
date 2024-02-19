@@ -96,7 +96,7 @@ function contactsCardHTML(cardName, secondText, functionName) {
                 <img src="./assets/img/icons/close.png" alt="" onclick="closeRenderContactCard()">
             </div>
             <div class="edit-card-form">
-                <div class="big-circle user-color-eleven">
+                <div class="big-circle user-color-eleven card-circle-center">
                     <span>UD</span>
                 </div>
                 <div class="edit-card-form-input">
@@ -104,9 +104,12 @@ function contactsCardHTML(cardName, secondText, functionName) {
                         <input class="edit-card-from-input pointer" type="text" placeholder="Name" id="name">
                         <input class="edit-card-from-input pointer" type="email" placeholder="E-Mail" id="email">
                         <input class="edit-card-from-input pointer" type="tel" placeholder="Phone" id="phone" maxlength="11">
-                        <div class="edit-card-btn">
-                            <button>Send</button>
-                            <button onclick="closeRenderContactCard()">CLOSE</button>
+                        <div class="edit-card-btn-wrapper">
+                            <button class="edit-card-btn pointer" onclick="closeRenderContactCard()">Delete</button>
+                            <button class="edit-card-btn main-btn-color font-color pointer">
+                                <span>Save</span>
+                                <img src="./assets/img/icons/check.png" alt="">
+                            </button>
                         </div>
                     </form>
                 </div>
