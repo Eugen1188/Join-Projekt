@@ -80,7 +80,7 @@ function closeOverlay() {
     initBoard();
 }
 
-function closeOverlayAddTask(){
+function closeOverlayAddTask() {
     document.getElementById("overlay-add-task").classList.remove("task-overlay-translate-in-task");
     document.getElementById("overlay-add-task").classList.add("task-overlay-translate-out");
     setTimeout(displayCloseOverlay, 250);
@@ -188,9 +188,9 @@ function rotateCard(id) {
     let overflow = document.getElementsByClassName("board-card-section");
 
     document.getElementById(`card${id}`).classList.add("card-rotate");
-/*     for (let i = 0; i < overflow.length; i++) {
-        overflow[i].classList.add("card-rotate-overflow");
-    } */
+    /*     for (let i = 0; i < overflow.length; i++) {
+            overflow[i].classList.add("card-rotate-overflow");
+        } */
 }
 
 /**
@@ -274,13 +274,41 @@ function invertSvgFillsEdit(value) {
     let lowIcon = document.getElementById("low-icon-edit");
     let icons = [urgentIcon, mediumIcon, lowIcon];
     icons.forEach((icon) => {
-      icon.classList.remove("fill-btn-white");
+        icon.classList.remove("fill-btn-white");
     });
     if (priorityIcon == "urgent") {
-      urgentIcon.classList.add("fill-btn-white");
+        urgentIcon.classList.add("fill-btn-white");
     } else if (priorityIcon == "medium") {
-      mediumIcon.classList.add("fill-btn-white");
+        mediumIcon.classList.add("fill-btn-white");
     } else if (priorityIcon == "low") {
-      lowIcon.classList.add("fill-btn-white");
+        lowIcon.classList.add("fill-btn-white");
     }
-  }
+}
+
+function getSubtasks(task) {
+    subtasks = [];
+    for (let i = 0; i < task.length; i++) {
+        const subtask = task[i];
+        subtasks.push(subtask)
+    }
+}
+
+function fillRadio(prio) {
+    switch (prio) {
+        case 'urgent':
+            document.getElementById('urgent-radio').style.setProperty("--prio-button-selected", getButtonColor(prio));
+            document.getElementById('urgent-edit').checked ="checked";
+            break;
+        case 'medium':
+            document.getElementById('medium-radio').style.setProperty("--prio-button-selected", getButtonColor(prio));
+            document.getElementById('medium-edit').checked ="checked";
+
+        case 'low':
+            document.getElementById('low-radio').style.setProperty("--prio-button-selected", getButtonColor(prio));
+            document.getElementById('low-edit').checked="checked";
+            break;
+        default:
+            break;
+    }
+
+}

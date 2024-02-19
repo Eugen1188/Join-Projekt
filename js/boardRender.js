@@ -139,6 +139,8 @@ async function renderEditOverlay(index){
         default:
             break;
     }
+    getSubtasks(taskIndex.subtask.subtask);
+    showSubtasks();
 }
 
 function renderSubtask(task) {
