@@ -12,7 +12,6 @@ async function initBoard() {
     await testfunc();
     renderCheckState(allTasks);
     await renderAddTaskOverlay();
-    initContacts();
     lockout = false;
 }
 
