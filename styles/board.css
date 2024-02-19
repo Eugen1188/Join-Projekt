@@ -156,6 +156,9 @@
     overflow-y: scroll;
 }
 
+.board-main::-webkit-scrollbar{
+    display: none;
+}
 
 .board-card-section {
     width: 256px;

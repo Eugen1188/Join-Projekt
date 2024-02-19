@@ -88,6 +88,7 @@ function closeOverlayAddTask(){
     initBoard();
 }
 
+
 /**
  * function to open the task overlay
  *
@@ -267,3 +268,20 @@ function searchTask() {
     }
     renderCheckState(searchedTask);
 }
+function invertSvgFillsEdit(value) {
+    let priorityIcon = value;
+    let urgentIcon = document.getElementById("urgent-icon-edit");
+    let mediumIcon = document.getElementById("medium-icon-edit");
+    let lowIcon = document.getElementById("low-icon-edit");
+    let icons = [urgentIcon, mediumIcon, lowIcon];
+    icons.forEach((icon) => {
+      icon.classList.remove("fill-btn-white");
+    });
+    if (priorityIcon == "urgent") {
+      urgentIcon.classList.add("fill-btn-white");
+    } else if (priorityIcon == "medium") {
+      mediumIcon.classList.add("fill-btn-white");
+    } else if (priorityIcon == "low") {
+      lowIcon.classList.add("fill-btn-white");
+    }
+  }

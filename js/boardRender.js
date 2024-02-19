@@ -116,6 +116,31 @@ function renderTaskOverlay(index) {
     openOverlay();
 }
 
+async function renderEditOverlay(index){
+    let overlay = document.getElementById("overlay-card");
+    let taskIndex = allTasks[index][0];
+    overlay.innerHTML = "";
+    overlay.innerHTML = await templateEditOverlay(taskIndex);
+    displayContacts(tempContacts);
+    invertSvgFillsEdit(taskIndex.prio);
+    switch (taskIndex.prio) {
+        case 'urgent':
+            document.getElementById('urgent-radio').style.setProperty("--prio-button-selected", getButtonColor(taskIndex.prio));
+            document.getElementById('urgent-edit').checked ="checked";
+            break;
+        case 'medium':
+            document.getElementById('medium-radio').style.setProperty("--prio-button-selected", getButtonColor(taskIndex.prio));
+            document.getElementById('medium-edit').checked ="checked";
+
+        case 'low':
+            document.getElementById('low-radio').style.setProperty("--prio-button-selected", getButtonColor(taskIndex.prio));
+            document.getElementById('low-edit').checked="checked";
+            break;
+        default:
+            break;
+    }
+}
+
 function renderSubtask(task) {
     let textHTML = "";
     let imgSource = "";
@@ -155,4 +180,5 @@ function renderProgressAmount(task) {
 
 function renderAddTaskOverlay() {
     document.getElementById("overlay-add-task").innerHTML = templateAddTaskBoard();
+    initContacts();
 }
