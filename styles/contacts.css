@@ -3,6 +3,14 @@
     --contacts-link-color: #29ABE2;
 }
 
+.main-btn-color {
+    background-color: var(--button-color);
+}
+
+.font-color {
+    color: var(--background-color-site);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -174,7 +182,7 @@
 }
 
 .edit-card {
-    width: 1212px;
+    /* width: 1212px; */
     height: 592px;
     position: absolute;
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
@@ -186,7 +194,7 @@
 }
 
 .edit-card-form {
-    width: 745px;
+    width: 736px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -228,6 +236,23 @@
     color: var(--background-color-site);
     display: flex;
     flex-direction: column;
+}
+
+.edit-card-btn-wrapper {
+    display: flex;
+    justify-self: start;
+    gap: 16px;
+    align-self: start;
+}
+
+.edit-card-btn {
+    height: 55px;
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-size: 21px;
+    display: flex;
+    gap: 16px;
+    align-self: start;
 }
 
 .icons-contacts {
