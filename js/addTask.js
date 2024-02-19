@@ -397,12 +397,25 @@ function generateContactHTML(contact, index) {
     </div>
   </div>
   <div id="checkboxIcon_${index}" class="contact-list-checkbox-icon">
-    <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="4.38818" y="4" width="16" height="16" rx="3" stroke="#2A3647" stroke-width="2" />
-    </svg>
+    ${isChecked(contact.id)}
   </div>
 </div>
   `;
+}
+
+function isChecked(id) {
+  if (checkedContacts.includes(id)) {
+    return `
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 11V17C20 18.6569 18.6569 20 17 20H7C5.34315 20 4 18.6569 4 17V7C4 5.34315 5.34315 4 7 4H15" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
+        <path d="M8 12L12 16L20 4.5" stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>`
+  } else {
+    return `    <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="4.38818" y="4" width="16" height="16" rx="3" stroke="#2A3647" stroke-width="2" />
+  </svg>
+`
+  }
 }
 
 async function testfunc() {
