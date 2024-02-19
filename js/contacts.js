@@ -106,13 +106,13 @@ async function initContacts() {
  * @param {number} id - is needed to find the person to be updated
  * @returns {void} - returns nothing
  * */
-async function editContact() {
+async function editContact(userId) {
   const nameValue = document.getElementById("name").value.trim();
   const emailValue = document.getElementById("email").value.trim();
   const phoneValue = document.getElementById("phone").value.trim();
   if (nameValue && emailValue && phoneValue) {
     for (let i = 0; i < contacts.length; i++) {
-      if (contacts[i].id === contacts[lastActivePerson].id) {
+      if (contacts[i].id === userId) {
         let editName = nameValue.split(" ")
         contacts[i].name = editName[0];
         contacts[i].lastname = editName.slice(1).join(" ");
@@ -453,4 +453,10 @@ function formatPhoneNumber(phoneNumber) {
     return countryCode + ' ' + match[2] + ' ' + match[3] + ' ' + match[4] + ' ' + match[5];
   }
   return phoneNumber;
+}
+
+function deleteContactFormValue() {
+  document.getElementById("name").value = "";
+  document.getElementById("email").value = "";
+  document.getElementById("phone").value = "";
 }
