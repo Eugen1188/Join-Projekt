@@ -123,22 +123,7 @@ async function renderEditOverlay(index){
     overlay.innerHTML = await templateEditOverlay(taskIndex);
     displayContacts(tempContacts);
     invertSvgFillsEdit(taskIndex.prio);
-    switch (taskIndex.prio) {
-        case 'urgent':
-            document.getElementById('urgent-radio').style.setProperty("--prio-button-selected", getButtonColor(taskIndex.prio));
-            document.getElementById('urgent-edit').checked ="checked";
-            break;
-        case 'medium':
-            document.getElementById('medium-radio').style.setProperty("--prio-button-selected", getButtonColor(taskIndex.prio));
-            document.getElementById('medium-edit').checked ="checked";
-
-        case 'low':
-            document.getElementById('low-radio').style.setProperty("--prio-button-selected", getButtonColor(taskIndex.prio));
-            document.getElementById('low-edit').checked="checked";
-            break;
-        default:
-            break;
-    }
+    fillRadio(taskIndex.prio);
     getSubtasks(taskIndex.subtask.subtask);
     showSubtasks();
 }
