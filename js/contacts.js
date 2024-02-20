@@ -110,6 +110,7 @@ async function editContact(userId) {
   const nameValue = document.getElementById("name").value.trim();
   const emailValue = document.getElementById("email").value.trim();
   const phoneValue = document.getElementById("phone").value.trim();
+  console.log(nameValue, emailValue, phoneValue);
   if (nameValue && emailValue && phoneValue) {
     for (let i = 0; i < contacts.length; i++) {
       if (contacts[i].id === userId) {
@@ -312,11 +313,11 @@ function renderCard(id, htmlContent) {
 }
 
 function renderAddNewContact() {
-  renderCard("edit-card", contactsCardHTML("Add contact", "Tasks are better with a team!", "addNewContactToContactlist"));
+  renderCard("edit-card", contactsCardHTML("Add contact", "Tasks are better with a team!", "addNewContactToContactlist()"));
 }
 
-function renderEditContact() {
-  renderCard("edit-card", contactsCardHTML("Edit contact", "", "editContact"));
+function renderEditContact(id) {
+  renderCard("edit-card", contactsCardHTML("Edit contact", "", `editContact(${id})`));
 }
 
 /**

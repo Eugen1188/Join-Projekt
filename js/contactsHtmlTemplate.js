@@ -100,7 +100,7 @@ function contactsCardHTML(cardName, secondText, functionName) {
                     <span>UD</span>
                 </div>
                 <div class="edit-card-form-input">
-                    <form onsubmit="${functionName}(); return false" id="contacts-form">
+                    <form onsubmit="${functionName}; return false" id="contacts-form">
                         <input class="edit-card-from-input" type="text" placeholder="Name" id="name">
                         <input class="edit-card-from-input" type="email" placeholder="E-Mail" id="email">
                         <input class="edit-card-from-input" type="tel" placeholder="Phone" id="phone" maxlength="11">
