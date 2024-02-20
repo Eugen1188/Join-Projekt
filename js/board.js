@@ -1,6 +1,7 @@
 let currentDraggedElement;
 let checkedSubtasks = [];
 let searchedTask = [];
+let dummyContacts = [];
 let lockout;
 
 /**
@@ -14,6 +15,7 @@ async function initBoard() {
     initContacts();
     await renderAddTaskOverlay();
     lockout = false;
+
 }
 
 /**
@@ -77,6 +79,7 @@ async function moveTo(id) {
 function closeOverlay() {
     document.getElementById("overlay-card").classList.remove("task-overlay-translate-in");
     document.getElementById("overlay-card").classList.add("task-overlay-translate-out");
+    document.getElementById("overlay-card").innerHTML = "";
     setTimeout(displayCloseOverlay, 250);
     initBoard();
 }
@@ -128,6 +131,7 @@ function displayOpenOverlay(id) {
 }
 
 function displayAddTaskOverlay() {
+    checkedContacts = [];
     document.getElementById("overlay").classList.remove("d-none");
     document.getElementById("overlay-add-task").classList.remove("task-overlay-translate-out");
     openAddTaskOverlay();
@@ -312,23 +316,11 @@ function fillRadio(prio) {
     }
 }
 
-function checkedContactId(id, idCheck) {
-    checkedContacts = [];
-    dummyContacts = [];
-
-    for (let i = 0; i < id.length; i++) {
-        const contactId = id[i].id;
-
+function checkedContactId(contacts) {
+    for (let i = 0; i < contacts.length; i++) {
+        const contactId = contacts[i];
+        getClickedContact(contactId-1,contactId);
         dummyContacts.push(contactId);
     }
 
-    for (let j = 0; j < idCheck.length; j++) {
-        const check = idCheck[j];
-        console.log(check);
-        const sliceId = checkedContacts.indexOf(check);
-        
-        dummyContacts.splice(sliceId,1);
-    }
-    checkedContacts = dummyContacts;
-    console.log(checkedContacts);
 }

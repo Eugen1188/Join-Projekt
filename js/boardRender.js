@@ -121,9 +121,9 @@ async function renderEditOverlay(index){
     let taskIndex = allTasks[index][0];
     overlay.innerHTML = "";
     overlay.innerHTML = await templateEditOverlay(taskIndex);
-    await checkedContactId(tempContacts, taskIndex.contactIds);
+    checkedContacts=[];
     displayContacts(tempContacts);
-    highlightCheckedContact();
+    await checkedContactId(taskIndex.contactIds);
     invertSvgFillsEdit(taskIndex.prio);
     fillRadio(taskIndex.prio);
     getSubtasks(taskIndex.subtask.subtask);
@@ -173,8 +173,7 @@ function renderAddTaskOverlay() {
 }
 
 function highlightCheckedContact(){
-    for (let i = 0; i < tempContacts.length; i++) {
-        const id = checkedContacts[i];
+
         getClickedContact(i,id);
-    }
+
 }
