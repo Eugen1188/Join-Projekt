@@ -181,7 +181,7 @@
 .contatcs-btn-bg {
     position: fixed;
     top: 94px;
-    left: 225px;
+    left: 223px;
     width: 456px;
     height: 99px;
     display: flex;
@@ -273,6 +273,11 @@
 .white-btn {
     background-color: var(--background-color-site);
     color: #000000;
+}
+
+.white-btn:hover {
+    border-color: var(--light-blue);
+    color: var(--light-blue);
 }
 
 .white-btn:active {

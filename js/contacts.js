@@ -304,7 +304,7 @@ function firstCharToLowerCase(name) {
  * @param {string} x -
  */
 function closeRenderContactCardSlide() {
-  clearFormValues("contacts-form");
+  clearFormValues("contacts-form", 200);
   slideBackAnimation("edit-card", 200);
   setTimeout(() => {
     renderCard("edit-card", "");
@@ -484,6 +484,5 @@ function renderAddContactSuccess(id) {
   rightSlideAnimation("contact-success", addContactSuccessHTML(), 600);
   slideBackAnimation("contact-success",1500);
   succesfully.innerHTML = "";
-  lastActivePerson = 0;
   setPersonToActive(indexOfId);
 }
