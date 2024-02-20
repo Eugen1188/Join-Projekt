@@ -295,7 +295,7 @@ function firstCharToLowerCase(name) {
 }
 
 function closeRenderContactCard() {
-  clearFormValues("contacts-from");
+  clearFormValues("contacts-form");
   renderCard("edit-card", "");
 }
 
