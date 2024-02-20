@@ -458,6 +458,11 @@ function rightSlideAnimation(id, htmlTemplate, setTimeoutValue = 200) {
   }, setTimeoutValue);
 }
 
+/**
+ *  Right slide out animation
+ * @param {Number} id - id of the element
+ * @param {Number} setTimeoutValue - time to wait before the animation starts
+ */
 function slideBackAnimation(id, setTimeoutValue) {
   let element = document.getElementById(id);
   element.style.transition = 'margin-left .4s ease';
@@ -466,6 +471,10 @@ function slideBackAnimation(id, setTimeoutValue) {
   }, setTimeoutValue);
 }
 
+/**
+ * Renders the success message after adding a contact
+ * @param {Number} id - id of the contact
+ */
 function renderAddContactSuccess(id) {
   let container = document.getElementById("single-contact-data-container")
   let indexOfId = contacts.findIndex(contact => contact.id === id);
