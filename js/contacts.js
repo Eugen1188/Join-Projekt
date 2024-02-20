@@ -96,8 +96,8 @@ let id = 11;
 let lastActivePerson;
 
 async function initContacts() {
-  contacts = await getItemContacts("contacts");
-  id = await getItemContacts("id");
+  // contacts = await getItemContacts("contacts");
+  // id = await getItemContacts("id");
   renderContacts();
 }
 
@@ -110,7 +110,6 @@ async function editContact(userId) {
   const nameValue = document.getElementById("name").value.trim();
   const emailValue = document.getElementById("email").value.trim();
   const phoneValue = document.getElementById("phone").value.trim();
-  console.log(nameValue, emailValue, phoneValue);
   if (nameValue && emailValue && phoneValue) {
     for (let i = 0; i < contacts.length; i++) {
       if (contacts[i].id === userId) {
@@ -470,10 +469,12 @@ function slideBackAnimation(id, setTimeoutValue) {
 function renderAddContactSuccess(id) {
   let container = document.getElementById("single-contact-data-container")
   let indexOfId = contacts.findIndex(contact => contact.id === id);
+  let succesfully = document.getElementById("contact-success");
   container.innerHTML = ""
   container.innerHTML += singleContactOverview(indexOfId)
-  let succesfully = document.getElementById("contact-success");
   rightSlideAnimation("contact-success", addContactSuccessHTML(), 600);
   slideBackAnimation("contact-success",1500);
   succesfully.innerHTML = "";
+  lastActivePerson = 0;
+  setPersonToActive(indexOfId);
 }
