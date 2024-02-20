@@ -368,14 +368,24 @@ function getRandomColor() {
   }
 }
 
+/**
+ * Sets the first letter of the name to upper case
+ * @param {String} name - User name
+ * @returns {void} - returns nothing
+ */
 function firstCharToUpperCase(name) {
   let toUpper = name.charAt(0).toUpperCase() + name.substring(1);
   return toUpper;
 }
 
+/**
+ * Sets all letters to lower case
+ * @param {String} name - User name
+ * @returns {void} - returns nothing
+ */
 function firstCharToLowerCase(name) {
-  let toUpper = name.charAt(0).toLowerCase + name.substring(1);
-  return toUpper;
+  let toLowerCase = name.toLowerCase();
+  return toLowerCase;
 }
 
 /**
@@ -411,6 +421,10 @@ function formatPhoneNumber(phoneNumber) {
   return phoneNumber;
 }
 
+/**
+ *  Clears the form values
+ * @param {String} formId - id of the form
+ */
 function clearFormValues(formId) {
   const form = document.getElementById(formId);
   form.reset();

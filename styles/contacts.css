@@ -113,6 +113,9 @@
     color: var(--contacts-link-color);
 }
 
+.contact-info-card .second-cart-font {
+    color: black;
+}
 .contact-info-headline {
     height: 74px;
     font-size: 20px;

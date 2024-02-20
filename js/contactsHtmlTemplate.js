@@ -64,11 +64,11 @@ function singleContactOverview(index) {
         <div class="contact-info-card" >
             <div class="contact-info-value">
                 <span class="single-contact-data-headline-font">Email</span>
-                <a href="#">${contacts[index].email}</a>
+                <a href="mailto:${contacts[index].email}">${contacts[index].email}</a>
             </div>
             <div class="contact-info-value">
                 <span class="single-contact-data-headline-font">Phone</span>
-                <span class="pointer second-cart-font">${formatPhoneNumber(contacts[index].phone)}</span>
+                <a href="tel:${contacts[index].phone}" class="second-cart-font">${formatPhoneNumber(contacts[index].phone)}</a>
             </div>
         </div>
     `
@@ -106,7 +106,7 @@ function contactsCardHTML(cardName, secondText, functionName) {
                         <input class="edit-card-from-input pointer" type="tel" placeholder="Phone" id="phone" maxlength="11">
                         <div class="edit-card-btn-wrapper">
                             <button class="edit-card-btn pointer" onclick="clearFormValues('contacts-form')">Delete</button>
-                            <button class="edit-card-btn main-btn-color font-color pointer">
+                            <button class="edit-card-btn main-btn-color font-color pointer" type="submit">
                                 <span>Save</span>
                                 <img src="./assets/img/icons/check.png" alt="">
                             </button>
