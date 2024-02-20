@@ -93,7 +93,7 @@ function contactsCardHTML(cardName, secondText, functionName) {
                 <div class="small-underline"></div>
             </div>
             <div class="close-btn pointer">
-                <img src="./assets/img/icons/close.png" alt="" onclick="closeRenderContactCard()">
+                <img src="./assets/img/icons/close.png" alt="" onclick="closeRenderContactCardSlide(${true})">
             </div>
             <div class="edit-card-form">
                 <div class="big-circle user-color-eleven card-circle-center">
@@ -114,6 +114,14 @@ function contactsCardHTML(cardName, secondText, functionName) {
                     </form>
                 </div>
             </div>
+        </div>
+    `
+}
+
+function renderAddContactSuccessHTML() {
+    return /*html*/ `
+        <div class="add-success">
+            <span>Contact succesfully created</span>
         </div>
     `
 }

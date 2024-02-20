@@ -202,7 +202,7 @@ async function addNewContactToContactlist() {
   if (checkEmailAddress(email, contacts)) {
     return;
   }
-  if (name || email || phone) {
+  if (name && email && phone) {
     contacts.push({
       id: id,
       name: firstCharToUpperCase(firstname),
@@ -215,6 +215,8 @@ async function addNewContactToContactlist() {
     });
     id++;
     renderContacts();
+    renderCard("edit-card", "");
+    renderAddContactSuccess();
     setItem("id", id);
     setItem("contacts", contacts);
   }
@@ -298,12 +300,16 @@ function firstCharToLowerCase(name) {
   return toLower
 }
 
-function closeRenderContactCard() {
+/**
+ *
+ * @param {string} x -
+ */
+function closeRenderContactCardSlide(shouldSlide) {
   clearFormValues("contacts-form");
-  slideBackAnimation("edit-card")
+  slideBackAnimation("edit-card");
   setTimeout(() => {
     renderContacts("edit-card", "");
-  }, 450)
+  }, 450);
 }
 
 function renderCard(id, htmlContent) {
@@ -343,7 +349,7 @@ function getRandomColor() {
     case 1:
       return "user-color-one";
     case 2:
-      return "user-color-tow";
+      return "user-color-two";
     case 3:
       return "user-color-three";
     case 4:
@@ -355,7 +361,7 @@ function getRandomColor() {
     case 7:
       return "user-color-seven";
     case 8:
-      return "user-color-eigth";
+      return "user-color-eight";
     case 9:
       return "user-color-nine";
     case 10:
@@ -457,4 +463,13 @@ function slideBackAnimation(id) {
   let element = document.getElementById(id);
   element.style.transition = 'margin-left .4s ease';
   element.style.marginLeft = "1500px";
+}
+
+function renderAddContactSuccess() {
+  let element = document.getElementById("contact-success");
+  element.innerHTML = "";
+  rightSlideAnimation("contact-success", contactSuccessHTML());
+  setTimeout(() => {
+    slideBackAnimation("contact-success");
+  }, 500);
 }

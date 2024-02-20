@@ -510,3 +510,15 @@
 #phone {
     background-image: url('../assets/img/icons/call.png');
 }
+
+.add-success {
+    width: 326px;
+    height: 74px;
+    border-radius: 20px;
+    padding: 10px;
+    background-color: var(--button-color);
+    color: var(--background-color-site);
+    position: absolute;
+    top: 800px;
+    left: 743px;
+}
