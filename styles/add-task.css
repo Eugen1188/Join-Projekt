@@ -292,13 +292,6 @@ input[type="radio"] {
   gap: 8px;
 }
 
-/*
-.svg-container svg {
-  position: absolute;
-  right: 12px;
-}
-*/
-
 label.radio-button {
   align-items: center;
   display: flex;
@@ -356,6 +349,49 @@ select {
   border-radius: 10px;
   background-color: white;
   padding: 11px 21px;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  color: rgba(0, 0, 0, 0);
+  opacity: 1;
+  display: block;
+  background: url(http://127.0.0.1:5500/assets/img/icons/calenderIcon.png) no-repeat;
+  width: 24px;
+  height: 24px;
+  border-width: thin;
+}
+
+.input-addtask-date-modified {
+  width: 398px;
+  height: 24px;
+  padding-block: 0;
+  padding-inline: 0;
+  color: #a8a8a8;
+  font-size: 18px;
+  border: 1px solid #d1d1d1;
+  border-radius: 10px;
+  background-color: white;
+  padding: 11px 21px;
+}
+
+.input-addtask-datepicker {
+  padding-block: 0;
+  padding-inline: 0;
+  color: #a8a8a8;
+  border: none;
+  position: absolute;
+  top: 40px;
+  left: 400px;
+  width: 24px;
+}
+
+.input-addtask-datepicker:focus-visible {
+  outline: none;
+}
+
+.choosen-contacts {
+  display: flex;
+  align-items: center;
 }
 
 textarea {
