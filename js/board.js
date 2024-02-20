@@ -11,6 +11,7 @@ let lockout;
 async function initBoard() {
     await testfunc();
     renderCheckState(allTasks);
+    initContacts();
     await renderAddTaskOverlay();
     lockout = false;
 }
@@ -297,16 +298,37 @@ function fillRadio(prio) {
     switch (prio) {
         case 'urgent':
             document.getElementById('urgent-radio').style.setProperty("--prio-button-selected", getButtonColor(prio));
-            document.getElementById('urgent-edit').checked ="checked";
+            document.getElementById('urgent-edit').checked = "checked";
             break;
         case 'medium':
             document.getElementById('medium-radio').style.setProperty("--prio-button-selected", getButtonColor(prio));
-            document.getElementById('medium-edit').checked ="checked";
+            document.getElementById('medium-edit').checked = "checked";
         case 'low':
             document.getElementById('low-radio').style.setProperty("--prio-button-selected", getButtonColor(prio));
-            document.getElementById('low-edit').checked="checked";
+            document.getElementById('low-edit').checked = "checked";
             break;
         default:
             break;
     }
+}
+
+function checkedContactId(id, idCheck) {
+    checkedContacts = [];
+    dummyContacts = [];
+
+    for (let i = 0; i < id.length; i++) {
+        const contactId = id[i].id;
+
+        dummyContacts.push(contactId);
+    }
+
+    for (let j = 0; j < idCheck.length; j++) {
+        const check = idCheck[j];
+        console.log(check);
+        const sliceId = checkedContacts.indexOf(check);
+        
+        dummyContacts.splice(sliceId,1);
+    }
+    checkedContacts = dummyContacts;
+    console.log(checkedContacts);
 }

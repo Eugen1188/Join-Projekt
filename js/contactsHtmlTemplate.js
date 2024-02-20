@@ -47,7 +47,7 @@ function singleContactOverview(index) {
             <div class="single-contact-name-card">
                 <span class="single-contacts-name">${contacts[index].name + " " + contacts[index].lastname}</span>
                 <div class="contacts-icon-container">
-                    <div class="icons-contacts" id="edit-contact-INDEX" onclick="renderEditContact()">
+                    <div class="icons-contacts" id="edit-contact-INDEX" onclick="renderEditContact(${contacts[index].id})">
                         <img src="./assets/img/icons/edit.png" alt="">
                         <span>Edit</span>
                     </div>
@@ -105,7 +105,7 @@ function contactsCardHTML(cardName, secondText, functionName) {
                         <input class="edit-card-from-input pointer" type="email" placeholder="E-Mail" id="email">
                         <input class="edit-card-from-input pointer" type="tel" placeholder="Phone" id="phone" maxlength="11">
                         <div class="edit-card-btn-wrapper">
-                            <button class="edit-card-btn pointer" onclick="closeRenderContactCard()">Delete</button>
+                            <button class="edit-card-btn pointer" onclick="deleteContactFormValue()">Delete</button>
                             <button class="edit-card-btn main-btn-color font-color pointer">
                                 <span>Save</span>
                                 <img src="./assets/img/icons/check.png" alt="">
