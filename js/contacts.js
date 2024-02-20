@@ -1,4 +1,4 @@
- let contacts = [
+let contacts = [
   {
     id: 1,
     name: "Max",
@@ -275,14 +275,8 @@ function renderSingleContactOverview(id) {
   setPersonToActive(id);
   singlContactDataContainer.innerHTML = "";
   const element = document.querySelector('.single-contact-data-container');
-  element.style.marginLeft = '1000px';
-  element.style.transition = 'margin-left 1s ease';
-  setTimeout(() => {
-    singlContactDataContainer.innerHTML += singleContactOverview(id);
-    element.style.marginLeft = "0";
-  }, 200);
+  rightSlideAnimation("single-contact-data-container", singleContactOverview(id));
 }
-
 /**
  *capitalizes the first letter
  * @param {String} name - User name
@@ -394,11 +388,7 @@ function firstCharToLowerCase(name) {
 function renderAddNewContact() {
   let card = document.getElementById("edit-card");
   card.innerHTML = "";
-  card.innerHTML += contactsCardHTML(
-    "Add contact",
-    "Tasks are better with a team!",
-    "addNewContactToContactlist"
-  );
+  rightSlideAnimation("edit-card", contactsCardHTML("Add contact", "Tasks are better with a team!", "addNewContactToContactlist"));
 }
 
 function closeRenderContactCard() {
@@ -415,11 +405,7 @@ function closeRenderContactCard() {
 function renderEditContact() {
   let card = document.getElementById("edit-card");
   card.innerHTML = "";
-  card.innerHTML += contactsCardHTML(
-    "Edit contact",
-    "",
-    "editContact"
-  );
+  rightSlideAnimation("edit-card", contactsCardHTML("Edit contact", "", "editContact"));
 }
 
 /**
@@ -459,4 +445,20 @@ function deleteContactFormValue() {
   document.getElementById("name").value = "";
   document.getElementById("email").value = "";
   document.getElementById("phone").value = "";
+}
+
+/**
+ * Right slide in animation
+ * @param {String} id - id of the element
+ * @param {HTMLElement} htmlTemplate -  html template
+ */
+function rightSlideAnimation(id, htmlTemplate) {
+  let element = document.getElementById(id);
+  element.innerHTML = "";
+  element.style.marginLeft = '1000px';
+  element.style.transition = 'margin-left .2s ease';
+  setTimeout(() => {
+    element.innerHTML += htmlTemplate;
+    element.style.marginLeft = "0";
+  }, 200);
 }

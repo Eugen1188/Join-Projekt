@@ -77,7 +77,7 @@ function singleContactOverview(index) {
 /**
  * Is required to display the form fields
  * @param {String} cardName - Heading of the card
- * @param {String}  - additional text to be displayed
+ * @param {String}  secondText - additional text to be displayed
  * @param {String} functionName - function name to be used renderAddNewContact or renderEditContact
  * @returns - HTML
  */

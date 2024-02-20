@@ -181,14 +181,17 @@
     align-items: center;
 }
 
+#edit-card {
+    position: absolute;
+    top: 300px;
+    left: 450px;
+}
+
 .edit-card {
     /* width: 1212px; */
     height: 592px;
-    position: absolute;
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
     border-radius: 16px;
-    top: 300px;
-    left: 450px;
     display: flex;
     background-color: var(--background-color-site);
 }
