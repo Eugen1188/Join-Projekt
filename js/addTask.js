@@ -116,7 +116,7 @@ function changeSubtaskInputIcons() {
   subTaskSvgContainer.innerHTML = renderSubtaskInputIcons();
 }
 
-function validateForm() {
+function validateForm(index) {
   getCheckedContact();
   let lengthCheckedContacts = checkedContacts.length;
   let prioInputs = document.getElementsByName("priority");
@@ -129,10 +129,11 @@ function validateForm() {
     alert("select a Contact !");
   } else if (prio !== "low" && prio !== "medium" && prio !== "urgent") {
     alert("select a Prio Value !");
-  } else addTask();
+  } else addTask(index);
 }
 
-async function addTask() {
+async function addTask(index) {
+  console.log(index);
   let id = allTasks.length;
   let title = document.getElementById("title");
   let taskDescription = document.getElementById("taskDescription");
@@ -161,14 +162,41 @@ async function addTask() {
       date: date.value,
       prio: prio,
       category: category.value,
-      subtask: { subtask: subtasks, taskstate: taskStates },
+      subtask: { subtask: subtasks, taskstate: generateTaskState(index) },
     },
   ];
-  console.log(task);
-  allTasks.push(task);
-  setItem("test_board", allTasks);
+  subtasks = [];
+  if (index !== undefined) {
+    let categoryPlaceholder = allTasks[index][0].category;
+    allTasks[index] = task;
+    allTasks[index][0].id = task[0].id - 1;
+    allTasks[index][0].category = categoryPlaceholder;
+    setItem("test_board", allTasks);
+    initBoard();
+  } else {
+    allTasks.push(task);
+    setItem("test_board", allTasks);
+  }
   //weiterleitung auf Board nach Taskerstellung
   //window.location.href = "http://127.0.0.1:5500/board.html";
+}
+
+function generateTaskState(index) {
+  let taskstateArray = [];
+  for (let i = 0; i < subtasks.length; i++) {
+    const element = false;
+    if (index != undefined) {
+      const value = allTasks[index][0].subtask.taskstate[i];
+      if (value === true) {
+        taskstateArray.push(value);
+      } else {
+        taskstateArray.push(element);
+      }
+    }else{
+      taskstateArray.push(element);
+    }
+  }
+  return taskstateArray
 }
 
 async function getItemContacts(key) {
@@ -194,6 +222,7 @@ function getAllContacts() {
 }
 
 function displayContacts(contacts) {
+  checkedContacts = [];
   let selectElement = document.getElementById("contact-values");
   selectElement.innerHTML = "";
   let optionsHTML = "";
@@ -251,6 +280,12 @@ function filterContacts() {
 }
 
 function getCheckedContact() {
+  initials = [];
+  contactName = [];
+  circleColors = [];
+  contactDataAsArray = [];
+  contactIds = [];
+  finalContactData = [];
   checkedContacts.forEach((contactId) => {
     tempContacts.forEach((contact) => {
       if (contactId === contact.id) {

@@ -13,6 +13,7 @@ async function initBoard() {
     await testfunc();
     renderCheckState(allTasks);
     initContacts();
+    checkedContacts = [];
     await renderAddTaskOverlay();
     lockout = false;
 
@@ -190,12 +191,8 @@ function checkCategory(category) {
  * @author Kevin Mueller
  */
 function rotateCard(id) {
-    let overflow = document.getElementsByClassName("board-card-section");
-
     document.getElementById(`card${id}`).classList.add("card-rotate");
-    /*     for (let i = 0; i < overflow.length; i++) {
-            overflow[i].classList.add("card-rotate-overflow");
-        } */
+
 }
 
 /**
@@ -307,6 +304,7 @@ function fillRadio(prio) {
         case 'medium':
             document.getElementById('medium-radio').style.setProperty("--prio-button-selected", getButtonColor(prio));
             document.getElementById('medium-edit').checked = "checked";
+            break;
         case 'low':
             document.getElementById('low-radio').style.setProperty("--prio-button-selected", getButtonColor(prio));
             document.getElementById('low-edit').checked = "checked";
@@ -319,8 +317,22 @@ function fillRadio(prio) {
 function checkedContactId(contacts) {
     for (let i = 0; i < contacts.length; i++) {
         const contactId = contacts[i];
-        getClickedContact(contactId-1,contactId);
-        dummyContacts.push(contactId);
+        getClickedContact(getContactIndex(contactId), contactId);
     }
+}
 
+
+function getContactIndex(id){
+    for (let i = 0; i < tempContacts.length; i++) {
+        const contact = tempContacts[i];
+        if (contact.id == id) {
+            console.log(i)
+            return i
+        }
+    }
+}
+
+function editTask(index){
+    validateForm(index);
+    renderTaskOverlay(index);
 }
