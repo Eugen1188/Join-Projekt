@@ -87,16 +87,33 @@ body {
     padding: 20px 40px 20px 348px;
 }
 
+.profil-loged-in-init{
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: solid 3px black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
 .head-top span {
     font-size: 20px;
 }
 
-.head-top div {
+.head-top-right-side-cont {
     display: flex;
     align-items: center;
-    margin-right: 50px;
+    width: 140px;
+    height: 56px;
+    justify-content:space-around;
 }
 
 .head-top div img {
     margin-left: 16px;
+}
+
+.user-initials {
+    color: var(--light-blue);
+    font-weight: 700;
 }

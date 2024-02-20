@@ -1,6 +1,7 @@
 const STORAGE_TOKEN = "B0S7VW5J7TMVF1N3C8G1FX6TF8A9FYUYYTJ8W60E";
 const STORAGE_URL = "https://remote-storage.developerakademie.org/item";
 let allTasks = [];
+let logedInUser = [];
 
 /**
  * Speichert einen Wert im Speicher.
@@ -38,10 +39,10 @@ async function getItem(key) {
 /* Öffnet Menü, um neuen user zu registrieren */
 
 function regNewUser() {
-let loginmenu = document.getElementById('login-menu');
-let regmenu = document.getElementById('reg-user-menu');
-loginmenu.classList.add('d-none')
-regmenu.classList.remove('d-none')
+  let loginmenu = document.getElementById('login-menu');
+  let regmenu = document.getElementById('reg-user-menu');
+  loginmenu.classList.add('d-none')
+  regmenu.classList.remove('d-none')
 }
 
 /* Schließe Menü zum Registrieren */
@@ -51,8 +52,14 @@ function closeRegMenu() {
   let regmenu = document.getElementById('reg-user-menu');
   loginmenu.classList.remove('d-none')
   regmenu.classList.add('d-none')
-  }
+}
 
+/* Rendert eingelogten User */
+
+function renderLogedUser() {
+  let userInitials = document.getElementById('logedUserInitials');
+  userInitials.innerHTML = logedInUser[0].initials;
+}
 
 function includeHTML() {
   var z, i, elmnt, file, xhttp;

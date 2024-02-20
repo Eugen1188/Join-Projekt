@@ -8,7 +8,10 @@ async function renderSummeryTasks() {
     tasksAwaitingFeedback()
     tasksDone();
     tasksUrgent();
+    logedInUser = await getItemContacts("logedInUser");
+    renderLogedUser();
 }
+
 
 function tasksInBoard() {
 
@@ -102,3 +105,12 @@ function showDateInRightFormat() {
     return `${rightMonth} ${rightDate[0]}${rightDate[1]}, ${rightDate[6]}${rightDate[7]}${rightDate[8]}${rightDate[9]}`
 
 }
+
+function sortDates(dates) {
+    return urgentDates.sort((a, b) => {
+      const dateA = a.split('-').reverse().join('-');
+      const dateB = b.split('-').reverse().join('-');
+      return new Date(dateA) - new Date(dateB);
+    });
+  };
+
