@@ -273,6 +273,7 @@ function renderSingleContactOverview(id) {
   const element = document.querySelector('.single-contact-data-container');
   rightSlideAnimation("single-contact-data-container", singleContactOverview(id));
 }
+
 /**
  *capitalizes the first letter
  * @param {String} name - User name
@@ -294,14 +295,14 @@ function firstCharToLowerCase(name) {
 }
 
 function closeRenderContactCard() {
-  clearFormValues("contact-form");
+  clearFormValues("contacts-from");
   renderCard("edit-card", "");
 }
 
 function renderCard(id, htmlContent) {
   const card = document.getElementById(id);
   card.innerHTML = "";
-  card.innerHTML += rightSlideAnimation(id, htmlContent);
+  rightSlideAnimation(id, htmlContent);
 }
 
 function renderAddNewContact() {
@@ -375,31 +376,6 @@ function firstCharToUpperCase(name) {
 function firstCharToLowerCase(name) {
   let toUpper = name.charAt(0).toLowerCase + name.substring(1);
   return toUpper;
-}
-
-function closeRenderContactCard() {
-  let card = document.getElementById("edit-card");
-  let name = document.getElementById("name").value;
-  let email = document.getElementById("email").value;
-  let phone = document.getElementById("phone").value;
-  name = "";
-  email = "";
-  phone = "";
-  card.innerHTML = "";
-}
-
-function renderCard(id, htmlContent) {
-  const card = document.getElementById(id);
-  card.innerHTML = "";
-  card.innerHTML += htmlContent;
-}
-
-function renderEditContact() {
-  renderCard(rightSlideAnimation("edit-card", contactsCardHTML("Edit contact", "", "editContact")));
-}
-
-function renderAddNewContact() {
-  renderCard(rightSlideAnimation("edit-card", contactsCardHTML("Add contact", "Tasks are better with a team!", "addNewContactToContactlist")));
 }
 
 /**
