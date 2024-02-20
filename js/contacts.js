@@ -300,14 +300,8 @@ function renderAddNewContact() {
 }
 
 function closeRenderContactCard() {
-  let card = document.getElementById("edit-card")
-  let name = document.getElementById("name").value
-  let email = document.getElementById("email").value
-  let phone = document.getElementById("phone").value
-  name = ""
-  email = ""
-  phone = ""
-  card.innerHTML = ""
+  clearFormValues("contact-form");
+  renderCard("edit-card", "");
 }
 
 function renderEditContact() {
@@ -439,10 +433,9 @@ function formatPhoneNumber(phoneNumber) {
   return phoneNumber;
 }
 
-function deleteContactFormValue() {
-  document.getElementById("name").value = "";
-  document.getElementById("email").value = "";
-  document.getElementById("phone").value = "";
+function clearFormValues(formId) {
+  const form = document.getElementById(formId);
+  form.reset();
 }
 
 /**
