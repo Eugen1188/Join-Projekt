@@ -1,5 +1,5 @@
 function templateCard(task) {
-    return `
+  return `
             <div id="card${task.id}"  onclick="renderTaskOverlay(${task.id})" draggable="true" ondragstart="startDragging(${task.id}); rotateCard(${task.id})" class="board-card">
                 <div class="board-card-topic" style="background-color:${checkCategory(task.category)}">
                     <span>${task.category}</span>
@@ -32,7 +32,7 @@ function templateCard(task) {
 }
 
 function templateNoTask() {
-    return `
+  return `
         <div class="board-no-task">
             <span>No tasks To do</span>
         </div>
@@ -40,13 +40,13 @@ function templateNoTask() {
 }
 
 function templateCardAssignee(assignee, color) {
-    return `
+  return `
     <div class="assignee ${color}" >${assignee}</div>
     `
 }
 
 function templateTaskOverlay(task) {
-    return `
+  return `
         <div class="task-overlay-top">
             <div class="board-card-topic" style="background-color:${checkCategory(task.category)}">
                 <span>${task.category}</span>
@@ -73,22 +73,12 @@ function templateTaskOverlay(task) {
                 ${renderSubtask(task)}
             </div>
         </div>
-        <div class="overlay-menu">
-            <div class="overlay-menu-content" onclick="deleteTask(${task.id})">
-                <img src="./assets/img/icons/delete.png" alt="delete">
-                <span>Delete</span>
-            </div>
-            <img src="./assets/img/divider.png" alt="divider">
-            <div class="overlay-menu-content" onclick="renderEditOverlay(${task.id})">
-                <img src="./assets/img/icons/edit.png" alt="edit">
-                <span>Edit</span>
-            </div>     
-        </div> 
+        ${templateOverlayMenu(task)}
     `
 }
 
-function templateOverlayAssignee(assignee, name,color) {
-    return `
+function templateOverlayAssignee(assignee, name, color) {
+  return `
         <div class="task-overlay-assignee">
             <div class="assignee ${color}">${assignee}</div>
             <span>${name}</span>
@@ -97,7 +87,7 @@ function templateOverlayAssignee(assignee, name,color) {
 }
 
 function templateOverlaySubtask(index, subtask, task, source) {
-    return `
+  return `
             <div class="task-subtask" onclick="checkedSubtask(${index}, ${task.id})">
                 <img id="sub${index}" src="${source}">
                 <span>${subtask}</span>
@@ -105,23 +95,38 @@ function templateOverlaySubtask(index, subtask, task, source) {
     `
 }
 
+function templateOverlayMenu(task) {
+  return `
+      <div class="overlay-menu">
+        <div class="overlay-menu-content" onclick="deleteTask(${task.id})">
+            <img src="./assets/img/icons/delete.png" alt="delete">
+            <span>Delete</span>
+        </div>
+        <img src="./assets/img/divider.png" alt="divider">
+        <div class="overlay-menu-content" onclick="renderEditOverlay(${task.id})">
+            <img src="./assets/img/icons/edit.png" alt="edit">
+            <span>Edit</span>
+        </div>     
+      </div> `
+}
+
 function templateProgressBar(progress) {
-    return `
+  return `
         <div class="task-progress-blank">
           <div class="task-progress" style="width:${progress}%"></div>
         </div>
     `
 }
 
-function templateGhostCard(){
-    return `
+function templateGhostCard() {
+  return `
         <div id="ghostcard" class="ghost-card"></div>
     `
 }
 
-function templateAddTaskBoard(){
+function templateAddTaskBoard() {
 
-    return `
+  return `
             <div class="task-headline">
                 <h1>Add Task</h1>
                 <img src="./assets/img/close.png" alt="close" onclick="closeOverlayAddTask()">
@@ -289,8 +294,8 @@ function templateAddTaskBoard(){
     `
 }
 
-function templateAddTaskLeft(){
-    return `
+function templateAddTaskLeft() {
+  return `
             <div class="addtask-side-left">
                 <div class="input-container">
                     <label>Title <span class="required-icon">*</span></label>
@@ -321,7 +326,7 @@ function templateAddTaskLeft(){
     `
 }
 
-function templateEditOverlay(task){
+function templateEditOverlay(task) {
   return `
       <div class="task-overlay-edit-top">
         <img src="./assets/img/Close.png" alt="close" onclick="closeOverlay()">
@@ -457,6 +462,6 @@ function templateEditOverlay(task){
         </div>
         
       </div>
-      <button type="button" onclick="editTask(${task.id})">Create Task</button>
+      <button type="button" onclick="validateForm(${task.id})">Create Task</button>
   `
 }

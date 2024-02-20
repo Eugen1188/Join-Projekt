@@ -168,8 +168,10 @@ async function addTask(index) {
   subtasks = [];
   if (index !== undefined) {
     let categoryPlaceholder = allTasks[index][0].category;
+    let idPlaceholder = allTasks[index][0].id;
     allTasks[index] = task;
-    allTasks[index][0].id = task[0].id - 1;
+    allTasks[index][0].id = idPlaceholder;
+    console.log(allTasks[index][0].id)
     allTasks[index][0].category = categoryPlaceholder;
     setItem("test_board", allTasks);
     initBoard();

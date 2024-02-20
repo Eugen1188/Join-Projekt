@@ -332,7 +332,7 @@ function getContactIndex(id){
     }
 }
 
-function editTask(index){
-    validateForm(index);
+async function editTask(index){
+    await validateForm(index);
     renderTaskOverlay(index);
 }
