@@ -47,11 +47,11 @@ function singleContactOverview(index) {
             <div class="single-contact-name-card">
                 <span class="single-contacts-name">${contacts[index].name + " " + contacts[index].lastname}</span>
                 <div class="contacts-icon-container">
-                    <div class="icons-contacts" id="edit-contact-INDEX" onclick="renderEditContact(${contacts[index].id})">
+                    <div class="icons-contacts" id="edit-contact-${index}" onclick="renderEditContact(${contacts[index].id})">
                         <img src="./assets/img/icons/edit.png" alt="">
                         <span>Edit</span>
                     </div>
-                    <div class="icons-contacts" id="edit-contact-INDEX" onclick="deleteContact(${contacts[index].id})">
+                    <div class="icons-contacts" id="edit-contact-${index}" onclick="deleteContact(${contacts[index].id})">
                         <img src="./assets/img/icons/delete.png" alt="">
                         <span>Delete</span>
                     </div>
@@ -64,11 +64,11 @@ function singleContactOverview(index) {
         <div class="contact-info-card" >
             <div class="contact-info-value">
                 <span class="single-contact-data-headline-font">Email</span>
-                <a href="#">${contacts[index].email}</a>
+                <a href="mailto:${contacts[index].email}">${contacts[index].email}</a>
             </div>
             <div class="contact-info-value">
                 <span class="single-contact-data-headline-font">Phone</span>
-                <span class="pointer second-cart-font">${formatPhoneNumber(contacts[index].phone)}</span>
+                <a href="tel:${contacts[index].phone}" class="second-cart-font">${formatPhoneNumber(contacts[index].phone)}</a>
             </div>
         </div>
     `
@@ -77,7 +77,7 @@ function singleContactOverview(index) {
 /**
  * Is required to display the form fields
  * @param {String} cardName - Heading of the card
- * @param {String}  - additional text to be displayed
+ * @param {String}  secondText - additional text to be displayed
  * @param {String} functionName - function name to be used renderAddNewContact or renderEditContact
  * @returns - HTML
  */
@@ -93,20 +93,22 @@ function contactsCardHTML(cardName, secondText, functionName) {
                 <div class="small-underline"></div>
             </div>
             <div class="close-btn pointer">
-                <img src="./assets/img/icons/close.png" alt="" onclick="closeRenderContactCard()">
+                <img src="./assets/img/icons/close.png" alt="" onclick="closeRenderContactCardSlide(${true})">
             </div>
             <div class="edit-card-form">
                 <div class="big-circle user-color-eleven card-circle-center">
                     <span>UD</span>
                 </div>
                 <div class="edit-card-form-input">
-                    <form onsubmit="${functionName}(); return false">
-                        <input class="edit-card-from-input pointer" type="text" placeholder="Name" id="name">
-                        <input class="edit-card-from-input pointer" type="email" placeholder="E-Mail" id="email">
-                        <input class="edit-card-from-input pointer" type="tel" placeholder="Phone" id="phone" maxlength="11">
+                    <form onsubmit="${functionName}; return false" id="contacts-form">
+                        <input class="edit-card-from-input" type="text" placeholder="Name" id="name">
+                        <input class="edit-card-from-input" type="email" placeholder="E-Mail" id="email">
+                        <input class="edit-card-from-input" type="tel" placeholder="Phone" id="phone" maxlength="11">
                         <div class="edit-card-btn-wrapper">
-                            <button class="edit-card-btn pointer" onclick="deleteContactFormValue()">Delete</button>
-                            <button class="edit-card-btn main-btn-color font-color pointer">
+                            <div id="delete-btn">
+                                <button class="edit-card-btn white-btn pointer" onclick="clearFormValues('contacts-form')">Delete</button>
+                            </div>
+                            <button class="edit-card-btn main-btn-color font-color pointer" type="submit">
                                 <span>Save</span>
                                 <img src="./assets/img/icons/check.png" alt="">
                             </button>
@@ -114,6 +116,14 @@ function contactsCardHTML(cardName, secondText, functionName) {
                     </form>
                 </div>
             </div>
+        </div>
+    `
+}
+
+function addContactSuccessHTML() {
+    return /*html*/ `
+        <div class="add-success">
+            <span>Contact succesfully created</span>
         </div>
     `
 }

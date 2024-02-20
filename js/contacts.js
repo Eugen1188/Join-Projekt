@@ -1,4 +1,4 @@
- let contacts = [
+let contacts = [
   {
     id: 1,
     name: "Max",
@@ -96,8 +96,8 @@ let id = 11;
 let lastActivePerson;
 
 async function initContacts() {
-  contacts = await getItemContacts("contacts");
-  id = await getItemContacts("id");
+  // contacts = await getItemContacts("contacts");
+  // id = await getItemContacts("id");
   renderContacts();
 }
 
@@ -146,20 +146,17 @@ async function getItemContacts(key) {
   }
 }
 
-
 /** deletes a contact from the contact list
  * @param {number} id - is required to find the desired user
  */
 async function deleteContact(id) {
-  const userId = id;
-  for (let i = 0; i < contacts.length; i++) {
-    if (userId === contacts[i].id) {
-      contacts.splice(i, 1);
-      renderContacts();
-      document.getElementById("single-contact-data-container").innerHTML = "";
-      setItem("contacts", contacts);
-      break;
-    }
+  const index = contacts.findIndex(contact => contact.id === id);
+  if (index !== -1) {
+    contacts.splice(index, 1);
+    renderContacts();
+    document.getElementById("single-contact-data-container").innerHTML = "";
+    lastActivePerson = 0;
+    setItem("contacts", contacts);
   }
 }
 
@@ -204,20 +201,24 @@ async function addNewContactToContactlist() {
   if (checkEmailAddress(email, contacts)) {
     return;
   }
-  contacts.push({
-    id: id,
-    name: firstCharToUpperCase(firstname),
-    lastname: firstCharToUpperCase(lastname),
-    email: email.toLowerCase(),
-    phone: formatPhoneNumber(phone),
-    initials:
-      firstname.charAt(0).toUpperCase() + lastname.charAt(0).toUpperCase(),
-    circleColor: getRandomColor(),
-  });
-  id++;
-  renderContacts();
-  setItem("id", id);
-  setItem("contacts", contacts);
+  if (name && email && phone) {
+    contacts.push({
+      id: id,
+      name: firstCharToUpperCase(firstname),
+      lastname: firstCharToUpperCase(lastname),
+      email: email.toLowerCase(),
+      phone: formatPhoneNumber(phone),
+      initials:
+        firstname.charAt(0).toUpperCase() + lastname.charAt(0).toUpperCase(),
+      circleColor: getRandomColor(),
+    });
+    renderContacts();
+    renderCard("edit-card", "");
+    renderAddContactSuccess(id);
+    id++;
+    setItem("id", id);
+    setItem("contacts", contacts);
+  }
 }
 
 /** sets the item in the local storage  */
@@ -275,12 +276,7 @@ function renderSingleContactOverview(id) {
   setPersonToActive(id);
   singlContactDataContainer.innerHTML = "";
   const element = document.querySelector('.single-contact-data-container');
-  element.style.marginLeft = '1000px';
-  element.style.transition = 'margin-left 1s ease';
-  setTimeout(() => {
-    singlContactDataContainer.innerHTML += singleContactOverview(id);
-    element.style.marginLeft = "0";
-  }, 200);
+  rightSlideAnimation("single-contact-data-container", singleContactOverview(id));
 }
 
 /**
@@ -303,27 +299,30 @@ function firstCharToLowerCase(name) {
   return toLower
 }
 
+/**
+ *
+ * @param {string} x -
+ */
+function closeRenderContactCardSlide() {
+  clearFormValues("contacts-form", 200);
+  slideBackAnimation("edit-card", 200);
+  setTimeout(() => {
+    renderCard("edit-card", "");
+  }, 450);
+}
+
+function renderCard(id, htmlContent) {
+  const card = document.getElementById(id);
+  card.innerHTML = "";
+  rightSlideAnimation(id, htmlContent);
+}
+
 function renderAddNewContact() {
-  let card = document.getElementById("edit-card")
-  card.innerHTML = ""
-  card.innerHTML += contactsCardHTML("Add contact", "Tasks are better with a team!", "addNewContactToContactlist")
+  renderCard("edit-card", contactsCardHTML("Add contact", "Tasks are better with a team!", "addNewContactToContactlist()"));
 }
 
-function closeRenderContactCard() {
-  let card = document.getElementById("edit-card")
-  let name = document.getElementById("name").value
-  let email = document.getElementById("email").value
-  let phone = document.getElementById("phone").value
-  name = ""
-  email = ""
-  phone = ""
-  card.innerHTML = ""
-}
-
-function renderEditContact() {
-  let card = document.getElementById("edit-card")
-  card.innerHTML = ""
-  card.innerHTML += contactsCardHTML("Edit contact", "", "editContact")
+function renderEditContact(id) {
+  renderCard("edit-card", contactsCardHTML("Edit contact", "", `editContact(${id})`));
 }
 
 /**
@@ -349,7 +348,7 @@ function getRandomColor() {
     case 1:
       return "user-color-one";
     case 2:
-      return "user-color-tow";
+      return "user-color-two";
     case 3:
       return "user-color-three";
     case 4:
@@ -361,7 +360,7 @@ function getRandomColor() {
     case 7:
       return "user-color-seven";
     case 8:
-      return "user-color-eigth";
+      return "user-color-eight";
     case 9:
       return "user-color-nine";
     case 10:
@@ -381,45 +380,24 @@ function getRandomColor() {
   }
 }
 
+/**
+ * Sets the first letter of the name to upper case
+ * @param {String} name - User name
+ * @returns {void} - returns nothing
+ */
 function firstCharToUpperCase(name) {
   let toUpper = name.charAt(0).toUpperCase() + name.substring(1);
   return toUpper;
 }
 
+/**
+ * Sets all letters to lower case
+ * @param {String} name - User name
+ * @returns {void} - returns nothing
+ */
 function firstCharToLowerCase(name) {
-  let toUpper = name.charAt(0).toLowerCase + name.substring(1);
-  return toUpper;
-}
-
-function renderAddNewContact() {
-  let card = document.getElementById("edit-card");
-  card.innerHTML = "";
-  card.innerHTML += contactsCardHTML(
-    "Add contact",
-    "Tasks are better with a team!",
-    "addNewContactToContactlist"
-  );
-}
-
-function closeRenderContactCard() {
-  let card = document.getElementById("edit-card");
-  let name = document.getElementById("name").value;
-  let email = document.getElementById("email").value;
-  let phone = document.getElementById("phone").value;
-  name = "";
-  email = "";
-  phone = "";
-  card.innerHTML = "";
-}
-
-function renderEditContact() {
-  let card = document.getElementById("edit-card");
-  card.innerHTML = "";
-  card.innerHTML += contactsCardHTML(
-    "Edit contact",
-    "",
-    "editContact"
-  );
+  let toLowerCase = name.toLowerCase();
+  return toLowerCase;
 }
 
 /**
@@ -455,8 +433,56 @@ function formatPhoneNumber(phoneNumber) {
   return phoneNumber;
 }
 
-function deleteContactFormValue() {
-  document.getElementById("name").value = "";
-  document.getElementById("email").value = "";
-  document.getElementById("phone").value = "";
+/**
+ *  Clears the form values
+ * @param {String} formId - id of the form
+ */
+function clearFormValues(formId) {
+  const form = document.getElementById(formId);
+  form.reset();
+}
+
+/**
+ * Right slide in animation
+ * @param {String} id - id of the element
+ * @param {HTMLElement} htmlTemplate -  html template
+ */
+function rightSlideAnimation(id, htmlTemplate, setTimeoutValue = 200) {
+  let element = document.getElementById(id);
+  element.innerHTML = "";
+  element.style.marginLeft = '1000px';
+  element.style.transition = 'margin-left .4s ease';
+  setTimeout(() => {
+    element.innerHTML += htmlTemplate;
+    element.style.marginLeft = "0";
+  }, setTimeoutValue);
+}
+
+/**
+ *  Right slide out animation
+ * @param {Number} id - id of the element
+ * @param {Number} setTimeoutValue - time to wait before the animation starts
+ */
+function slideBackAnimation(id, setTimeoutValue) {
+  let element = document.getElementById(id);
+  element.style.transition = 'margin-left .4s ease';
+  setTimeout(() => {
+    element.style.marginLeft = '2000px';
+  }, setTimeoutValue);
+}
+
+/**
+ * Renders the success message after adding a contact
+ * @param {Number} id - id of the contact
+ */
+function renderAddContactSuccess(id) {
+  let container = document.getElementById("single-contact-data-container")
+  let indexOfId = contacts.findIndex(contact => contact.id === id);
+  let succesfully = document.getElementById("contact-success");
+  container.innerHTML = ""
+  container.innerHTML += singleContactOverview(indexOfId)
+  rightSlideAnimation("contact-success", addContactSuccessHTML(), 600);
+  slideBackAnimation("contact-success",1500);
+  succesfully.innerHTML = "";
+  setPersonToActive(indexOfId);
 }

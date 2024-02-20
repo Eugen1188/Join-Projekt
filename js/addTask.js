@@ -277,7 +277,52 @@ function formatDateInput() {
   input.value = formattedValue;
 }
 
-function validateForm() {
+// Prüfung
+
+function checkTitleInputField() {
+  let inputTitleFieldValue = document.getElementById("title").value;
+  let inputTitleField = document.getElementById("title");
+  let inputReqiuredSpanTitle = document.getElementById("inputReqiuredSpanTitle");
+  if (inputTitleFieldValue === "") {
+    inputTitleField.classList.add("input-focus-required");
+    inputReqiuredSpanTitle.classList.remove("d-none");
+  } else {
+    inputTitleField.classList.remove("input-focus-required");
+    inputReqiuredSpanTitle.classList.add("d-none");
+  }
+}
+
+function checkDateInputField() {
+  formatDateInput();
+  let inputDateFieldValue = document.getElementById("date").value;
+  let inputDateField = document.getElementById("date");
+  let inputReqiuredSpanDate = document.getElementById("inputReqiuredSpanDate");
+  if (inputDateFieldValue === "") {
+    inputDateField.classList.add("input-focus-required");
+    inputReqiuredSpanDate.classList.remove("d-none");
+  } else {
+    inputDateField.classList.remove("input-focus-required");
+    inputReqiuredSpanDate.classList.add("d-none");
+  }
+}
+
+function formatDateInput() {
+  let input = document.getElementById("date");
+  // Entferne alle Zeichen außer Zahlen und Schrägstriche (/)
+  let formattedValue = input.value.replace(/[^\d/]/g, "");
+  // prüft, ob bereits ein Schrägstrich (/) am dritten Zeichen der Eingabe vorhanden ist. Wenn nicht, wird ein Schrägstrich an der Position eingefügt.
+  if (formattedValue.length > 2 && formattedValue.charAt(2) !== "/") {
+    formattedValue = formattedValue.substring(0, 2) + "/" + formattedValue.substring(2);
+  }
+  // prüft, ob bereits ein Schrägstrich (/) am sechsten Zeichen der Eingabe vorhanden ist. Wenn nicht, wird ein Schrägstrich an der Position eingefügt.
+  if (formattedValue.length > 5 && formattedValue.charAt(5) !== "/") {
+    formattedValue = formattedValue.substring(0, 5) + "/" + formattedValue.substring(5);
+  }
+  // Setze den neuen formatierten Wert in das Eingabefeld
+  input.value = formattedValue;
+}
+
+function validateForm(index) {
   getCheckedContact();
   let lengthCheckedContacts = checkedContacts.length;
   let prioInputs = document.getElementsByName("priority");
@@ -290,12 +335,15 @@ function validateForm() {
     alert("select a Contact !");
   } else if (prio !== "low" && prio !== "medium" && prio !== "urgent") {
     alert("select a Prio Value !");
-  } else addTask();
+  } else addTask(index);
 }
 
 //prüfung ende
 
-async function addTask() {
+//prüfung ende
+
+async function addTask(index) {
+  console.log(index);
   let id = allTasks.length;
   let title = document.getElementById("title");
   let taskDescription = document.getElementById("taskDescription");
@@ -324,14 +372,154 @@ async function addTask() {
       date: date.value,
       prio: prio,
       category: category.value,
-      subtask: { subtask: subtasks, taskstate: taskStates },
+      subtask: { subtask: subtasks, taskstate: generateTaskState(index) },
     },
   ];
-  console.log(task);
-  allTasks.push(task);
-  //setItem("test_board", allTasks);
+  subtasks = [];
+  if (index !== undefined) {
+    let categoryPlaceholder = allTasks[index][0].category;
+    allTasks[index] = task;
+    allTasks[index][0].id = task[0].id - 1;
+    allTasks[index][0].category = categoryPlaceholder;
+    setItem("test_board", allTasks);
+    initBoard();
+  } else {
+    allTasks.push(task);
+    setItem("test_board", allTasks);
+  }
   //weiterleitung auf Board nach Taskerstellung
   //window.location.href = "http://127.0.0.1:5500/board.html";
+}
+
+function generateTaskState(index) {
+  let taskstateArray = [];
+  for (let i = 0; i < subtasks.length; i++) {
+    const element = false;
+    if (index != undefined) {
+      const value = allTasks[index][0].subtask.taskstate[i];
+      if (value === true) {
+        taskstateArray.push(value);
+      } else {
+        taskstateArray.push(element);
+      }
+    } else {
+      taskstateArray.push(element);
+    }
+  }
+  return taskstateArray;
+}
+
+async function getItemContacts(key) {
+  const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
+  try {
+    let response = await fetch(url);
+    if (response.ok) {
+      const responseData = await response.json();
+      return JSON.parse(responseData.data.value);
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function initContacts() {
+  tempContacts = await getItemContacts("contacts");
+  getAllContacts();
+}
+
+function getAllContacts() {
+  displayContacts(tempContacts);
+}
+
+function displayContacts(contacts) {
+  checkedContacts = [];
+  let selectElement = document.getElementById("contact-values");
+  selectElement.innerHTML = "";
+  let optionsHTML = "";
+  contacts.forEach((contact, index) => {
+    optionsHTML += generateContactHTML(contact, index);
+  });
+  selectElement.innerHTML = optionsHTML;
+}
+
+function displayFilteredContacts(filteredContacts) {
+  displayContacts(filteredContacts);
+}
+
+function getClickedContact(index, contactId) {
+  let iconToChange = document.getElementById(`checkboxIcon_${index}`);
+  let contactCard = document.getElementById(`contact_${index}`);
+  let checkBoxIconColor = document.getElementById(`checkboxIcon_${index}`);
+  let isChecked = checkedContacts.includes(contactId);
+  checkClickedContact(iconToChange, contactCard, checkBoxIconColor, isChecked, index, contactId);
+}
+
+function checkClickedContact(iconToChange, contactCard, checkBoxIconColor, isChecked, index, contactId) {
+  if (isChecked) {
+    let contactIndex = checkedContacts.indexOf(contactId);
+    if (contactIndex !== -1) {
+      checkedContacts.splice(contactIndex, 1);
+    }
+    iconToChange.innerHTML = renderBoxIcon();
+    contactCard.classList.remove("active");
+    checkBoxIconColor.classList.remove("stroke-wht");
+  } else {
+    checkedContacts.push(contactId);
+    iconToChange.innerHTML = renderCheckedIcon();
+    contactCard.classList.add("active");
+    checkBoxIconColor.classList.add("stroke-wht");
+  }
+}
+
+function filterContacts() {
+  // Input-Wert abrufen
+  let filterValue = document.getElementById("contactAssignInput").value.trim().toUpperCase();
+  // Wenn das Eingabefeld leer ist, getAllContacts aufrufen, um alle Kontakte anzuzeigen
+  if (filterValue === "") {
+    getAllContacts();
+    return;
+  }
+  // Neue Liste für gefilterte Kontakte erstellen
+  let filteredContacts = tempContacts.filter((contact) => {
+    // Den Filter auf Namen anwenden
+    let fullName = `${contact.name.toUpperCase()}`;
+    return fullName.includes(filterValue);
+  });
+  // Neue Kontakte als Liste anzeigen
+  displayFilteredContacts(filteredContacts);
+}
+
+function getCheckedContact() {
+  initials = [];
+  contactName = [];
+  circleColors = [];
+  contactDataAsArray = [];
+  contactIds = [];
+  finalContactData = [];
+  checkedContacts.forEach((contactId) => {
+    tempContacts.forEach((contact) => {
+      if (contactId === contact.id) {
+        contactName.push(contact.name + " " + contact.lastname);
+        initials.push(contact.initials);
+        circleColors.push(contact.circleColor);
+        contactIds.push(contact.id);
+        finalContactData.push({
+          id: contact.id,
+          name: contact.name,
+          lastname: contact.lastname,
+          initials: contact.initials,
+          circleColor: contact.circleColor,
+        });
+      }
+    });
+  });
+}
+
+function showContacts() {
+  let arrow = document.getElementById("arrowContactInput");
+  let id = document.getElementById("contact-values");
+  id.classList.toggle("d-none");
+  arrow.classList.toggle("rotate-180");
 }
 
 function renderSubtaskInputIcons() {

@@ -48,7 +48,7 @@ function templateCardAssignee(assignee, color) {
 function templateTaskOverlay(task) {
     return `
         <div class="task-overlay-top">
-            <div class="board-card-topic">
+            <div class="board-card-topic" style="background-color:${checkCategory(task.category)}">
                 <span>${task.category}</span>
             </div>
             <img src="./assets/img/Close.png" alt="close" onclick="closeOverlay()">
@@ -378,7 +378,7 @@ function templateEditOverlay(task){
               </label>
 
               <input class="input-addtask" type="radio" id="medium-edit" name="priority" value="medium" />
-              <label for="medium-edit" class="radio-button" onclick="invertSvgFillsEdit('medium');handleClick('medium')">Medium
+              <label for="medium-edit" class="radio-button" id="medium-radio" onclick="invertSvgFillsEdit('medium');handleClick('medium')">Medium
                 <svg id="medium-icon-edit" width="21" height="8" viewBox="0 0 21 8" fill="none"
                   xmlns="http://www.w3.org/2000/svg">
                   <g clip-path="url(#clip0_156_994)">
@@ -454,8 +454,9 @@ function templateEditOverlay(task){
               <div id="showSubtasks" class="show-subtasks"></div>
             </div>
           </div>
-
         </div>
+        
       </div>
+      <button type="button" onclick="editTask(${task.id})">Create Task</button>
   `
 }
