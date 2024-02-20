@@ -155,6 +155,7 @@ async function deleteContact(id) {
     contacts.splice(index, 1);
     renderContacts();
     document.getElementById("single-contact-data-container").innerHTML = "";
+    lastActivePerson = 0;
     setItem("contacts", contacts);
   }
 }
@@ -200,20 +201,22 @@ async function addNewContactToContactlist() {
   if (checkEmailAddress(email, contacts)) {
     return;
   }
-  contacts.push({
-    id: id,
-    name: firstCharToUpperCase(firstname),
-    lastname: firstCharToUpperCase(lastname),
-    email: email.toLowerCase(),
-    phone: formatPhoneNumber(phone),
-    initials:
-      firstname.charAt(0).toUpperCase() + lastname.charAt(0).toUpperCase(),
-    circleColor: getRandomColor(),
-  });
-  id++;
-  renderContacts();
-  setItem("id", id);
-  setItem("contacts", contacts);
+  if (name || email || phone) {
+    contacts.push({
+      id: id,
+      name: firstCharToUpperCase(firstname),
+      lastname: firstCharToUpperCase(lastname),
+      email: email.toLowerCase(),
+      phone: formatPhoneNumber(phone),
+      initials:
+        firstname.charAt(0).toUpperCase() + lastname.charAt(0).toUpperCase(),
+      circleColor: getRandomColor(),
+    });
+    id++;
+    renderContacts();
+    setItem("id", id);
+    setItem("contacts", contacts);
+  }
 }
 
 /** sets the item in the local storage  */

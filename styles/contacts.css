@@ -7,6 +7,11 @@
     background-color: var(--button-color);
 }
 
+.main-btn-color:active {
+    background-color: var(--light-blue);
+
+}
+
 .font-color {
     color: var(--background-color-site);
 }
