@@ -293,21 +293,23 @@ function firstCharToLowerCase(name) {
   return toLower
 }
 
-function renderAddNewContact() {
-  let card = document.getElementById("edit-card")
-  card.innerHTML = ""
-  card.innerHTML += contactsCardHTML("Add contact", "Tasks are better with a team!", "addNewContactToContactlist")
-}
-
 function closeRenderContactCard() {
   clearFormValues("contact-form");
   renderCard("edit-card", "");
 }
 
+function renderCard(id, htmlContent) {
+  const card = document.getElementById(id);
+  card.innerHTML = "";
+  card.innerHTML += rightSlideAnimation(id, htmlContent);
+}
+
+function renderAddNewContact() {
+  renderCard("edit-card", contactsCardHTML("Add contact", "Tasks are better with a team!", "addNewContactToContactlist"));
+}
+
 function renderEditContact() {
-  let card = document.getElementById("edit-card")
-  card.innerHTML = ""
-  card.innerHTML += contactsCardHTML("Edit contact", "", "editContact")
+  renderCard("edit-card", contactsCardHTML("Edit contact", "", "editContact"));
 }
 
 /**
