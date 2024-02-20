@@ -54,17 +54,6 @@ function closeRegMenu() {
   regmenu.classList.add('d-none')
 }
 
-/* Rendert eingelogten User */
-
-function renderLogedUser() {
-  let userInitials = document.getElementById('logedUserInitials');
-  let firstName = document.getElementById('logedInName');
-  let lastname = document.getElementById('logedInLastname');
-  userInitials.innerHTML = logedInUser[0].initials;
-  firstName.innerHTML = logedInUser[0].name;
-  lastname.innerHTML = logedInUser[0].lastname;
-}
-
 function includeHTML() {
   var z, i, elmnt, file, xhttp;
   /* Loop through a collection of all HTML elements: */

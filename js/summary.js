@@ -2,13 +2,13 @@ let urgentDates = [];
 
 async function renderSummeryTasks() {
     await testfunc();
+    logedInUser = await getItemContacts("logedInUser");
     tasksInBoard();
     tasksInProgress();
     tasksToDo();
     tasksAwaitingFeedback()
     tasksDone();
     tasksUrgent();
-    logedInUser = await getItemContacts("logedInUser");
     renderLogedUser();
 }
 
@@ -114,3 +114,11 @@ function sortDates(dates) {
     });
   };
 
+  function renderLogedUser() {
+    let userInitials = document.getElementById('logedUserInitials');
+    let firstName = document.getElementById('logedInName');
+    let lastname = document.getElementById('logedInLastname');
+    userInitials.innerHTML = logedInUser[0].initials;
+    firstName.innerHTML = logedInUser[0].name;
+    lastname.innerHTML = logedInUser[0].lastname;
+  }

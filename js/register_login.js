@@ -1,7 +1,6 @@
 async function initRegisteredContacts() {
 
   userData = await getItemContacts('userData');
-  renderLogedUser()
 }
 
 function logIn() {
