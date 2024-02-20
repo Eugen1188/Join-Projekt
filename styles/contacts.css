@@ -511,6 +511,12 @@
     background-image: url('../assets/img/icons/call.png');
 }
 
+#contact-success {
+    position: absolute;
+    top: 1000px;
+    left: 743px;
+}
+
 .add-success {
     width: 326px;
     height: 74px;
@@ -518,7 +524,7 @@
     padding: 10px;
     background-color: var(--button-color);
     color: var(--background-color-site);
-    position: absolute;
-    top: 800px;
-    left: 743px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

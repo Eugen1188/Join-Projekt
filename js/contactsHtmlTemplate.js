@@ -118,7 +118,7 @@ function contactsCardHTML(cardName, secondText, functionName) {
     `
 }
 
-function renderAddContactSuccessHTML() {
+function addContactSuccessHTML() {
     return /*html*/ `
         <div class="add-success">
             <span>Contact succesfully created</span>

@@ -213,10 +213,10 @@ async function addNewContactToContactlist() {
         firstname.charAt(0).toUpperCase() + lastname.charAt(0).toUpperCase(),
       circleColor: getRandomColor(),
     });
-    id++;
     renderContacts();
     renderCard("edit-card", "");
-    renderAddContactSuccess();
+    renderAddContactSuccess(id);
+    id++;
     setItem("id", id);
     setItem("contacts", contacts);
   }
@@ -304,11 +304,11 @@ function firstCharToLowerCase(name) {
  *
  * @param {string} x -
  */
-function closeRenderContactCardSlide(shouldSlide) {
+function closeRenderContactCardSlide() {
   clearFormValues("contacts-form");
-  slideBackAnimation("edit-card");
+  slideBackAnimation("edit-card", 200);
   setTimeout(() => {
-    renderContacts("edit-card", "");
+    renderCard("edit-card", "");
   }, 450);
 }
 
@@ -448,7 +448,7 @@ function clearFormValues(formId) {
  * @param {String} id - id of the element
  * @param {HTMLElement} htmlTemplate -  html template
  */
-function rightSlideAnimation(id, htmlTemplate) {
+function rightSlideAnimation(id, htmlTemplate, setTimeoutValue = 200) {
   let element = document.getElementById(id);
   element.innerHTML = "";
   element.style.marginLeft = '1000px';
@@ -456,20 +456,24 @@ function rightSlideAnimation(id, htmlTemplate) {
   setTimeout(() => {
     element.innerHTML += htmlTemplate;
     element.style.marginLeft = "0";
-  }, 200);
+  }, setTimeoutValue);
 }
 
-function slideBackAnimation(id) {
+function slideBackAnimation(id, setTimeoutValue) {
   let element = document.getElementById(id);
   element.style.transition = 'margin-left .4s ease';
-  element.style.marginLeft = "1500px";
+  setTimeout(() => {
+    element.style.marginLeft = '2000px';
+  }, setTimeoutValue);
 }
 
-function renderAddContactSuccess() {
-  let element = document.getElementById("contact-success");
-  element.innerHTML = "";
-  rightSlideAnimation("contact-success", contactSuccessHTML());
-  setTimeout(() => {
-    slideBackAnimation("contact-success");
-  }, 500);
+function renderAddContactSuccess(id) {
+  let container = document.getElementById("single-contact-data-container")
+  let indexOfId = contacts.findIndex(contact => contact.id === id);
+  container.innerHTML = ""
+  container.innerHTML += singleContactOverview(indexOfId)
+  let succesfully = document.getElementById("contact-success");
+  rightSlideAnimation("contact-success", addContactSuccessHTML(), 600);
+  slideBackAnimation("contact-success",1500);
+  succesfully.innerHTML = "";
 }
