@@ -6,7 +6,7 @@ body {
 .main-sum-cont {
 
     position: fixed;
-    inset: 120px 388px;
+    inset: 120px 320px;
 }
 
 h1 {
@@ -43,6 +43,7 @@ h1 {
 
 .tasks-main-cont {
     width: 560px;
+    height: 562px;
 }
 
 .todo-done-cont {
