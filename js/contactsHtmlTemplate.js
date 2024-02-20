@@ -47,11 +47,11 @@ function singleContactOverview(index) {
             <div class="single-contact-name-card">
                 <span class="single-contacts-name">${contacts[index].name + " " + contacts[index].lastname}</span>
                 <div class="contacts-icon-container">
-                    <div class="icons-contacts" id="edit-contact-INDEX" onclick="renderEditContact(${contacts[index].id})">
+                    <div class="icons-contacts" id="edit-contact-${index}" onclick="renderEditContact(${contacts[index].id})">
                         <img src="./assets/img/icons/edit.png" alt="">
                         <span>Edit</span>
                     </div>
-                    <div class="icons-contacts" id="edit-contact-INDEX" onclick="deleteContact(${contacts[index].id})">
+                    <div class="icons-contacts" id="edit-contact-${index}" onclick="deleteContact(${contacts[index].id})">
                         <img src="./assets/img/icons/delete.png" alt="">
                         <span>Delete</span>
                     </div>
@@ -105,7 +105,9 @@ function contactsCardHTML(cardName, secondText, functionName) {
                         <input class="edit-card-from-input" type="email" placeholder="E-Mail" id="email">
                         <input class="edit-card-from-input" type="tel" placeholder="Phone" id="phone" maxlength="11">
                         <div class="edit-card-btn-wrapper">
-                            <button class="edit-card-btn white-btn pointer" onclick="clearFormValues('contacts-form')">Delete</button>
+                            <div id="delete-btn">
+                                <button class="edit-card-btn white-btn pointer" onclick="clearFormValues('contacts-form')">Delete</button>
+                            </div>
                             <button class="edit-card-btn main-btn-color font-color pointer" type="submit">
                                 <span>Save</span>
                                 <img src="./assets/img/icons/check.png" alt="">
@@ -118,7 +120,7 @@ function contactsCardHTML(cardName, secondText, functionName) {
     `
 }
 
-function renderAddContactSuccessHTML() {
+function addContactSuccessHTML() {
     return /*html*/ `
         <div class="add-success">
             <span>Contact succesfully created</span>

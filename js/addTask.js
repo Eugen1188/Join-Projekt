@@ -7,10 +7,137 @@ let circleColors = [];
 let taskStates = [];
 let tempContacts = [];
 let contactIds = [];
+let selectedContactCache = [];
+
+async function getItemContacts(key) {
+  const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
+  try {
+    let response = await fetch(url);
+    if (response.ok) {
+      const responseData = await response.json();
+      return JSON.parse(responseData.data.value);
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function initContacts() {
+  tempContacts = await getItemContacts("contacts");
+  getAllContacts();
+}
+
+function getAllContacts() {
+  displayContacts(tempContacts);
+}
+
+function displayContacts(contacts) {
+  let selectElement = document.getElementById("contact-values");
+  selectElement.innerHTML = "";
+  let optionsHTML = "";
+  contacts.forEach((contact, index) => {
+    optionsHTML += generateContactHTML(contact, index);
+  });
+  selectElement.innerHTML = optionsHTML;
+}
+
+function showContacts() {
+  let arrow = document.getElementById("arrowContactInput");
+  let id = document.getElementById("contact-values");
+  id.classList.toggle("d-none");
+  arrow.classList.toggle("rotate-180");
+}
+
+function getClickedContact(index, contactId) {
+  let iconToChange = document.getElementById(`checkboxIcon_${index}`);
+  let contactCard = document.getElementById(`contact_${index}`);
+  let checkBoxIconColor = document.getElementById(`checkboxIcon_${index}`);
+  let isChecked = checkedContacts.includes(contactId);
+  checkClickedContact(iconToChange, contactCard, checkBoxIconColor, isChecked, index, contactId);
+  showChoosenContactsCircle();
+}
+
+function checkClickedContact(iconToChange, contactCard, checkBoxIconColor, isChecked, index, contactId) {
+  if (isChecked) {
+    let contactIndex = checkedContacts.indexOf(contactId);
+    if (contactIndex !== -1) {
+      checkedContacts.splice(contactIndex, 1);
+    }
+    iconToChange.innerHTML = renderBoxIcon();
+    contactCard.classList.remove("active");
+    checkBoxIconColor.classList.remove("stroke-wht");
+  } else {
+    checkedContacts.push(contactId);
+    iconToChange.innerHTML = renderCheckedIcon();
+    contactCard.classList.add("active");
+    checkBoxIconColor.classList.add("stroke-wht");
+  }
+}
+
+function filterContacts() {
+  // Input-Wert abrufen
+  let filterValue = document.getElementById("contactAssignInput").value.trim().toUpperCase();
+  // Wenn das Eingabefeld leer ist, getAllContacts aufrufen, um alle Kontakte anzuzeigen
+  if (filterValue === "") {
+    getAllContacts();
+    return;
+  }
+  // Neue Liste für gefilterte Kontakte erstellen
+  let filteredContacts = tempContacts.filter((contact) => {
+    // Den Filter auf Namen anwenden
+    let fullName = `${contact.name.toUpperCase()}`;
+    return fullName.includes(filterValue);
+  });
+  // Neue Kontakte als Liste anzeigen
+  displayFilteredContacts(filteredContacts);
+}
+
+function displayFilteredContacts(filteredContacts) {
+  displayContacts(filteredContacts);
+}
+
+function showChoosenContactsCircle() {
+  let container = document.getElementById("choosenContacts");
+  checkedContacts.forEach((checkedContactId) => {
+    console.log(checkedContactId);
+  });
+}
+
+function getCheckedContact() {
+  checkedContacts.forEach((contactId) => {
+    tempContacts.forEach((contact) => {
+      if (contactId === contact.id) {
+        contactName.push(contact.name + " " + contact.lastname);
+        initials.push(contact.initials);
+        circleColors.push(contact.circleColor);
+        contactIds.push(contact.id);
+        finalContactData.push({
+          id: contact.id,
+          name: contact.name,
+          lastname: contact.lastname,
+          initials: contact.initials,
+          circleColor: contact.circleColor,
+        });
+      }
+    });
+  });
+}
 
 function handleClick(value) {
   let priority = value;
   document.documentElement.style.setProperty("--prio-button-selected", getButtonColor(priority));
+}
+
+function getButtonColor(priority) {
+  if (priority === "low") {
+    return "#7AE229";
+  } else if (priority === "medium") {
+    return "#FFA800";
+  } else if (priority === "urgent") {
+    return "#FF3D00";
+  } else {
+    return "white";
+  }
 }
 
 function invertSvgFills(value) {
@@ -31,25 +158,8 @@ function invertSvgFills(value) {
   }
 }
 
-function getButtonColor(priority) {
-  if (priority === "low") {
-    return "#7AE229";
-  } else if (priority === "medium") {
-    return "#FFA800";
-  } else if (priority === "urgent") {
-    return "#FF3D00";
-  } else {
-    return "white";
-  }
-}
-
 function getInput() {
   let subtask = document.getElementById("subtask").value;
-  return subtask;
-}
-
-function clearSubtaskInput() {
-  let subtask = (document.getElementById("subtask").value = "");
   return subtask;
 }
 
@@ -90,11 +200,6 @@ function mouseOut(index) {
   }
 }
 
-function deleteSubtask(index) {
-  subtasks.splice(index, 1);
-  showSubtasks();
-}
-
 function editSubtask(index) {
   let subtaskToEdit = document.getElementById(`subtask_${index}`);
   let iconSection = document.getElementById(`subtask-icon-section_${index}`);
@@ -111,9 +216,110 @@ function saveEditedSubtask(index) {
   showSubtasks();
 }
 
+function clearSubtaskInput() {
+  let subtask = (document.getElementById("subtask").value = "");
+  return subtask;
+}
+
+function deleteSubtask(index) {
+  subtasks.splice(index, 1);
+  taskStates.splice(index, 1);
+  showSubtasks();
+}
+
 function changeSubtaskInputIcons() {
   let subTaskSvgContainer = document.getElementById("subTaskSvgContainer");
   subTaskSvgContainer.innerHTML = renderSubtaskInputIcons();
+}
+
+// Prüfung
+
+function checkTitleInputField() {
+  let inputTitleFieldValue = document.getElementById("title").value;
+  let inputTitleField = document.getElementById("title");
+  let inputReqiuredSpanTitle = document.getElementById("inputReqiuredSpanTitle");
+  if (inputTitleFieldValue === "") {
+    inputTitleField.classList.add("input-focus-required");
+    inputReqiuredSpanTitle.classList.remove("d-none");
+  } else {
+    inputTitleField.classList.remove("input-focus-required");
+    inputReqiuredSpanTitle.classList.add("d-none");
+  }
+}
+
+function checkDateInputField() {
+  formatDateInput();
+  let inputDateFieldValue = document.getElementById("date").value;
+  let inputDateField = document.getElementById("date");
+  let inputReqiuredSpanDate = document.getElementById("inputReqiuredSpanDate");
+  if (inputDateFieldValue === "") {
+    inputDateField.classList.add("input-focus-required");
+    inputReqiuredSpanDate.classList.remove("d-none");
+  } else {
+    inputDateField.classList.remove("input-focus-required");
+    inputReqiuredSpanDate.classList.add("d-none");
+  }
+}
+
+function formatDateInput() {
+  let input = document.getElementById("date");
+  // Entferne alle Zeichen außer Zahlen und Schrägstriche (/)
+  let formattedValue = input.value.replace(/[^\d/]/g, "");
+  // prüft, ob bereits ein Schrägstrich (/) am dritten Zeichen der Eingabe vorhanden ist. Wenn nicht, wird ein Schrägstrich an der Position eingefügt.
+  if (formattedValue.length > 2 && formattedValue.charAt(2) !== "/") {
+    formattedValue = formattedValue.substring(0, 2) + "/" + formattedValue.substring(2);
+  }
+  // prüft, ob bereits ein Schrägstrich (/) am sechsten Zeichen der Eingabe vorhanden ist. Wenn nicht, wird ein Schrägstrich an der Position eingefügt.
+  if (formattedValue.length > 5 && formattedValue.charAt(5) !== "/") {
+    formattedValue = formattedValue.substring(0, 5) + "/" + formattedValue.substring(5);
+  }
+  // Setze den neuen formatierten Wert in das Eingabefeld
+  input.value = formattedValue;
+}
+
+// Prüfung
+
+function checkTitleInputField() {
+  let inputTitleFieldValue = document.getElementById("title").value;
+  let inputTitleField = document.getElementById("title");
+  let inputReqiuredSpanTitle = document.getElementById("inputReqiuredSpanTitle");
+  if (inputTitleFieldValue === "") {
+    inputTitleField.classList.add("input-focus-required");
+    inputReqiuredSpanTitle.classList.remove("d-none");
+  } else {
+    inputTitleField.classList.remove("input-focus-required");
+    inputReqiuredSpanTitle.classList.add("d-none");
+  }
+}
+
+function checkDateInputField() {
+  formatDateInput();
+  let inputDateFieldValue = document.getElementById("date").value;
+  let inputDateField = document.getElementById("date");
+  let inputReqiuredSpanDate = document.getElementById("inputReqiuredSpanDate");
+  if (inputDateFieldValue === "") {
+    inputDateField.classList.add("input-focus-required");
+    inputReqiuredSpanDate.classList.remove("d-none");
+  } else {
+    inputDateField.classList.remove("input-focus-required");
+    inputReqiuredSpanDate.classList.add("d-none");
+  }
+}
+
+function formatDateInput() {
+  let input = document.getElementById("date");
+  // Entferne alle Zeichen außer Zahlen und Schrägstriche (/)
+  let formattedValue = input.value.replace(/[^\d/]/g, "");
+  // prüft, ob bereits ein Schrägstrich (/) am dritten Zeichen der Eingabe vorhanden ist. Wenn nicht, wird ein Schrägstrich an der Position eingefügt.
+  if (formattedValue.length > 2 && formattedValue.charAt(2) !== "/") {
+    formattedValue = formattedValue.substring(0, 2) + "/" + formattedValue.substring(2);
+  }
+  // prüft, ob bereits ein Schrägstrich (/) am sechsten Zeichen der Eingabe vorhanden ist. Wenn nicht, wird ein Schrägstrich an der Position eingefügt.
+  if (formattedValue.length > 5 && formattedValue.charAt(5) !== "/") {
+    formattedValue = formattedValue.substring(0, 5) + "/" + formattedValue.substring(5);
+  }
+  // Setze den neuen formatierten Wert in das Eingabefeld
+  input.value = formattedValue;
 }
 
 function validateForm(index) {
@@ -131,6 +337,10 @@ function validateForm(index) {
     alert("select a Prio Value !");
   } else addTask(index);
 }
+
+//prüfung ende
+
+//prüfung ende
 
 async function addTask(index) {
   console.log(index);
@@ -194,11 +404,11 @@ function generateTaskState(index) {
       } else {
         taskstateArray.push(element);
       }
-    }else{
+    } else {
       taskstateArray.push(element);
     }
   }
-  return taskstateArray
+  return taskstateArray;
 }
 
 async function getItemContacts(key) {
@@ -446,12 +656,12 @@ function isChecked(id) {
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M20 11V17C20 18.6569 18.6569 20 17 20H7C5.34315 20 4 18.6569 4 17V7C4 5.34315 5.34315 4 7 4H15" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
         <path d="M8 12L12 16L20 4.5" stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>`
+      </svg>`;
   } else {
     return `    <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect x="4.38818" y="4" width="16" height="16" rx="3" stroke="#2A3647" stroke-width="2" />
   </svg>
-`
+`;
   }
 }
 

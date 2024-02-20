@@ -60,6 +60,16 @@
   margin-bottom: 8px;
 }
 
+.input-focus-required:focus-visible {
+  outline-color: #ff001f !important;
+}
+
+.required-input-info {
+  color: #ff8190;
+  font-weight: 400;
+  font-size: 12px;
+}
+
 .fill-btn-white path {
   fill: white;
 }

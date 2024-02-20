@@ -96,8 +96,8 @@ let id = 11;
 let lastActivePerson;
 
 async function initContacts() {
-  contacts = await getItemContacts("contacts");
-  id = await getItemContacts("id");
+  // contacts = await getItemContacts("contacts");
+  // id = await getItemContacts("id");
   renderContacts();
 }
 
@@ -110,7 +110,6 @@ async function editContact(userId) {
   const nameValue = document.getElementById("name").value.trim();
   const emailValue = document.getElementById("email").value.trim();
   const phoneValue = document.getElementById("phone").value.trim();
-  console.log(nameValue, emailValue, phoneValue);
   if (nameValue && emailValue && phoneValue) {
     for (let i = 0; i < contacts.length; i++) {
       if (contacts[i].id === userId) {
@@ -213,10 +212,10 @@ async function addNewContactToContactlist() {
         firstname.charAt(0).toUpperCase() + lastname.charAt(0).toUpperCase(),
       circleColor: getRandomColor(),
     });
-    id++;
     renderContacts();
     renderCard("edit-card", "");
-    renderAddContactSuccess();
+    renderAddContactSuccess(id);
+    id++;
     setItem("id", id);
     setItem("contacts", contacts);
   }
@@ -304,11 +303,11 @@ function firstCharToLowerCase(name) {
  *
  * @param {string} x -
  */
-function closeRenderContactCardSlide(shouldSlide) {
-  clearFormValues("contacts-form");
-  slideBackAnimation("edit-card");
+function closeRenderContactCardSlide() {
+  clearFormValues("contacts-form", 200);
+  slideBackAnimation("edit-card", 200);
   setTimeout(() => {
-    renderContacts("edit-card", "");
+    renderCard("edit-card", "");
   }, 450);
 }
 
@@ -448,7 +447,7 @@ function clearFormValues(formId) {
  * @param {String} id - id of the element
  * @param {HTMLElement} htmlTemplate -  html template
  */
-function rightSlideAnimation(id, htmlTemplate) {
+function rightSlideAnimation(id, htmlTemplate, setTimeoutValue = 200) {
   let element = document.getElementById(id);
   element.innerHTML = "";
   element.style.marginLeft = '1000px';
@@ -456,20 +455,34 @@ function rightSlideAnimation(id, htmlTemplate) {
   setTimeout(() => {
     element.innerHTML += htmlTemplate;
     element.style.marginLeft = "0";
-  }, 200);
+  }, setTimeoutValue);
 }
 
-function slideBackAnimation(id) {
+/**
+ *  Right slide out animation
+ * @param {Number} id - id of the element
+ * @param {Number} setTimeoutValue - time to wait before the animation starts
+ */
+function slideBackAnimation(id, setTimeoutValue) {
   let element = document.getElementById(id);
   element.style.transition = 'margin-left .4s ease';
-  element.style.marginLeft = "1500px";
+  setTimeout(() => {
+    element.style.marginLeft = '2000px';
+  }, setTimeoutValue);
 }
 
-function renderAddContactSuccess() {
-  let element = document.getElementById("contact-success");
-  element.innerHTML = "";
-  rightSlideAnimation("contact-success", contactSuccessHTML());
-  setTimeout(() => {
-    slideBackAnimation("contact-success");
-  }, 500);
+/**
+ * Renders the success message after adding a contact
+ * @param {Number} id - id of the contact
+ */
+function renderAddContactSuccess(id) {
+  let container = document.getElementById("single-contact-data-container")
+  let indexOfId = contacts.findIndex(contact => contact.id === id);
+  let succesfully = document.getElementById("contact-success");
+  container.innerHTML = ""
+  container.innerHTML += singleContactOverview(indexOfId)
+  rightSlideAnimation("contact-success", addContactSuccessHTML(), 600);
+  slideBackAnimation("contact-success",1500);
+  succesfully.innerHTML = "";
+  setPersonToActive(indexOfId);
 }
