@@ -299,7 +299,10 @@ function firstCharToLowerCase(name) {
 
 function closeRenderContactCard() {
   clearFormValues("contacts-form");
-  renderCard("edit-card", "");
+  slideBackAnimation("edit-card")
+  setTimeout(() => {
+    renderContacts("edit-card", "");
+  }, 450)
 }
 
 function renderCard(id, htmlContent) {
@@ -442,9 +445,15 @@ function rightSlideAnimation(id, htmlTemplate) {
   let element = document.getElementById(id);
   element.innerHTML = "";
   element.style.marginLeft = '1000px';
-  element.style.transition = 'margin-left .2s ease';
+  element.style.transition = 'margin-left .4s ease';
   setTimeout(() => {
     element.innerHTML += htmlTemplate;
     element.style.marginLeft = "0";
   }, 200);
+}
+
+function slideBackAnimation(id) {
+  let element = document.getElementById(id);
+  element.style.transition = 'margin-left .4s ease';
+  element.style.marginLeft = "1500px";
 }

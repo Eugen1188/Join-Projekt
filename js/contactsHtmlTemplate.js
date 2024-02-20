@@ -101,11 +101,11 @@ function contactsCardHTML(cardName, secondText, functionName) {
                 </div>
                 <div class="edit-card-form-input">
                     <form onsubmit="${functionName}(); return false" id="contacts-form">
-                        <input class="edit-card-from-input pointer" type="text" placeholder="Name" id="name">
-                        <input class="edit-card-from-input pointer" type="email" placeholder="E-Mail" id="email">
-                        <input class="edit-card-from-input pointer" type="tel" placeholder="Phone" id="phone" maxlength="11">
+                        <input class="edit-card-from-input" type="text" placeholder="Name" id="name">
+                        <input class="edit-card-from-input" type="email" placeholder="E-Mail" id="email">
+                        <input class="edit-card-from-input" type="tel" placeholder="Phone" id="phone" maxlength="11">
                         <div class="edit-card-btn-wrapper">
-                            <button class="edit-card-btn pointer" onclick="clearFormValues('contacts-form')">Delete</button>
+                            <button class="edit-card-btn white-btn pointer" onclick="clearFormValues('contacts-form')">Delete</button>
                             <button class="edit-card-btn main-btn-color font-color pointer" type="submit">
                                 <span>Save</span>
                                 <img src="./assets/img/icons/check.png" alt="">
