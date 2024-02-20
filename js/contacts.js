@@ -146,20 +146,16 @@ async function getItemContacts(key) {
   }
 }
 
-
 /** deletes a contact from the contact list
  * @param {number} id - is required to find the desired user
  */
 async function deleteContact(id) {
-  const userId = id;
-  for (let i = 0; i < contacts.length; i++) {
-    if (userId === contacts[i].id) {
-      contacts.splice(i, 1);
-      renderContacts();
-      document.getElementById("single-contact-data-container").innerHTML = "";
-      setItem("contacts", contacts);
-      break;
-    }
+  const index = contacts.findIndex(contact => contact.id === id);
+  if (index !== -1) {
+    contacts.splice(index, 1);
+    renderContacts();
+    document.getElementById("single-contact-data-container").innerHTML = "";
+    setItem("contacts", contacts);
   }
 }
 
@@ -385,12 +381,6 @@ function firstCharToLowerCase(name) {
   return toUpper;
 }
 
-function renderAddNewContact() {
-  let card = document.getElementById("edit-card");
-  card.innerHTML = "";
-  rightSlideAnimation("edit-card", contactsCardHTML("Add contact", "Tasks are better with a team!", "addNewContactToContactlist"));
-}
-
 function closeRenderContactCard() {
   let card = document.getElementById("edit-card");
   let name = document.getElementById("name").value;
@@ -402,10 +392,18 @@ function closeRenderContactCard() {
   card.innerHTML = "";
 }
 
-function renderEditContact() {
-  let card = document.getElementById("edit-card");
+function renderCard(id, htmlContent) {
+  const card = document.getElementById(id);
   card.innerHTML = "";
-  rightSlideAnimation("edit-card", contactsCardHTML("Edit contact", "", "editContact"));
+  card.innerHTML += htmlContent;
+}
+
+function renderEditContact() {
+  renderCard(rightSlideAnimation("edit-card", contactsCardHTML("Edit contact", "", "editContact")));
+}
+
+function renderAddNewContact() {
+  renderCard(rightSlideAnimation("edit-card", contactsCardHTML("Add contact", "Tasks are better with a team!", "addNewContactToContactlist")));
 }
 
 /**
