@@ -59,6 +59,10 @@
     padding: 7px 16px;
 }
 
+.board-search-form form:focus-within{
+    border:2px solid var(--light-blue);
+}
+
 .board-search-form input {
     border: none;
     border-right: 2px solid #a8a8a863;
@@ -156,7 +160,7 @@
     overflow-y: scroll;
 }
 
-.board-main::-webkit-scrollbar{
+.board-main::-webkit-scrollbar {
     display: none;
 }
 
@@ -346,7 +350,8 @@
 .task-overlay-top img {
     cursor: pointer;
 }
-.task-overlay-top img:hover{
+
+.task-overlay-top img:hover {
     background-color: rgba(0, 0, 0, 0.1);
     border-radius: 50% 50%;
 }
@@ -429,7 +434,8 @@
     gap: 8px;
 }
 
-.overlay-menu-content:hover span, .overlay-menu-content:hover path{
+.overlay-menu-content:hover span,
+.overlay-menu-content:hover path {
     color: var(--light-blue);
     fill: var(--light-blue);
 }
