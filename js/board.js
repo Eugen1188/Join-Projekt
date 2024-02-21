@@ -323,6 +323,7 @@ function fillRadio(prio) {
         case 'medium':
             document.getElementById('medium-radio').style.setProperty("--prio-button-selected", getButtonColor(prio));
             document.getElementById('medium-edit').checked = "checked";
+            break;
         case 'low':
             document.getElementById('low-radio').style.setProperty("--prio-button-selected", getButtonColor(prio));
             document.getElementById('low-edit').checked = "checked";
