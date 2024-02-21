@@ -51,19 +51,6 @@
           <input onclick="checkDateInputField()" onkeyup="checkDateInputField()" class="input-addtask-date-modified" id="date" type="text" maxlength="10" placeholder="dd/mm/yyyy" pattern="\d{2}/\d{2}/\d{4}" required />
           <input type="date" id="dateNormal" class="input-addtask-datepicker pointer" pattern="\d{2}/\d{2}/\d{4}" onchange="formatDateInput();updateDateFieldValue()" />
           <span id="inputReqiuredSpanDate" class="required-input-info d-none">this field is required</span>
-          <div class="due-date-icon">
-            <svg class="d-none" width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <mask id="mask0_138036_1819" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="24">
-                <rect x="0.248535" width="24" height="24" fill="#D9D9D9" />
-              </mask>
-              <g mask="url(#mask0_138036_1819)">
-                <path
-                  d="M14.7485 18C14.0485 18 13.4569 17.7583 12.9735 17.275C12.4902 16.7917 12.2485 16.2 12.2485 15.5C12.2485 14.8 12.4902 14.2083 12.9735 13.725C13.4569 13.2417 14.0485 13 14.7485 13C15.4485 13 16.0402 13.2417 16.5235 13.725C17.0069 14.2083 17.2485 14.8 17.2485 15.5C17.2485 16.2 17.0069 16.7917 16.5235 17.275C16.0402 17.7583 15.4485 18 14.7485 18ZM5.24854 22C4.69854 22 4.2277 21.8042 3.83604 21.4125C3.44437 21.0208 3.24854 20.55 3.24854 20V6C3.24854 5.45 3.44437 4.97917 3.83604 4.5875C4.2277 4.19583 4.69854 4 5.24854 4H6.24854V3C6.24854 2.71667 6.34437 2.47917 6.53604 2.2875C6.7277 2.09583 6.9652 2 7.24854 2C7.53187 2 7.76937 2.09583 7.96104 2.2875C8.1527 2.47917 8.24854 2.71667 8.24854 3V4H16.2485V3C16.2485 2.71667 16.3444 2.47917 16.536 2.2875C16.7277 2.09583 16.9652 2 17.2485 2C17.5319 2 17.7694 2.09583 17.961 2.2875C18.1527 2.47917 18.2485 2.71667 18.2485 3V4H19.2485C19.7985 4 20.2694 4.19583 20.661 4.5875C21.0527 4.97917 21.2485 5.45 21.2485 6V20C21.2485 20.55 21.0527 21.0208 20.661 21.4125C20.2694 21.8042 19.7985 22 19.2485 22H5.24854ZM5.24854 20H19.2485V10H5.24854V20ZM5.24854 8H19.2485V6H5.24854V8Z"
-                  fill="#2A3647"
-                />
-              </g>
-            </svg>
-          </div>
         </div>
         <div class="input-container">
           <span>Prio</span>
@@ -89,7 +76,6 @@
                 </defs>
               </svg>
             </label>
-
             <input class="input-addtask" type="radio" id="medium" name="priority" value="medium" />
             <label for="medium" class="radio-button" onclick="invertSvgFills('medium');handleClick('medium')"
               >Medium
@@ -113,10 +99,7 @@
                   d="M10.8555 9.69779C10.6209 9.69819 10.3923 9.62335 10.2035 9.48427L1.30038 2.91453C1.18454 2.82898 1.0867 2.72146 1.01245 2.59812C0.938193 2.47478 0.888977 2.33803 0.867609 2.19569C0.824455 1.90821 0.897354 1.61537 1.07027 1.3816C1.24319 1.14782 1.50196 0.992265 1.78965 0.949143C2.07734 0.906021 2.3704 0.978866 2.60434 1.15165L10.8555 7.23414L19.1066 1.15165C19.2224 1.0661 19.354 1.00418 19.4938 0.969432C19.6336 0.934685 19.7788 0.927791 19.9213 0.949143C20.0637 0.970495 20.2006 1.01967 20.324 1.09388C20.4474 1.16808 20.555 1.26584 20.6407 1.3816C20.7263 1.49735 20.7883 1.62882 20.823 1.7685C20.8578 1.90818 20.8647 2.05334 20.8433 2.19569C20.822 2.33803 20.7727 2.47478 20.6985 2.59812C20.6242 2.72146 20.5264 2.82898 20.4106 2.91453L11.5075 9.48427C11.3186 9.62335 11.0901 9.69819 10.8555 9.69779Z"
                   fill="#7AE229"
                 />
-                <path
-                  d="M10.8555 15.4463C10.6209 15.4467 10.3923 15.3719 10.2035 15.2328L1.30038 8.66307C1.06644 8.49028 0.910763 8.2317 0.867609 7.94422C0.824455 7.65674 0.897354 7.3639 1.07027 7.13013C1.24319 6.89636 1.50196 6.7408 1.78965 6.69768C2.07734 6.65456 2.3704 6.7274 2.60434 6.90019L10.8555 12.9827L19.1066 6.90019C19.3405 6.7274 19.6336 6.65456 19.9213 6.69768C20.209 6.7408 20.4678 6.89636 20.6407 7.13013C20.8136 7.3639 20.8865 7.65674 20.8433 7.94422C20.8002 8.2317 20.6445 8.49028 20.4106 8.66307L11.5075 15.2328C11.3186 15.3719 11.0901 15.4467 10.8555 15.4463Z"
-                  fill="#7AE229"
-                />
+                <path d="M10.8555 15.4463C10.6209 15.4467 10.3923 15.3719 10.2035 15.2328L1.30038 8.66307C1.06644 8.49028 0.910763 8.2317 0.867609 7.94422C0.824455 7.65674 0.897354 7.3639 1.07027 7.13013C1.24319 6.89636 1.50196 6.7408 1.78965 6.69768C2.07734 6.65456 2.3704 6.7274 2.60434 6.90019L10.8555 12.9827L19.1066 6.90019C19.3405 6.7274 19.6336 6.65456 19.9213 6.69768C20.209 6.7408 20.4678 6.89636 20.6407 7.13013C20.8136 7.3639 20.8865 7.65674 20.8433 7.94422C20.8002 8.2317 20.6445 8.49028 20.4106 8.66307L11.5075 15.2328C11.3186 15.3719 11.0901 15.4467 10.8555 15.4463Z" fill="#7AE229" />
               </svg>
             </label>
           </div>
@@ -134,7 +117,7 @@
           <div class="add-subtask">
             <input class="input-addtask" name="subtask" id="subtask" type="text" minlength="5" onclick="changeSubtaskInputIcons()" onkeyup="getInput()" />
             <div id="subTaskSvgContainer" class="svg-container">
-              <svg class="svg-plusicon" id="subTaskPlusIcon" width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg class="svg-plusicon pointer" id="subTaskPlusIcon" width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <mask id="mask0_136369_4669" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="24">
                   <rect x="0.248535" width="24" height="24" fill="#D9D9D9" />
                 </mask>
@@ -152,8 +135,18 @@
           </div>
         </div>
         <div class="button-container">
-          <button type="button">Clear</button>
-          <button id="submitButton" type="submit">Create Task</button>
+          <button class="add-task-btn pointer btn-wht btn-color-bk border-1px" type="button">
+            Clear
+            <svg width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6.24959 6.99984L11.4926 12.2428M1.00659 12.2428L6.24959 6.99984L1.00659 12.2428ZM11.4926 1.75684L6.24859 6.99984L11.4926 1.75684ZM6.24859 6.99984L1.00659 1.75684L6.24859 6.99984Z" stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <button id="submitButton" type="submit" class="add-task-btn pointer btn-bg btn-color-wht">
+            Create Task
+            <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5.79923 9.15L14.2742 0.675C14.4742 0.475 14.7117 0.375 14.9867 0.375C15.2617 0.375 15.4992 0.475 15.6992 0.675C15.8992 0.875 15.9992 1.1125 15.9992 1.3875C15.9992 1.6625 15.8992 1.9 15.6992 2.1L6.49923 11.3C6.29923 11.5 6.0659 11.6 5.79923 11.6C5.53256 11.6 5.29923 11.5 5.09923 11.3L0.79923 7C0.59923 6.8 0.503397 6.5625 0.51173 6.2875C0.520064 6.0125 0.62423 5.775 0.82423 5.575C1.02423 5.375 1.26173 5.275 1.53673 5.275C1.81173 5.275 2.04923 5.375 2.24923 5.575L5.79923 9.15Z" fill="white" />
+            </svg>
+          </button>
         </div>
       </div>
     </form>
