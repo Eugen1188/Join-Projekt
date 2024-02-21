@@ -373,11 +373,15 @@ async function addTask(index) {
     allTasks[index][0].id = idPlaceholder;
     console.log(allTasks[index][0].id);
     allTasks[index][0].category = categoryPlaceholder;
-    setItem("test_board", allTasks);
+    await setItem("test_board", allTasks);
     initBoard();
   } else {
     allTasks.push(task);
-    setItem("test_board", allTasks);
+    await setItem("test_board", allTasks);
+  }
+
+  if(window.location.href == "http://127.0.0.1:5500/board.html" && index == undefined){
+    closeOverlayAddTask(true);
   }
   //weiterleitung auf Board nach Taskerstellung
   //window.location.href = "http://127.0.0.1:5500/board.html";

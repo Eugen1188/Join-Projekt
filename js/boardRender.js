@@ -124,6 +124,7 @@ async function renderEditOverlay(index) {
     checkedContacts = [];
     displayContacts(tempContacts);
     await checkedContactId(taskIndex.contactIds);
+    showChoosenContactsCircle();
     await invertSvgFillsEdit(taskIndex.prio);
     fillRadio(taskIndex.prio);
     getSubtasks(taskIndex.subtask.subtask);

@@ -133,3 +133,22 @@ label.radio-button {
 .contact-values-edit{
     max-height: 304px;
 }
+
+.task-added{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    top: calc(50% - 37px);
+    left: calc(50% - 163px);
+    width: 326px;
+    height: 74px;
+    background-color: #2A3647;
+    z-index: 3000;
+    color: white;
+    border-radius: 20px;
+}
+
+.task-added span{
+    font-size: 20px;
+}

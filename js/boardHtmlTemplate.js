@@ -135,23 +135,26 @@ function templateAddTaskBoard() {
                 ${templateAddTaskLeft()}
                 <div class="divider"></div>
                 <div class="addtask-side-right" id="right-side-add">
-                    <div class="input-container">
-                        <label>Due Date <span class="required-icon">*</span></label>
-                        <input class="input-addtask" id="date" type="text" placeholder="dd/mm/yyyy" pattern="\\d{2}/\\d{2}/\\d{4}" required />
-                        <div class="due-date-icon">
-                            <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <mask id="mask0_138036_1819" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25"
-                                height="24">
-                                <rect x="0.248535" width="24" height="24" fill="#D9D9D9" />
-                                </mask>
-                                <g mask="url(#mask0_138036_1819)">
-                                <path
-                                    d="M14.7485 18C14.0485 18 13.4569 17.7583 12.9735 17.275C12.4902 16.7917 12.2485 16.2 12.2485 15.5C12.2485 14.8 12.4902 14.2083 12.9735 13.725C13.4569 13.2417 14.0485 13 14.7485 13C15.4485 13 16.0402 13.2417 16.5235 13.725C17.0069 14.2083 17.2485 14.8 17.2485 15.5C17.2485 16.2 17.0069 16.7917 16.5235 17.275C16.0402 17.7583 15.4485 18 14.7485 18ZM5.24854 22C4.69854 22 4.2277 21.8042 3.83604 21.4125C3.44437 21.0208 3.24854 20.55 3.24854 20V6C3.24854 5.45 3.44437 4.97917 3.83604 4.5875C4.2277 4.19583 4.69854 4 5.24854 4H6.24854V3C6.24854 2.71667 6.34437 2.47917 6.53604 2.2875C6.7277 2.09583 6.9652 2 7.24854 2C7.53187 2 7.76937 2.09583 7.96104 2.2875C8.1527 2.47917 8.24854 2.71667 8.24854 3V4H16.2485V3C16.2485 2.71667 16.3444 2.47917 16.536 2.2875C16.7277 2.09583 16.9652 2 17.2485 2C17.5319 2 17.7694 2.09583 17.961 2.2875C18.1527 2.47917 18.2485 2.71667 18.2485 3V4H19.2485C19.7985 4 20.2694 4.19583 20.661 4.5875C21.0527 4.97917 21.2485 5.45 21.2485 6V20C21.2485 20.55 21.0527 21.0208 20.661 21.4125C20.2694 21.8042 19.7985 22 19.2485 22H5.24854ZM5.24854 20H19.2485V10H5.24854V20ZM5.24854 8H19.2485V6H5.24854V8Z"
-                                    fill="#2A3647" />
-                                </g>
-                            </svg>
-                        </div>
+                  <div class="input-container">
+                    <label>Due Date <span class="required-icon">*</span></label>
+                    <input onclick="checkDateInputField()" onkeyup="checkDateInputField()" class="input-addtask-date-modified" id="date" type="text" maxlength="10" placeholder="dd/mm/yyyy" pattern="\\d{2}/\\d{2}/\\d{4}" required />
+                    <input type="date" id="dateNormal" class="input-addtask-datepicker" pattern="\\d{2}/\\d{2}/\\d{4}" onchange="formatDateInput();updateDateFieldValue()" />
+                    <span id="inputReqiuredSpanDate" class="required-input-info d-none">this field is required</span>
+                    <div class="due-date-icon">
+                      <svg class="d-none" width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <mask id="mask0_138036_1819" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="24">
+                          <rect x="0.248535" width="24" height="24" fill="#D9D9D9" />
+                        </mask>
+                        <g mask="url(#mask0_138036_1819)">
+                          <path
+                            d="M14.7485 18C14.0485 18 13.4569 17.7583 12.9735 17.275C12.4902 16.7917 12.2485 16.2 12.2485 15.5C12.2485 14.8 12.4902 14.2083 12.9735 13.725C13.4569 13.2417 14.0485 13 14.7485 13C15.4485 13 16.0402 13.2417 16.5235 13.725C17.0069 14.2083 17.2485 14.8 17.2485 15.5C17.2485 16.2 17.0069 16.7917 16.5235 17.275C16.0402 17.7583 15.4485 18 14.7485 18ZM5.24854 22C4.69854 22 4.2277 21.8042 3.83604 21.4125C3.44437 21.0208 3.24854 20.55 3.24854 20V6C3.24854 5.45 3.44437 4.97917 3.83604 4.5875C4.2277 4.19583 4.69854 4 5.24854 4H6.24854V3C6.24854 2.71667 6.34437 2.47917 6.53604 2.2875C6.7277 2.09583 6.9652 2 7.24854 2C7.53187 2 7.76937 2.09583 7.96104 2.2875C8.1527 2.47917 8.24854 2.71667 8.24854 3V4H16.2485V3C16.2485 2.71667 16.3444 2.47917 16.536 2.2875C16.7277 2.09583 16.9652 2 17.2485 2C17.5319 2 17.7694 2.09583 17.961 2.2875C18.1527 2.47917 18.2485 2.71667 18.2485 3V4H19.2485C19.7985 4 20.2694 4.19583 20.661 4.5875C21.0527 4.97917 21.2485 5.45 21.2485 6V20C21.2485 20.55 21.0527 21.0208 20.661 21.4125C20.2694 21.8042 19.7985 22 19.2485 22H5.24854ZM5.24854 20H19.2485V10H5.24854V20ZM5.24854 8H19.2485V6H5.24854V8Z"
+                            fill="#2A3647"
+                          />
+                        </g>
+                      </svg>
                     </div>
+                  </div>
+      
                 <div class="input-container">
                     <span>Prio</span>
                     <div id="prio" class="prio-container">
@@ -306,23 +309,22 @@ function templateAddTaskLeft() {
                     <textarea required name="Description" id="taskDescription" cols="30" rows="10"></textarea>
                 </div>
                 <div class="input-container-contacts">
-                    <label>Assigned to</label>
-                    <input class="input-addtask" id="contactAssignInput" onclick="showContacts()" onkeyup="filterContacts()" type="text" />
-                    <svg id="arrowContactInput" class="arrow" onclick="showContacts()" width="24" height="24"
-                    viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <mask id="mask0_135766_812" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24"
-                        height="24">
-                        <rect width="24" height="24" fill="#D9D9D9" />
+                  <label>Assigned to</label>
+                  <input class="input-addtask" id="contactAssignInput" onclick="showContacts();showChoosenContactsCircle()" onkeyup="filterContacts()" type="text" />
+                  <svg id="arrowContactInput" class="arrow" onclick="showContacts();  showChoosenContactsCircle()" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <mask id="mask0_135766_812" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+                      <rect width="24" height="24" fill="#D9D9D9" />
                     </mask>
                     <g mask="url(#mask0_135766_812)">
-                        <path
-                        d="M11.3 14.3L8.69998 11.7C8.38331 11.3833 8.31248 11.0208 8.48748 10.6125C8.66248 10.2042 8.97498 10 9.42498 10H14.575C15.025 10 15.3375 10.2042 15.5125 10.6125C15.6875 11.0208 15.6166 11.3833 15.3 11.7L12.7 14.3C12.6 14.4 12.4916 14.475 12.375 14.525C12.2583 14.575 12.1333 14.6 12 14.6C11.8666 14.6 11.7416 14.575 11.625 14.525C11.5083 14.475 11.4 14.4 11.3 14.3Z"
-                        fill="#2A3647" />
+                      <path d="M11.3 14.3L8.69998 11.7C8.38331 11.3833 8.31248 11.0208 8.48748 10.6125C8.66248 10.2042 8.97498 10 9.42498 10H14.575C15.025 10 15.3375 10.2042 15.5125 10.6125C15.6875 11.0208 15.6166 11.3833 15.3 11.7L12.7 14.3C12.6 14.4 12.4916 14.475 12.375 14.525C12.2583 14.575 12.1333 14.6 12 14.6C11.8666 14.6 11.7416 14.575 11.625 14.525C11.5083 14.475 11.4 14.4 11.3 14.3Z" fill="#2A3647" />
                     </g>
-                    </svg>
+                  </svg>
+                  <div class="show-selected-contacts-container">
+                    <div id="choosenContacts" class="choosen-contacts"></div>
+                  </div>
                 </div>
                 <div id="contact-values" class="d-none contact-values"></div>
-            </div>
+                  </div>
     `
 }
 
@@ -343,23 +345,24 @@ function templateEditOverlay(task) {
           </div>
           <div class="input-container-edit">
             <span>Due Date</span>
-            <input class="input-addtask" id="date" type="text" value="${task.date}" placeholder="dd/mm/yyyy" pattern="\\d{2}/\\d{2}/\\d{4}"
-              required />
+            <input onclick="checkDateInputField()" onkeyup="checkDateInputField()" value="${task.date}" class="input-addtask-date-modified" id="date" type="text" maxlength="10" placeholder="dd/mm/yyyy" pattern="\d{2}/\d{2}/\d{4}" required />
+            <input type="date" id="dateNormal" class="input-addtask-datepicker" pattern="\d{2}/\d{2}/\d{4}" onchange="formatDateInput();updateDateFieldValue()" />
+            <span id="inputReqiuredSpanDate" class="required-input-info d-none">this field is required</span>
             <div class="due-date-icon">
-              <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <mask id="mask0_138036_1819" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25"
-                  height="24">
+              <svg class="d-none" width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <mask id="mask0_138036_1819" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="24">
                   <rect x="0.248535" width="24" height="24" fill="#D9D9D9" />
                 </mask>
                 <g mask="url(#mask0_138036_1819)">
                   <path
                     d="M14.7485 18C14.0485 18 13.4569 17.7583 12.9735 17.275C12.4902 16.7917 12.2485 16.2 12.2485 15.5C12.2485 14.8 12.4902 14.2083 12.9735 13.725C13.4569 13.2417 14.0485 13 14.7485 13C15.4485 13 16.0402 13.2417 16.5235 13.725C17.0069 14.2083 17.2485 14.8 17.2485 15.5C17.2485 16.2 17.0069 16.7917 16.5235 17.275C16.0402 17.7583 15.4485 18 14.7485 18ZM5.24854 22C4.69854 22 4.2277 21.8042 3.83604 21.4125C3.44437 21.0208 3.24854 20.55 3.24854 20V6C3.24854 5.45 3.44437 4.97917 3.83604 4.5875C4.2277 4.19583 4.69854 4 5.24854 4H6.24854V3C6.24854 2.71667 6.34437 2.47917 6.53604 2.2875C6.7277 2.09583 6.9652 2 7.24854 2C7.53187 2 7.76937 2.09583 7.96104 2.2875C8.1527 2.47917 8.24854 2.71667 8.24854 3V4H16.2485V3C16.2485 2.71667 16.3444 2.47917 16.536 2.2875C16.7277 2.09583 16.9652 2 17.2485 2C17.5319 2 17.7694 2.09583 17.961 2.2875C18.1527 2.47917 18.2485 2.71667 18.2485 3V4H19.2485C19.7985 4 20.2694 4.19583 20.661 4.5875C21.0527 4.97917 21.2485 5.45 21.2485 6V20C21.2485 20.55 21.0527 21.0208 20.661 21.4125C20.2694 21.8042 19.7985 22 19.2485 22H5.24854ZM5.24854 20H19.2485V10H5.24854V20ZM5.24854 8H19.2485V6H5.24854V8Z"
-                    fill="#2A3647" />
+                    fill="#2A3647"
+                  />
                 </g>
               </svg>
             </div>
           </div>
-          <div class="input-container-edit">
+            <div class="input-container-edit">
             <span>Prio</span>
             <div id="prio" class="prio-container">
               <input class="input-addtask" type="radio" id="urgent-edit" name="priority" value="urgent" />
@@ -418,23 +421,21 @@ function templateEditOverlay(task) {
           <div>
             <div class="input-container-contacts">
               <span class="contacts-span">Assigned to</span>
-              <input class="input-addtask" id="contactAssignInput" onclick="showContacts()" onkeyup="filterContacts()"
-                type="text" />
-              <svg id="arrowContactInput" class="arrow" onclick="showContacts()" width="24" height="24"
-                viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <mask id="mask0_135766_812" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24"
-                  height="24">
+              <input class="input-addtask" id="contactAssignInput" onclick="showContacts();showChoosenContactsCircle()" onkeyup="filterContacts()" type="text" />
+              <svg id="arrowContactInput" class="arrow" onclick="showContacts();  showChoosenContactsCircle()" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <mask id="mask0_135766_812" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
                   <rect width="24" height="24" fill="#D9D9D9" />
                 </mask>
                 <g mask="url(#mask0_135766_812)">
-                  <path
-                    d="M11.3 14.3L8.69998 11.7C8.38331 11.3833 8.31248 11.0208 8.48748 10.6125C8.66248 10.2042 8.97498 10 9.42498 10H14.575C15.025 10 15.3375 10.2042 15.5125 10.6125C15.6875 11.0208 15.6166 11.3833 15.3 11.7L12.7 14.3C12.6 14.4 12.4916 14.475 12.375 14.525C12.2583 14.575 12.1333 14.6 12 14.6C11.8666 14.6 11.7416 14.575 11.625 14.525C11.5083 14.475 11.4 14.4 11.3 14.3Z"
-                    fill="#2A3647" />
+                  <path d="M11.3 14.3L8.69998 11.7C8.38331 11.3833 8.31248 11.0208 8.48748 10.6125C8.66248 10.2042 8.97498 10 9.42498 10H14.575C15.025 10 15.3375 10.2042 15.5125 10.6125C15.6875 11.0208 15.6166 11.3833 15.3 11.7L12.7 14.3C12.6 14.4 12.4916 14.475 12.375 14.525C12.2583 14.575 12.1333 14.6 12 14.6C11.8666 14.6 11.7416 14.575 11.625 14.525C11.5083 14.475 11.4 14.4 11.3 14.3Z" fill="#2A3647" />
                 </g>
               </svg>
             </div>
             <div id="contact-values" class="d-none contact-values contact-values-edit"></div>
-          </div>
+            <div class="show-selected-contacts-container">
+              <div id="choosenContacts" class="choosen-contacts"></div>
+            </div>
+            </div>
           <div class="input-container">
             <label class="label-subtask" for="subtask">Subtask</label>
             <div class="add-subtask">
@@ -462,6 +463,6 @@ function templateEditOverlay(task) {
         </div>
         
       </div>
-      <button type="button" onclick="validateForm(${task.id})">Create Task</button>
+      <button type="button" onclick="editTask(${task.id})">Create Task</button>
   `
 }

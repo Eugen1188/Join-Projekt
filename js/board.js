@@ -85,11 +85,23 @@ function closeOverlay() {
     initBoard();
 }
 
-function closeOverlayAddTask() {
+function closeOverlayAddTask(state) {
+    if (state === true) {
+        document.getElementById("taskadded").classList.remove("d-none");
+        setTimeout(closeTaskAdded, 1000);
+    }
+    setTimeout(translateOutAdd,700);
+    setTimeout(displayCloseOverlay, 1000);
+    initBoard();
+}
+
+function translateOutAdd(){
     document.getElementById("overlay-add-task").classList.remove("task-overlay-translate-in-task");
     document.getElementById("overlay-add-task").classList.add("task-overlay-translate-out");
-    setTimeout(displayCloseOverlay, 250);
-    initBoard();
+}
+
+function closeTaskAdded(){
+    document.getElementById("taskadded").classList.add("d-none");
 }
 
 
@@ -191,8 +203,12 @@ function checkCategory(category) {
  * @author Kevin Mueller
  */
 function rotateCard(id) {
-    document.getElementById(`card${id}`).classList.add("card-rotate");
+    let overflow = document.getElementsByClassName("board-card-section");
 
+    document.getElementById(`card${id}`).classList.add("card-rotate");
+    /*     for (let i = 0; i < overflow.length; i++) {
+            overflow[i].classList.add("card-rotate-overflow");
+        } */
 }
 
 /**
@@ -304,7 +320,6 @@ function fillRadio(prio) {
         case 'medium':
             document.getElementById('medium-radio').style.setProperty("--prio-button-selected", getButtonColor(prio));
             document.getElementById('medium-edit').checked = "checked";
-            break;
         case 'low':
             document.getElementById('low-radio').style.setProperty("--prio-button-selected", getButtonColor(prio));
             document.getElementById('low-edit').checked = "checked";
@@ -322,7 +337,7 @@ function checkedContactId(contacts) {
 }
 
 
-function getContactIndex(id){
+function getContactIndex(id) {
     for (let i = 0; i < tempContacts.length; i++) {
         const contact = tempContacts[i];
         if (contact.id == id) {
@@ -332,7 +347,7 @@ function getContactIndex(id){
     }
 }
 
-async function editTask(index){
+async function editTask(index) {
     await validateForm(index);
     renderTaskOverlay(index);
 }
