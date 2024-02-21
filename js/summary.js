@@ -12,19 +12,14 @@ async function renderSummeryTasks() {
     renderLogedUser();
 }
 
-
 function tasksInBoard() {
-
     let tasksInBoard = document.getElementById('amount_of_tasks_in_board');
-
     tasksInBoard.innerHTML = allTasks.length;
 }
 
 function tasksInProgress() {
-
     let tasksInProgress = document.getElementById('tasks_in_progress');
     let count = 0;
-
     for (let i = 0; i < allTasks.length; i++) {
         const element = allTasks[i][0];
         if (element.status.inProgress == true)
@@ -36,7 +31,6 @@ function tasksInProgress() {
 function tasksAwaitingFeedback() {
     let tasksAwaitingFeedback = document.getElementById('tasks_awaiting_feedback');
     let count = 0;
-
     for (let i = 0; i < allTasks.length; i++) {
         const element = allTasks[i][0];
         if (element.status.awaitFeedback == true)
@@ -48,7 +42,6 @@ function tasksAwaitingFeedback() {
 function tasksToDo() {
     let tasksToDo = document.getElementById('tasks_number_to_do');
     let count = 0;
-
     for (let i = 0; i < allTasks.length; i++) {
         const element = allTasks[i][0];
         if (!element.status.inProgress && !element.status.done && !element.status.awaitFeedback)
@@ -60,7 +53,6 @@ function tasksToDo() {
 function tasksDone() {
     let tasksDone = document.getElementById('tasks_number_done');
     let count = 0;
-
     for (let i = 0; i < allTasks.length; i++) {
         const element = allTasks[i][0];
         if (element.status.done == true)
@@ -74,8 +66,6 @@ function tasksUrgent() {
     let nextUrgentDate = document.getElementById('next_urgent_task_date');
     let count = 0;
     let urgentDate = 0;
-
-
     for (let i = 0; i < allTasks.length; i++) {
         const element = allTasks[i][0];
         if (element.prio == "urgent") {
@@ -83,42 +73,40 @@ function tasksUrgent() {
             count++;
             rightDate = element.date.replace(/[/]/g, "-");
             urgentDates.push(rightDate);
-            console.log(urgentDates);
+            sortDates(urgentDates);
         }
-
         urgentTasks.innerHTML = count;
-        nextUrgentDate.innerHTML = showDateInRightFormat();
+        nextUrgentDate.innerHTML = showDateInRightFormat(urgentDates[0]);
     }
 }
 
-function showDateInRightFormat() {
+function showDateInRightFormat(date) {
 
+    arr = Array.from(date);
     let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
-    let rightMonth = rightDate[3] + rightDate[4];
-
+    let rightMonth = arr[3] + arr[4];
     if (rightMonth[0] == 0) {
         rightMonth = months[rightMonth[1] - 1];
-
     }
-
-    return `${rightMonth} ${rightDate[0]}${rightDate[1]}, ${rightDate[6]}${rightDate[7]}${rightDate[8]}${rightDate[9]}`
-
+    else {
+        rightMonth = months[rightMonth - 1];
+    }
+    return `${rightMonth} ${arr[0]}${arr[1]}, ${arr[6]}${arr[7]}${arr[8]}${arr[9]}`
 }
 
-function sortDates(dates) {
+function sortDates(urgentDates) {
     return urgentDates.sort((a, b) => {
-      const dateA = a.split('-').reverse().join('-');
-      const dateB = b.split('-').reverse().join('-');
-      return new Date(dateA) - new Date(dateB);
+        const dateA = a.split('-').reverse().join('-');
+        const dateB = b.split('-').reverse().join('-');
+        return new Date(dateA) - new Date(dateB);
     });
-  };
+};
 
-  function renderLogedUser() {
+function renderLogedUser() {
     let userInitials = document.getElementById('logedUserInitials');
     let firstName = document.getElementById('logedInName');
     let lastname = document.getElementById('logedInLastname');
     userInitials.innerHTML = logedInUser[0].initials;
     firstName.innerHTML = logedInUser[0].name;
     lastname.innerHTML = logedInUser[0].lastname;
-  }
+}

@@ -95,7 +95,12 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
   }
+
+.profil-loged-in-init:hover {
+    background-color: rgb(187, 187, 187);
+}
 
 .head-top span {
     font-size: 20px;
@@ -109,8 +114,25 @@ body {
     justify-content:space-around;
 }
 
-.head-top div img {
-    margin-left: 16px;
+.info-img-container {
+    display: flex;
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.head-top-right-side-cont img {
+    translate: 0.3ms;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    box-sizing: border-box;
+}
+
+.head-top-right-side-cont img:hover {
+    width: 22px;
+    height: 22px;
 }
 
 .user-initials {
