@@ -91,9 +91,11 @@ function closeOverlayAddTask(state) {
         setTimeout(closeTaskAdded, 1000);
         setTimeout(translateOutAdd, 700);
         setTimeout(displayCloseOverlay, 700);
+        setTimeout(displayCloseOverlayAddTask, 700);
     } else {
         setTimeout(translateOutAdd, 125);
-        setTimeout(displayCloseOverlay, 125);
+        setTimeout(displayCloseOverlay, 250);
+        setTimeout(displayCloseOverlayAddTask, 250);
     }
     initBoard();
 }
@@ -149,6 +151,7 @@ function displayOpenOverlay(id) {
 function displayAddTaskOverlay() {
     checkedContacts = [];
     document.getElementById("overlay").classList.remove("d-none");
+    document.getElementById('overlay-add-task').classList.remove("d-none");
     document.getElementById("overlay-add-task").classList.remove("task-overlay-translate-out");
     openAddTaskOverlay();
 }
@@ -160,6 +163,15 @@ function displayAddTaskOverlay() {
  */
 function displayCloseOverlay() {
     document.getElementById("overlay").classList.add("d-none");
+}
+
+/**
+ * help function to hide the overlay with a setTimeout
+ *
+ * @author Kevin Mueller
+ */
+function displayCloseOverlayAddTask() {
+    document.getElementById("overlay-add-task").classList.add("d-none");
 }
 
 /**
