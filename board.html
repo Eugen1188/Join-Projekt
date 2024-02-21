@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Join</title>
   <link rel="stylesheet" href="./styles/font.css" />
-  <link rel="stylesheet" href="assets/templates/header.style.css" />
-  <link rel="stylesheet" href="styles/style.css" />
-  <link rel="stylesheet" href="styles/board.css" />
-  <link rel="stylesheet" href="styles/add-task.css" />
+  <link rel="stylesheet" href="./assets/templates/header.style.css" />
+  <link rel="stylesheet" href="./styles/style.css" />
+  <link rel="stylesheet" href="./styles/board.css" />
+  <link rel="stylesheet" href="./styles/add-task.css" />
   <link rel="stylesheet" href="./styles/board-add-task.css" />
   <script src="script.js"></script>
   <script src="./js/board.js"></script>
@@ -27,7 +27,7 @@
       </div>
       <div class="board-top-cont-right">
         <div class="board-search-form">
-          <form onsubmit="searchTask(); return false">
+          <form onkeyup="searchTask();" onsubmit="searchTask(); return false">
             <input type="text" id="board-search-task" placeholder="Find Task" autocomplete="off" />
             <div>
               <img src="./assets/img/search.png" alt="search-button" onclick="searchTask()" />

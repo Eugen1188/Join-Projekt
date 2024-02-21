@@ -15,6 +15,11 @@
     cursor: pointer;
 }
 
+.task-headline img:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 50% 50%;
+}
+
 .addtask-side-left {
     display: flex;
     position: absolute;
@@ -155,4 +160,22 @@ label.radio-button {
 
 .task-added span{
     font-size: 20px;
+}
+
+.edit-check-button{
+    align-self: self-end;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 89px;
+    height: 57px;
+    background-color: #2A3647;
+    border-radius: 10px;
+    gap: 12px;
+    color: white;
+    cursor: pointer;
+}
+
+.edit-check-button:hover{
+    background-color: var(--light-blue);
 }
