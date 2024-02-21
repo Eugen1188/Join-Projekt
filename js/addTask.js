@@ -355,9 +355,10 @@ async function addTask(index) {
   if (index !== undefined) {
     let categoryPlaceholder = allTasks[index][0].category;
     let idPlaceholder = allTasks[index][0].id;
+    let statusPlaceholder = allTasks[index][0].status;
     allTasks[index] = task;
     allTasks[index][0].id = idPlaceholder;
-    console.log(allTasks[index][0].id);
+    allTasks[index][0].status = statusPlaceholder;
     allTasks[index][0].category = categoryPlaceholder;
     await setItem("test_board", allTasks);
     initBoard();

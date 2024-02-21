@@ -89,18 +89,21 @@ function closeOverlayAddTask(state) {
     if (state === true) {
         document.getElementById("taskadded").classList.remove("d-none");
         setTimeout(closeTaskAdded, 1000);
+        setTimeout(translateOutAdd, 700);
+        setTimeout(displayCloseOverlay, 700);
+    } else {
+        setTimeout(translateOutAdd, 125);
+        setTimeout(displayCloseOverlay, 125);
     }
-    setTimeout(translateOutAdd,700);
-    setTimeout(displayCloseOverlay, 1000);
     initBoard();
 }
 
-function translateOutAdd(){
+function translateOutAdd() {
     document.getElementById("overlay-add-task").classList.remove("task-overlay-translate-in-task");
     document.getElementById("overlay-add-task").classList.add("task-overlay-translate-out");
 }
 
-function closeTaskAdded(){
+function closeTaskAdded() {
     document.getElementById("taskadded").classList.add("d-none");
 }
 
@@ -320,6 +323,7 @@ function fillRadio(prio) {
         case 'medium':
             document.getElementById('medium-radio').style.setProperty("--prio-button-selected", getButtonColor(prio));
             document.getElementById('medium-edit').checked = "checked";
+            break;
         case 'low':
             document.getElementById('low-radio').style.setProperty("--prio-button-selected", getButtonColor(prio));
             document.getElementById('low-edit').checked = "checked";
