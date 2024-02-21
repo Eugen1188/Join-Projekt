@@ -74,7 +74,11 @@
     display: flex;
     cursor: pointer;
     align-self: flex-end;
+}
 
+.task-overlay-edit-top img:hover{
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 50% 50%;
 }
 
 .task-overlay-edit-content {

@@ -79,7 +79,7 @@
 }
 
 .board-search-form div:hover {
-    background-color: #c5c5c536;
+    background-color: rgba(0, 0, 0, 0.1);
     border-radius: 50%;
     width: 32px;
     height: 32px;
@@ -101,7 +101,7 @@
     cursor: pointer;
 }
 
-.board-add-button:active {
+.board-add-button:hover {
     background-color: var(--light-blue);
 }
 
@@ -347,6 +347,10 @@
 .task-overlay-top img {
     cursor: pointer;
 }
+.task-overlay-top img:hover{
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 50% 50%;
+}
 
 .task-overlay-title {
     font-size: 61px;
@@ -423,7 +427,14 @@
     display: flex;
     align-items: center;
     cursor: pointer;
+    gap: 8px;
 }
+
+.overlay-menu-content:hover span, .overlay-menu-content:hover path{
+    color: var(--light-blue);
+    fill: var(--light-blue);
+}
+
 
 .ghost-card {
     width: 220px;
