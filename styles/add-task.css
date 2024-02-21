@@ -108,8 +108,10 @@
   flex-direction: column;
   align-items: flex-end;
   overflow-y: scroll;
-  min-height: 288px;
   background-color: white;
+  height: 288px;
+  top: 368px;
+  position: absolute;
 }
 
 .contact-list-name-initials {
@@ -532,6 +534,7 @@ input::-webkit-datetime-edit-fields-wrapper {
 .choosen-contacts {
   display: flex;
   align-items: center;
+  position: absolute;
 }
 
 textarea {
