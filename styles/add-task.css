@@ -355,10 +355,22 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   color: rgba(0, 0, 0, 0);
   opacity: 1;
   display: block;
+  cursor: pointer;
   background: url(http://127.0.0.1:5500/assets/img/icons/calenderIcon.png) no-repeat;
   width: 24px;
   height: 24px;
+  z-index: 999;
   border-width: thin;
+}
+
+.custom-select {
+  background-image: url(http://127.0.0.1:5500/assets/img/icons/arrow_drop_down.png);
+  background-position: calc(100% - 12px) center;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .input-addtask-date-modified {
@@ -383,6 +395,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   top: 40px;
   left: 400px;
   width: 24px;
+  height: 24px;
 }
 
 .input-addtask-datepicker:focus-visible {

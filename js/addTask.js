@@ -7,7 +7,6 @@ let circleColors = [];
 let taskStates = [];
 let tempContacts = [];
 let contactIds = [];
-let selectedContactCache = [];
 
 async function getItemContacts(key) {
   const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
@@ -261,19 +260,6 @@ function checkTitleInputField() {
   }
 }
 
-function checkTitleInputField() {
-  let inputTitleFieldValue = document.getElementById("title").value;
-  let inputTitleField = document.getElementById("title");
-  let inputReqiuredSpanTitle = document.getElementById("inputReqiuredSpanTitle");
-  if (inputTitleFieldValue === "") {
-    inputTitleField.classList.add("input-focus-required");
-    inputReqiuredSpanTitle.classList.remove("d-none");
-  } else {
-    inputTitleField.classList.remove("input-focus-required");
-    inputReqiuredSpanTitle.classList.add("d-none");
-  }
-}
-
 // Datum Konvertierung
 function updateDateFieldValue() {
   let datefieldValue = document.getElementById("dateNormal").value;
@@ -380,7 +366,7 @@ async function addTask(index) {
     await setItem("test_board", allTasks);
   }
 
-  if(window.location.href == "http://127.0.0.1:5500/board.html" && index == undefined){
+  if (window.location.href == "http://127.0.0.1:5500/board.html" && index == undefined) {
     closeOverlayAddTask(true);
   }
   //weiterleitung auf Board nach Taskerstellung
