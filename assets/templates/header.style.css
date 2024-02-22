@@ -6,7 +6,7 @@ body {
 .main-header {
     position: fixed;
     background-color: #2A3647;
-    height: 1024px;
+    height: 100vh;
     width: 232px;
     display: flex;
     justify-content: center;
