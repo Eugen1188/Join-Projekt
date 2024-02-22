@@ -96,7 +96,7 @@ function contactsCardHTML(cardName, secondText, functionName) {
                 <img src="./assets/img/icons/close.png" alt="" onclick="closeRenderContactCardSlide(${true})">
             </div>
             <div class="edit-card-form">
-                <div class="big-circle user-color-eleven card-circle-center">
+                <div class="big-circle dnone user-color-eleven card-circle-center">
                     <span>UD</span>
                 </div>
                 <div class="edit-card-form-input">

@@ -180,9 +180,11 @@
 }
 
 #edit-card {
-    position: absolute;
-    top: 203px;
-    left: 126px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 110px;
     z-index: 3;
 }
 
@@ -527,4 +529,8 @@
 
 .no-textwarap {
     text-wrap: nowrap;
+}
+
+.dnone {
+
 }
