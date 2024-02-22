@@ -1,0 +1,52 @@
+@media (max-width: 1366px) {
+    .contacts-container {
+        width: 380px;
+    }
+
+    .contatcs-btn-bg {
+        left: 189px;
+    }
+
+    .single-content-container {
+        left: 646px
+    }
+
+    #edit-card {
+        left: 79px;
+    }
+
+    .close-btn {
+        left: 655px;
+    }
+
+    .edit-card-form {
+        width: 630px;
+    }
+
+    .close-btn {
+        left: 613px;
+    }
+}
+
+@media (max-width: 1268px) {
+    .contacts-container {
+        width: 329px;
+    }
+
+    .contatcs-btn-bg {
+        left: 238px;
+        width: auto;
+    }
+
+    .single-content-container {
+        left: 589px;
+    }
+
+    .btn-container {
+        width: 302px;
+    }
+
+    .contact-data {
+        gap: 8px;
+    }
+}

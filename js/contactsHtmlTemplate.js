@@ -87,8 +87,8 @@ function contactsCardHTML(cardName, secondText, functionName) {
             <div class="edit-card-headline">
                 <img src="./assets/img/icons/join-logo.png" alt="">
                 <div class="edit-card-header">
-                    <span>${cardName}</span>
-                    <span class="small-card-text">${secondText}</span>
+                    <span class="no-textwarap">${cardName}</span>
+                    <span class="small-card-text no-textwarap">${secondText}</span>
                 </div>
                 <div class="small-underline"></div>
             </div>
