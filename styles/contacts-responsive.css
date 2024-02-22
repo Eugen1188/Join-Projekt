@@ -1,4 +1,4 @@
-@media (max-width: 1366px) {
+@media (max-width: 1432px) {
     .contacts-container {
         width: 380px;
     }
@@ -9,10 +9,6 @@
 
     .single-content-container {
         left: 646px
-    }
-
-    #edit-card {
-        left: 79px;
     }
 
     .close-btn {
@@ -28,9 +24,10 @@
     }
 }
 
-@media (max-width: 1268px) {
+@media (max-width: 1328px) {
     .contacts-container {
         width: 329px;
+        left: 152px;
     }
 
     .contatcs-btn-bg {
@@ -39,7 +36,7 @@
     }
 
     .single-content-container {
-        left: 589px;
+        left: 502px;
     }
 
     .btn-container {
@@ -61,5 +58,22 @@
 
     .dnone {
         display: none;
+    }
+
+    .main-header {
+        width: 152px;
+    }
+
+    .contatcs-btn-bg {
+        left: 160px;
+    }
+
+    .edit-card-headline {
+        width: 404px;
+        padding: 66px 20px;
+    }
+
+    .head-top {
+        padding: 19px 40px 20px 240px
     }
 }
