@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="./styles/board.css" />
   <link rel="stylesheet" href="./styles/add-task.css" />
   <link rel="stylesheet" href="./styles/board-add-task.css" />
+  <link rel="stylesheet" href="./styles/board-responsive.css">
   <script src="script.js"></script>
   <script src="./js/board.js"></script>
   <script src="./js/boardRender.js"></script>
@@ -44,8 +45,12 @@
         </div>
       </div>
     </div>
-    <div class="board-title">
-      <div class="board-title-content">
+  </div>
+  <div class="board-main">
+
+
+    <div class="board-card-section">
+      <div class="board-title-content" id="title-todo">
         <div>
           <span>To do</span>
         </div>
@@ -57,7 +62,17 @@
           </svg>
         </div>
       </div>
-      <div class="board-title-content">
+      <div id="todo" ondragleave="removeGhostCard('ghostcard')" ondrop="moveTo('todo')"
+        ondragover="allowDrop(event);renderGhostCard('todo')">
+        <div class="board-no-task">
+          <span>No tasks To do</span>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="board-card-section">
+      <div class="board-title-content" id="title-inprogress">
         <div>
           <span>In Progress</span>
         </div>
@@ -69,7 +84,17 @@
           </svg>
         </div>
       </div>
-      <div class="board-title-content">
+      <div id="in-progress" class="board-card-section" ondragleave="removeGhostCard('ghostcard')"
+        ondrop="moveTo('in-progress')" ondragover="allowDrop(event);renderGhostCard('in-progress')">
+        <div class="board-no-task">
+          <span>No tasks To do</span>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="board-card-section">
+      <div class="board-title-content" id="title-boardtitle">
         <div>
           <span>Await feedback</span>
         </div>
@@ -81,38 +106,28 @@
           </svg>
         </div>
       </div>
-      <div class="board-title-content">
+      <div id="await-feedback" ondragleave="removeGhostCard('ghostcard')"
+        ondrop="moveTo('await-feedback')" ondragover="allowDrop(event);renderGhostCard('await-feedback')">
+        <div class="board-no-task">
+          <span>No tasks To do</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="board-card-section">
+      <div class="board-title-content" id="title-boardtitle">
         <div>
           <span>Done</span>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="board-main">
-    <div id="todo" class="board-card-section" ondragleave="removeGhostCard('ghostcard')" ondrop="moveTo('todo')"
-      ondragover="allowDrop(event);renderGhostCard('todo')">
-      <div class="board-no-task">
-        <span>No tasks To do</span>
-      </div>
-    </div>
-    <div id="in-progress" class="board-card-section" ondragleave="removeGhostCard('ghostcard')"
-      ondrop="moveTo('in-progress')" ondragover="allowDrop(event);renderGhostCard('in-progress')">
-      <div class="board-no-task">
-        <span>No tasks To do</span>
-      </div>
-    </div>
-    <div id="await-feedback" class="board-card-section" ondragleave="removeGhostCard('ghostcard')"
-      ondrop="moveTo('await-feedback')" ondragover="allowDrop(event);renderGhostCard('await-feedback')">
-      <div class="board-no-task">
-        <span>No tasks To do</span>
-      </div>
-    </div>
-    <div id="done" class="board-card-section" ondragleave="removeGhostCard('ghostcard')" ondrop="moveTo('done')"
+      <div id="done" ondragleave="removeGhostCard('ghostcard')" ondrop="moveTo('done')"
       ondragover="allowDrop(event);renderGhostCard('done')">
       <div class="board-no-task">
         <span>No tasks To do</span>
       </div>
     </div>
+    </div>
+
   </div>
   <div class="task-overlay d-none" id="overlay">
     <div class="task-overlay-bg"></div>

@@ -180,3 +180,12 @@ label.radio-button {
 .edit-check-button:hover{
     background-color: var(--light-blue);
 }
+
+#todo, #in-progress, #await-feedback, #done{
+    width: 256px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 16px;
+    height: calc(100vh - 328px);
+}
