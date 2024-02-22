@@ -486,7 +486,7 @@ function renderSubtaskItem(subtask, index) {
 
 function renderEditSubtaskIcons(index) {
   return `
-    <div id="subtask-icon-section_${index}">
+    <div id="subtask-icon-section_${index}" class="d-flex">
       <svg onclick="deleteSubtask(${index})" class="pointer" width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <mask id="mask0_75601_14777" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="24">
           <rect x="0.144531" width="24" height="24" fill="#D9D9D9" />
@@ -498,6 +498,7 @@ function renderEditSubtaskIcons(index) {
           />
         </g>
       </svg>
+       <div class="divider-2"></div>
       <svg onclick="saveEditedSubtask(${index})" class="pointer" width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <mask id="mask0_75601_14762" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="24">
           <rect x="0.144531" width="24" height="24" fill="#D9D9D9" />

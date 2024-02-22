@@ -571,6 +571,13 @@ input::-webkit-datetime-edit-fields-wrapper {
   display: flex;
 }
 
+.d-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
 textarea {
   border: none;
   resize: none;
