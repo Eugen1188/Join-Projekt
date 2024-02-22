@@ -272,10 +272,9 @@ function updateDateFieldValue() {
 function checkDateInputField() {
   formatDateInput();
   let inputDateFieldValue = document.getElementById("date").value;
-  let datefieldValue = document.getElementById("dateNormal").value;
   let inputDateField = document.getElementById("date");
   let inputReqiuredSpanDate = document.getElementById("inputReqiuredSpanDate");
-  if (inputDateFieldValue === "" || datefieldValue === "") {
+  if (inputDateFieldValue === "") {
     inputDateField.classList.add("input-focus-required");
     inputReqiuredSpanDate.classList.remove("d-none");
   } else {
@@ -301,6 +300,26 @@ function formatDateInput() {
 }
 
 // Datum Konvertierung ENDE
+
+//checken ob die Required Inputs gefüllt sind, wenn nicht alle erforderlichen Felder gefüllt sind, bleibt der submitButton disabled
+function getRequiredFormInputs() {
+  let titleValue = document.getElementById("title").value;
+  let inputDateFieldValue = document.getElementById("date").value;
+  let categoryValue = document.getElementById("category").value;
+  let submitButton = document.getElementById("submitButton");
+  setSubmitButtonStateAndStyle(titleValue, inputDateFieldValue, categoryValue, submitButton);
+}
+
+function setSubmitButtonStateAndStyle(titleValue, inputDateFieldValue, categoryValue, submitButton) {
+  if (titleValue != "" && inputDateFieldValue != "" && categoryValue != "") {
+    submitButton.disabled = false;
+    submitButton.classList.add("btn-bg", "btn-color-wht", "pointer");
+  } else {
+    submitButton.disabled = true;
+    submitButton.classList.remove("btn-bg", "btn-color-wht", "pointer");
+  }
+}
+// check ENDE
 
 function validateForm(index) {
   getCheckedContact();
