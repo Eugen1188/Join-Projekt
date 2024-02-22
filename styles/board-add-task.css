@@ -130,6 +130,10 @@
     border: 1px solid lightgray;
 }
 
+.choosen-contacts{
+    position: static;
+}
+
 .due-date-icon {
     top: 42px;
 }
@@ -141,6 +145,7 @@ label.radio-button {
 
 .contact-values-edit{
     max-height: 304px;
+    position: static;
 }
 
 .task-added{
