@@ -443,7 +443,7 @@ function renderSubtaskInputIcons() {
 
 function renderSubtaskPlusIcon() {
   return `
-  <svg class="svg-plusicon" id="subTaskPlusIcon" width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg onclick="subtaskPlusIconSetFocus()" class="svg-plusicon pointer" id="subTaskPlusIcon" width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
   <mask id="mask0_136369_4669" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="24">
     <rect x="0.248535" width="24" height="24" fill="#D9D9D9" />
   </mask>
