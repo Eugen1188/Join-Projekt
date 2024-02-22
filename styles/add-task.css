@@ -567,6 +567,10 @@ input::-webkit-datetime-edit-fields-wrapper {
   font-size: 16px;
 }
 
+.required-info-wrapper {
+  display: flex;
+}
+
 textarea {
   border: none;
   resize: none;
