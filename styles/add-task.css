@@ -220,9 +220,14 @@
   background-color: #eeeeee;
 }
 
-.hovering:hover {
+.icon:hover {
   border-radius: 50%;
   background-color: #eeeeee;
+}
+
+.changed-input-icons svg {
+  min-height: 14px;
+  min-width: 14px;
 }
 
 .border-1px {
