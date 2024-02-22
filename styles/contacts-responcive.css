@@ -49,4 +49,17 @@
     .contact-data {
         gap: 8px;
     }
+
+    .edit-card-form {
+        width: 579px;
+        ;
+    }
+
+    .close-btn {
+        left: 512px;
+    }
+
+    .dnone {
+        display: none;
+    }
 }
