@@ -131,6 +131,10 @@
     align-items: center;
     width: 252px;
     min-width: 252px;
+    position: sticky;
+    top: 0;
+    background-color: var(--background-color-site);
+    padding-bottom: 8px;
 }
 
 .board-title-content span {
@@ -152,10 +156,10 @@
 .board-main {
     display: flex;
     position: fixed;
-    inset: 336px 232px;
+    inset: 307px 232px;
     padding: 0px 64px;
     gap: 24px;
-    width: 1208px;
+    width: calc(100% - 232px);
     height: calc(100% - 328px);
     overflow-y: scroll;
 }
@@ -185,7 +189,7 @@
 .board-card {
     display: flex;
     flex-direction: column;
-    width: 220px;
+    min-width: 220px;
     background-color: white;
     border-radius: 24px;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.08);

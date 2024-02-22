@@ -1,0 +1,63 @@
+@media(max-width: 1430px) {
+    .board-main {
+        flex-direction: column;
+    }
+
+    .board-card-section {
+        height: min-content;
+        width: 100%;
+        align-items: flex-start;
+    }
+
+    #todo,
+    #in-progress,
+    #await-feedback,
+    #done {
+        flex-direction: row;
+        height: 280px;
+        width: 90%;
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
+
+    #todo::-webkit-scrollbar,
+    #in-progress::-webkit-scrollbar,
+    #await-feedback::-webkit-scrollbar,
+    #done::-webkit-scrollbar {
+        display: none;
+    }
+
+    .board-title-content {
+        position: relative;
+    }
+}
+
+@media(max-width: 1100px) {
+    .main-header {
+        width: 160px;
+    }
+
+    .board-main {
+        inset: 307px 130px;
+    }
+
+    .board-top{
+        left: 130px;
+    }
+
+    .board-add-button{
+        text-wrap: nowrap;
+    }
+
+    .board-top-content {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    #todo,
+    #in-progress,
+    #await-feedback,
+    #done {
+        width: 100%;
+    }
+}
