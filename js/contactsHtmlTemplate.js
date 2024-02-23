@@ -47,7 +47,7 @@ function singleContactOverview(index) {
             <div class="single-contact-name-card">
                 <span class="single-contacts-name">${contacts[index].name + " " + contacts[index].lastname}</span>
                 <div class="contacts-icon-container">
-                    <div class="icons-contacts" id="edit-contact-${index}" onclick="renderEditContact(${contacts[index].id})">
+                    <div class="icons-contacts" id="edit-contact-${index}" onclick="renderEditContact(${contacts[index].id}, ${index})">
                         <img src="./assets/img/icons/edit.png" alt="">
                         <span>Edit</span>
                     </div>
@@ -81,9 +81,9 @@ function singleContactOverview(index) {
  * @param {String} functionName - function name to be used renderAddNewContact or renderEditContact
  * @returns - HTML
  */
-function contactsCardHTML(cardName, secondText, functionName) {
+function contactsCardHTML(cardName, secondText, functionName, index) {
     return /*html*/ `
-        <div class="edit-card" data-id="${id}">
+        <div class="edit-card">
             <div class="edit-card-headline">
                 <img src="./assets/img/icons/join-logo.png" alt="">
                 <div class="edit-card-header">
@@ -95,9 +95,8 @@ function contactsCardHTML(cardName, secondText, functionName) {
             <div class="close-btn pointer">
                 <img src="./assets/img/icons/close.png" alt="" onclick="closeRenderContactCardSlide(${true})">
             </div>
-            <div class="edit-card-form">
-                <div class="big-circle dnone user-color-eleven card-circle-center">
-                    <span>UD</span>
+            <div class="edit-card-form" id="circle-color">
+                <div id="corcle-color">
                 </div>
                 <div class="edit-card-form-input">
                     <form onsubmit="${functionName}; return false" id="contacts-form">
@@ -124,6 +123,22 @@ function addContactSuccessHTML() {
     return /*html*/ `
         <div class="add-success">
             <span>Contact succesfully created</span>
+        </div>
+    `
+}
+
+function addContactIconHTML() {
+    return /*html*/ `
+        <div>
+            <img src="./assets/img/icons/person.png" alt="">
+        </div>
+    `
+}
+
+function contactsCardCircleHTML(index) {
+    return  /*html*/ `
+        <div class="big-circle dnone card-circle-center ${contacts[index].circleColor}" id="circle-icon">
+            <span>${contacts[index].initials}</span>
         </div>
     `
 }
