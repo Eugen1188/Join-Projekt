@@ -262,12 +262,12 @@ function templateAddTaskBoard() {
                   </div>
                 </div>
                 <div class="input-container">
-                    <label for="category">Category <span class="required-icon">*</span></label>
-                    <select id="category" name="category">
+                  <label for="category">Category <span class="required-icon">*</span></label>
+                  <select class="custom-select" id="category" name="category" onchange="getRequiredFormInputs()">
                     <option value="" disabled selected>Select a task category</option>
                     <option value="Technical Task">Technical Task</option>
                     <option value="User Story">User Story</option>
-                    </select>
+                  </select>
                 </div>
                 <div class="input-container">
                 <label for="subtask">Subtask</label>
@@ -292,9 +292,23 @@ function templateAddTaskBoard() {
                 </div>
                 </div>
                 <div class="button-container">
-                    <button type="button">Clear</button>
-                    <button id="submitButton" type="submit">Create Task</button>
-                </div>
+                <button class="add-task-btn pointer btn-wht btn-color-bk border-1px" type="button">
+                  Clear
+                  <svg width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.24959 6.99984L11.4926 12.2428M1.00659 12.2428L6.24959 6.99984L1.00659 12.2428ZM11.4926 1.75684L6.24859 6.99984L11.4926 1.75684ZM6.24859 6.99984L1.00659 1.75684L6.24859 6.99984Z" stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </button>
+                <button id="submitButton" type="submit" class="add-task-btn" disabled>
+                  Create Task
+                  <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M5.79923 9.15L14.2742 0.675C14.4742 0.475 14.7117 0.375 14.9867 0.375C15.2617 0.375 15.4992 0.475 15.6992 0.675C15.8992 0.875 15.9992 1.1125 15.9992 1.3875C15.9992 1.6625 15.8992 1.9 15.6992 2.1L6.49923 11.3C6.29923 11.5 6.0659 11.6 5.79923 11.6C5.53256 11.6 5.29923 11.5 5.09923 11.3L0.79923 7C0.59923 6.8 0.503397 6.5625 0.51173 6.2875C0.520064 6.0125 0.62423 5.775 0.82423 5.575C1.02423 5.375 1.26173 5.275 1.53673 5.275C1.81173 5.275 2.04923 5.375 2.24923 5.575L5.79923 9.15Z"
+                      fill="white"
+                    />
+                  </svg>
+                </button>
+              </div>
+      
                 </div>
             </form>
 
@@ -328,7 +342,13 @@ function templateAddTaskLeft() {
                   </div>
                 </div>
                 <div id="contact-values" class="d-none contact-values"></div>
+                <div class="required-info">
+                  <div class="required-info-wrapper">
+                    <div class="required-icon">*</div>
+                    This field is required
                   </div>
+                </div>      
+            </div>
     `
 }
 
