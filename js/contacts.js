@@ -111,17 +111,15 @@ async function editContact(userId) {
   const emailValue = document.getElementById("email").value.trim();
   const phoneValue = document.getElementById("phone").value.trim();
   if (nameValue && emailValue && phoneValue) {
-    for (let i = 0; i < contacts.length; i++) {
-      if (contacts[i].id === userId) {
-        let editName = nameValue.split(" ")
-        contacts[i].name = editName[0];
-        contacts[i].lastname = editName.slice(1).join(" ");
-        contacts[i].email = emailValue;
-        contacts[i].phone = phoneValue;
-        renderContacts()
-        setItem("contacts", contacts)
-        break;
-      }
+    let inedOfContact = contacts.findIndex(contact => contact.id === userId);
+    if (inedOfContact != -1) {
+      let editName = nameValue.split(" ")
+      contacts[inedOfContact].name = editName[0];
+      contacts[inedOfContact].lastname = editName.slice(1).join(" ");
+      contacts[inedOfContact].email = emailValue;
+      contacts[inedOfContact].phone = phoneValue;
+      renderContacts()
+      setItem("contacts", contacts)
     }
   } else {
     return
@@ -485,4 +483,10 @@ function renderAddContactSuccess(id) {
   slideBackAnimation("contact-success",1500);
   succesfully.innerHTML = "";
   setPersonToActive(indexOfId);
+}
+
+function test(id) {
+
+  let idOfContact = contacts.findIndex(contact => contact.id === id);
+  console.log(idOfContact);
 }

@@ -43,7 +43,7 @@ function contactUserCardHtml(index) {
 function singleContactOverview(index) {
     return /*html*/ `
         <div class="single-data-headline">
-            <div class="big-circle ${contacts[index].circleColor}">${contacts[index].initials}</div>
+            <div class="big-circle dnone ${contacts[index].circleColor}">${contacts[index].initials}</div>
             <div class="single-contact-name-card">
                 <span class="single-contacts-name">${contacts[index].name + " " + contacts[index].lastname}</span>
                 <div class="contacts-icon-container">
