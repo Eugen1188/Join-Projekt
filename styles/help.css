@@ -71,11 +71,14 @@ a {
 }
 
 li::marker {
-    font-size: 27px;
+    font-size: 21px;
     font-weight: 700;
 }
 
-li > * {
-    vertical-align: top;
+ol {
+    padding-inline-start: 24px;
 }
 
+li {
+    margin-bottom: 16px;
+}
