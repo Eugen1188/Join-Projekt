@@ -362,6 +362,11 @@ input[type="radio"]:checked + label.radio-button {
   box-shadow: none;
 }
 
+.assigned-to::placeholder {
+  color: black;
+  font-size: 16px;
+}
+
 .prio-container {
   display: flex;
   justify-content: space-between;
@@ -579,11 +584,15 @@ input::-webkit-datetime-edit-fields-wrapper {
 }
 
 textarea {
+  color: black;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
   border: none;
   resize: none;
   border-radius: 10px;
   background-color: white;
-  padding: 7px 16px;
+  box-sizing: border-box;
+  padding: 21px 18px;
   height: 120px;
 }
 
@@ -600,6 +609,10 @@ textarea {
   color: white;
   border-radius: 20px;
   transition: transform 600ms ease-out;
+}
+
+.required-info-mobile {
+  display: none;
 }
 
 /* Extra large devices (Desktops, 1200px und darüber) */
@@ -633,6 +646,16 @@ textarea {
     justify-content: space-between;
     width: 440px;
     height: 376px;
+    flex: 1;
+  }
+
+  .contact-values {
+    top: 523px;
+    z-index: 999;
+  }
+
+  .choosen-contacts {
+    position: unset;
   }
 
   .addtask-side-right {
@@ -643,6 +666,7 @@ textarea {
     justify-content: space-between;
     width: 440px;
     height: 376px;
+    flex: 1;
   }
 
   .divider {
@@ -657,8 +681,16 @@ textarea {
     margin: 0;
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     gap: 16px;
+  }
+
+  .clear-btn {
+    display: none;
+  }
+
+  .required-info-mobile {
+    display: flex;
   }
 }
