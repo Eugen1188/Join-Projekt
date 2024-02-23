@@ -26,23 +26,18 @@ function templateCard(task) {
                         <img src="./assets/img/${task.prio}.png" alt="prio-low">
                     </div>
                 </div>
-
-            </div>
-    `
+            </div>`
 }
 
 function templateNoTask() {
   return `
         <div class="board-no-task">
             <span>No tasks To do</span>
-        </div>
-    `
+        </div>`
 }
 
 function templateCardAssignee(assignee, color) {
-  return `
-    <div class="assignee ${color}" >${assignee}</div>
-    `
+  return `<div class="assignee ${color}" >${assignee}</div>`
 }
 
 function templateTaskOverlay(task) {
@@ -73,8 +68,7 @@ function templateTaskOverlay(task) {
                 ${renderSubtask(task)}
             </div>
         </div>
-        ${templateOverlayMenu(task)}
-    `
+        ${templateOverlayMenu(task)}`
 }
 
 function templateOverlayAssignee(assignee, name, color) {
@@ -82,8 +76,7 @@ function templateOverlayAssignee(assignee, name, color) {
         <div class="task-overlay-assignee">
             <div class="assignee ${color}">${assignee}</div>
             <span>${name}</span>
-        </div>
-    `
+        </div>`
 }
 
 function templateOverlaySubtask(index, subtask, task, source) {
@@ -91,8 +84,7 @@ function templateOverlaySubtask(index, subtask, task, source) {
             <div class="task-subtask" onclick="checkedSubtask(${index}, ${task.id})">
                 <img id="sub${index}" src="${source}">
                 <span>${subtask}</span>
-            </div>
-    `
+            </div>`
 }
 
 function templateOverlayMenu(task) {
@@ -118,153 +110,80 @@ function templateProgressBar(progress) {
   return `
         <div class="task-progress-blank">
           <div class="task-progress" style="width:${progress}%"></div>
-        </div>
-    `
+        </div>`
 }
 
 function templateGhostCard() {
-  return `
-        <div id="ghostcard" class="ghost-card"></div>
-    `
+  return `<div id="ghostcard" class="ghost-card"></div>`
 }
 
 function templateAddTaskBoard() {
 
   return `
-            <div class="task-headline">
-                <h1>Add Task</h1>
-                <img src="./assets/img/close.png" alt="close" onclick="closeOverlayAddTask()">
+      <div class="task-headline">
+          <h1>Add Task</h1>
+          <img src="./assets/img/close.png" alt="close" onclick="closeOverlayAddTask()">
+      </div>
+      <form class="add-task-form" id="form" onsubmit="validateForm();return false">
+          ${templateAddTaskLeft()}
+          <div class="divider"></div>
+          <div class="addtask-side-right" id="right-side-add">
+          ${templateAddTaskDueDate()}
+          <div class="input-container">
+            <span>Prio</span>
+            <div id="prio" class="prio-container">
+              ${templateAddTaskPrioUrgent()}
+              ${templateAddTaskPrioMedium()}
+              ${templateAddTaskPrioLow()}
             </div>
-            <form class="add-task-form" id="form" onsubmit="validateForm();return false">
-                ${templateAddTaskLeft()}
-                <div class="divider"></div>
-                <div class="addtask-side-right" id="right-side-add">
-                ${templateAddTaskDueDate()}
-      
-                <div class="input-container">
-                  <span>Prio</span>
-                  <div id="prio" class="prio-container">
-                    ${templateAddTaskPrioUrgent()}
-                    ${templateAddTaskPrioMedium()}
-
-
-
-                    <input class="input-addtask" type="radio" id="low" name="priority" value="low" />
-                    <label
-                      for="low"
-                      class="radio-button"
-                      onclick="invertSvgFills('low');handleClick('low')"
-                      >Low
-                      <svg
-                        id="low-icon"
-                        width="21"
-                        height="16"
-                        viewBox="0 0 21 16"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M10.8555 9.69779C10.6209 9.69819 10.3923 9.62335 10.2035 9.48427L1.30038 2.91453C1.18454 2.82898 1.0867 2.72146 1.01245 2.59812C0.938193 2.47478 0.888977 2.33803 0.867609 2.19569C0.824455 1.90821 0.897354 1.61537 1.07027 1.3816C1.24319 1.14782 1.50196 0.992265 1.78965 0.949143C2.07734 0.906021 2.3704 0.978866 2.60434 1.15165L10.8555 7.23414L19.1066 1.15165C19.2224 1.0661 19.354 1.00418 19.4938 0.969432C19.6336 0.934685 19.7788 0.927791 19.9213 0.949143C20.0637 0.970495 20.2006 1.01967 20.324 1.09388C20.4474 1.16808 20.555 1.26584 20.6407 1.3816C20.7263 1.49735 20.7883 1.62882 20.823 1.7685C20.8578 1.90818 20.8647 2.05334 20.8433 2.19569C20.822 2.33803 20.7727 2.47478 20.6985 2.59812C20.6242 2.72146 20.5264 2.82898 20.4106 2.91453L11.5075 9.48427C11.3186 9.62335 11.0901 9.69819 10.8555 9.69779Z"
-                          fill="#7AE229"
-                        />
-                        <path
-                          d="M10.8555 15.4463C10.6209 15.4467 10.3923 15.3719 10.2035 15.2328L1.30038 8.66307C1.06644 8.49028 0.910763 8.2317 0.867609 7.94422C0.824455 7.65674 0.897354 7.3639 1.07027 7.13013C1.24319 6.89636 1.50196 6.7408 1.78965 6.69768C2.07734 6.65456 2.3704 6.7274 2.60434 6.90019L10.8555 12.9827L19.1066 6.90019C19.3405 6.7274 19.6336 6.65456 19.9213 6.69768C20.209 6.7408 20.4678 6.89636 20.6407 7.13013C20.8136 7.3639 20.8865 7.65674 20.8433 7.94422C20.8002 8.2317 20.6445 8.49028 20.4106 8.66307L11.5075 15.2328C11.3186 15.3719 11.0901 15.4467 10.8555 15.4463Z"
-                          fill="#7AE229"
-                        />
-                      </svg>
-                    </label>
-                  </div>
-                </div>
-                <div class="input-container">
-                  <label for="category">Category <span class="required-icon">*</span></label>
-                  <select class="custom-select" id="category" name="category" onchange="getRequiredFormInputs()">
-                    <option value="" disabled selected>Select a task category</option>
-                    <option value="Technical Task">Technical Task</option>
-                    <option value="User Story">User Story</option>
-                  </select>
-                </div>
-                <div class="input-container">
-                <label for="subtask">Subtask</label>
-                <div class="add-subtask">
-                  <input class="input-addtask" name="subtask" id="subtask" type="text" minlength="5" onclick="changeSubtaskInputIcons()" onkeyup="getInput()" />
-                  <div id="subTaskSvgContainer" class="svg-container">
-                    <svg class="svg-plusicon" id="subTaskPlusIcon" width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <mask id="mask0_136369_4669" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="24">
-                        <rect x="0.248535" width="24" height="24" fill="#D9D9D9" />
-                      </mask>
-                      <g mask="url(#mask0_136369_4669)">
-                        <path
-                          d="M11.2485 13H6.24854C5.9652 13 5.7277 12.9042 5.53604 12.7125C5.34437 12.5208 5.24854 12.2833 5.24854 12C5.24854 11.7167 5.34437 11.4792 5.53604 11.2875C5.7277 11.0958 5.9652 11 6.24854 11H11.2485V6C11.2485 5.71667 11.3444 5.47917 11.536 5.2875C11.7277 5.09583 11.9652 5 12.2485 5C12.5319 5 12.7694 5.09583 12.961 5.2875C13.1527 5.47917 13.2485 5.71667 13.2485 6V11H18.2485C18.5319 11 18.7694 11.0958 18.961 11.2875C19.1527 11.4792 19.2485 11.7167 19.2485 12C19.2485 12.2833 19.1527 12.5208 18.961 12.7125C18.7694 12.9042 18.5319 13 18.2485 13H13.2485V18C13.2485 18.2833 13.1527 18.5208 12.961 18.7125C12.7694 18.9042 12.5319 19 12.2485 19C11.9652 19 11.7277 18.9042 11.536 18.7125C11.3444 18.5208 11.2485 18.2833 11.2485 18V13Z"
-                          fill="#2A3647"
-                        />
-                      </g>
-                    </svg>
-                  </div>
-                </div>
-                <div>
-                  <div id="showSubtasks" class="show-subtasks"></div>
-                </div>
-                </div>
-                <div class="button-container">
-                <button class="add-task-btn pointer btn-wht btn-color-bk border-1px" type="button">
-                  Clear
-                  <svg width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M6.24959 6.99984L11.4926 12.2428M1.00659 12.2428L6.24959 6.99984L1.00659 12.2428ZM11.4926 1.75684L6.24859 6.99984L11.4926 1.75684ZM6.24859 6.99984L1.00659 1.75684L6.24859 6.99984Z" stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </button>
-                <button id="submitButton" type="submit" class="add-task-btn" disabled>
-                  Create Task
-                  <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M5.79923 9.15L14.2742 0.675C14.4742 0.475 14.7117 0.375 14.9867 0.375C15.2617 0.375 15.4992 0.475 15.6992 0.675C15.8992 0.875 15.9992 1.1125 15.9992 1.3875C15.9992 1.6625 15.8992 1.9 15.6992 2.1L6.49923 11.3C6.29923 11.5 6.0659 11.6 5.79923 11.6C5.53256 11.6 5.29923 11.5 5.09923 11.3L0.79923 7C0.59923 6.8 0.503397 6.5625 0.51173 6.2875C0.520064 6.0125 0.62423 5.775 0.82423 5.575C1.02423 5.375 1.26173 5.275 1.53673 5.275C1.81173 5.275 2.04923 5.375 2.24923 5.575L5.79923 9.15Z"
-                      fill="white"
-                    />
-                  </svg>
-                </button>
-              </div>
-      
-                </div>
-            </form>
-
-    `
+          </div>
+          ${templateAddTaskCategory()}
+          ${templateAddTaskSubtask()}
+          ${templateAddTaskButton()}
+      </form>`
 }
 
 function templateAddTaskLeft() {
   return `
-            <div class="addtask-side-left">
-                <div class="input-container">
-                    <label>Title <span class="required-icon">*</span></label>
-                    <input class="input-addtask" required id="title" type="text" />
-                </div>
-                <div class="input-container">
-                    <label>Description</label>
-                    <textarea required name="Description" id="taskDescription" cols="30" rows="10"></textarea>
-                </div>
-                <div class="input-container-contacts">
-                  <label>Assigned to</label>
-                  <input class="input-addtask" id="contactAssignInput" onclick="showContacts();showChoosenContactsCircle()" onkeyup="filterContacts()" type="text" />
-                  <svg id="arrowContactInput" class="arrow" onclick="showContacts();  showChoosenContactsCircle()" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <mask id="mask0_135766_812" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
-                      <rect width="24" height="24" fill="#D9D9D9" />
-                    </mask>
-                    <g mask="url(#mask0_135766_812)">
-                      <path d="M11.3 14.3L8.69998 11.7C8.38331 11.3833 8.31248 11.0208 8.48748 10.6125C8.66248 10.2042 8.97498 10 9.42498 10H14.575C15.025 10 15.3375 10.2042 15.5125 10.6125C15.6875 11.0208 15.6166 11.3833 15.3 11.7L12.7 14.3C12.6 14.4 12.4916 14.475 12.375 14.525C12.2583 14.575 12.1333 14.6 12 14.6C11.8666 14.6 11.7416 14.575 11.625 14.525C11.5083 14.475 11.4 14.4 11.3 14.3Z" fill="#2A3647" />
-                    </g>
-                  </svg>
-                  <div class="show-selected-contacts-container">
-                    <div id="choosenContacts" class="choosen-contacts"></div>
-                  </div>
-                </div>
-                <div id="contact-values" class="d-none contact-values"></div>
-                <div class="required-info">
-                  <div class="required-info-wrapper">
-                    <div class="required-icon">*</div>
-                    This field is required
-                  </div>
-                </div>      
+      <div class="addtask-side-left">
+          <div class="input-container">
+              <label>Title <span class="required-icon">*</span></label>
+              <input class="input-addtask" required id="title" type="text" />
+          </div>
+          <div class="input-container">
+              <label>Description</label>
+              <textarea required name="Description" id="taskDescription" cols="30" rows="10"></textarea>
+          </div>
+          ${templateAddTaskAssignee()}
+          <div class="required-info">
+            <div class="required-info-wrapper">
+              <div class="required-icon">*</div>
+              This field is required
             </div>
-    `
+          </div>      
+      </div>`
 }
+
+function templateAddTaskAssignee(){
+  return`
+      <div class="input-container-contacts">
+        <label>Assigned to</label>
+        <input class="input-addtask" id="contactAssignInput" onclick="showContacts();showChoosenContactsCircle()" onkeyup="filterContacts()" type="text" />
+        <svg id="arrowContactInput" class="arrow" onclick="showContacts();  showChoosenContactsCircle()" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <mask id="mask0_135766_812" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+            <rect width="24" height="24" fill="#D9D9D9" />
+          </mask>
+          <g mask="url(#mask0_135766_812)">
+            <path d="M11.3 14.3L8.69998 11.7C8.38331 11.3833 8.31248 11.0208 8.48748 10.6125C8.66248 10.2042 8.97498 10 9.42498 10H14.575C15.025 10 15.3375 10.2042 15.5125 10.6125C15.6875 11.0208 15.6166 11.3833 15.3 11.7L12.7 14.3C12.6 14.4 12.4916 14.475 12.375 14.525C12.2583 14.575 12.1333 14.6 12 14.6C11.8666 14.6 11.7416 14.575 11.625 14.525C11.5083 14.475 11.4 14.4 11.3 14.3Z" fill="#2A3647" />
+          </g>
+        </svg>
+        <div class="show-selected-contacts-container">
+          <div id="choosenContacts" class="choosen-contacts"></div>
+        </div>
+      </div>
+      <div id="contact-values" class="d-none contact-values"></div>`
+}
+
 
 function templateAddTaskDueDate(){
   return `
@@ -320,6 +239,67 @@ function templateAddTaskPrioMedium(){
           </defs>
         </svg>
       </label>`
+}
+
+function templateAddTaskPrioLow(){
+  return `
+      <input class="input-addtask" type="radio" id="low" name="priority" value="low" />
+      <label for="low" class="radio-button" onclick="invertSvgFills('low');handleClick('low')">Low
+        <svg id="low-icon" width="21" height="16" viewBox="0 0 21 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10.8555 9.69779C10.6209 9.69819 10.3923 9.62335 10.2035 9.48427L1.30038 2.91453C1.18454 2.82898 1.0867 2.72146 1.01245 2.59812C0.938193 2.47478 0.888977 2.33803 0.867609 2.19569C0.824455 1.90821 0.897354 1.61537 1.07027 1.3816C1.24319 1.14782 1.50196 0.992265 1.78965 0.949143C2.07734 0.906021 2.3704 0.978866 2.60434 1.15165L10.8555 7.23414L19.1066 1.15165C19.2224 1.0661 19.354 1.00418 19.4938 0.969432C19.6336 0.934685 19.7788 0.927791 19.9213 0.949143C20.0637 0.970495 20.2006 1.01967 20.324 1.09388C20.4474 1.16808 20.555 1.26584 20.6407 1.3816C20.7263 1.49735 20.7883 1.62882 20.823 1.7685C20.8578 1.90818 20.8647 2.05334 20.8433 2.19569C20.822 2.33803 20.7727 2.47478 20.6985 2.59812C20.6242 2.72146 20.5264 2.82898 20.4106 2.91453L11.5075 9.48427C11.3186 9.62335 11.0901 9.69819 10.8555 9.69779Z" fill="#7AE229"/>
+          <path d="M10.8555 15.4463C10.6209 15.4467 10.3923 15.3719 10.2035 15.2328L1.30038 8.66307C1.06644 8.49028 0.910763 8.2317 0.867609 7.94422C0.824455 7.65674 0.897354 7.3639 1.07027 7.13013C1.24319 6.89636 1.50196 6.7408 1.78965 6.69768C2.07734 6.65456 2.3704 6.7274 2.60434 6.90019L10.8555 12.9827L19.1066 6.90019C19.3405 6.7274 19.6336 6.65456 19.9213 6.69768C20.209 6.7408 20.4678 6.89636 20.6407 7.13013C20.8136 7.3639 20.8865 7.65674 20.8433 7.94422C20.8002 8.2317 20.6445 8.49028 20.4106 8.66307L11.5075 15.2328C11.3186 15.3719 11.0901 15.4467 10.8555 15.4463Z" fill="#7AE229"/>
+        </svg>
+      </label>`
+}
+
+function templateAddTaskCategory(){
+  return `
+      <div class="input-container">
+        <label for="category">Category <span class="required-icon">*</span></label>
+        <select class="custom-select" id="category" name="category" onchange="getRequiredFormInputs()">
+          <option value="" disabled selected>Select a task category</option>
+          <option value="Technical Task">Technical Task</option>
+          <option value="User Story">User Story</option>
+        </select>
+      </div> `
+}
+
+function templateAddTaskSubtask(){
+  return `
+      <div class="input-container">
+      <label for="subtask">Subtask</label>
+      <div class="add-subtask">
+        <input class="input-addtask" name="subtask" id="subtask" type="text" minlength="5" onclick="changeSubtaskInputIcons()" onkeyup="getInput()" />
+        <div id="subTaskSvgContainer" class="svg-container">
+          <svg class="svg-plusicon" id="subTaskPlusIcon" width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <mask id="mask0_136369_4669" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="24">
+              <rect x="0.248535" width="24" height="24" fill="#D9D9D9" />
+            </mask>
+            <g mask="url(#mask0_136369_4669)">
+              <path d="M11.2485 13H6.24854C5.9652 13 5.7277 12.9042 5.53604 12.7125C5.34437 12.5208 5.24854 12.2833 5.24854 12C5.24854 11.7167 5.34437 11.4792 5.53604 11.2875C5.7277 11.0958 5.9652 11 6.24854 11H11.2485V6C11.2485 5.71667 11.3444 5.47917 11.536 5.2875C11.7277 5.09583 11.9652 5 12.2485 5C12.5319 5 12.7694 5.09583 12.961 5.2875C13.1527 5.47917 13.2485 5.71667 13.2485 6V11H18.2485C18.5319 11 18.7694 11.0958 18.961 11.2875C19.1527 11.4792 19.2485 11.7167 19.2485 12C19.2485 12.2833 19.1527 12.5208 18.961 12.7125C18.7694 12.9042 18.5319 13 18.2485 13H13.2485V18C13.2485 18.2833 13.1527 18.5208 12.961 18.7125C12.7694 18.9042 12.5319 19 12.2485 19C11.9652 19 11.7277 18.9042 11.536 18.7125C11.3444 18.5208 11.2485 18.2833 11.2485 18V13Z" fill="#2A3647"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div>
+        <div id="showSubtasks" class="show-subtasks"></div>
+      </div>`
+}
+
+function templateAddTaskButton(){
+  return`
+      <div class="button-container">
+        <button class="add-task-btn pointer btn-wht btn-color-bk border-1px" type="button">Clear
+          <svg width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6.24959 6.99984L11.4926 12.2428M1.00659 12.2428L6.24959 6.99984L1.00659 12.2428ZM11.4926 1.75684L6.24859 6.99984L11.4926 1.75684ZM6.24859 6.99984L1.00659 1.75684L6.24859 6.99984Z" stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+        <button id="submitButton" type="submit" class="add-task-btn" disabled>Create Task
+          <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5.79923 9.15L14.2742 0.675C14.4742 0.475 14.7117 0.375 14.9867 0.375C15.2617 0.375 15.4992 0.475 15.6992 0.675C15.8992 0.875 15.9992 1.1125 15.9992 1.3875C15.9992 1.6625 15.8992 1.9 15.6992 2.1L6.49923 11.3C6.29923 11.5 6.0659 11.6 5.79923 11.6C5.53256 11.6 5.29923 11.5 5.09923 11.3L0.79923 7C0.59923 6.8 0.503397 6.5625 0.51173 6.2875C0.520064 6.0125 0.62423 5.775 0.82423 5.575C1.02423 5.375 1.26173 5.275 1.53673 5.275C1.81173 5.275 2.04923 5.375 2.24923 5.575L5.79923 9.15Z" fill="white"/>
+          </svg>
+        </button>
+      </div>`
 }
 
 function templateEditOverlay(task) {
