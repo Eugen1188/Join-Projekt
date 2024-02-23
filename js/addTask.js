@@ -182,11 +182,15 @@ function pushSubtask() {
   let subTaskSvgContainer = document.getElementById("subTaskSvgContainer");
   let subtask = getInput();
   let taskState = false;
-  subtasks.push(subtask);
-  taskStates.push(taskState);
-  showSubtasks();
-  subTaskSvgContainer.innerHTML = renderSubtaskPlusIcon();
-  clearSubtaskInput();
+  if (subtask == "") {
+    alert("Please enter a value");
+  } else {
+    subtasks.push(subtask);
+    taskStates.push(taskState);
+    showSubtasks();
+    subTaskSvgContainer.innerHTML = renderSubtaskPlusIcon();
+    clearSubtaskInput();
+  }
 }
 
 function showSubtasks() {
@@ -227,8 +231,12 @@ function editSubtask(index) {
 
 function saveEditedSubtask(index) {
   let newSubtaskValue = document.getElementById("changedSubtaskValue").value;
-  subtasks[index] = newSubtaskValue;
-  showSubtasks();
+  if (newSubtaskValue == "") {
+    alert("Please enter a value");
+  } else {
+    subtasks[index] = newSubtaskValue;
+    showSubtasks();
+  }
 }
 
 function clearSubtaskInput() {
@@ -394,6 +402,9 @@ async function addTask(index) {
 
   if (window.location.href == "http://127.0.0.1:5500/board.html" && index == undefined) {
     closeOverlayAddTask(true);
+  }
+  if (window.location.href == "http://127.0.0.1:5500/add-task.html") {
+    translateTaskAddedElementAndRedirect();
   }
 }
 
