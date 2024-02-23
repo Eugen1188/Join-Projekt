@@ -297,10 +297,6 @@ function firstCharToLowerCase(name) {
   return toLower
 }
 
-/**
- *
- * @param {string} x -
- */
 function closeRenderContactCardSlide() {
   clearFormValues("contacts-form", 200);
   slideBackAnimation("edit-card", 200);
@@ -309,6 +305,11 @@ function closeRenderContactCardSlide() {
   }, 450);
 }
 
+/**
+ * Renders the card with the given html content
+ * @param {Number} id - id of the person in contacts
+ * @param {String} htmlContent - html content
+ */
 function renderCard(id, htmlContent) {
   const card = document.getElementById(id);
   card.innerHTML = "";
@@ -317,10 +318,13 @@ function renderCard(id, htmlContent) {
 
 function renderAddNewContact() {
   renderCard("edit-card", contactsCardHTML("Add contact", "Tasks are better with a team!", "addNewContactToContactlist()"));
+
 }
 
-function renderEditContact(id) {
-  renderCard("edit-card", contactsCardHTML("Edit contact", "", `editContact(${id})`));
+function renderEditContact(userId, index) {
+  renderCard("edit-card", contactsCardHTML("Edit contact", "", `editContact(${userId})`, `${index}`));
+  let circleColor = document.getElementById("circle-color");
+  circleColor.innerHTML += contactsCardCircleHTML(index)
 }
 
 /**
@@ -473,9 +477,9 @@ function slideBackAnimation(id, setTimeoutValue) {
  * Renders the success message after adding a contact
  * @param {Number} id - id of the contact
  */
-function renderAddContactSuccess(id) {
+function renderAddContactSuccess(userId) {
   let container = document.getElementById("single-contact-data-container")
-  let indexOfId = contacts.findIndex(contact => contact.id === id);
+  let indexOfId = contacts.findIndex(contact => contact.id === userId);
   let succesfully = document.getElementById("contact-success");
   container.innerHTML = ""
   container.innerHTML += singleContactOverview(indexOfId)
@@ -483,10 +487,4 @@ function renderAddContactSuccess(id) {
   slideBackAnimation("contact-success",1500);
   succesfully.innerHTML = "";
   setPersonToActive(indexOfId);
-}
-
-function test(id) {
-
-  let idOfContact = contacts.findIndex(contact => contact.id === id);
-  console.log(idOfContact);
 }
