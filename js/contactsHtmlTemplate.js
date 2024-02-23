@@ -83,8 +83,7 @@ function singleContactOverview(index) {
  * @param {String} functionName - function name to be used renderAddNewContact or renderEditContact
  * @returns - HTML
  */
-function contactsCardHTML(formConfig) {
-    const { cardName, secondText, functionName, index } = formConfig;
+function contactsCardHTML({ cardName, secondText, functionName, index } = formConfig) {
     return /*html*/ `
         <div class="edit-card slideInAnimation">
             <div class="edit-card-headline">

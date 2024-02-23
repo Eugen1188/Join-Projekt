@@ -298,11 +298,12 @@ function firstCharToLowerCase(name) {
 }
 
 function closeRenderContactCardSlide() {
-  clearFormValues("contacts-form", 200);
-  slideBackAnimation("edit-card", 450);
+  clearFormValues("contacts-form");
+  slideBackAnimation("edit-card");
   setTimeout(() => {
-    renderCard("edit-card", "");
-  }, 450);
+    document.getElementById("edit-card").innerHTML = "";
+  }, 550);
+
 }
 
 /**
@@ -498,7 +499,7 @@ function slideBackAnimation(id) {
   element.classList.add("slide-back-animation");
   setTimeout(() => {
     element.classList.remove("slide-back-animation");
-  }, 450);
+  }, 550);
 }
 
 /**
