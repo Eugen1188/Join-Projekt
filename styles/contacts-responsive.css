@@ -56,10 +56,6 @@
         left: 512px;
     }
 
-    .dnone {
-        display: none;
-    }
-
     .main-header {
         width: 152px;
     }
@@ -75,5 +71,11 @@
 
     .head-top {
         padding: 19px 40px 20px 240px
+    }
+}
+
+@media (max-width: 1100px) {
+    .dnone {
+        display: none;
     }
 }

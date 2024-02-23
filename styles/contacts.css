@@ -195,6 +195,7 @@
     border-radius: 16px;
     display: flex;
     background-color: var(--background-color-site);
+    z-index: 3;
 }
 
 .edit-card-form {
@@ -311,7 +312,7 @@
 .list {
     width: inherit;
     height: 58px;
-    padding: 17px 14px;
+    padding: 17px 36px;
     gap: 8px;
     display: flex;
 }

@@ -18,33 +18,31 @@
 
 <body onload="includeHTML(); initContacts()">
     <header id="main-header" w3-include-html="assets/templates/header.html"></header>
-    <div class="wraper">
-        <div class="contacts-container">
-            <div class="contacts-conllection">
-                <div class="contatcs-btn-bg">
-                    <div class="btn-container">
-                        <button class="add-contacts-btn main-btn-color" onclick="renderAddNewContact()">
-                            Add new Contact
-                            <img src="./assets/img/icons/person_add.png"/>
-                        </button>
-                    </div>
-                </div>
-                <div class="contacts-content" id="contact-list">
+    <div class="contacts-container">
+        <div class="contacts-conllection">
+            <div class="contatcs-btn-bg">
+                <div class="btn-container">
+                    <button class="add-contacts-btn main-btn-color" onclick="renderAddNewContact()">
+                        Add new Contact
+                        <img src="./assets/img/icons/person_add.png" />
+                    </button>
                 </div>
             </div>
-        </div>
-        <div class="single-content-container ">
-            <div class="single-contact-headline">
-                <h1>Contacts</h1>
-                <div class="vertical-bar"></div>
-                <span>Better with a Team</span>
-            </div>
-            <div class="single-contact-data-container" id="single-contact-data-container">
+            <div class="contacts-content" id="contact-list">
             </div>
         </div>
-        <div id="edit-card"></div>
-        <div id="contact-success"></div>
     </div>
+    <div class="single-content-container ">
+        <div class="single-contact-headline">
+            <h1>Contacts</h1>
+            <div class="vertical-bar dnone"></div>
+            <span class="dnone">Better with a Team</span>
+        </div>
+        <div class="single-contact-data-container" id="single-contact-data-container">
+        </div>
+    </div>
+    <div id="edit-card"></div>
+    <div id="contact-success"></div>
 </body>
 
 </html>
