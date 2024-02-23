@@ -43,7 +43,9 @@ function contactUserCardHtml(index) {
 function singleContactOverview(index) {
     return /*html*/ `
         <div class="single-data-headline">
-            <div class="big-circle dnone ${contacts[index].circleColor}">${contacts[index].initials}</div>
+            <div class="big-circle dnone ${contacts[index].circleColor}">
+                ${contacts[index].initials}
+            </div>
             <div class="single-contact-name-card">
                 <span class="single-contacts-name">${contacts[index].name + " " + contacts[index].lastname}</span>
                 <div class="contacts-icon-container">
@@ -81,9 +83,10 @@ function singleContactOverview(index) {
  * @param {String} functionName - function name to be used renderAddNewContact or renderEditContact
  * @returns - HTML
  */
-function contactsCardHTML(cardName, secondText, functionName, index) {
+function contactsCardHTML(formConfig) {
+    const { cardName, secondText, functionName, index } = formConfig;
     return /*html*/ `
-        <div class="edit-card">
+        <div class="edit-card slideInAnimation">
             <div class="edit-card-headline">
                 <img src="./assets/img/icons/join-logo.png" alt="">
                 <div class="edit-card-header">
@@ -93,10 +96,10 @@ function contactsCardHTML(cardName, secondText, functionName, index) {
                 <div class="small-underline"></div>
             </div>
             <div class="close-btn pointer">
-                <img src="./assets/img/icons/close.png" alt="" onclick="closeRenderContactCardSlide(${true})">
+                <img src="./assets/img/icons/close.png" alt="" onclick="closeRenderContactCardSlide()">
             </div>
-            <div class="edit-card-form" id="circle-color">
-                <div id="corcle-color">
+            <div class="edit-card-form">
+                <div id="circle-color">
                 </div>
                 <div class="edit-card-form-input">
                     <form onsubmit="${functionName}; return false" id="contacts-form">
@@ -129,7 +132,7 @@ function addContactSuccessHTML() {
 
 function addContactIconHTML() {
     return /*html*/ `
-        <div>
+        <div class="big-circle guest">
             <img src="./assets/img/icons/person.png" alt="">
         </div>
     `
