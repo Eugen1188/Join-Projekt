@@ -13,8 +13,14 @@ main {
     flex-direction: column;
     top: 206px;
     left: 328px;
+    height: calc(100% - 206px);
     width: calc(100% - 400px);
     gap: 24px;
+    overflow-y: scroll;
+}
+
+main::-webkit-scrollbar{
+    display: none;
 }
 
 .legal-headline {
