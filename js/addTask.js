@@ -182,11 +182,15 @@ function pushSubtask() {
   let subTaskSvgContainer = document.getElementById("subTaskSvgContainer");
   let subtask = getInput();
   let taskState = false;
-  subtasks.push(subtask);
-  taskStates.push(taskState);
-  showSubtasks();
-  subTaskSvgContainer.innerHTML = renderSubtaskPlusIcon();
-  clearSubtaskInput();
+  if (subtask == "") {
+    alert("Enter a value !");
+  } else {
+    subtasks.push(subtask);
+    taskStates.push(taskState);
+    showSubtasks();
+    subTaskSvgContainer.innerHTML = renderSubtaskPlusIcon();
+    clearSubtaskInput();
+  }
 }
 
 function showSubtasks() {
@@ -227,8 +231,12 @@ function editSubtask(index) {
 
 function saveEditedSubtask(index) {
   let newSubtaskValue = document.getElementById("changedSubtaskValue").value;
-  subtasks[index] = newSubtaskValue;
-  showSubtasks();
+  if (newSubtaskValue == "") {
+    alert("Enter a value !");
+  } else {
+    subtasks[index] = newSubtaskValue;
+    showSubtasks();
+  }
 }
 
 function clearSubtaskInput() {
@@ -395,8 +403,7 @@ async function addTask(index) {
   if (window.location.href == "http://127.0.0.1:5500/board.html" && index == undefined) {
     closeOverlayAddTask(true);
   }
-  //weiterleitung auf Board nach Taskerstellung
-  //window.location.href = "http://127.0.0.1:5500/board.html";
+  translateTaskAddedElementAndRedirect();
 }
 
 function generateTaskState(index) {
@@ -415,6 +422,15 @@ function generateTaskState(index) {
     }
   }
   return taskstateArray;
+}
+
+function translateTaskAddedElementAndRedirect() {
+  let element = document.getElementById("taskAdded");
+  element.classList.remove("d-none");
+  element.style.transform = "translateY(387px)";
+  setTimeout(() => {
+    window.location.href = "http://127.0.0.1:5500/board.html";
+  }, 2000);
 }
 
 function renderSubtaskInputIcons() {
