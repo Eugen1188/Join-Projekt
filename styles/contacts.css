@@ -342,6 +342,34 @@
     flex-direction: column;
 }
 
+.right-slide-animation {
+    animation: slideIn 425ms ease-in;
+}
+
+@keyframes slideIn {
+    0% {
+        margin-left: 1000px;
+    }
+
+    100% {
+        margin-left: 0px;
+    }
+}
+
+.slide-back-animation {
+    animation: slideOut 425ms ease-in;
+}
+
+@keyframes slideOut {
+    0% {
+        margin-left: 0px;
+    }
+
+    100% {
+        margin-left: 1000px;
+    }
+}
+
 .single-contact-data-headline-font {
     font-size: 16px;
     font-weight: 700;
@@ -351,7 +379,7 @@
     display: flex;
     align-items: center;
     gap: 30px;
-    width: 569px;
+    /* width: 569px; */
     height: 73px;
     transition: all 125ms ease-in;
     margin-bottom: 32px;
@@ -532,6 +560,8 @@
     text-wrap: nowrap;
 }
 
-.dnone {
+.dnone {}
 
+.guest {
+    background-color: #D9D9D9;
 }
