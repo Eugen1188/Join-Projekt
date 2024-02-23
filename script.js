@@ -87,6 +87,10 @@ function includeHTML() {
 }
 
 function navigateToBoard(){
-  window.location.href ="./board.html"
+  window.location.href ="./board.html";
+}
+
+function navigateToHelp(){
+  window.location.href ="./help.html";
 }
 
