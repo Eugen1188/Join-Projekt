@@ -424,6 +424,10 @@ function generateTaskState(index) {
   return taskstateArray;
 }
 
+function clearFieldInputs() {
+  location.reload();
+}
+
 function translateTaskAddedElementAndRedirect() {
   let element = document.getElementById("taskAdded");
   element.classList.remove("d-none");
