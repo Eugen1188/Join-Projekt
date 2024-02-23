@@ -82,3 +82,7 @@ ol {
 li {
     margin-bottom: 16px;
 }
+
+.rm-mb{
+    margin-bottom: 0;
+}
