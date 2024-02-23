@@ -113,12 +113,12 @@ function showChoosenContactsCircle() {
 }
 
 function getCheckedContact() {
+  initials = [];
   contactName = [];
   circleColors = [];
   contactDataAsArray = [];
   contactIds = [];
   finalContactData = [];
-  initials = [];
   checkedContacts.forEach((contactId) => {
     tempContacts.forEach((contact) => {
       if (contactId === contact.id) {
@@ -392,7 +392,7 @@ async function addTask(index) {
     await setItem("test_board", allTasks);
   }
 
-  if (window.location.href == "./board.html" && index == undefined) {
+  if (window.location.href == "http://127.0.0.1:5500/board.html" && index == undefined) {
     closeOverlayAddTask(true);
   }
 }
