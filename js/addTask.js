@@ -113,12 +113,15 @@ function showChoosenContactsCircle() {
 }
 
 function getCheckedContact() {
-  let initials = [];
-  let contactName = [];
+  /**
+   *   let contactName = [];
   let circleColors = [];
   let contactDataAsArray = [];
   let contactIds = [];
   let finalContactData = [];
+  let initials = [];
+   */
+
   checkedContacts.forEach((contactId) => {
     tempContacts.forEach((contact) => {
       if (contactId === contact.id) {
