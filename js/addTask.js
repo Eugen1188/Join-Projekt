@@ -113,12 +113,12 @@ function showChoosenContactsCircle() {
 }
 
 function getCheckedContact() {
-  initials = [];
-  contactName = [];
-  circleColors = [];
-  contactDataAsArray = [];
-  contactIds = [];
-  finalContactData = [];
+  let initials = [];
+  let contactName = [];
+  let circleColors = [];
+  let contactDataAsArray = [];
+  let contactIds = [];
+  let finalContactData = [];
   checkedContacts.forEach((contactId) => {
     tempContacts.forEach((contact) => {
       if (contactId === contact.id) {
@@ -182,15 +182,11 @@ function pushSubtask() {
   let subTaskSvgContainer = document.getElementById("subTaskSvgContainer");
   let subtask = getInput();
   let taskState = false;
-  if (subtask == "") {
-    alert("Enter a value !");
-  } else {
-    subtasks.push(subtask);
-    taskStates.push(taskState);
-    showSubtasks();
-    subTaskSvgContainer.innerHTML = renderSubtaskPlusIcon();
-    clearSubtaskInput();
-  }
+  subtasks.push(subtask);
+  taskStates.push(taskState);
+  showSubtasks();
+  subTaskSvgContainer.innerHTML = renderSubtaskPlusIcon();
+  clearSubtaskInput();
 }
 
 function showSubtasks() {
@@ -231,12 +227,8 @@ function editSubtask(index) {
 
 function saveEditedSubtask(index) {
   let newSubtaskValue = document.getElementById("changedSubtaskValue").value;
-  if (newSubtaskValue == "") {
-    alert("Enter a value !");
-  } else {
-    subtasks[index] = newSubtaskValue;
-    showSubtasks();
-  }
+  subtasks[index] = newSubtaskValue;
+  showSubtasks();
 }
 
 function clearSubtaskInput() {
@@ -352,7 +344,6 @@ function validateForm(index) {
 }
 
 async function addTask(index) {
-  console.log(index);
   let id = allTasks.length;
   let title = document.getElementById("title");
   let taskDescription = document.getElementById("taskDescription");
@@ -396,14 +387,14 @@ async function addTask(index) {
     await setItem("test_board", allTasks);
     initBoard();
   } else {
+    console.log(task);
     allTasks.push(task);
     await setItem("test_board", allTasks);
   }
 
-  if (window.location.href == "http://127.0.0.1:5500/board.html" && index == undefined) {
+  if (window.location.href == "./board.html" && index == undefined) {
     closeOverlayAddTask(true);
   }
-  translateTaskAddedElementAndRedirect();
 }
 
 function generateTaskState(index) {
@@ -433,7 +424,7 @@ function translateTaskAddedElementAndRedirect() {
   element.classList.remove("d-none");
   element.style.transform = "translateY(387px)";
   setTimeout(() => {
-    window.location.href = "http://127.0.0.1:5500/board.html";
+    window.location.href = "./board.html";
   }, 2000);
 }
 
