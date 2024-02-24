@@ -360,7 +360,7 @@ function templateEditOverlayDueDate(task) {
       <div class="input-container-edit">
         <span>Due Date</span>
         <input onclick="checkDateInputField()" onkeyup="checkDateInputField()" value="${task.date}" class="input-addtask-date-modified" id="date" type="text" maxlength="10" placeholder="dd/mm/yyyy" pattern="\d{2}/\d{2}/\d{4}" required />
-        <input type="date" id="dateNormal" class="input-addtask-datepicker" pattern="\d{2}/\d{2}/\d{4}" onchange="formatDateInput();updateDateFieldValue()" />
+        <input type="date" id="dateNormal" class="input-addtask-datepicker edit-datepicker" pattern="\d{2}/\d{2}/\d{4}" onchange="formatDateInput();updateDateFieldValue()" />
         <div class="due-date-icon">
           <svg class="d-none" width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <mask id="mask0_138036_1819" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="24">

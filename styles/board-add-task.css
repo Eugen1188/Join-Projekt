@@ -81,6 +81,10 @@
     align-self: flex-end;
 }
 
+.edit-datepicker{
+    top: 44px;
+}
+
 .task-overlay-edit-top img:hover{
     background-color: rgba(0, 0, 0, 0.1);
     border-radius: 50% 50%;
@@ -132,6 +136,7 @@
 
 .choosen-contacts{
     position: static;
+    padding-top: 8px;
 }
 
 .due-date-icon {
