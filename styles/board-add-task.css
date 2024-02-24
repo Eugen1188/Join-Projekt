@@ -126,7 +126,7 @@
 }
 
 .input-container-edit textarea {
-    width: calc(445px - 36px);
+    width: 445px;
     border: 1px solid lightgray;
 }
 
