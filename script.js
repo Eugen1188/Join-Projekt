@@ -2,6 +2,7 @@ const STORAGE_TOKEN = "B0S7VW5J7TMVF1N3C8G1FX6TF8A9FYUYYTJ8W60E";
 const STORAGE_URL = "https://remote-storage.developerakademie.org/item";
 let allTasks = [];
 let logedInUser = [];
+let currentTaskState={ inProgress: false, awaitFeedback: false, done: false };
 
 /**
  * Speichert einen Wert im Speicher.

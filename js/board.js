@@ -11,6 +11,7 @@ let lockout;
  */
 async function initBoard() {
     await testfunc();
+    clearCurrentTask();
     renderCheckState(allTasks);
     initContacts();
     checkedContacts = [];
@@ -148,8 +149,11 @@ function displayOpenOverlay(id) {
     document.getElementById(id).classList.remove("task-overlay-translate-out");
 }
 
-function displayAddTaskOverlay() {
+function displayAddTaskOverlay(state) {
     checkedContacts = [];
+    if (state !== undefined) {
+        handleTaskState(state)
+    }
     document.getElementById("overlay").classList.remove("d-none");
     document.getElementById('overlay-add-task').classList.remove("d-none");
     document.getElementById("overlay-add-task").classList.remove("task-overlay-translate-out");
@@ -366,4 +370,14 @@ function getContactIndex(id) {
 async function editTask(index) {
     await validateForm(index);
     renderTaskOverlay(index);
+}
+
+function handleTaskState(taskState){
+    if (taskState === 'todo') {
+        currentTaskState = { inProgress: false, awaitFeedback: false, done: false };
+    }else if (taskState == 'inprogress') {
+        currentTaskState = { inProgress: true, awaitFeedback: false, done: false };
+    }else if (taskState == 'awaitfeedback') {
+        currentTaskState = { inProgress: false, awaitFeedback: true, done: false };
+    }
 }

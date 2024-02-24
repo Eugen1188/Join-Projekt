@@ -371,7 +371,7 @@ async function addTask(index) {
       title: title.value,
       contactDataAsArray: finalContactData,
       contactIds: contactIds,
-      status: { inProgress: false, awaitFeedback: false, done: false }, // true oder false werden im Board gesetzt
+      status: currentTaskState, // true oder false werden im Board gesetzt
       taskDescription: taskDescription.value,
       contacts: contactName,
       initials: initials,
@@ -399,7 +399,7 @@ async function addTask(index) {
     allTasks.push(task);
     await setItem("test_board", allTasks);
   }
-
+  clearCurrentTask();
   if (window.location.href == "http://127.0.0.1:5500/board.html" && index == undefined) {
     closeOverlayAddTask(true);
   }
@@ -596,4 +596,9 @@ async function testfunc() {
     .catch((error) => {
       console.error("Ein Fehler ist aufgetreten:", error);
     });
+}
+
+
+function clearCurrentTask(){
+  currentTaskState={ inProgress: false, awaitFeedback: false, done: false };
 }
