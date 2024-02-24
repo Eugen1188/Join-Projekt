@@ -94,7 +94,7 @@ function renderCardAssignee(data) {
 
 /**
  *
- * @param {*} data
+ * @param {Array} data
  * @returns
  */
 function renderOverlayAssignee(data) {
@@ -176,6 +176,3 @@ function renderAddTaskOverlay() {
     document.getElementById("overlay-add-task").innerHTML = templateAddTaskBoard();
     initContacts();
 }
-
-
-
