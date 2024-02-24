@@ -186,6 +186,7 @@
     width: 100%;
     margin-top: 110px;
     z-index: 3;
+    position: absolute;
 }
 
 .edit-card {
@@ -196,6 +197,7 @@
     display: flex;
     background-color: var(--background-color-site);
     z-index: 3;
+    position: relative;
 }
 
 .edit-card-form {
@@ -511,9 +513,11 @@
 .close-btn {
     width: 32px;
     height: 32px;
-    position: relative;
+    position: absolute;
     top: 70px;
-    left: 690px;
+    left: 1118px;
+    display: flex;
+    justify-content: center;
 }
 
 .close-btn img {

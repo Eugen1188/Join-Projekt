@@ -12,16 +12,13 @@
     }
 
     .close-btn {
-        left: 655px;
+        left: 1038px;
     }
 
     .edit-card-form {
         width: 630px;
     }
 
-    .close-btn {
-        left: 613px;
-    }
 }
 
 @media (max-width: 1328px) {
@@ -53,7 +50,7 @@
     }
 
     .close-btn {
-        left: 512px;
+        left: 937px;
     }
 
     .main-header {
@@ -86,4 +83,3 @@
         display: none;
     }
 }
-
