@@ -15,7 +15,7 @@ function templateCard(task) {
                 <div class="board-progress">
                     ${renderProgressBar(task)}
                     <div>
-                        <span>${renderProgressAmount(task)} Subtasks</span>
+                        <span>${renderProgressAmount(task)}</span>
                     </div>
                 </div>
                 <div class="board-card-status">
@@ -48,16 +48,7 @@ function templateTaskOverlay(task) {
             </div>
             <img src="./assets/img/Close.png" alt="close" onclick="closeOverlay()">
         </div>
-        <span class="task-overlay-title">${task.title}</span>
-        <span class="task-overlay-text">${task.taskDescription}</span>
-        <div class="task-overlay-section">
-            <span class="task-overlay-text task-overlay-text-fix">Due date:</span>
-            <span class="task-overlay-text">${task.date}</span>
-        </div>
-        <div class="task-overlay-section">
-            <span class="task-overlay-text task-overlay-text-fix">Priority:</span>
-            <span class="task-overlay-text board-prio-pad">${task.prio} <img src="./assets/img/${task.prio}.png" alt=""></span>
-        </div>
+        ${templateOverlayTopContent(task)}
         <div class="task-overlay-assigned">
             <span class="task-overlay-text task-overlay-text-fix">Assigned to:</span>
             ${renderOverlayAssignee(task)}
@@ -69,6 +60,20 @@ function templateTaskOverlay(task) {
             </div>
         </div>
         ${templateOverlayMenu(task)}`
+}
+
+function templateOverlayTopContent(task){
+  return`
+      <span class="task-overlay-title">${task.title}</span>
+      <span class="task-overlay-text">${task.taskDescription}</span>
+      <div class="task-overlay-section">
+          <span class="task-overlay-text task-overlay-text-fix">Due date:</span>
+          <span class="task-overlay-text">${task.date}</span>
+      </div>
+      <div class="task-overlay-section">
+          <span class="task-overlay-text task-overlay-text-fix">Priority:</span>
+          <span class="task-overlay-text board-prio-pad">${task.prio} <img src="./assets/img/${task.prio}.png" alt=""></span>
+      </div>`
 }
 
 function templateOverlayAssignee(assignee, name, color) {

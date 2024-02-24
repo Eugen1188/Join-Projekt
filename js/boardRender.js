@@ -164,8 +164,12 @@ function renderProgressBar(task) {
 function renderProgressAmount(task) {
     let progressLength = task.subtask.subtask.length;
     let taskState = task.subtask.taskstate.filter(Boolean).length;
-
-    return `${taskState} / ${progressLength}`;
+    if (progressLength !== 0) {
+        return `${taskState} / ${progressLength} Subtasks`;
+    } else{
+        return ''
+    }
+    
 }
 
 function renderAddTaskOverlay() {
