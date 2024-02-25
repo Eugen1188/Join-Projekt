@@ -302,8 +302,7 @@ function closeRenderContactCardSlide() {
   slideBackAnimation("edit-card");
   setTimeout(() => {
     document.getElementById("edit-card").innerHTML = "";
-  }, 550);
-
+  }, 420);
 }
 
 /**
@@ -486,7 +485,7 @@ function rightSlideAnimation(id, htmlTemplate) {
   element.innerHTML += htmlTemplate;
   setTimeout(() => {
     element.classList.remove("right-slide-animation");
-  } , 450);
+  }, 450);
 }
 
 /**
@@ -499,20 +498,21 @@ function slideBackAnimation(id) {
   element.classList.add("slide-back-animation");
   setTimeout(() => {
     element.classList.remove("slide-back-animation");
-    element.innerHTML = "";
   }, 550);
 }
 
 /**
  * Renders the success message after adding a contact
- * @param {Number} userId - id of the contact
+ * @param {Number} id - id of the contact
  */
 function renderAddContactSuccess(userId) {
   let container = document.getElementById("single-contact-data-container")
   let indexOfId = contacts.findIndex(contact => contact.id === userId);
+  let succesfully = document.getElementById("contact-success");
   container.innerHTML = ""
   container.innerHTML += singleContactOverview(indexOfId)
   rightSlideAnimation("contact-success", addContactSuccessHTML(), 600);
   slideBackAnimation("contact-success", 1500);
+  succesfully.innerHTML = "";
   setPersonToActive(indexOfId);
 }
