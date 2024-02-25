@@ -26,13 +26,17 @@ function logIn() {
 // Zeige den Sign Up Button sobald die Checkbox aktiviert ist
 
 function showRegisterButton() {
+  const name = document.getElementById("name-reg").value;
+  const email = document.getElementById("email-reg").value;
+  const password = document.getElementById("password-reg").value;
+  const passwordRep = document.getElementById("rep-password-reg").value;
 
   let btn = document.getElementById('registerBtn');
   if (menuOn == false) {
     btn.classList.remove('d-none');
     menuOn = true;
   }
-  else if (menuOn == true) {
+  else if(menuOn == true){
     btn.classList.add('d-none');
     menuOn = false;
   }
