@@ -191,6 +191,10 @@ body {
   color: var(--light-grey);
   margin-top: 120px;
   box-sizing: border-box;
+  bottom: 40px;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
 }
 
 .login-rights-cont a {
@@ -615,4 +619,5 @@ form {
   align-items: center;
   color: #FFFFFF;
   font-size: 20px;
+  transition: 0.3s;
 }

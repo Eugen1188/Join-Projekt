@@ -108,18 +108,17 @@
 
                         <label class="checkboxlabel"> <span>I accept the <a class="privacy-policy-span">Pricavy
                                     policy</a> </span>
-                            <input class="logincheckbox" type="checkbox">
+                            <input class="logincheckbox" type="checkbox" id="registerCheckbox" onclick="showRegisterButton()">
                             <span class="checkmark"></span>
                         </label>
 
                     </div>
 
-                    <div class="login-buttons-cont">
-                        <a href="#" class="text-decoration-none loginbutton" onsubmit="saveNewUserData()">Sign up</a>
-                    </div>
-
                 </form>
 
+                <div class="login-buttons-cont">
+                    <a href="#" class="text-decoration-none loginbutton d-none" id="registerBtn" onclick="saveNewUserData(), showRegistrationAnimation()">Sign up</a>
+                </div>
 
             </div>
 
@@ -139,9 +138,9 @@
 
     </div>
 
-    <div class="feedback-black-cont"></div>
+    <div class="feedback-black-cont" id="feedback-black-container"></div>
 
-    <div class="feedback-cont">You Signed Up successfully</div>
+    <div class="feedback-cont" id="feedback-registration">You Signed Up successfully</div>
 
 </body>
 
