@@ -511,8 +511,12 @@ function renderAddContactSuccess(userId) {
   let succesfully = document.getElementById("contact-success");
   container.innerHTML = ""
   container.innerHTML += singleContactOverview(indexOfId)
-  rightSlideAnimation("contact-success", addContactSuccessHTML(), 600);
-  slideBackAnimation("contact-success", 1500);
-  succesfully.innerHTML = "";
   setPersonToActive(indexOfId);
+  rightSlideAnimation("contact-success", addContactSuccessHTML());
+  setTimeout(() => {
+    slideBackAnimation("contact-success");
+  }, 1000);
+  setTimeout(() => {
+    succesfully.innerHTML = "";
+  }, 1420);
 }
