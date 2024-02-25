@@ -3,6 +3,7 @@ let menuOn = false;
 async function initRegisteredContacts() {
 
   userData = await getItemContacts('userData');
+  load();
 }
 
 function logIn() {
@@ -13,30 +14,48 @@ function logIn() {
   for (let i = 0; i < userData.length; i++) {
     const element = userData[i];
     if (element.email == email && element.password == password) {
-      logedInUser.push(userData[i]);
-      console.log(logedInUser);
-      setItem("logedInUser", logedInUser);
-      window.location = "summary.html";
+      // logedInUser.push(userData[i]);
+      // console.log(logedInUser);
+      // setItem("logedInUser", logedInUser);
+      if (logedInUser.length == 0) {
+        console.log(logedInUser.length);
+        logedInUser.push(element);
+        window.location = "summary.html";
+        save();
+        break;
+      }
+      
     }
     else
       alert('Email Adresse oder Password falsch !')
+    break;
   }
+}
+
+// login als Gast
+
+function logInAsGuest() {
+  guestArray = ({
+    name: "Guest",
+    email: "guest@guest.org",
+    password: "password",
+    initials: "G",
+  });
+  if (logedInUser.length == 0) {
+    logedInUser.push(guestArray);
+  }
+  save();
 }
 
 // Zeige den Sign Up Button sobald die Checkbox aktiviert ist
 
 function showRegisterButton() {
-  const name = document.getElementById("name-reg").value;
-  const email = document.getElementById("email-reg").value;
-  const password = document.getElementById("password-reg").value;
-  const passwordRep = document.getElementById("rep-password-reg").value;
-
   let btn = document.getElementById('registerBtn');
   if (menuOn == false) {
     btn.classList.remove('d-none');
     menuOn = true;
   }
-  else if(menuOn == true){
+  else if (menuOn == true) {
     btn.classList.add('d-none');
     menuOn = false;
   }
@@ -53,4 +72,24 @@ function showRegistrationAnimation() {
   setTimeout(() => {
     window.location.href = 'index.html';;
   }, 1000);
+}
+
+function save() {
+
+  let logedInUsers = JSON.stringify(logedInUser);
+  localStorage.setItem('logedInUser', logedInUsers);
+}
+
+function load() {
+
+  let logedInUsers = localStorage.getItem('logedInUser');
+  if (logedInUsers) {
+    logedInUser = JSON.parse(logedInUsers);
+  }
+}
+
+function logOut() {
+  logedInUser = [];
+  save();
+  window.location = "index.html";
 }
