@@ -2,7 +2,7 @@ const STORAGE_TOKEN = "B0S7VW5J7TMVF1N3C8G1FX6TF8A9FYUYYTJ8W60E";
 const STORAGE_URL = "https://remote-storage.developerakademie.org/item";
 let allTasks = [];
 let logedInUser = [];
-let currentTaskState={ inProgress: false, awaitFeedback: false, done: false };
+let currentTaskState = { inProgress: false, awaitFeedback: false, done: false };
 
 /**
  * Speichert einen Wert im Speicher.
@@ -55,6 +55,35 @@ function closeRegMenu() {
   regmenu.classList.add('d-none')
 }
 
+/* Header-User Menu öffnen für Info und Logout */
+
+function openNavMenu() {
+  var menu = document.getElementById("logOutMenu");
+  
+  if (menu.style.display === "flex") {
+    menu.style.display = "none";
+    document.body.removeEventListener("click", closeMenuOutside);
+  } else {
+    menu.style.display = "flex";
+    document.body.addEventListener("click", closeMenuOutside);
+  }
+}
+
+// Funktion zum Verhindern, dass das Menü beim Klicken darauf geschlossen wird
+function preventClose(event) {
+  event.stopPropagation(); // Verhindert, dass das Klick-Ereignis sich auf den Body ausbreitet
+}
+
+// Event-Listener für Klicks auf den Body, um das Menü zu schließen
+function closeMenuOutside(event) {
+  var menu = document.getElementById("logOutMenu");
+
+  if (menu.style.display === "flex" && event.target !== menu && !menu.contains(event.target)) {
+    menu.style.display = "none";
+    document.body.removeEventListener("click", closeMenuOutside);
+  }
+}
+
 function includeHTML() {
   var z, i, elmnt, file, xhttp;
   /* Loop through a collection of all HTML elements: */
@@ -87,11 +116,11 @@ function includeHTML() {
   }
 }
 
-function navigateToBoard(){
-  window.location.href ="./board.html";
+function navigateToBoard() {
+  window.location.href = "./board.html";
 }
 
-function navigateToHelp(){
-  window.location.href ="./help.html";
+function navigateToHelp() {
+  window.location.href = "./help.html";
 }
 

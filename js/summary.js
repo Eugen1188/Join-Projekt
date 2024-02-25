@@ -65,24 +65,23 @@ function tasksUrgent() {
     let urgentTasks = document.getElementById('tasks_number_urgent');
     let nextUrgentDate = document.getElementById('next_urgent_task_date');
     let count = 0;
-    let urgentDate = 0;
+    let b = 0;
     for (let i = 0; i < allTasks.length; i++) {
         const element = allTasks[i][0];
         if (element.prio == "urgent") {
-
             count++;
             rightDate = element.date.replace(/[/]/g, "-");
             urgentDates.push(rightDate);
             sortDates(urgentDates);
         }
         urgentTasks.innerHTML = count;
-        nextUrgentDate.innerHTML = showDateInRightFormat(urgentDates[0]);
     }
+    nextUrgentDate.innerHTML = showDateInRightFormat(urgentDates[0]);
 }
 
 function showDateInRightFormat(date) {
 
-    arr = Array.from(date);
+    let arr = Array.from(date);
     let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     let rightMonth = arr[3] + arr[4];
     if (rightMonth[0] == 0) {
@@ -91,7 +90,7 @@ function showDateInRightFormat(date) {
     else {
         rightMonth = months[rightMonth - 1];
     }
-    return `${rightMonth} ${arr[0]}${arr[1]}, ${arr[6]}${arr[7]}${arr[8]}${arr[9]}`
+    return `${rightMonth} ${arr[0]}${arr[1]}, ${arr[6]}${arr[7]}${arr[8]}${arr[9]}` 
 }
 
 function sortDates(urgentDates) {

@@ -139,3 +139,39 @@ body {
     color: var(--light-blue);
     font-weight: 700;
 }
+
+.logout-info-menu-main-cont {
+    width: 150px;
+    height: 158px;
+    background-color: var(--button-color);
+    position: absolute;
+    right: 20px;
+    top: 96px;
+    border-radius: 20px 0px 20px 20px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 16px;
+    z-index: 999;
+}
+
+.logout-inner-cont {
+    width: 130px;
+    height: 46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--Logout-font-color);
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.logout-inner-cont:hover {
+    background-color: #4c6ea1
+}
+
+.logout-smaller-help-cont {
+    width: 105px;
+    height: 19px;
+}

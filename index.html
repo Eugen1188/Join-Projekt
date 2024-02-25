@@ -14,7 +14,7 @@
     <script src="./js/summary.js"></script>
 </head>
 
-<body onload="initRegisteredContacts()"> 
+<body onload="initRegisteredContacts()">
 
 
 
@@ -99,18 +99,23 @@
 
             <div class="form-cont">
                 <form action="summary.html">
-                    <input class="loginname" type="text" name="email" id="name-reg" placeholder="Name">
-                    <input class="loginemail" type="email" name="email" id="email-reg" placeholder="Email">
-                    <input class="loginpassword" type="password" name="" id="password-reg" placeholder="Password">
-                    <input class="loginpassword" type="password" name="" id="rep-password-reg" placeholder="Confirm Password">
+                    <input class="loginname" type="text" name="" id="name-reg" placeholder="Name" required>
+                    <input class="loginemail" type="email" name="" id="email-reg" placeholder="Email" required>
+                    <input class="loginpassword" type="password" name="" id="password-reg" placeholder="Password" required>
+                    <input class="loginpassword" type="password" name="" id="rep-password-reg" placeholder="Confirm Password" required>
 
                     <div class="checkbox-cont">
 
-                        <label class="checkboxlabel"> <span>I accept the <a class="privacy-policy-span">Pricavy policy</a> </span>
+                        <label class="checkboxlabel"> <span>I accept the <a class="privacy-policy-span">Pricavy
+                                    policy</a> </span>
                             <input class="logincheckbox" type="checkbox">
                             <span class="checkmark"></span>
                         </label>
 
+                    </div>
+
+                    <div class="login-buttons-cont">
+                        <a href="#" class="text-decoration-none loginbutton" onsubmit="saveNewUserData()">Sign up</a>
                     </div>
 
                 </form>
@@ -118,9 +123,7 @@
 
             </div>
 
-            <div class="login-buttons-cont">
-                <a href="#" class="text-decoration-none loginbutton" onclick="saveNewUserData()">Sign up</a>
-            </div>
+
 
         </div>
 
@@ -136,6 +139,9 @@
 
     </div>
 
+    <div class="feedback-black-cont"></div>
+
+    <div class="feedback-cont">You Signed Up successfully</div>
 
 </body>
 
