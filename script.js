@@ -124,3 +124,6 @@ function navigateToHelp() {
   window.location.href = "./help.html";
 }
 
+function navigateToAddTask(){
+  window.location.href = "./add-task.html";
+}
