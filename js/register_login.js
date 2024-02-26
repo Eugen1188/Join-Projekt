@@ -3,7 +3,7 @@ let menuOn = false;
 async function initRegisteredContacts() {
 
   userData = await getItemContacts('userData');
-  load();
+ // load();
 }
 
 function logIn() {

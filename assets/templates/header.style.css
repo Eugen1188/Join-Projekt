@@ -106,6 +106,10 @@ body {
     font-size: 20px;
 }
 
+.logo-for-responive {
+    display: none;
+}
+
 .head-top-right-side-cont {
     display: flex;
     align-items: center;
