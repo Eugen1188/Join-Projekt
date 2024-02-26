@@ -59,6 +59,7 @@
     #await-feedback,
     #done {
         width: 100%;
+        height: min-content;
     }
 }
 
@@ -176,11 +177,17 @@
     }
 
     .subtask-list-container ul{
-        padding-left: 16px;
+        padding-left: 24px;
     }
 
     .subtask-list-container li{
-        width: 100%;
+        width: 70%;
         padding: 6px 8px;
+    }
+}
+
+@media (max-width: 320px){
+    .scrollbar{
+        margin-left: -30px;
     }
 }
