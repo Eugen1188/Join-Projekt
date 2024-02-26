@@ -60,6 +60,30 @@
   margin-bottom: 8px;
 }
 
+.edit-subtask-field {
+  display: flex;
+  list-style-type: none;
+  padding-inline-start: 0;
+  position: relative;
+}
+
+.edit-subtask-field li {
+  padding: 0;
+}
+
+.edit-subtask-field input {
+  padding-block: 0;
+  padding-inline: 0;
+  padding-block: 0;
+  padding-inline: 0;
+  padding-inline-start: 16px;
+  font-size: 16px;
+  border: none;
+  border-bottom: 1px solid #005dff;
+  width: 424px;
+  height: 32px;
+}
+
 .input-focus-required:focus-visible {
   outline-color: #ff001f !important;
 }
@@ -200,6 +224,18 @@
   padding: 6px 16px;
 }
 
+.subtask-container:focus-visible {
+  outline: 0;
+}
+
+.edit-subtask-field:focus-visible {
+  outline: 0;
+}
+
+.edit-subtask-field:focus-visible input {
+  outline: 0 !important;
+}
+
 .arrow {
   top: 40px;
   right: 12px;
@@ -308,10 +344,12 @@ input[type="radio"] {
 }
 
 .icon-section {
+  position: absolute;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 4px;
+  left: 369px;
 }
 
 .divider-2 {
@@ -447,7 +485,8 @@ input::-webkit-datetime-edit-fields-wrapper {
 
 .button-container {
   width: 100%;
-  margin-top: 146px;
+  position: absolute;
+  top: 536px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
