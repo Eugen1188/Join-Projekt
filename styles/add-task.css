@@ -656,14 +656,28 @@ textarea {
 
 /* Extra large devices (Desktops, 1200px und darüber) */
 @media only screen and (max-width: 1300px) {
+  .button-container {
+    position: fixed;
+    top: calc(100% - 168px);
+    background-color: #f6f7f8;
+    height: 88px;
+    justify-content: space-around;
+  }
+
+  .add-task-form {
+    position: fixed;
+    inset: 280px 0px;
+    width: calc(100% - 32px);
+    padding: 0px 16px;
+    height: calc(100% - 370px);
+  }
+
   .task-headline {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     position: unset;
-    left: 328px;
-    top: 206px;
-    max-width: 1208px;
+    height: 112px;
   }
 
   .add-task-form {
@@ -714,15 +728,6 @@ textarea {
 
   .required-info {
     display: none;
-  }
-
-  .button-container {
-    margin: 0;
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 16px;
   }
 
   .clear-btn {
