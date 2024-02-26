@@ -57,25 +57,33 @@ function closeRegMenu() {
 
 /* Header-User Menu öffnen für Info und Logout */
 
-function openNavMenu() {
-  var menu = document.getElementById("logOutMenu");
-
+function openNavMenu() { 
+  let menu = document.getElementById("logOutMenu");
   if (menu.style.display === "flex") {
+    if(window.innerWidth < 660){
+      menu.classList.add("logout-menu-animation-off");
+      menu.classList.remove("logout-menu-animation-on");
+    }
+    else {
+      menu.classList.remove("logout-menu-animation-off");
+      menu.classList.remove("logout-menu-animation-on");
+    }
     document.body.removeEventListener("click", closeMenuOutside);
-    if (window.innerWidth > 660) {
-      setTimeout(() => {
-        menu.style.display = "none";
-      }, 100);
-    }
-    if (window.innerWidth < 660) {
-      setTimeout(() => {
-        menu.style.display = "none";
-      }, 100);
-      
-    }
+    setTimeout(() => {
+      menu.style.display = "none";
+    }, 100);
+    
   } else {
     menu.style.display = "flex";
     document.body.addEventListener("click", closeMenuOutside);
+    if(window.innerWidth < 660) {
+      menu.classList.add("logout-menu-animation-on");
+      menu.classList.remove("logout-menu-animation-off");
+    }
+    else {
+      menu.classList.remove("logout-menu-animation-on");
+      menu.classList.remove("logout-menu-animation-off");
+    }
   }
 }
 
@@ -89,8 +97,17 @@ function closeMenuOutside(event) {
   var menu = document.getElementById("logOutMenu");
 
   if (menu.style.display === "flex" && event.target !== menu && !menu.contains(event.target)) {
-    menu.style.display = "none";
     document.body.removeEventListener("click", closeMenuOutside);
+    if(window.innerWidth < 660) {
+      menu.classList.add("logout-menu-animation-off");
+      setTimeout(() => {
+        menu.style.display = "none";
+      }, 100);
+    }
+    setTimeout(() => {
+      menu.style.display = "none";
+    }, 100);
+    
   }
 }
 

@@ -100,19 +100,30 @@
     }
 
     .logout-info-menu-main-cont{
-        animation: showMenuFromSide 100ms ease-in-out forwards;
         top: 65px;
         right: 10px;
-        transition: transform 0.3 ease;
+
     }
 
-    @keyframes showMenuFromSide {
+    @keyframes menuOn {
         from {
             transform: translateX(500px)
         }
       
         to {
             transform: translateX(0px)
+        }
+      }
+
+      
+      @keyframes menuOff {
+        from {
+            transform: translateX(0px)
+            
+        }
+      
+        to {
+            transform: translateX(500px)
         }
       }
 

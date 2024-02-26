@@ -179,3 +179,11 @@ body {
     width: 105px;
     height: 19px;
 }
+
+.logout-menu-animation-on {
+    animation: menuOn 100ms ease-in-out forwards;
+}
+
+.logout-menu-animation-off {
+    animation: menuOff 100ms ease-in-out forwards;
+}
