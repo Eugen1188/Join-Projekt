@@ -1,4 +1,4 @@
-@media(max-width:900px) {
+@media(max-width:660px) {
 
     .main-header {
         position: absolute;
@@ -11,6 +11,7 @@
         flex-direction: unset;
         justify-content: unset;
         align-items: unset;
+        z-index: 2;
     }
 
     .logo-cont {
@@ -97,4 +98,23 @@
         width: 100%;
         justify-content: space-between;
     }
+
+    .logout-info-menu-main-cont{
+        animation: showMenuFromSide 100ms ease-in-out forwards;
+        top: 65px;
+        right: 10px;
+        transition: transform 0.3 ease;
+    }
+
+    @keyframes showMenuFromSide {
+        from {
+            transform: translateX(500px)
+        }
+      
+        to {
+            transform: translateX(0px)
+        }
+      }
+
+
 }

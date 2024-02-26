@@ -8,6 +8,15 @@ let taskStates = [];
 let tempContacts = [];
 let contactIds = [];
 
+/**
+ * Retrieves contacts associated with a specified key from a storage endpoint.
+ * @async
+ * @function getItemContacts
+ * @param {string} key - The key associated with the contacts to retrieve.
+ * @returns {Promise<Array>} A promise that resolves to an array of contacts.
+ * @throws {Error} Throws an error if there is a problem with the retrieval process.
+ */
+
 async function getItemContacts(key) {
   const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
   try {
@@ -30,6 +39,12 @@ function getAllContacts() {
   displayContacts(tempContacts);
 }
 
+/**
+ * Displays a list of contacts in a select element on the DOM.
+ * @function displayContacts
+ * @param {Array} contacts - An array of contacts to display.
+ */
+
 function displayContacts(contacts) {
   checkedContacts = [];
   let selectElement = document.getElementById("contact-values");
@@ -41,12 +56,24 @@ function displayContacts(contacts) {
   selectElement.innerHTML = optionsHTML;
 }
 
+/**
+ * Toggles the visibility of a list of contacts.
+ * @function showContacts
+ */
+
 function showContacts() {
   let arrow = document.getElementById("arrowContactInput");
   let id = document.getElementById("contact-values");
   id.classList.toggle("d-none");
   arrow.classList.toggle("rotate-180");
 }
+
+/**
+ * Retrieves information about a clicked contact and updates its visual representation.
+ * @function getClickedContact
+ * @param {number} index - The index of the clicked contact.
+ * @param {string} contactId - The ID of the clicked contact.
+ */
 
 function getClickedContact(index, contactId) {
   let iconToChange = document.getElementById(`checkboxIcon_${index}`);
@@ -55,6 +82,17 @@ function getClickedContact(index, contactId) {
   let isChecked = checkedContacts.includes(contactId);
   checkClickedContact(iconToChange, contactCard, checkBoxIconColor, isChecked, index, contactId);
 }
+
+/**
+ * Updates the visual representation of a clicked contact based on its current state.
+ * @function checkClickedContact
+ * @param {HTMLElement} iconToChange - The checkbox icon element to be updated.
+ * @param {HTMLElement} contactCard - The contact card element associated with the clicked contact.
+ * @param {HTMLElement} checkBoxIconColor - The checkbox icon color element associated with the clicked contact.
+ * @param {boolean} isChecked - Indicates whether the clicked contact is already checked.
+ * @param {number} index - The index of the clicked contact.
+ * @param {string} contactId - The ID of the clicked contact.
+ */
 
 function checkClickedContact(iconToChange, contactCard, checkBoxIconColor, isChecked, index, contactId) {
   if (isChecked) {
@@ -72,6 +110,11 @@ function checkClickedContact(iconToChange, contactCard, checkBoxIconColor, isChe
     checkBoxIconColor.classList.add("stroke-wht");
   }
 }
+
+/**
+ * Filters and displays contacts based on the input value.
+ * @function filterContacts
+ */
 
 function filterContacts() {
   // Input-Wert abrufen
@@ -95,6 +138,11 @@ function displayFilteredContacts(filteredContacts) {
   displayContacts(filteredContacts);
 }
 
+/**
+ * Renders circles representing chosen contacts and displays them in the designated container.
+ * @function showChoosenContactsCircle
+ */
+
 function showChoosenContactsCircle() {
   let container = document.getElementById("choosenContacts");
   container.innerHTML = "";
@@ -111,6 +159,11 @@ function showChoosenContactsCircle() {
     });
   });
 }
+
+/**
+ * Retrieves information about checked contacts and stores it in various arrays.
+ * @function getCheckedContact
+ */
 
 function getCheckedContact() {
   initials = [];
@@ -138,10 +191,23 @@ function getCheckedContact() {
   });
 }
 
+/**
+ * Handles click events and updates the priority button color based on the provided value.
+ * @function handleClick
+ * @param {string} value - The value representing the priority.
+ */
+
 function handleClick(value) {
   let priority = value;
   document.documentElement.style.setProperty("--prio-button-selected", getButtonColor(priority));
 }
+
+/**
+ * Retrieves the color associated with the specified priority.
+ * @function getButtonColor
+ * @param {string} priority - The priority value.
+ * @returns {string} The color associated with the specified priority.
+ */
 
 function getButtonColor(priority) {
   if (priority === "low") {
@@ -154,6 +220,12 @@ function getButtonColor(priority) {
     return "white";
   }
 }
+
+/**
+ * Inverts SVG fills based on the provided priority value.
+ * @function invertSvgFills
+ * @param {string} value - The value representing the priority.
+ */
 
 function invertSvgFills(value) {
   let priorityIcon = value;
@@ -173,10 +245,21 @@ function invertSvgFills(value) {
   }
 }
 
+/**
+ * Retrieves the value of an input field with the ID "subtask".
+ * @function getInput
+ * @returns {string} The value of the input field.
+ */
+
 function getInput() {
   let subtask = document.getElementById("subtask").value;
   return subtask;
 }
+
+/**
+ * Pushes a subtask into the subtasks array, updates task states, displays subtasks, and renders a plus icon.
+ * @function pushSubtask
+ */
 
 function pushSubtask() {
   let subTaskSvgContainer = document.getElementById("subTaskSvgContainer");
@@ -193,6 +276,11 @@ function pushSubtask() {
   }
 }
 
+/**
+ * Displays subtasks in the designated container.
+ * @function showSubtasks
+ */
+
 function showSubtasks() {
   let showSubtasks = document.getElementById("showSubtasks");
   showSubtasks.innerHTML = "";
@@ -200,6 +288,12 @@ function showSubtasks() {
     showSubtasks.innerHTML += renderSubtaskItem(subtask, index);
   });
 }
+
+/**
+ * Handles mouse hover event to display additional options for a subtask.
+ * @function mouseIn
+ * @param {number} index - The index of the subtask.
+ */
 
 function mouseIn(index) {
   let selectedSubtask = document.getElementById(`subtaskListContainer_${index}`);
@@ -211,6 +305,12 @@ function mouseIn(index) {
   }
 }
 
+/**
+ * Handles mouse out event to hide additional options for a subtask.
+ * @function mouseOut
+ * @param {number} index - The index of the subtask.
+ */
+
 function mouseOut(index) {
   let selectedSubtask = document.getElementById(`subtaskListContainer_${index}`);
   let iconSection = document.getElementById(`subtask-icon-section_${index}`);
@@ -219,6 +319,12 @@ function mouseOut(index) {
     iconSection.classList.add("d-none");
   }
 }
+
+/**
+ * Prepares a subtask for editing by replacing it with an input field.
+ * @function editSubtask
+ * @param {number} index - The index of the subtask to be edited.
+ */
 
 function editSubtask(index) {
   let subtaskToEdit = document.getElementById(`subtask_${index}`);
@@ -232,6 +338,12 @@ function editSubtask(index) {
   subtaskToEdit.querySelector("input").focus();
 }
 
+/**
+ * Saves the edited value of a subtask and updates the display.
+ * @function saveEditedSubtask
+ * @param {number} index - The index of the subtask being edited.
+ */
+
 function saveEditedSubtask(index) {
   let newSubtaskValue = document.getElementById("changedSubtaskValue").value;
   if (newSubtaskValue == "") {
@@ -241,6 +353,12 @@ function saveEditedSubtask(index) {
     showSubtasks();
   }
 }
+
+/**
+ * Clears the input field for entering subtasks.
+ * @function clearSubtaskInput
+ * @returns {string} An empty string.
+ */
 
 function clearSubtaskInput() {
   let subtask = (document.getElementById("subtask").value = "");

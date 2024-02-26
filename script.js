@@ -59,10 +59,20 @@ function closeRegMenu() {
 
 function openNavMenu() {
   var menu = document.getElementById("logOutMenu");
-  
+
   if (menu.style.display === "flex") {
-    menu.style.display = "none";
     document.body.removeEventListener("click", closeMenuOutside);
+    if (window.innerWidth > 660) {
+      setTimeout(() => {
+        menu.style.display = "none";
+      }, 100);
+    }
+    if (window.innerWidth < 660) {
+      setTimeout(() => {
+        menu.style.display = "none";
+      }, 100);
+      
+    }
   } else {
     menu.style.display = "flex";
     document.body.addEventListener("click", closeMenuOutside);
@@ -124,6 +134,6 @@ function navigateToHelp() {
   window.location.href = "./help.html";
 }
 
-function navigateToAddTask(){
+function navigateToAddTask() {
   window.location.href = "./add-task.html";
 }
