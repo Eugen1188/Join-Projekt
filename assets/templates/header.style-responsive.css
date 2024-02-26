@@ -1,4 +1,4 @@
-@media(max-width:900px) {
+@media(max-width:660px) {
 
     .main-header {
         position: absolute;
@@ -100,18 +100,19 @@
     }
 
     .logout-info-menu-main-cont{
-        animation: showMenuFromSide 1s ease-in-out forwards;
+        animation: showMenuFromSide 100ms ease-in-out forwards;
         top: 65px;
-        right: -500px
+        right: 10px;
+        transition: transform 0.3 ease;
     }
 
     @keyframes showMenuFromSide {
         from {
-            right: -500px;
+            transform: translateX(500px)
         }
       
         to {
-            right: 5px;
+            transform: translateX(0px)
         }
       }
 
