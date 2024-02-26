@@ -26,10 +26,13 @@
     <div class="board-top-content">
       <div class="board-top-cont-left">
         <h2>Board</h2>
+        <div class="board-top-add" onclick="navigateToAddTask()">
+          <img src="./assets/img/addresponsive.png" alt="add">
+        </div>
       </div>
       <div class="board-top-cont-right">
         <div class="board-search-form">
-          <form onkeyup="searchTask();" onsubmit="searchTask(); return false">
+          <form class="board-top-form" onkeyup="searchTask();" onsubmit="searchTask(); return false">
             <input type="text" id="board-search-task" placeholder="Find Task" autocomplete="off" />
             <div>
               <img src="./assets/img/search.png" alt="search-button" onclick="searchTask()" />

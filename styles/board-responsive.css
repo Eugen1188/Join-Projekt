@@ -1,6 +1,48 @@
+.board-top-add{
+    background: var(--button-color);
+    height: 40px;
+    width: 40px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    display: none;
+}
+
+.board-top-add:hover{
+    background: var(--light-blue);
+}
+
+.board-top-cont-left{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}	
+
 @media(max-width: 1430px) {
     .board-main {
         flex-direction: column;
+    }
+
+    .divider{
+        display: block!important;
+    }
+
+    .task-headline{
+        justify-content: flex-start!important;
+    }
+
+    .task-overlay-translate-in-task{
+        translate: calc(-100vw - 50%);
+    }
+
+    .required-info{
+        display: flex!important;
+    }
+
+    .button-container{
+        margin-top: 146px;
     }
 
     .board-card-section {
@@ -32,20 +74,39 @@
     }
 }
 
-@media(max-width: 1100px) {
+
+
+@media(max-width: 1150px) {
     .main-header {
         width: 160px;
+    }
+
+    .addtask-side-left{
+        left: 20px;
+    }
+
+    .divider{
+        left: 470px;
+    }
+
+    .addtask-side-right{
+        left: 480px;
+    }
+
+    .add-task-overlay{
+        width: calc(100% - 32px);
     }
 
     .board-main {
         inset: 307px 130px;
     }
 
-    .board-top{
+    .board-top {
         left: 130px;
+        width: calc(100% - 105px);
     }
 
-    .board-add-button{
+    .board-add-button {
         text-wrap: nowrap;
     }
 
@@ -59,5 +120,148 @@
     #await-feedback,
     #done {
         width: 100%;
+        height: min-content;
+    }
+}
+
+@media(max-width: 980px){
+    .board-top-add{
+        display: flex;
+    }
+
+    .board-add-button{
+        display: none;
+    }
+}
+
+@media (max-width:900px) {
+
+
+
+    .main-header {
+        width: -webkit-fill-available;
+    }
+
+    .board-main {
+        inset: 280px 0px;
+        width: calc(100% - 32px);
+        padding: 0px 16px;
+        height: calc(100% - 370px);
+    }
+
+    .board-top {
+        left: 16px;
+        top: 64px;
+        width: calc(100% - 32px);
+    }
+
+    .board-top-content {
+        padding: 0px;
+    }
+
+    .board-add-button {
+        display: none;
+    }
+
+    .board-top-form, .board-top-cont-right, #board-search-task{
+        width: 100%;
+    }
+
+    .board-top-cont-right{
+        padding-right: 0;
+    }
+
+    .board-search-form{
+        width: 100%;
+        max-width: 303px;
+        margin-right: 32px;
+    }
+
+    .board-title-content{
+        width: 100%;
+        
+    }
+    .task-overlay-content{
+        width: calc(100% - 112px);
+        max-width: calc(525px - 80px);
+        max-height: 75%;
+    }
+
+    .task-overlay-translate-in {
+        translate: calc(-100vw - 50%);
+    }
+}
+
+@media (max-width:550px){
+    .task-overlay-content{
+        overflow-y: scroll;
+        gap: 16px;
+    }
+
+    .task-overlay-content::-webkit-scrollbar{
+        display: none;
+    }
+
+    .task-overlay-title{
+        font-size: 32px!important;
+    }
+
+    .task-overlay-content span{
+        font-size: 16px;
+    }
+
+    .scrollbar{
+        width: 110%;
+        min-width: 300px;
+    }
+
+    .task-overlay-edit-content, .input-container-edit, .input-addtask-edit, .input-addtask-date-modified, .input-subtask   {
+        width: calc(100% - 22px)!important;
+    }
+
+    .input-addtask{
+        width: calc(100% - 44px);
+    }
+
+    .input-addtask-datepicker{
+        left: 232px;
+    }
+
+    textarea{
+        width: calc(100% + 20px)!important;
+    }
+
+    .contact-values, .input-container {
+        width: 100%;
+    }
+
+    .radio-button, .prio-container, label{
+        padding: 0!important ;
+        font-size: 16px!important;
+        font-weight: 400!important;
+    }
+
+    label.radio-button{
+        width: 30%;
+    }
+
+    .prio-container{
+        min-width: 268px;
+        width: 108%;
+    }
+
+    .subtask-list-container ul{
+        padding-left: 24px;
+    }
+
+    .subtask-list-container li{
+        width: 70%;
+        padding: 6px 8px;
+    }
+}
+
+@media (max-width: 320px){
+    .scrollbar{
+        margin-left: -30px;
     }
 }
