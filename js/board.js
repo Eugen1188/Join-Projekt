@@ -151,13 +151,17 @@ function displayOpenOverlay(id) {
 
 function displayAddTaskOverlay(state) {
     checkedContacts = [];
-    if (state !== undefined) {
-        handleTaskState(state)
+    if (window.innerWidth <= 980) {
+        navigateToAddTask();
+    } else {
+        if (state !== undefined) {
+            handleTaskState(state)
+        }
+        document.getElementById("overlay").classList.remove("d-none");
+        document.getElementById('overlay-add-task').classList.remove("d-none");
+        document.getElementById("overlay-add-task").classList.remove("task-overlay-translate-out");
+        openAddTaskOverlay();
     }
-    document.getElementById("overlay").classList.remove("d-none");
-    document.getElementById('overlay-add-task').classList.remove("d-none");
-    document.getElementById("overlay-add-task").classList.remove("task-overlay-translate-out");
-    openAddTaskOverlay();
 }
 
 /**
@@ -372,12 +376,12 @@ async function editTask(index) {
     renderTaskOverlay(index);
 }
 
-function handleTaskState(taskState){
+function handleTaskState(taskState) {
     if (taskState === 'todo') {
         currentTaskState = { inProgress: false, awaitFeedback: false, done: false };
-    }else if (taskState == 'inprogress') {
+    } else if (taskState == 'inprogress') {
         currentTaskState = { inProgress: true, awaitFeedback: false, done: false };
-    }else if (taskState == 'awaitfeedback') {
+    } else if (taskState == 'awaitfeedback') {
         currentTaskState = { inProgress: false, awaitFeedback: true, done: false };
     }
 }
