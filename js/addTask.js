@@ -204,6 +204,7 @@ function showSubtasks() {
 function mouseIn(index) {
   let selectedSubtask = document.getElementById(`subtaskListContainer_${index}`);
   let iconSection = document.getElementById(`subtask-icon-section_${index}`);
+  let getUlElement = document.getElementById(`subTaskItemUl_${index}`);
   selectedSubtask.classList.add("subtask-selected");
   if (iconSection) {
     iconSection.classList.remove("d-none");
@@ -224,7 +225,9 @@ function editSubtask(index) {
   let iconSection = document.getElementById(`subtask-icon-section_${index}`);
   let subtaskText = subtasks[index];
   let inputField = ` <input id="changedSubtaskValue" type="text" value="${subtaskText}" >`;
+  let getUlElement = document.getElementById(`subTaskItemUl_${index}`);
   iconSection.innerHTML = renderEditSubtaskIcons(index);
+  getUlElement.classList.add("edit-subtask-field");
   subtaskToEdit.innerHTML = inputField;
   subtaskToEdit.querySelector("input").focus();
 }
@@ -351,7 +354,8 @@ function validateForm(index) {
   } else addTask(index);
 }
 
-async function addTask(index) {
+/**
+ * async function addTask(index) {
   let id = allTasks.length;
   let title = document.getElementById("title");
   let taskDescription = document.getElementById("taskDescription");
@@ -400,6 +404,83 @@ async function addTask(index) {
     await setItem("test_board", allTasks);
   }
   clearCurrentTask();
+  if (window.location.href == "http://127.0.0.1:5500/board.html" && index == undefined) {
+    closeOverlayAddTask(true);
+  }
+  if (window.location.href == "http://127.0.0.1:5500/add-task.html") {
+    translateTaskAddedElementAndRedirect();
+  }
+}
+ * 
+ */
+
+async function addTask(index) {
+  let id = allTasks.length;
+  let title = document.getElementById("title");
+  let taskDescription = document.getElementById("taskDescription");
+  let date = document.getElementById("date");
+  let prio = getPriorityValue();
+  let category = document.getElementById("category");
+  let task = createTaskObject(id, title.value, taskDescription.value, date.value, prio, category.value, index);
+  if (index !== undefined) {
+    updateExistingTask(index, task);
+  } else {
+    addNewTask(task);
+  }
+  clearCurrentTask();
+  handleLocation(index);
+}
+
+function getPriorityValue() {
+  let prioInputs = document.getElementsByName("priority");
+  let prio;
+  for (let i = 0; i < prioInputs.length; i++) {
+    if (prioInputs[i].checked) {
+      prio = prioInputs[i].value;
+    }
+  }
+  return prio;
+}
+
+function createTaskObject(id, title, description, date, prio, category, index) {
+  return [
+    {
+      id: id,
+      title: title,
+      contactDataAsArray: finalContactData,
+      contactIds: contactIds,
+      status: currentTaskState,
+      taskDescription: description,
+      contacts: contactName,
+      initials: initials,
+      circleColor: circleColors,
+      createdAt: new Date().getTime(),
+      date: date,
+      prio: prio,
+      category: category,
+      subtask: { subtask: subtasks, taskstate: generateTaskState(index) },
+    },
+  ];
+}
+
+async function updateExistingTask(index, task) {
+  let categoryPlaceholder = allTasks[index][0].category;
+  let idPlaceholder = allTasks[index][0].id;
+  let statusPlaceholder = allTasks[index][0].status;
+  allTasks[index] = task;
+  allTasks[index][0].id = idPlaceholder;
+  allTasks[index][0].status = statusPlaceholder;
+  allTasks[index][0].category = categoryPlaceholder;
+  await setItem("test_board", allTasks);
+  initBoard();
+}
+
+async function addNewTask(task) {
+  allTasks.push(task);
+  await setItem("test_board", allTasks);
+}
+
+function handleLocation(index) {
   if (window.location.href == "http://127.0.0.1:5500/board.html" && index == undefined) {
     closeOverlayAddTask(true);
   }
@@ -481,8 +562,8 @@ function renderSubtaskPlusIcon() {
 
 function renderSubtaskItem(subtask, index) {
   return `
- <div id="subtaskListContainer_${index}" class="subtask-list-container">
-  <ul onmouseover="mouseIn(${index})" onmouseout="mouseOut(${index})">
+ <div ondblclick="editSubtask(${index})" id="subtaskListContainer_${index}" class="subtask-list-container">
+  <ul id="subTaskItemUl_${index}" onmouseover="mouseIn(${index})" onmouseout="mouseOut(${index})">
     <li id="subtask_${index}" class="subtask-container">${subtask}</li>
     <div id="subtask-icon-section_${index}" class=" icon-section d-none">
       <svg width="19" height="19" onclick="editSubtask(${index})" class="pointer" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -598,7 +679,6 @@ async function testfunc() {
     });
 }
 
-
-function clearCurrentTask(){
-  currentTaskState={ inProgress: false, awaitFeedback: false, done: false };
+function clearCurrentTask() {
+  currentTaskState = { inProgress: false, awaitFeedback: false, done: false };
 }
