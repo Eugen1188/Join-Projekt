@@ -1,6 +1,7 @@
 let urgentDates = [];
 
 async function renderSummeryTasks() {
+    userGreetings();
     await testfunc();
     logedInUser = await getItemContacts("logedInUser");
     tasksInBoard();
@@ -108,4 +109,9 @@ function renderLogedUser() {
     userInitials.innerHTML = logedInUser[0].initials;
     firstName.innerHTML = logedInUser[0].name;
     lastname.innerHTML = logedInUser[0].lastname;
+}
+
+function userGreetings() {
+    let greeting = document.getElementById('greetings-resposive-user');
+    greeting.innerHTML += `Good morning!`;
 }

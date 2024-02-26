@@ -296,3 +296,17 @@ h1 {
     font-weight: 700;
     color: var(--light-blue);
 }
+
+.greeting-main-cont-responsive {
+    width: 100%;
+    height: 100vh;
+    display: none;
+    translate: 0.3s;
+    animation: set-opacity 1s ease-in-out forwards;
+    animation-delay: 2s;
+}
+
+.greeting-main-cont-responsive span {
+    font-size: 36px;
+    color: black;
+}

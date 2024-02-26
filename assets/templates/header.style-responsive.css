@@ -11,6 +11,7 @@
         flex-direction: unset;
         justify-content: unset;
         align-items: unset;
+        z-index: 2;
     }
 
     .logo-cont {
@@ -59,6 +60,7 @@
         display: flex;
         flex-direction: row-reverse;
         justify-content: space-between;
+        z-index: 2;
     }
 
     .info-img-container {
@@ -96,4 +98,22 @@
         width: 100%;
         justify-content: space-between;
     }
+
+    .logout-info-menu-main-cont{
+        animation: showMenuFromSide 1s ease-in-out forwards;
+        top: 65px;
+        right: -500px
+    }
+
+    @keyframes showMenuFromSide {
+        from {
+            right: -500px;
+        }
+      
+        to {
+            right: 5px;
+        }
+      }
+
+
 }

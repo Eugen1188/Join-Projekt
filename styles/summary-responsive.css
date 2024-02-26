@@ -1,0 +1,25 @@
+@media(max-width:660px) {
+
+    .greeting-main-cont-responsive {
+        display: flex;
+        background-color: white;
+        z-index: 1;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+    }
+
+    @keyframes set-opacity {
+        from {
+            opacity: 1;
+            display: block;
+        }
+      
+        to {
+
+            opacity: 0;
+            display: none;
+        }
+      }
+}
+
