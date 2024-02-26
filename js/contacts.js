@@ -302,8 +302,7 @@ function closeRenderContactCardSlide() {
   slideBackAnimation("edit-card");
   setTimeout(() => {
     document.getElementById("edit-card").innerHTML = "";
-  }, 550);
-
+  }, 420);
 }
 
 /**
@@ -486,7 +485,7 @@ function rightSlideAnimation(id, htmlTemplate) {
   element.innerHTML += htmlTemplate;
   setTimeout(() => {
     element.classList.remove("right-slide-animation");
-  } , 450);
+  }, 450);
 }
 
 /**
@@ -512,8 +511,12 @@ function renderAddContactSuccess(userId) {
   let succesfully = document.getElementById("contact-success");
   container.innerHTML = ""
   container.innerHTML += singleContactOverview(indexOfId)
-  rightSlideAnimation("contact-success", addContactSuccessHTML(), 600);
-  slideBackAnimation("contact-success", 1500);
-  succesfully.innerHTML = "";
   setPersonToActive(indexOfId);
+  rightSlideAnimation("contact-success", addContactSuccessHTML());
+  setTimeout(() => {
+    slideBackAnimation("contact-success");
+  }, 1000);
+  setTimeout(() => {
+    succesfully.innerHTML = "";
+  }, 1420);
 }
