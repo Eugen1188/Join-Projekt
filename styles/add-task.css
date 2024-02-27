@@ -345,7 +345,7 @@ input[type="radio"] {
   justify-content: space-between;
   align-items: center;
   gap: 4px;
-  left: 369px;
+  right: 12px;
 }
 
 .divider-2 {
@@ -626,6 +626,18 @@ input::-webkit-datetime-edit-fields-wrapper {
   gap: 4px;
 }
 
+input:focus-visible {
+  outline: 2px solid var(--light-blue) !important;
+}
+
+textarea:focus-visible {
+  outline: 2px solid var(--light-blue) !important;
+}
+
+select:focus-visible {
+  outline: 2px solid var(--light-blue) !important;
+}
+
 textarea {
   border: 1px solid #d1d1d1;
   color: black;
@@ -689,6 +701,7 @@ textarea {
 
   .contact-values {
     width: 100%;
+    background-color: white;
   }
 
   .input-container {

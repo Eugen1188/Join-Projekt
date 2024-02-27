@@ -127,6 +127,7 @@ function checkClickedContact(iconToChange, contactCard, checkBoxIconColor, isChe
     contactCard.classList.add("active");
     checkBoxIconColor.classList.add("stroke-wht");
   }
+  showChoosenContactsCircle();
 }
 
 /**
