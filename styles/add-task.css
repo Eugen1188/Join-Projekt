@@ -398,12 +398,13 @@ input[type="radio"]:checked + label.radio-button {
 }
 
 .contact-value-wrapper {
-  height: 326px;
   width: 440px;
   display: flex;
   background-color: white;
-  margin-top: -8px;
+  margin-top: -23px;
   padding-top: 8px;
+  position: relative;
+  top: -48px;
 }
 
 .prio-container {
@@ -672,7 +673,7 @@ textarea {
   }
 
   .contact-value-wrapper {
-    width: calc(100% - 42px);
+    width: calc(100% - 23px);
   }
 
   .input-addtask-datepicker {
@@ -686,8 +687,7 @@ textarea {
   }
 
   .contact-values {
-    width: calc(100% - 50px);
-    position: absolute;
+    width: 100%;
     z-index: 9999;
     top: 502px;
   }
@@ -706,6 +706,7 @@ textarea {
 
   .input-container-contacts {
     width: calc(100% - 22px);
+    z-index: 2000;
   }
 
   .custom-select {
