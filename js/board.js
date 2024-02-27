@@ -375,7 +375,6 @@ function getContactIndex(id) {
     for (let i = 0; i < tempContacts.length; i++) {
         const contact = tempContacts[i];
         if (contact.id == id) {
-            console.log(i)
             return i
         }
     }
