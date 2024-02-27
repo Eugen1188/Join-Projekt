@@ -1,4 +1,4 @@
-@media(max-width:900px) {
+@media(max-width:1023px) {
 
     .main-header {
         position: absolute;
@@ -109,19 +109,19 @@
         from {
             transform: translateX(500px)
         }
-      
+
         to {
             transform: translateX(0px)
         }
       }
 
-      
+
       @keyframes menuOff {
         from {
             transform: translateX(0px)
-            
+
         }
-      
+
         to {
             transform: translateX(500px)
         }
