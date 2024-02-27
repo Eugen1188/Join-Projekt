@@ -133,6 +133,8 @@
   align-items: flex-end;
   overflow-y: scroll;
   height: 294px;
+  position: static;
+  margin-top: -8px;
 }
 
 .contact-list-name-initials {
