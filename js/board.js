@@ -17,7 +17,6 @@ async function initBoard() {
     checkedContacts = [];
     await renderAddTaskOverlay();
     lockout = false;
-
 }
 
 /**
@@ -234,7 +233,7 @@ function rotateCard(id) {
         } */
 }
 
-/**
+/* *
  * this function adds overflow-y:scroll to the board-sections
  *
  * @author Kevin Mueller
@@ -296,9 +295,7 @@ async function deleteTask(index) {
  * @author Kevin Mueller
  */
 function searchTask() {
-    let searchValue = document
-        .getElementById("board-search-task")
-        .value.toLowerCase();
+    let searchValue = document.getElementById("board-search-task").value.toLowerCase();
     searchedTask = [];
 
     for (let i = 0; i < allTasks.length; i++) {
@@ -307,7 +304,20 @@ function searchTask() {
         }
     }
     renderCheckState(searchedTask);
+
+    if (searchedTask.length == 0) {
+        myFunction();
+    }
 }
+
+function myFunction() {
+    let searchInfo = document.getElementById("searchInfo"); 
+    searchInfo.className = "show";
+    setTimeout(function(){ searchInfo.className = searchInfo.className.replace("show", ""); }, 3000);
+  }
+
+
+
 function invertSvgFillsEdit(value) {
     let priorityIcon = value;
     let urgentIcon = document.getElementById("urgent-icon-edit");
@@ -365,7 +375,6 @@ function getContactIndex(id) {
     for (let i = 0; i < tempContacts.length; i++) {
         const contact = tempContacts[i];
         if (contact.id == id) {
-            console.log(i)
             return i
         }
     }
@@ -385,3 +394,4 @@ function handleTaskState(taskState) {
         currentTaskState = { inProgress: false, awaitFeedback: true, done: false };
     }
 }
+
