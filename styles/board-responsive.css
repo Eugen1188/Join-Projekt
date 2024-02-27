@@ -20,7 +20,55 @@
     align-items: center;
 }
 
+.change-state-card{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--button-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 50% 50%;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    cursor: pointer;
+}
 
+.change-state-card:hover{
+    background-color: var(--light-blue);
+}
+
+.drop-menu{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    box-sizing: border-box;
+    position: absolute;
+    top: 56.5px;
+    left: 32px;
+    border-radius: 16px 0px 16px 16px;
+    height: 140px;
+    width: 186px;
+    background-color: var(--button-color);
+    color: white;
+    padding: 16px;
+}
+
+.drop-menu-option{
+    cursor: pointer;
+    padding: 0px 12px;
+    width: fit-content;
+    border-radius: 8px;
+}
+
+.drop-menu-disabled{
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+.drop-menu-option:hover{
+    background-color: var(--light-blue);
+}
 
 @media(max-width: 1430px) {
     .board-main {
@@ -134,9 +182,18 @@
     .board-add-button {
         display: none;
     }
+
+    .board-card{
+        position: relative;
+    }
+
+    .change-state-card{
+        display: flex;
+    }
 }
 
 @media (max-width:900px) {
+
 
     main {
         display: flex;
