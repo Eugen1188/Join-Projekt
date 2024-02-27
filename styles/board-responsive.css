@@ -339,6 +339,10 @@
         width: 70%;
         padding: 6px 8px;
     }
+
+    #searchInfo {
+        margin-left: -142px;
+    }
 }
 
 @media (max-width: 320px) {
