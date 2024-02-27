@@ -672,7 +672,7 @@ textarea {
   }
 
   .arrow {
-    left: calc(100% - 16px);
+    left: calc(100% - 42px);
     right: 0;
   }
 
@@ -688,11 +688,11 @@ textarea {
   }
 
   .input-addtask {
-    width: calc(100% - 22px);
+    width: calc(100% - 42px);
   }
 
   .input-addtask-date-modified {
-    width: calc(100% - 22px);
+    width: calc(100% - 42px);
   }
 
   .input-container-contacts {
@@ -700,7 +700,7 @@ textarea {
   }
 
   .custom-select {
-    width: calc(100% - 22px);
+    width: 100%;
   }
 
   .prio-container {
@@ -714,7 +714,7 @@ textarea {
   }
 
   .add-subtask {
-    width: calc(100% - 22px);
+    width: 100%;
   }
 
   .form-container {
@@ -728,7 +728,7 @@ textarea {
     overflow-y: scroll;
   }
 
-  .form-container::-webkit-scrollbar{
+  .form-container::-webkit-scrollbar {
     display: none;
   }
 
@@ -738,7 +738,7 @@ textarea {
     justify-content: flex-start;
     position: unset;
     height: 112px;
-    width: 100%;
+    width: calc(100% - 32px);
     padding: 0px 16px;
     margin-bottom: 32px;
   }
@@ -767,6 +767,11 @@ textarea {
   }
   .choosen-contacts {
     position: unset;
+  }
+
+  .input-addtask-datepicker {
+    left: calc(100% - 34px);
+    right: 0;
   }
 
   .addtask-side-right {
