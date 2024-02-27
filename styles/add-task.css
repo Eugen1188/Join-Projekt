@@ -724,8 +724,12 @@ textarea {
     position: fixed;
     inset: 128px 0px;
     padding: 0px 16px;
-    height: 100vh;
+    height: calc(100% - 300px);
     overflow-y: scroll;
+  }
+
+  .form-container::-webkit-scrollbar{
+    display: none;
   }
 
   .task-headline {
