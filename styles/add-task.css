@@ -404,6 +404,7 @@ input[type="radio"]:checked + label.radio-button {
   background-color: white;
   margin-top: -8px;
   padding-top: 8px;
+  z-index: 999;
 }
 
 .prio-container {
@@ -672,7 +673,7 @@ textarea {
   }
 
   .contact-value-wrapper {
-    width: calc(100% - 42px);
+    width: calc(100% - 22px);
   }
 
   .input-addtask-datepicker {
@@ -686,10 +687,7 @@ textarea {
   }
 
   .contact-values {
-    width: calc(100% - 50px);
-    position: absolute;
-    z-index: 9999;
-    top: 502px;
+    width: 100%;
   }
 
   .input-container {

@@ -80,9 +80,7 @@ function displayContacts(contacts) {
 function showContacts() {
   let arrow = document.getElementById("arrowContactInput");
   let id = document.getElementById("contact-values");
-  let wrapper = document.getElementById("contactValueWrapper");
   id.classList.toggle("d-none");
-  wrapper.classList.toggle("d-none");
   arrow.classList.toggle("rotate-180");
 }
 
