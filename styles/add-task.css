@@ -132,10 +132,7 @@
   flex-direction: column;
   align-items: flex-end;
   overflow-y: scroll;
-  background-color: white;
   height: 294px;
-  top: 339px;
-  position: absolute;
 }
 
 .contact-list-name-initials {
@@ -373,13 +370,12 @@ label.radio-button {
   align-items: center;
   display: flex;
   font-size: 21px;
-  padding: 16px 10px 16px 10px;
   justify-content: center;
   background-color: white;
   color: black;
   cursor: pointer;
   border-radius: 10px;
-  height: 40px;
+  height: 56px;
   width: 136px;
   gap: 8px;
 }
@@ -399,6 +395,15 @@ input[type="radio"]:checked + label.radio-button {
 .assigned-to::placeholder {
   color: black;
   font-size: 16px;
+}
+
+.contact-value-wrapper {
+  height: 326px;
+  width: 440px;
+  display: flex;
+  background-color: white;
+  margin-top: -8px;
+  padding-top: 8px;
 }
 
 .prio-container {
@@ -461,7 +466,7 @@ input::-webkit-datetime-edit-fields-wrapper {
 
 .custom-select {
   background-image: url(http://127.0.0.1:5500/assets/img/icons/arrow_drop_down.png);
-  background-position: calc(100% - 20px) center;
+  background-position: calc(100% - 23px) center;
   cursor: pointer;
   background-repeat: no-repeat;
   -webkit-appearance: none;
@@ -620,10 +625,10 @@ input::-webkit-datetime-edit-fields-wrapper {
 }
 
 textarea {
+  border: 1px solid #d1d1d1;
   color: black;
   font-family: "Inter", sans-serif;
   font-size: 16px;
-  border: none;
   resize: none;
   border-radius: 10px;
   background-color: white;
@@ -664,6 +669,10 @@ textarea {
     background-color: #f6f7f8;
     height: 88px;
     justify-content: space-around;
+  }
+
+  .contact-value-wrapper {
+    width: calc(100% - 42px);
   }
 
   .input-addtask-datepicker {
@@ -708,9 +717,8 @@ textarea {
     width: 100%;
   }
   label.radio-button {
-    width: 100%;
+    width: 30%;
     font-size: 16px;
-    height: 41px;
   }
 
   .add-subtask {
