@@ -62,8 +62,8 @@
         padding: 66px 20px;
     }
 
-    .head-top {
-        padding: 19px 40px 20px 240px
+    .main-header {
+        width: 154px;
     }
 }
 
@@ -77,5 +77,32 @@
 @media (max-width: 1023px) {
     .desktop-view-off {
         display: none;
+    }
+
+    .contacts-container {
+        margin: 0px auto;
+        position: unset;
+        overflow-y: scroll;
+        height: 82%;
+    }
+
+    .single-contact-headline {
+        display: none;
+    }
+
+    .contacts-btn-bg {
+        left: 0px;
+        right: 0px;
+        width: auto;
+        top: 77px;
+    }
+
+    .mobile-center {
+        display: flex;
+        justify-content: center;
+    }
+
+    .main-header {
+        width: 100%;
     }
 }
