@@ -3,7 +3,6 @@ function dragMenu(id){
     currentDraggedElement = id;
 
     document.getElementById(`drop-menu${id}`).classList.toggle('d-none');
-
     if (task.inProgress === true) {
         document.getElementById(`drop-inprogress${id}`).classList.toggle('drop-menu-disabled');
     }else if(task.awaitFeedback === true){
