@@ -127,9 +127,6 @@
 
 
 @media(max-width: 1150px) {
-    .main-header {
-        width: 160px;
-    }
 
     .addtask-side-left {
         left: 20px;
@@ -145,15 +142,6 @@
 
     .add-task-overlay {
         width: calc(100% - 32px);
-    }
-
-    .board-main {
-        inset: 307px 130px;
-    }
-
-    .board-top {
-        left: 130px;
-        width: calc(100% - 105px);
     }
 
     .board-add-button {
@@ -174,7 +162,7 @@
     }
 }
 
-@media(max-width: 980px) {
+@media (max-width:1023px) {
     .board-top-add {
         display: flex;
     }
@@ -190,10 +178,6 @@
     .change-state-card{
         display: flex;
     }
-}
-
-@media (max-width:900px) {
-
 
     main {
         display: flex;
