@@ -234,7 +234,7 @@ function rotateCard(id) {
         } */
 }
 
-/**
+/* *
  * this function adds overflow-y:scroll to the board-sections
  *
  * @author Kevin Mueller
@@ -385,3 +385,4 @@ function handleTaskState(taskState) {
         currentTaskState = { inProgress: false, awaitFeedback: true, done: false };
     }
 }
+

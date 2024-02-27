@@ -1,6 +1,6 @@
 function templateCard(task) {
   return `
-      <div id="card${task.id}"  onclick="renderTaskOverlay(${task.id})" draggable="true" ondragstart="startDragging(${task.id}); rotateCard(${task.id})" class="board-card">
+      <div id="card${task.id}"  onclick="renderTaskOverlay(${task.id});" draggable="true" ondragstart="startDragging(${task.id}); rotateCard(${task.id})" class="board-card">
           ${templateCardTopContent(task)}
           <div class="board-progress">
               ${renderProgressBar(task)}
@@ -30,7 +30,26 @@ function templateCardTopContent(task) {
   return `
       <div class="board-card-topic" style="background-color:${checkCategory(task.category)}">
         <span>${task.category}</span>
+        <div class="change-state-card" onclick="event.stopPropagation(); dragMenu(${task.id}); ">
+          <img src="./assets/img/threedotsmenu.png" alt="dragmenu">
+        </div>
       </div>
+
+      <div id="drop-menu${task.id}" class="drop-menu d-none" onclick="event.stopPropagation();">
+        <div id="drop-todo${task.id}" class="drop-menu-option" onclick="moveTo('todo');">
+          <span>To do</span>
+        </div>
+        <div id="drop-inprogress${task.id}" class="drop-menu-option" onclick="moveTo('in-progress');">
+          <span>In Progress</span>
+        </div>
+        <div id="drop-awaitfeedback${task.id}" class="drop-menu-option" onclick="moveTo('await-feedback')">
+          <span>Await feedback</span>
+        </div>
+        <div id="drop-done${task.id}" class="drop-menu-option" onclick="moveTo('done')">
+          <span>Done</span>
+        </div>
+      </div>
+
       <div class="board-card-content">
         <div class="board-card-content-title">
             <span>${task.title}</span>
