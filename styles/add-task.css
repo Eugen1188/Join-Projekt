@@ -398,11 +398,10 @@ input[type="radio"]:checked + label.radio-button {
 }
 
 .contact-value-wrapper {
-  height: 326px;
   width: 440px;
   display: flex;
   background-color: white;
-  margin-top: -8px;
+  margin-top: -23px;
   padding-top: 8px;
   z-index: 999;
 }
@@ -704,6 +703,7 @@ textarea {
 
   .input-container-contacts {
     width: calc(100% - 22px);
+    z-index: 2000;
   }
 
   .custom-select {
