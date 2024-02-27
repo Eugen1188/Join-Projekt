@@ -238,11 +238,7 @@
 
 .arrow {
   top: 40px;
-  right: 12px;
-  cursor: pointer;
-  position: absolute;
-  top: 40px;
-  right: 12px;
+  right: 16px;
   cursor: pointer;
   position: absolute;
   flex-grow: 1;
@@ -313,6 +309,7 @@
 
 .add-subtask {
   display: flex;
+  position: relative;
 }
 
 input[type="radio"] {
@@ -382,7 +379,6 @@ label.radio-button {
   color: black;
   cursor: pointer;
   border-radius: 10px;
-  margin-right: 10px;
   height: 40px;
   width: 136px;
   gap: 8px;
@@ -409,6 +405,7 @@ input[type="radio"]:checked + label.radio-button {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 10px;
 }
 
 .prio-container label {
@@ -587,7 +584,7 @@ input::-webkit-datetime-edit-fields-wrapper {
   border: none;
   position: absolute;
   top: 42px;
-  left: 400px;
+  right: 16px;
   width: 24px;
   height: 24px;
 }
@@ -654,6 +651,11 @@ textarea {
   display: none;
 }
 
+.form-container {
+  display: flex;
+  flex-direction: row;
+}
+
 /* Extra large devices (Desktops, 1200px und darüber) */
 @media only screen and (max-width: 1300px) {
   .button-container {
@@ -664,12 +666,65 @@ textarea {
     justify-content: space-around;
   }
 
-  .add-task-form {
+  .input-addtask-datepicker {
+    left: calc(100% - 16px);
+    right: 0;
+  }
+
+  .arrow {
+    left: calc(100% - 16px);
+    right: 0;
+  }
+
+  .contact-values {
+    width: calc(100% - 50px);
+    position: absolute;
+    z-index: 9999;
+    top: 502px;
+  }
+
+  .input-container {
+    width: calc(100% - 22px);
+  }
+
+  .input-addtask {
+    width: calc(100% - 22px);
+  }
+
+  .input-addtask-date-modified {
+    width: calc(100% - 22px);
+  }
+
+  .input-container-contacts {
+    width: calc(100% - 22px);
+  }
+
+  .custom-select {
+    width: calc(100% - 22px);
+  }
+
+  .prio-container {
+    min-width: 268px;
+    width: 100%;
+  }
+  label.radio-button {
+    width: 100%;
+    font-size: 16px;
+    height: 41px;
+  }
+
+  .add-subtask {
+    width: calc(100% - 22px);
+  }
+
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     position: fixed;
-    inset: 280px 0px;
-    width: calc(100% - 32px);
+    inset: 128px 0px;
     padding: 0px 16px;
-    height: calc(100% - 370px);
+    height: 100vh;
     overflow-y: scroll;
   }
 
@@ -679,6 +734,9 @@ textarea {
     justify-content: flex-start;
     position: unset;
     height: 112px;
+    width: 100%;
+    padding: 0px 16px;
+    margin-bottom: 32px;
   }
 
   .add-task-form {
@@ -700,14 +758,9 @@ textarea {
     justify-content: flex-start;
     width: 100%;
     height: auto;
+    gap: 8px;
     flex: 0;
   }
-
-  .contact-values {
-    top: 510px;
-    z-index: 999;
-  }
-
   .choosen-contacts {
     position: unset;
   }
@@ -720,6 +773,7 @@ textarea {
     justify-content: flex-start;
     width: 100%;
     height: auto;
+    gap: 8px;
     flex: 0;
   }
 
