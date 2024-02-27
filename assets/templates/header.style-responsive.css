@@ -52,7 +52,7 @@
     }
 
     .head-top {
-        position: absolute;
+        position: sticky;
         height: 80px;
         padding: 0;
         right: 0px;
