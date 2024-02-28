@@ -101,6 +101,7 @@
 .scrollbar {
     overflow-y: scroll;
     width: 472px;
+    padding-left: 2px;
 }
 
 .input-addtask-edit {

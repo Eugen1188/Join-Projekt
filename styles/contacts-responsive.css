@@ -83,21 +83,12 @@
         margin: 0px auto;
         position: unset;
         overflow-y: scroll;
-        height: 82%;
+        height: calc(100% - 160px);
         width: 100%;
     }
 
     .single-contact-headline {
         display: none;
-    }
-
-    .contacts-btn-bg {
-        left: 0px;
-        right: 0px;
-        width: 100%;
-        top: 698px;
-
-        margin-right: 10px;
     }
 
     .mobile-center {
@@ -126,10 +117,16 @@
         background-color: unset;
         margin-right: 14px;
         width: 56px;
+        height: 56px;
     }
 
     .contacts-btn-bg {
-        justify-content: flex-end;
+        display: unset;
+        width: 56px;
+        height: 56px;
+        left: 83%;
+        right: 0px;
+        top: calc(100% - 160px);
     }
 
     .contacts-icon-container {

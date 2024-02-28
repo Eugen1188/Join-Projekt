@@ -19,6 +19,7 @@ async function initBoard() {
     lockout = false;
 }
 
+
 /**
  * function to allow the drop event
  *
@@ -29,6 +30,7 @@ function allowDrop(ev) {
     ev.preventDefault();
 }
 
+
 /**
  * function to determine the current dragged element
  *
@@ -38,6 +40,7 @@ function allowDrop(ev) {
 function startDragging(id) {
     currentDraggedElement = id;
 }
+
 
 /**
  * this function determines to which section the card should be moved
@@ -72,6 +75,7 @@ async function moveTo(id) {
     }
 }
 
+
 /**
  * function to close the task overlay
  *
@@ -85,6 +89,13 @@ function closeOverlay() {
     initBoard();
 }
 
+
+/**
+ * function to close the addtask overlay, afterwards the board gets reinitialized
+ * 
+ * @param {boolean} state - if true the task added modal will be shown.
+ * @author Kevin Mueller
+ */
 function closeOverlayAddTask(state) {
     if (state === true) {
         document.getElementById("taskadded").classList.remove("d-none");
@@ -100,11 +111,23 @@ function closeOverlayAddTask(state) {
     initBoard();
 }
 
+
+/**
+ * function to translate out the addtask overlay
+ * 
+ * @author Kevin Mueller
+ */
 function translateOutAdd() {
     document.getElementById("overlay-add-task").classList.remove("task-overlay-translate-in-task");
     document.getElementById("overlay-add-task").classList.add("task-overlay-translate-out");
 }
 
+
+/**
+ * function to end the display of the taskadded element
+ * 
+ * @author Kevin Mueller
+ */
 function closeTaskAdded() {
     document.getElementById("taskadded").classList.add("d-none");
 }
@@ -120,10 +143,17 @@ function openOverlay() {
     setTimeout(slideInOverlay, 75);
 }
 
+
+/**
+ * function to delegate the opening of the addtask overlay and the slidein animation
+ * 
+ * @author Kevin Mueller
+ */
 function openAddTaskOverlay() {
     displayOpenOverlay("overlay-add-task");
     setTimeout(slideInOverlayAddTask, 75);
 }
+
 
 /**
  * help function to slide in the overlay with a setTimeout
@@ -134,9 +164,16 @@ function slideInOverlay() {
     document.getElementById("overlay-card").classList.add("task-overlay-translate-in");
 }
 
+
+/**
+ * function to add the slidein animation
+ * 
+ * @author Kevin Mueller
+ */
 function slideInOverlayAddTask() {
     document.getElementById("overlay-add-task").classList.add("task-overlay-translate-in-task");
 }
+
 
 /**
  * help function to display the overlay with a setTimeout
@@ -148,6 +185,12 @@ function displayOpenOverlay(id) {
     document.getElementById(id).classList.remove("task-overlay-translate-out");
 }
 
+
+/**
+ * function to open the addtask overlay
+ * 
+ * @param {Object} state - Json object which contains the state of the task
+ */
 function displayAddTaskOverlay(state) {
     checkedContacts = [];
     if (window.innerWidth <= 980) {
@@ -163,6 +206,7 @@ function displayAddTaskOverlay(state) {
     }
 }
 
+
 /**
  * help function to hide the overlay with a setTimeout
  *
@@ -172,6 +216,7 @@ function displayCloseOverlay() {
     document.getElementById("overlay").classList.add("d-none");
 }
 
+
 /**
  * help function to hide the overlay with a setTimeout
  *
@@ -180,6 +225,7 @@ function displayCloseOverlay() {
 function displayCloseOverlayAddTask() {
     document.getElementById("overlay-add-task").classList.add("d-none");
 }
+
 
 /**
  * this function manages the checkbox logic of the task overlay
@@ -203,6 +249,7 @@ function checkedSubtask(subtask, id) {
     setItem("test_board", allTasks);
 }
 
+
 /**
  * this function checks the category of the card and determines the bg-color
  *
@@ -217,6 +264,7 @@ function checkCategory(category) {
         return `var(--topic-technical)`;
     }
 }
+
 
 /**
  * this function rotates the card depending on the id
@@ -233,6 +281,7 @@ function rotateCard(id) {
         } */
 }
 
+
 /* *
  * this function adds overflow-y:scroll to the board-sections
  *
@@ -244,6 +293,7 @@ function addOverflow() {
         overflow[i].classList.remove("card-rotate-overflow");
     }
 }
+
 
 /**
  * this function renders the ghost card on the given section
@@ -257,6 +307,7 @@ function renderGhostCard(id) {
         lockout = true;
     }
 }
+
 
 /**
  * this function removes the ghost card on the given section
@@ -273,6 +324,7 @@ function removeGhostCard(id) {
     }
 }
 
+
 /**
  * this function deletes the given task and,
  * renews their ids in relation to the index of the Json
@@ -288,6 +340,7 @@ async function deleteTask(index) {
     await setItem("test_board", allTasks);
     closeOverlay();
 }
+
 
 /**
  * this function renders the card in regards of the given search input
@@ -306,18 +359,28 @@ function searchTask() {
     renderCheckState(searchedTask);
 
     if (searchedTask.length == 0) {
-        myFunction();
+        displaySearchInfo();
     }
 }
 
-function myFunction() {
+
+/**
+ * function to show information that theres no content that contains the searched value
+ * 
+ * @author Kevin Mueller
+ */
+function displaySearchInfo() {
     let searchInfo = document.getElementById("searchInfo"); 
     searchInfo.className = "show";
     setTimeout(function(){ searchInfo.className = searchInfo.className.replace("show", ""); }, 3000);
-  }
+}
 
 
-
+/**
+ * function to highlight the svg icon in the prio buttons
+ * 
+ * @param {string} value - string to determine which button has to be changed
+ */
 function invertSvgFillsEdit(value) {
     let priorityIcon = value;
     let urgentIcon = document.getElementById("urgent-icon-edit");
@@ -336,6 +399,12 @@ function invertSvgFillsEdit(value) {
     }
 }
 
+
+/**
+ * function to retrieve the subtasks from clicked card
+ * 
+ * @param {Array} task - this array contains subtasks of the id
+ */
 function getSubtasks(task) {
     subtasks = [];
     for (let i = 0; i < task.length; i++) {
@@ -344,6 +413,12 @@ function getSubtasks(task) {
     }
 }
 
+
+/**
+ * function to determine the button color based on the state
+ * 
+ * @param {string} prio - string that contains the priority
+ */
 function fillRadio(prio) {
     switch (prio) {
         case 'urgent':

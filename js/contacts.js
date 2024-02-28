@@ -519,9 +519,20 @@ function renderEditOrDelete() {
 }
 
 function addBtnMobileOrDesktop() {
-  if (window.innerWidth <= 1023) {
+  if (window.innerWidth < 1024) {
     return renderMobileView();
   } else {
     return renderAddNewContact();
   }
+}
+
+
+function test(i) {
+  let number = i
+  if (number >= 10) {
+    let portoKosten = 4.99
+  } else {
+    let portoKosten = 0
+  }
+  return number + portoKosten
 }
