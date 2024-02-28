@@ -86,3 +86,22 @@ li {
 .rm-mb{
     margin-bottom: 0;
 }
+
+@media(max-width:1023px){
+    main{
+        left: 16px;
+        top: 88px;
+        padding-top: 32px;
+        width: calc(100% - 32px);
+        overflow-y: scroll	;
+        height: calc(100% - 220px);
+    }
+
+    main h2{
+        font-size: 47px;
+    }
+
+    main::-webkit-scrollbar{
+        display: none;
+    }
+ }
