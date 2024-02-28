@@ -7,7 +7,7 @@ async function initRegisteredContacts() {
   // load();
 }
 
-function logIn() {
+async function logIn() {
   let email = document.getElementById('email');
   let password = document.getElementById('password');
   for (let i = 0; i < userData.length; i++) {
@@ -16,7 +16,7 @@ function logIn() {
       if (logedInUser.length == 0) {
         logedInUser.push(element);
         console.log(logedInUser);
-        setItem("logedInUser", logedInUser);
+        await setItem("logedInUser", logedInUser);
         window.location = "summary.html";
       }
       else {
@@ -75,4 +75,3 @@ function load() {
 }
 
 */
-
