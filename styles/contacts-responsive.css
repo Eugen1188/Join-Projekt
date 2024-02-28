@@ -124,7 +124,7 @@
 
     .btn-container {
         background-color: unset;
-        margin-right: 10px;
+        margin-right: 14px;
         width: 56px;
     }
 
@@ -134,10 +134,9 @@
 
 }
 
-.single-contact-headline-mobile {
-    left: 0;
-    top: 80px;
-    background-color: wheat;
-    height: 82%;
-    width: 100%;
+@media(max-width: 340px) {
+    .contacts-container {
+        width: 320px;
+        overflow-x: hidden;
+    }
 }
