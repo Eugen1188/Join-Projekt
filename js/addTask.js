@@ -84,6 +84,32 @@ function showContacts() {
   input.placeholder = "Select contacts to assign";
   id.classList.toggle("d-none");
   arrow.classList.toggle("rotate-180");
+  if (!id.classList.contains("d-none")) {
+    closeContactValueOnDifferentClickTarget();
+  }
+}
+
+/**
+ * Closes the contact values dropdown when clicking outside this specific element and its components.
+ * @function closeContactValueOnDifferentClickTarget
+ * @param {number} index - The index of the contact.
+ */
+
+function closeContactValueOnDifferentClickTarget(index) {
+  document.onclick = function (event) {
+    const contactValues = document.getElementById("contact-values");
+    const assignToInput = document.getElementById("contactAssignInput");
+    const arrow = document.getElementById("arrowContactInput");
+    const contactCard = document.getElementById(`contact_${index}`);
+    const checkboxIcon = document.getElementById(`checkboxIcon_${index}`);
+    const clickedElement = event.target;
+    // Überprüfen, ob das geklickte Element ein SVG oder ein Span ist
+    const isSVGOrSpan = clickedElement.tagName === "svg" || clickedElement.tagName === "SPAN";
+    // Wenn das geklickte Element nicht eines der spezifizierten Elemente ist wird ein d-none gesetzt
+    if (!isSVGOrSpan && clickedElement !== contactValues && clickedElement !== assignToInput && clickedElement !== arrow && clickedElement !== contactCard && clickedElement !== checkboxIcon) {
+      contactValues.classList.add("d-none");
+    }
+  };
 }
 
 /**
@@ -102,6 +128,7 @@ function getClickedContact(index, contactId) {
   let isChecked = checkedContacts.includes(contactId);
   input.placeholder = "An ";
   checkClickedContact(iconToChange, contactCard, checkBoxIconColor, isChecked, index, contactId);
+  closeContactValueOnDifferentClickTarget(index);
 }
 
 /**

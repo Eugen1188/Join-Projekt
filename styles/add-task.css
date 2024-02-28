@@ -1,9 +1,6 @@
 /* style button select*/
 
-.addtask-btn {
-  background-color: var(--button-selected);
-}
-
+.addtask-btn,
 .addtask-btn:hover {
   background-color: var(--button-selected);
 }
@@ -43,6 +40,18 @@
   position: absolute;
   left: 328px;
   top: 327px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 440px;
+  height: 376px;
+}
+
+.addtask-side-right {
+  display: flex;
+  position: absolute;
+  top: 327px;
+  left: 864.25px;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
@@ -224,18 +233,6 @@
   padding: 6px 16px;
 }
 
-.subtask-container:focus-visible {
-  outline: 0;
-}
-
-.edit-subtask-field:focus-visible {
-  outline: 0;
-}
-
-.edit-subtask-field:focus-visible input {
-  outline: 0 !important;
-}
-
 .arrow {
   top: 40px;
   right: 16px;
@@ -281,18 +278,6 @@
   width: 1px;
   background-color: #d1d1d1;
   height: 424px;
-}
-
-.addtask-side-right {
-  display: flex;
-  position: absolute;
-  top: 327px;
-  left: 864.25px;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  width: 440px;
-  height: 376px;
 }
 
 .add-task-form {
@@ -459,10 +444,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   height: 24px;
 }
 
-input::-webkit-datetime-edit-day-field {
-  display: none;
-}
-
+input::-webkit-datetime-edit-day-field,
 input::-webkit-datetime-edit-fields-wrapper {
   display: none;
 }
@@ -484,7 +466,8 @@ input::-webkit-datetime-edit-fields-wrapper {
   font-size: 20px;
 }
 
-.custom-select::placeholder {
+.custom-select::placeholder,
+.btn-color-bk {
   color: black;
 }
 
@@ -527,10 +510,6 @@ input::-webkit-datetime-edit-fields-wrapper {
   background-color: var(--light-blue);
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
   border: transparent;
-}
-
-.btn-color-bk {
-  color: black;
 }
 
 .category-container {
@@ -629,14 +608,6 @@ input::-webkit-datetime-edit-fields-wrapper {
   gap: 4px;
 }
 
-.input-addtask-date-modified:focus-visible {
-  outline: 2px solid var(--light-blue) !important;
-}
-
-#taskDescription:focus-visible {
-  outline: 2px solid var(--light-blue) !important;
-}
-
 textarea {
   border: 1px solid #d1d1d1;
   color: black;
@@ -650,21 +621,20 @@ textarea {
   height: 120px;
 }
 
-.custom-select:focus-visible {
+.custom-select:focus-visible,
+.input-addtask:focus-visible,
+.input-addtask-date-modified:focus-visible,
+#taskDescription:focus-visible {
   outline: 2px solid var(--light-blue) !important;
 }
 
-.input-addtask:focus-visible {
-  outline: 2px solid var(--light-blue) !important;
+#changedSubtaskValue:focus-visible {
+  outline: transparent !important;
 }
 
 .input-addtask-datepicker:focus-visible {
   outline: none !important;
   border: none !important;
-}
-
-#changedSubtaskValue:focus-visible {
-  outline: transparent !important;
 }
 
 .task-added {
@@ -701,12 +671,12 @@ textarea {
     width: calc(100% - 22px);
   }
 
-  .submit-btn-mobile {
-    padding-right: 16px;
+  .edit-subtask-field input {
+    height: 48px;
   }
 
-  .contact-value-wrapper {
-    width: calc(100% - 22px);
+  .submit-btn-mobile {
+    padding-right: 16px;
   }
 
   .input-addtask-datepicker {
@@ -724,31 +694,25 @@ textarea {
     background-color: white;
   }
 
-  .input-container {
+  .input-container,
+  .edit-subtask-field input {
     width: calc(100% - 22px);
   }
 
-  .input-addtask {
-    width: calc(100% - 42px);
-  }
-
+  .input-addtask,
   .input-addtask-date-modified {
     width: calc(100% - 42px);
   }
-
   .input-container-contacts {
     width: calc(100% - 22px);
     z-index: 2000;
-  }
-
-  .custom-select {
-    width: 100%;
   }
 
   .prio-container {
     min-width: 268px;
     width: 100%;
   }
+
   label.radio-button {
     width: 121px;
     font-size: 16px;
@@ -761,7 +725,9 @@ textarea {
     justify-content: space-between;
   }
 
-  .add-subtask {
+  .edit-subtask-field li,
+  .add-subtask,
+  .custom-select {
     width: 100%;
   }
 
@@ -774,10 +740,6 @@ textarea {
     padding: 0px 16px;
     height: calc(100% - 300px);
     overflow-y: scroll;
-  }
-
-  .form-container::-webkit-scrollbar {
-    display: none;
   }
 
   .task-headline {
@@ -818,14 +780,6 @@ textarea {
     flex: 0;
     margin-bottom: 8px;
   }
-  .choosen-contacts {
-    position: unset;
-  }
-
-  .input-addtask-datepicker {
-    left: calc(100% - 34px);
-    right: 0;
-  }
 
   .addtask-side-right {
     position: unset;
@@ -839,29 +793,25 @@ textarea {
     flex: 0;
   }
 
-  .divider {
-    display: none;
+  .choosen-contacts {
+    position: unset;
   }
 
-  .required-info {
-    display: none;
+  .input-addtask-datepicker {
+    left: calc(100% - 34px);
+    right: 0;
   }
 
-  .clear-btn {
+  .divider,
+  .required-info,
+  .clear-btn,
+  .form-container::-webkit-scrollbar {
     display: none;
   }
 
   .required-info-mobile {
     display: flex;
     padding-left: 16px;
-  }
-
-  .edit-subtask-field li {
-    width: 100%;
-  }
-
-  .edit-subtask-field input {
-    width: calc(100% - 22px);
   }
 }
 
