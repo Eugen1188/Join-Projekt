@@ -117,15 +117,16 @@
         background-color: unset;
         margin-right: 14px;
         width: 56px;
+        height: 56px;
     }
 
     .contacts-btn-bg {
-        justify-content: flex-end;
-        width: 100%;
-        left: 0px;
+        display: unset;
+        width: 56px;
+        height: 56px;
+        left: 83%;
         right: 0px;
-        top: calc(100% - 185px);
-        margin-right: 10px;
+        top: calc(100% - 160px);
     }
 
     .contacts-icon-container {
