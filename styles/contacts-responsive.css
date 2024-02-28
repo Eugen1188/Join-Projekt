@@ -91,15 +91,6 @@
         display: none;
     }
 
-    .contacts-btn-bg {
-        left: 0px;
-        right: 0px;
-        width: 100%;
-        top: 698px;
-
-        margin-right: 10px;
-    }
-
     .mobile-center {
         display: flex;
         justify-content: end;
@@ -130,6 +121,11 @@
 
     .contacts-btn-bg {
         justify-content: flex-end;
+        width: 100%;
+        left: 0px;
+        right: 0px;
+        top: calc(100% - 185px);
+        margin-right: 10px;
     }
 
     .contacts-icon-container {

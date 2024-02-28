@@ -157,7 +157,7 @@ function menuContactMobileIconHTML() {
 }
 
 
-function renderEditOrDeleteHTML() {
+function renderEditOrDeleteHTML(index) {
     return /*html*/ `
         <div class="icons-contacts" id="single-contact-edit" onclick="renderEditContact(${contacts[index].id}, ${index})">
             <img src="./assets/img/icons/edit.png" alt="">
