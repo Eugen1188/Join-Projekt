@@ -804,8 +804,7 @@ textarea {
 
   .divider,
   .required-info,
-  .clear-btn,
-  .form-container::-webkit-scrollbar {
+  .clear-btn {
     display: none;
   }
 
