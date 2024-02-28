@@ -135,6 +135,7 @@
   height: 294px;
   position: static;
   margin-top: -8px;
+  gap: 2px;
 }
 
 .contact-list-name-initials {
@@ -162,7 +163,7 @@
   justify-content: center;
   align-items: center;
   color: var(--background-color-site);
-  border: 2px solid var(--background-color-site);
+  border: 2px solid white;
 }
 
 .contact-list-name-container:active {
@@ -569,6 +570,8 @@ input::-webkit-datetime-edit-fields-wrapper {
   justify-content: center;
   align-items: center;
   border: none;
+  width: 183px;
+  flex-wrap: nowrap;
 }
 
 .input-addtask-date-modified {
@@ -651,12 +654,20 @@ textarea {
   height: 120px;
 }
 
+.input-addtask-datepicker:focus-visible {
+  outline: none !important;
+  border: none !important;
+}
+
+#changedSubtaskValue:focus-visible {
+  outline: transparent !important;
+}
+
 .task-added {
   position: absolute;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  left: calc(50% - 163px);
   width: 326px;
   height: 74px;
   background-color: #2a3647;
@@ -682,7 +693,12 @@ textarea {
     top: calc(100% - 168px);
     background-color: #f6f7f8;
     height: 88px;
-    justify-content: space-around;
+    justify-content: space-between;
+    width: calc(100% - 22px);
+  }
+
+  .submit-btn-mobile {
+    padding-right: 16px;
   }
 
   .contact-value-wrapper {
@@ -730,8 +746,15 @@ textarea {
     width: 100%;
   }
   label.radio-button {
-    width: 30%;
+    width: 121px;
     font-size: 16px;
+    height: 41px;
+    padding: 0px 8px;
+  }
+
+  .prio-container {
+    gap: 16px;
+    justify-content: space-between;
   }
 
   .add-subtask {
@@ -764,6 +787,10 @@ textarea {
     margin-bottom: 32px;
   }
 
+  .task-headline h1 {
+    font-size: 47px;
+  }
+
   .add-task-form {
     display: flex;
     flex-direction: column;
@@ -785,6 +812,7 @@ textarea {
     height: auto;
     gap: 8px;
     flex: 0;
+    margin-bottom: 8px;
   }
   .choosen-contacts {
     position: unset;
@@ -821,5 +849,39 @@ textarea {
 
   .required-info-mobile {
     display: flex;
+    padding-left: 16px;
+  }
+
+  .edit-subtask-field li {
+    width: 100%;
+  }
+
+  .edit-subtask-field input {
+    width: calc(100% - 22px);
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .task-added {
+    width: 252px;
+  }
+
+  label.radio-button {
+    padding: 0px 2px;
+  }
+
+  .prio-container {
+    gap: 8px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .prio-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 0px 8px;
+    min-width: 0;
   }
 }

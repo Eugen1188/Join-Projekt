@@ -80,6 +80,8 @@ function displayContacts(contacts) {
 function showContacts() {
   let arrow = document.getElementById("arrowContactInput");
   let id = document.getElementById("contact-values");
+  let input = document.getElementById("contactAssignInput");
+  input.placeholder = "Select contacts to assign";
   id.classList.toggle("d-none");
   arrow.classList.toggle("rotate-180");
 }
@@ -93,10 +95,12 @@ function showContacts() {
  */
 
 function getClickedContact(index, contactId) {
+  let input = document.getElementById("contactAssignInput");
   let iconToChange = document.getElementById(`checkboxIcon_${index}`);
   let contactCard = document.getElementById(`contact_${index}`);
   let checkBoxIconColor = document.getElementById(`checkboxIcon_${index}`);
   let isChecked = checkedContacts.includes(contactId);
+  input.placeholder = "An ";
   checkClickedContact(iconToChange, contactCard, checkBoxIconColor, isChecked, index, contactId);
 }
 
@@ -742,7 +746,7 @@ function clearFieldInputs() {
 }
 
 /**
- * Translates the task added element and redirects to the board page after a delay.
+ * Translates and transforms the task added element and redirects to the board page after a delay.
  * @function translateTaskAddedElementAndRedirect
  * @author Christian Förster
  */
@@ -750,7 +754,11 @@ function clearFieldInputs() {
 function translateTaskAddedElementAndRedirect() {
   let element = document.getElementById("taskAdded");
   element.classList.remove("d-none");
-  element.style.transform = "translateY(387px)";
+  element.style.transition = "transform 0.5s ease";
+  element.style.transform = "translateY(0)";
+  element.style.top = "50%";
+  element.style.left = "50%";
+  element.style.transform = "translate(-50%, -50%)";
   setTimeout(() => {
     window.location.href = "./board.html";
   }, 2000);
