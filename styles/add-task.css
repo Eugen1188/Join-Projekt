@@ -654,7 +654,7 @@ textarea {
   outline: 2px solid var(--light-blue) !important;
 }
 
-.input-addtask:focus-visible {
+.input-addtask:focus-visible, .input-addtask-edit:focus-visible {
   outline: 2px solid var(--light-blue) !important;
 }
 

@@ -376,7 +376,11 @@ function displaySearchInfo() {
 }
 
 
-
+/**
+ * function to highlight the svg icon in the prio buttons
+ * 
+ * @param {string} value - string to determine which button has to be changed
+ */
 function invertSvgFillsEdit(value) {
     let priorityIcon = value;
     let urgentIcon = document.getElementById("urgent-icon-edit");
@@ -395,6 +399,12 @@ function invertSvgFillsEdit(value) {
     }
 }
 
+
+/**
+ * function to retrieve the subtasks from clicked card
+ * 
+ * @param {Array} task - this array contains subtasks of the id
+ */
 function getSubtasks(task) {
     subtasks = [];
     for (let i = 0; i < task.length; i++) {
@@ -403,6 +413,12 @@ function getSubtasks(task) {
     }
 }
 
+
+/**
+ * function to determine the button color based on the state
+ * 
+ * @param {string} prio - string that contains the priority
+ */
 function fillRadio(prio) {
     switch (prio) {
         case 'urgent':
