@@ -629,15 +629,11 @@ input::-webkit-datetime-edit-fields-wrapper {
   gap: 4px;
 }
 
-input:focus-visible {
+.input-addtask-date-modified:focus-visible {
   outline: 2px solid var(--light-blue) !important;
 }
 
-textarea:focus-visible {
-  outline: 2px solid var(--light-blue) !important;
-}
-
-select:focus-visible {
+#taskDescription:focus-visible {
   outline: 2px solid var(--light-blue) !important;
 }
 
@@ -652,6 +648,14 @@ textarea {
   box-sizing: border-box;
   padding: 21px 18px;
   height: 120px;
+}
+
+.custom-select:focus-visible {
+  outline: 2px solid var(--light-blue) !important;
+}
+
+.input-addtask:focus-visible {
+  outline: 2px solid var(--light-blue) !important;
 }
 
 .input-addtask-datepicker:focus-visible {
