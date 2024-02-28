@@ -62,3 +62,35 @@ h4 {
     width: 100%;
     max-width: 1016px;
 }
+
+
+ @media(max-width:1023px){
+    main{
+        left: 16px;
+        top: 88px;
+        padding-top: 32px;
+        width: calc(100% - 32px);
+        overflow-y: scroll	;
+        height: calc(100% - 220px);
+    }
+
+    main h2{
+        font-size: 47px;
+    }
+
+    main::-webkit-scrollbar{
+        display: none;
+    }
+ }
+
+ @media(max-width:400px){
+    main h2{
+        font-size: 42px;
+    }
+
+    .policy-headline div{
+        position: absolute;
+        top: 80px;
+        right: 0;
+    }
+ }
