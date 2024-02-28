@@ -3,7 +3,7 @@ let menuOn = false;
 async function initRegisteredContacts() {
 
   userData = await getItemContacts('userData');
-  
+
   // load();
 }
 
@@ -29,18 +29,7 @@ function logIn() {
   }
 }
 
-// login als Gast
 
-function logInAsGuest() {
-  guestArray = ({
-    name: "Guest",
-    email: "guest@guest.org",
-    password: "password",
-    initials: "G",
-  });
-  logedInUser.push(guestArray);
-  setItem("logedInUser", logedInUser);
-}
 
 // Zeige den Sign Up Button sobald die Checkbox aktiviert ist
 
@@ -87,8 +76,3 @@ function load() {
 
 */
 
-function logOut() {
-  logedInUser = [];
-  setItem("logedInUser", logedInUser);
-  window.location = "index.html";
-}

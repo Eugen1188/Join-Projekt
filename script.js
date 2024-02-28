@@ -163,3 +163,20 @@ function renderLogedUser() {
   firstName.innerHTML = logedInUser[0].name;
   lastname.innerHTML = logedInUser[0].lastname;
 }
+
+function logInAsGuest() {
+  guestArray = ({
+    name: "Guest",
+    email: "guest@guest.org",
+    password: "password",
+    initials: "G",
+  });
+  logedInUser.push(guestArray);
+  setItem("logedInUser", logedInUser);
+}
+
+function logOut() {
+  logedInUser = [];
+  setItem("logedInUser", logedInUser);
+  window.location = "index.html";
+}
