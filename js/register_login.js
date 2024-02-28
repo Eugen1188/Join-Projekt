@@ -3,7 +3,7 @@ let menuOn = false;
 async function initRegisteredContacts() {
 
   userData = await getItemContacts('userData');
- // load();
+  // load();
 }
 
 function logIn() {
@@ -14,17 +14,12 @@ function logIn() {
   for (let i = 0; i < userData.length; i++) {
     const element = userData[i];
     if (element.email == email && element.password == password) {
-      // logedInUser.push(userData[i]);
-      // console.log(logedInUser);
-      // setItem("logedInUser", logedInUser);
       if (logedInUser.length == 0) {
-        console.log(logedInUser.length);
         logedInUser.push(element);
+        console.log(logedInUser);
+        setItem("logedInUser", logedInUser);
         window.location = "summary.html";
-        save();
-        break;
       }
-      
     }
     else
       alert('Email Adresse oder Password falsch !')
@@ -41,10 +36,8 @@ function logInAsGuest() {
     password: "password",
     initials: "G",
   });
-  if (logedInUser.length == 0) {
-    logedInUser.push(guestArray);
-  }
-  save();
+  logedInUser.push(guestArray);
+  setItem("logedInUser", logedInUser);
 }
 
 // Zeige den Sign Up Button sobald die Checkbox aktiviert ist
@@ -74,6 +67,8 @@ function showRegistrationAnimation() {
   }, 1000);
 }
 
+
+/*
 function save() {
 
   let logedInUsers = JSON.stringify(logedInUser);
@@ -88,8 +83,11 @@ function load() {
   }
 }
 
+*/
+
 function logOut() {
   logedInUser = [];
-  save();
+  setItem("logedInUser", logedInUser);
   window.location = "index.html";
 }
+
