@@ -661,7 +661,7 @@ function getPriorityValue() {
  * @param {string} category - The category of the task.
  * @param {number} index - The index of the task.
  * @returns {object[]} An array containing the task object.
- * @author Christian Förster
+ * @author Christian Förster & Kevin Müller
  */
 
 function createTaskObject(id, title, description, date, prio, category, index) {
