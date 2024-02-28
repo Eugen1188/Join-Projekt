@@ -1,7 +1,6 @@
 let urgentDates = [];
 
 async function renderSummeryTasks() {
-    userGreetings();
     await testfunc();
     logedInUser = await getItemContacts("logedInUser");
     tasksInBoard();
@@ -11,6 +10,7 @@ async function renderSummeryTasks() {
     tasksDone();
     tasksUrgent();
     renderLogedUser();
+    userGreetings();
 }
 
 function tasksInBoard() {
@@ -91,7 +91,7 @@ function showDateInRightFormat(date) {
     else {
         rightMonth = months[rightMonth - 1];
     }
-    return `${rightMonth} ${arr[0]}${arr[1]}, ${arr[6]}${arr[7]}${arr[8]}${arr[9]}` 
+    return `${rightMonth} ${arr[0]}${arr[1]}, ${arr[6]}${arr[7]}${arr[8]}${arr[9]}`
 }
 
 function sortDates(urgentDates) {
@@ -111,7 +111,14 @@ function renderLogedUser() {
     lastname.innerHTML = logedInUser[0].lastname;
 }
 
+// render greetings for mobile phones
+
+
 function userGreetings() {
     let greeting = document.getElementById('greetings-resposive-user');
-    greeting.innerHTML += `Good morning!`;
+    if (logedInUser[0].name == "Guest")
+        greeting.innerHTML += `Good morning!`;
+    else 
+    greeting.innerHTML = `Good morning, <br> <span class="greetingNameMobile"> ${logedInUser[0].name} ${logedInUser[0].lastname} </span>`
 }
+

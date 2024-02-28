@@ -309,5 +309,16 @@ h1 {
 .greeting-main-cont-responsive span {
     font-size: 36px;
     color: black;
+}
 
+.greeting-text-responsive {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.greetingNameMobile {
+    color: var(--light-blue) !important;
+    font-size: 47px;
+    font-weight: 700;
 }
