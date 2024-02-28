@@ -3,6 +3,7 @@ let menuOn = false;
 async function initRegisteredContacts() {
 
   userData = await getItemContacts('userData');
+  
   // load();
 }
 
@@ -71,19 +72,19 @@ function showRegistrationAnimation() {
 
 /*
 function save() {
- 
+
   let logedInUsers = JSON.stringify(logedInUser);
   localStorage.setItem('logedInUser', logedInUsers);
 }
- 
+
 function load() {
- 
+
   let logedInUsers = localStorage.getItem('logedInUser');
   if (logedInUsers) {
     logedInUser = JSON.parse(logedInUsers);
   }
 }
- 
+
 */
 
 function logOut() {
@@ -91,4 +92,3 @@ function logOut() {
   setItem("logedInUser", logedInUser);
   window.location = "index.html";
 }
-

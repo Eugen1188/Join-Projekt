@@ -57,7 +57,7 @@ function closeRegMenu() {
 
 /* Header-User Menu öffnen für Info und Logout */
 
-function openNavMenu() { 
+function openNavMenu() {
   let menu = document.getElementById("logOutMenu");
   if (menu.style.display === "flex") {
     if(window.innerWidth < 660){
@@ -72,7 +72,7 @@ function openNavMenu() {
     setTimeout(() => {
       menu.style.display = "none";
     }, 100);
-    
+
   } else {
     menu.style.display = "flex";
     document.body.addEventListener("click", closeMenuOutside);
@@ -107,7 +107,7 @@ function closeMenuOutside(event) {
     setTimeout(() => {
       menu.style.display = "none";
     }, 100);
-    
+
   }
 }
 
@@ -153,4 +153,13 @@ function navigateToHelp() {
 
 function navigateToAddTask() {
   window.location.href = "./add-task.html";
+}
+
+function renderLogedUser() {
+  let userInitials = document.getElementById('logedUserInitials');
+  let firstName = document.getElementById('logedInName');
+  let lastname = document.getElementById('logedInLastname');
+  userInitials.innerHTML = logedInUser[0].initials;
+  firstName.innerHTML = logedInUser[0].name;
+  lastname.innerHTML = logedInUser[0].lastname;
 }

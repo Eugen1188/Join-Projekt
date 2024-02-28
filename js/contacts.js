@@ -99,6 +99,8 @@ async function initContacts() {
   contacts = await getItemContacts("contacts");
   id = await getItemContacts("id");
   renderContacts();
+  logedInUser = await getItemContacts("logedInUser");
+  renderLogedUser()
 }
 
 /**
