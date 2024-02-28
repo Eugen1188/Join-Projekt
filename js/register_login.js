@@ -3,6 +3,7 @@ let menuOn = false;
 async function initRegisteredContacts() {
 
   userData = await getItemContacts('userData');
+
   // load();
 }
 
@@ -28,18 +29,7 @@ function logIn() {
   }
 }
 
-// login als Gast
 
-function logInAsGuest() {
-  guestArray = ({
-    name: "Guest",
-    email: "guest@guest.org",
-    password: "password",
-    initials: "G",
-  });
-  logedInUser.push(guestArray);
-  setItem("logedInUser", logedInUser);
-}
 
 // Zeige den Sign Up Button sobald die Checkbox aktiviert ist
 
@@ -71,24 +61,18 @@ function showRegistrationAnimation() {
 
 /*
 function save() {
- 
+
   let logedInUsers = JSON.stringify(logedInUser);
   localStorage.setItem('logedInUser', logedInUsers);
 }
- 
+
 function load() {
- 
+
   let logedInUsers = localStorage.getItem('logedInUser');
   if (logedInUsers) {
     logedInUser = JSON.parse(logedInUsers);
   }
 }
- 
-*/
 
-function logOut() {
-  logedInUser = [];
-  setItem("logedInUser", logedInUser);
-  window.location = "index.html";
-}
+*/
 

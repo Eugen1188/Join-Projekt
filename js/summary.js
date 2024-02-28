@@ -101,14 +101,6 @@ function sortDates(urgentDates) {
     });
 };
 
-function renderLogedUser() {
-    let userInitials = document.getElementById('logedUserInitials');
-    let firstName = document.getElementById('logedInName');
-    let lastname = document.getElementById('logedInLastname');
-    userInitials.innerHTML = logedInUser[0].initials;
-    firstName.innerHTML = logedInUser[0].name;
-    lastname.innerHTML = logedInUser[0].lastname;
-}
 
 // render greetings for mobile phones
 
@@ -117,7 +109,6 @@ function userGreetings() {
     let greeting = document.getElementById('greetings-resposive-user');
     if (logedInUser[0].name == "Guest")
         greeting.innerHTML += `Good morning!`;
-    else 
+    else
     greeting.innerHTML = `Good morning, <br> <span class="greetingNameMobile"> ${logedInUser[0].name} ${logedInUser[0].lastname} </span>`
 }
-
