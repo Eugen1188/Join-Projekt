@@ -91,10 +91,6 @@
         display: flex !important;
     }
 
-    .button-container {
-        margin-top: 146px;
-    }
-
     .board-card-section {
         height: min-content;
         width: 100%;
@@ -125,21 +121,33 @@
     }
 }
 
+@media (max-width: 1300px){
+    .button-container{
+        width: 100%;
+        position: absolute;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 16px;
+        background-color: white;
+    }
+}
+
 
 
 @media(max-width: 1150px) {
-
     .addtask-side-left {
-        left: 20px;
+        left: 32px;
     }
 
     .divider {
-        left: 470px;
+        left: 532px;
     }
 
     .addtask-side-right {
-        left: 480px;
+        left: 596px;
     }
+
 
     .add-task-overlay {
         width: calc(100% - 32px);
@@ -159,6 +167,22 @@
     #await-feedback,
     #done {
         width: 100%;
+    }
+}
+
+@media (max-width:1100px){
+
+
+    .addtask-side-left {
+        left: 20px!important;
+    }
+
+    .divider {
+        left: 494px!important;
+    }
+
+    .addtask-side-right {
+        left: 530px!important;
     }
 }
 

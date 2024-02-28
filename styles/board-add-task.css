@@ -145,12 +145,16 @@
 
 label.radio-button {
     margin-right: 0px;
-    padding: 16px 0px;
 }
 
 .contact-values-edit{
     max-height: 304px;
     position: static;
+    margin-top: 0;
+}
+
+.button-container{
+    top: 241px;
 }
 
 .task-added{
