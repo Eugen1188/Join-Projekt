@@ -37,7 +37,7 @@ function logInAsGuest() {
     initials: "G",
   });
   logedInUser.push(guestArray);
-  setItem("logedInUser", logedInUser);
+  setItem("logedInUser", logedInUser)
 }
 
 // Zeige den Sign Up Button sobald die Checkbox aktiviert ist
