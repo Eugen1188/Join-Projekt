@@ -156,7 +156,7 @@ async function deleteContact(id) {
     lastActivePerson = 0;
     setItem("contacts", contacts);
   }
-}!
+}
 
 /**
  * Saves the user in userData array and
@@ -179,7 +179,7 @@ async function saveNewUserData() {
     lastname: lastname[lastname.length - 1],
     email: email,
     password: password,
-    initials: firstname.charAt(0).toUpperCase() + lastname.charAt(0),
+    initials: firstname[0].charAt(0).toUpperCase() + lastname[lastname.length - 1].charAt(0),
   });
   id++;
   setItem("id", id);
