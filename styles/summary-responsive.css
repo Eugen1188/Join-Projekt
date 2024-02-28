@@ -58,17 +58,57 @@
 
       .task1-cont {
         width: 186px;
-        height: 120px;
+        height: 110px;
       }
 
       .task2-cont {
         width: 186px;
-        height: 120px;
+        height: 110px;
       }
 
       .deadline-cont {
         width: 396px;
         height: 110px;
       }
+
+      .tasks-in-board-cont {
+        width: 116px;
+        height: 116px;
+      }
+
+      .todo-done-cont {
+        width: 396px;
+        height: 110px;
+      }
+
+      .tasks-overview-cont {
+        width: 396px;
+        height: 110px;
+        margin-top: unset;
+      }
+
+      .tasks-main-cont {
+        width: 396px;
+        height: 384px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .tasks-in-board-help-hover-cont {
+        width: 116px;
+        height: 116px;
+      }
+
+      .deadline-help-hover-cont {
+        width: 396px;
+        height: 110px;
+      }
+
+      .tasks-overall-cont {
+        margin-top: 40px;
+      }
+
+
 }
 
