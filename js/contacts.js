@@ -96,8 +96,8 @@ let id = 11;
 let lastActivePerson;
 
 async function initContacts() {
-  // contacts = await getItemContacts("contacts");
-  // id = await getItemContacts("id");
+  contacts = await getItemContacts("contacts");
+  id = await getItemContacts("id");
   renderContacts();
 }
 
@@ -164,6 +164,7 @@ async function deleteContact(id) {
  * @returns {void} - returns nothing
  */
 async function saveNewUserData() {
+  id = await getItemContacts("id");
   const name = document.getElementById("name-reg").value.trim();
   const firstname = name.split(" ");
   const lastname = name.split(" ");
@@ -182,6 +183,7 @@ async function saveNewUserData() {
     initials: firstname[0].charAt(0).toUpperCase() + lastname[lastname.length - 1].charAt(0),
   });
   id++;
+  console.log(id);
   setItem("id", id);
   setItem("userData", userData);
 }
