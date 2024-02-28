@@ -7,10 +7,8 @@ async function initRegisteredContacts() {
 }
 
 function logIn() {
-
   let email = document.getElementById('email');
   let password = document.getElementById('password');
-
   for (let i = 0; i < userData.length; i++) {
     const element = userData[i];
     if (element.email == email.value && element.password == password.value) {
@@ -20,14 +18,13 @@ function logIn() {
         setItem("logedInUser", logedInUser);
         window.location = "summary.html";
       }
+      else {
+        email.value = '';
+        password.value = '';
+        alert('Email Adresse oder Password falsch !')
+        break;
+      }
     }
-    else{
-      email.value = '';
-      password.value = '';
-      alert('Email Adresse oder Password falsch !')
-      break;
-    }
-      
   }
 }
 
@@ -74,19 +71,19 @@ function showRegistrationAnimation() {
 
 /*
 function save() {
-
+ 
   let logedInUsers = JSON.stringify(logedInUser);
   localStorage.setItem('logedInUser', logedInUsers);
 }
-
+ 
 function load() {
-
+ 
   let logedInUsers = localStorage.getItem('logedInUser');
   if (logedInUsers) {
     logedInUser = JSON.parse(logedInUsers);
   }
 }
-
+ 
 */
 
 function logOut() {

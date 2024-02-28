@@ -4,7 +4,7 @@ body {
 }
 
 .main-sum-cont {
-
+    width: max-content;
     position: fixed;
     inset: 120px 320px;
 }
@@ -278,6 +278,7 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 64px;
 }
 
 .greetings-main-cont {
