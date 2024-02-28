@@ -131,6 +131,31 @@
         gap: 16px;
         background-color: white;
     }
+
+    .arrow{
+        left: calc(100% - 21px);
+
+    }
+
+
+    .edit-datepicker {
+        left: 260px!important;
+        right: 0;
+    }
+
+    .input-addtask {
+        width: calc(100% - 21px);
+    }
+
+    #subtask{
+        width: calc(100%);
+    }
+
+    .input-container {
+        width: 100%;
+    }
+    
+    
 }
 
 
@@ -306,11 +331,11 @@
     }
 
     .input-addtask {
-        width: calc(100% - 44px);
+        width: calc(100% - 21px);
     }
 
     .input-addtask-datepicker {
-        left: 232px;
+        left: 355px;
     }
 
     textarea {
