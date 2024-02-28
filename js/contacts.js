@@ -520,3 +520,11 @@ function renderAddContactSuccess(userId) {
     succesfully.innerHTML = "";
   }, 1420);
 }
+
+function renderMobileView() {
+  if (window.innerWidth < 1023) {
+    let container = document.getElementById("single-contact-data-container")
+    container.innerHTML = ""
+    container.innerHTML += singleContactOverview(0)
+  }
+}
