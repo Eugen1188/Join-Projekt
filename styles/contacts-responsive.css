@@ -83,7 +83,7 @@
         margin: 0px auto;
         position: unset;
         overflow-y: scroll;
-        height: 82%;
+        height: calc(100% - 160px);
         width: 100%;
     }
 
