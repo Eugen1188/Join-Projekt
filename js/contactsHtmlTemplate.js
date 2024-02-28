@@ -48,12 +48,12 @@ function singleContactOverview(index) {
             </div>
             <div class="single-contact-name-card">
                 <span class="single-contacts-name">${contacts[index].name + " " + contacts[index].lastname}</span>
-                <div class="contacts-icon-container">
-                    <div class="icons-contacts" id="edit-contact-${index}" onclick="renderEditContact(${contacts[index].id}, ${index})">
+                <div class="contacts-icon-container" id="contacts-icon-container">
+                    <div class="icons-contacts" id="single-contact-edit" onclick="renderEditContact(${contacts[index].id}, ${index})">
                         <img src="./assets/img/icons/edit.png" alt="">
                         <span>Edit</span>
                     </div>
-                    <div class="icons-contacts" id="edit-contact-${index}" onclick="deleteContact(${contacts[index].id})">
+                    <div class="icons-contacts" id="single-contact-delete}" onclick="deleteContact(${contacts[index].id})">
                         <img src="./assets/img/icons/delete.png" alt="">
                         <span>Delete</span>
                     </div>
@@ -141,6 +141,31 @@ function contactsCardCircleHTML(index) {
     return  /*html*/ `
         <div class="big-circle dnone card-circle-center ${contacts[index].circleColor}" id="circle-icon">
             <span>${contacts[index].initials}</span>
+        </div>
+    `
+}
+
+function menuContactMobileIconHTML() {
+    return /*html*/ `
+        <div class="btn-container" id="btn-container">
+            <button class="add-contacts-btn add-contact-btn-mobile main-btn-color" onclick="renderEditOrDelete()" id="add-or-eddit">
+                <img src="./assets/img/icons/more_vert.png" />
+            </button>
+        </div>
+        <div id="renderOrDelete"></div>
+    `
+}
+
+
+function renderEditOrDeleteHTML() {
+    return /*html*/ `
+        <div class="icons-contacts" id="single-contact-edit" onclick="renderEditContact(${contacts[index].id}, ${index})">
+            <img src="./assets/img/icons/edit.png" alt="">
+            <span>Edit</span>
+        </div>
+        <div class="icons-contacts" id="single-contact-delete}" onclick="deleteContact(${contacts[index].id})">
+            <img src="./assets/img/icons/delete.png" alt="">
+            <span>Delete</span>
         </div>
     `
 }

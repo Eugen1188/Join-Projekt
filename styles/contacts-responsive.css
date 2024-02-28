@@ -132,6 +132,13 @@
         justify-content: flex-end;
     }
 
+    .contacts-icon-container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+    }
+
 }
 
 @media(max-width: 340px) {

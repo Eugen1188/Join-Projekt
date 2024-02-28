@@ -457,22 +457,6 @@ function clearFormValues(formId) {
   form.reset();
 }
 
-// /**
-//  * Right slide in animation
-//  * @param {String} id - id of the element
-//  * @param {HTMLElement} htmlTemplate -  html template
-//  */
-// function rightSlideAnimation(id, htmlTemplate, setTimeoutValue = 200) {
-//   let element = document.getElementById(id);
-//   element.innerHTML = "";
-//   element.style.marginLeft = '1000px';
-//   element.style.transition = 'margin-left .4s ease';
-//   setTimeout(() => {
-//     element.innerHTML += htmlTemplate;
-//     element.style.marginLeft = "0";
-//   }, setTimeoutValue);
-// }
-
 /**
  * Right slide in animation
  * @param {String} id - id of the element
@@ -522,9 +506,22 @@ function renderAddContactSuccess(userId) {
 }
 
 function renderMobileView() {
-  if (window.innerWidth < 1023) {
-    let container = document.getElementById("single-contact-data-container")
-    container.innerHTML = ""
-    container.innerHTML += singleContactOverview(0)
+  let container = document.getElementById("contact-list")
+  let btnContainer = document.getElementById("btn-container")
+  btnContainer.innerHTML = ""
+  btnContainer.innerHTML += menuContactMobileIconHTML()
+}
+
+function renderEditOrDelete() {
+  let container = document.getElementById("renderOrDelete")
+  container.innerHTML = ""
+  container.innerHTML += renderEditOrDeleteHTML()
+}
+
+function addBtnMobileOrDesktop() {
+  if (window.innerWidth <= 1023) {
+    return renderMobileView();
+  } else {
+    return renderAddNewContact();
   }
 }
