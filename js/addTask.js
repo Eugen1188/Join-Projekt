@@ -8,6 +8,14 @@ let taskStates = [];
 let tempContacts = [];
 let contactIds = [];
 
+function init() {
+  invertSvgFills("medium");
+  handleClick("medium");
+  includeHTML();
+  initContacts();
+  testfunc();
+}
+
 /**
  * Retrieves contacts associated with a specified key from a storage endpoint.
  * @async
