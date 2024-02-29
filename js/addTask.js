@@ -34,6 +34,7 @@ let contactIds = [];
  */
 
 function init() {
+  // invertSvgFills("medium") & handleClick("medium") setzen die Prio standardmäßig auf medium. Im HTML muss  der input den Wert checked bekommen
   invertSvgFills("medium");
   handleClick("medium");
   includeHTML();
