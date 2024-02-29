@@ -10,8 +10,8 @@ let lockout;
  * @author Kevin Mueller
  */
 async function initBoard() {
-    logedInUser = await getItemContacts("logedInUser");
-    renderLogedUser()
+/*     logedInUser = await getItemContacts("logedInUser");
+    renderLogedUser() */
     await testfunc();
     clearCurrentTask();
     renderCheckState(allTasks);
@@ -192,6 +192,7 @@ function displayOpenOverlay(id) {
  * function to open the addtask overlay
  * 
  * @param {Object} state - Json object which contains the state of the task
+ * @author Kevin Mueller
  */
 function displayAddTaskOverlay(state) {
     checkedContacts = [];
@@ -284,7 +285,7 @@ function rotateCard(id) {
 }
 
 
-/* *
+/**
  * this function adds overflow-y:scroll to the board-sections
  *
  * @author Kevin Mueller
@@ -382,6 +383,7 @@ function displaySearchInfo() {
  * function to highlight the svg icon in the prio buttons
  * 
  * @param {string} value - string to determine which button has to be changed
+ * @author Kevin Mueller & Christian Foerster
  */
 function invertSvgFillsEdit(value) {
     let priorityIcon = value;
@@ -406,6 +408,7 @@ function invertSvgFillsEdit(value) {
  * function to retrieve the subtasks from clicked card
  * 
  * @param {Array} task - this array contains subtasks of the id
+ * @author Kevin Mueller
  */
 function getSubtasks(task) {
     subtasks = [];
@@ -420,6 +423,7 @@ function getSubtasks(task) {
  * function to determine the button color based on the state
  * 
  * @param {string} prio - string that contains the priority
+ * @author Kevin Mueller
  */
 function fillRadio(prio) {
     switch (prio) {
@@ -440,6 +444,13 @@ function fillRadio(prio) {
     }
 }
 
+
+/**
+ * this function gets the index of the contacts given
+ * 
+ * @param {Array} contacts - array of contacts
+ * @author Kevin Mueller
+ */
 function checkedContactId(contacts) {
     for (let i = 0; i < contacts.length; i++) {
         const contactId = contacts[i];
@@ -448,6 +459,13 @@ function checkedContactId(contacts) {
 }
 
 
+/**
+ * function to get the index of given item
+ * 
+ * @param {Array} id - gets item out of array 
+ * @returns index of the given item
+ * @author Kevin Mueller
+ */
 function getContactIndex(id) {
     for (let i = 0; i < tempContacts.length; i++) {
         const contact = tempContacts[i];
@@ -457,11 +475,25 @@ function getContactIndex(id) {
     }
 }
 
+
+/**
+ * function to update the allTasks in remote storage and render the overlay
+ * 
+ * @param {number} index - index as number
+ * @author Kevin Mueller
+ */
 async function editTask(index) {
     await validateForm(index);
     renderTaskOverlay(index);
 }
 
+
+/**
+ * function to handle the current task state
+ * 
+ * @param {string} taskState - string to determine the current task state
+ * @author Kevin Mueller
+ */
 function handleTaskState(taskState) {
     if (taskState === 'todo') {
         currentTaskState = { inProgress: false, awaitFeedback: false, done: false };
