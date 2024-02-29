@@ -156,17 +156,6 @@
     .single-data-headline {
         gap: 20px;
     }
-
-    .single-content-container {
-        left: 0px;
-        top: 80px;
-        background-color: wheat;
-        display: flex;
-        flex-direction: column;
-        /* width: 100%;
-        height: 100%; */
-    }
-
     .single-contact-name-card {
         display: flex;
         align-items: center;
@@ -183,6 +172,10 @@
 
     .single-contact-headline span {
         font-size: 20px;
+    }
+
+    .desktop-none {
+        display: unset;
     }
 }
 

@@ -290,12 +290,11 @@ function singleContactOverview(id) {
 }
 
 function mobileSingleContactOverview(id) {
-  const singlContactDataContainer = document.getElementById("single-contact-data-container");
-  const headlineContaier = document.getElementById("single-contact-headline");
+  const singlContactDataContainer = document.getElementById("contact-list");
   setPersonToActive(id);
   singlContactDataContainer.innerHTML = "";
+  singlContactDataContainer.innerHTML += contactsWelcomHTML();
   singlContactDataContainer.innerHTML += singleContactOverviewHTML(id);
-  headlineContaier.classList.remove("dnone");
 }
 
 /**
