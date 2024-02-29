@@ -271,6 +271,7 @@ function renderContacts() {
 function renderSingleContactOverview(id) {
   if (window.innerWidth < 1024) {
     mobileSingleContactOverview(id);
+    renderMobileView(id)
   } else {
     singleContactOverview(id);
   }

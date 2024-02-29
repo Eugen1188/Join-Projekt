@@ -172,11 +172,10 @@ function renderEditOrDeleteHTML(index) {
 
 function contactsWelcomHTML() {
     return /*html*/ `
-        <div class="single-contact-headline">
+        <div class="single-contact-headline small-underline">
             <h1>Contacts</h1>
-            <div class="vertical-bar"></div>
-            <span class="">Better with a Team</span>
-            <div class="small-underline desktop-none"></div>
+            <span>Better with a Team</span>
+            <!-- <div class="small-underline desktop-none"></div> -->
         </div>
     `
 }

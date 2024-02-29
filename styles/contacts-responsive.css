@@ -145,6 +145,9 @@
         align-items: flex-start;
         transition: none;
         gap: 8px;
+        margin: 0;
+        height: 110px;
+
     }
 
     .big-circle {
@@ -159,7 +162,7 @@
     .single-contact-name-card {
         display: flex;
         align-items: center;
-        font-size: 37px;
+        font-size: 27px;
     }
 
     .single-contact-data-container {
@@ -172,6 +175,7 @@
 
     .single-contact-headline span {
         font-size: 20px;
+        width: 200px;
     }
 
     .desktop-none {
