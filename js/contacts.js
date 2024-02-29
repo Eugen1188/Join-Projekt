@@ -362,7 +362,7 @@ function renderEditContact(userId, userIndex) {
   circleColor.innerHTML += contactsCardCircleHTML(userIndex)
   document.getElementById("name").value = contacts[userIndex].name + " " + contacts[userIndex].lastname;
   document.getElementById("email").value = contacts[userIndex].email;
-  document.getElementById("phone").value = contacts[userIndex].phone;
+  document.getElementById("phone").value = formatPhoneNumber(contacts[userIndex].phone);
 }
 
 /**
