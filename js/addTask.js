@@ -40,7 +40,7 @@ async function init() {
   invertSvgFills("medium");
   handleClick("medium");
   initContacts();
-  testfunc();
+  getAllTasksData();
 }
 
 /**
@@ -252,24 +252,6 @@ function preventFormSubmit(event) {
   if (event.key === "Enter") {
     event.preventDefault();
   }
-}
-
-/**
- * Asynchronously retrieves and parses the task data from storage to populate the tasks array.
- * @async
- * @function testfunc
- * @author Kevin Müller
- */
-
-async function testfunc() {
-  let myArray = getItem("test_board");
-  await myArray
-    .then((result) => {
-      allTasks = JSON.parse(result.data.value);
-    })
-    .catch((error) => {
-      console.error("Ein Fehler ist aufgetreten:", error);
-    });
 }
 
 /**

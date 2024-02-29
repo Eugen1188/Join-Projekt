@@ -12,7 +12,7 @@ let lockout;
 async function initBoard() {
     logedInUser = await getItemContacts("logedInUser");
     renderLogedUser()
-    await testfunc();
+    await getAllTasksData();
     clearCurrentTask();
     renderCheckState(allTasks);
     initContacts();
