@@ -98,6 +98,7 @@ function closeContactValueOnDifferentClickTarget(index) {
     // Wenn das geklickte Element nicht eines der spezifizierten Elemente ist wird ein d-none gesetzt
     if (!isSVGOrSpan && clickedElement !== contactValues && clickedElement !== assignToInput && clickedElement !== arrow && clickedElement !== contactCard && clickedElement !== checkboxIcon) {
       contactValues.classList.add("d-none");
+      assignToInput.placeholder = "Select contacts to assign";
     }
   };
 }

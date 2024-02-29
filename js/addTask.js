@@ -33,11 +33,12 @@ let contactIds = [];
  * - Executes a test function.
  */
 
-function init() {
+async function init() {
   // invertSvgFills("medium") & handleClick("medium") setzen die Prio standardmäßig auf medium. Im HTML muss  der input den Wert checked bekommen
+  logedInUser = await getItemContacts("logedInUser");
+  renderLogedUser();
   invertSvgFills("medium");
   handleClick("medium");
-  includeHTML();
   initContacts();
   testfunc();
 }

@@ -20,7 +20,7 @@
     <script src="./js/addTaskSubtask.js"></script>
     <script src="./js/addTaskHTML.js"></script>
   </head>
-  <body onload="init()">
+  <body onload="includeHTML();init()">
     <header id="main-header" w3-include-html="assets/templates/header.html"></header>
     <div>
       <form class="add-task-form" id="form" onkeypress="preventFormSubmit(event)" onsubmit="validateForm();return false">
