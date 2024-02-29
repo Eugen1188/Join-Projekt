@@ -271,7 +271,7 @@ function renderContacts() {
 function renderSingleContactOverview(id) {
   if (window.innerWidth < 1024) {
     mobileSingleContactOverview(id);
-    renderMobileView(id)
+    renderMobileViewMenu(id)
   } else {
     singleContactOverview(id);
   }
@@ -281,13 +281,13 @@ function renderSingleContactOverview(id) {
  * Render a single person in a more detailed view
  * @param {number} id - is required to find the desired user
  */
-function singleContactOverview(id) {
+function singleContactOverview(index) {
   const singlContactDataContainer = document.getElementById(
     "single-contact-data-container"
   );
-  setPersonToActive(id);
+  setPersonToActive(index);
   singlContactDataContainer.innerHTML = "";
-  rightSlideAnimation("single-contact-data-container", singleContactOverviewHTML(id));
+  rightSlideAnimation("single-contact-data-container", singleContactOverviewHTML(index));
 }
 
 function mobileSingleContactOverview(id) {
@@ -526,22 +526,22 @@ function renderAddContactSuccess(userId) {
   }, 1420);
 }
 
-function renderMobileView() {
+function renderMobileViewMenu(index) {
   let container = document.getElementById("contact-list")
   let btnContainer = document.getElementById("btn-container")
   btnContainer.innerHTML = ""
-  btnContainer.innerHTML += menuContactMobileIconHTML()
+  btnContainer.innerHTML += menuContactMobileIconHTML(index)
 }
 
-function renderEditOrDelete() {
+function renderEditOrDelete(index) {
   let container = document.getElementById("renderOrDelete")
   container.innerHTML = ""
-  container.innerHTML += renderEditOrDeleteHTML()
+  container.innerHTML += mobileDeleteOrEditBtnHTML(index)
 }
 
 function addBtnMobileOrDesktop() {
   if (window.innerWidth < 1024) {
-    return renderMobileView();
+    return renderMobileViewMenu(index);
   } else {
     return renderAddNewContact();
   }
