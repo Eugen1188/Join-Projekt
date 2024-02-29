@@ -36,6 +36,24 @@ async function getItem(key) {
   return await fetch(url).then((res) => res.json());
 }
 
+/**
+ * Asynchronously retrieves and parses the task data from storage to populate the tasks array.
+ * @async
+ * @function getAllTasksData
+ * @author Kevin Müller
+ */
+
+async function getAllTasksData() {
+  let myArray = getItem("test_board");
+  await myArray
+    .then((result) => {
+      allTasks = JSON.parse(result.data.value);
+    })
+    .catch((error) => {
+      console.error("Ein Fehler ist aufgetreten:", error);
+    });
+}
+
 
 /* Öffnet Menü, um neuen user zu registrieren */
 
