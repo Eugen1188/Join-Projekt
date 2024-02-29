@@ -6,11 +6,21 @@
 function clearBoardAddTask(){
     document.getElementById('title').value = ''
     document.getElementById('taskDescription').value = ''
-    document.getElementById('choosenContacts').value = ''
+    document.getElementById('choosenContacts').innerHTML = ''
     document.getElementById('date').value = ''
     document.getElementById('dateNormal').value = ''
     document.getElementById('category').value = ''
     document.getElementById('subtask').value = ''
+    uncheckPrioButtons();
+    invertSvgFills("medium");
+    handleClick("medium");
+    
+}
+
+function uncheckPrioButtons(){
+    document.getElementById('urgent').checked = false
+    document.getElementById('medium').checked = true
+    document.getElementById('low').checked = false
 }
 
 
@@ -138,6 +148,8 @@ function displayAddTaskOverlay(state) {
         if (state !== undefined) {
             handleTaskState(state)
         }
+        invertSvgFills("medium");
+        handleClick("medium");
         document.getElementById("overlay").classList.remove("d-none");
         document.getElementById('overlay-add-task').classList.remove("d-none");
         document.getElementById("overlay-add-task").classList.remove("task-overlay-translate-out");

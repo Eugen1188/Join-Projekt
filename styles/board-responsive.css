@@ -70,6 +70,15 @@
     background-color: var(--light-blue);
 }
 
+.input-container-contacts{
+    width: calc(100% - 42px);
+    align-self: flex-start;
+}
+
+.arrow{
+    left: 100%;
+}
+
 @media(max-width: 1430px) {
     .board-main {
         flex-direction: column;
@@ -132,19 +141,13 @@
         background-color: white;
     }
 
-    .arrow{
-        left: calc(100% - 21px);
-
-    }
-
-
     .edit-datepicker {
         left: calc(100% - 16px);
         right: 0;
     }
 
     .input-addtask {
-        width: calc(100% - 21px);
+        width: 100%;
     }
 
     #subtask{
@@ -334,12 +337,6 @@
     .input-subtask {
         width: calc(100% - 22px) !important;
     }
-
-    .input-addtask {
-        width: calc(100% - 21px);
-    }
-
-
 
     textarea {
         width: calc(100% + 20px) !important;

@@ -153,7 +153,7 @@ function templateAddTaskBoard() {
           <h1>Add Task</h1>
           <img src="./assets/img/close.png" alt="close" onclick="closeOverlayAddTask()">
       </div>
-      <form class="add-task-form" id="form" onsubmit="validateForm();return false">
+      <form class="add-task-form" id="form" onkeypress="preventFormSubmit(event)" onsubmit="validateForm();return false">
           ${templateAddTaskLeft()}
           <div class="divider"></div>
           <div class="addtask-side-right" id="right-side-add">
@@ -255,7 +255,7 @@ function templateAddTaskPrioUrgent() {
 
 function templateAddTaskPrioMedium() {
   return `
-      <input class="input-addtask" type="radio" id="medium" name="priority" value="medium" />
+      <input class="input-addtask" type="radio" id="medium" checked name="priority" value="medium" />
       <label for="medium" class="radio-button" onclick="invertSvgFills('medium');handleClick('medium')">Medium
         <svg id="medium-icon" width="21" height="8" viewBox="0 0 21 8" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clip-path="url(#clip0_156_994)">
@@ -299,7 +299,7 @@ function templateAddTaskSubtask() {
       <div class="input-container">
       <label for="subtask">Subtask</label>
       <div class="add-subtask">
-        <input class="input-addtask" name="subtask" id="subtask" type="text" minlength="5" onclick="changeSubtaskInputIcons()" onkeyup="getInput()" />
+        <input class="input-addtask" name="subtask" id="subtask" type="text" minlength="5" maxlength="33" onkeypress=" checkKeyPressAndPushSubtask(event)"  onclick="changeSubtaskInputIcons()" onkeyup="getInput()" />
         <div id="subTaskSvgContainer" class="svg-container">
           <svg class="svg-plusicon" id="subTaskPlusIcon" width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <mask id="mask0_136369_4669" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="24">
