@@ -107,7 +107,7 @@ function contactsCardHTML({ cardName, secondText, functionName, index } = formCo
                         <input class="edit-card-from-input" type="tel" placeholder="Phone" id="phone" maxlength="11">
                         <div class="edit-card-btn-wrapper">
                             <div id="delete-btn">
-                                <button class="edit-card-btn white-btn pointer" onclick="deleteContact(${contacts[index].id}); closeRenderContactCardSlide()">Delete</button>
+                                <button class="edit-card-btn white-btn pointer" id="delete" onclick="closeRenderContactCardSlide()">Delete</button>
                             </div>
                             <button class="edit-card-btn main-btn-color font-color pointer" type="submit">
                                 <span>Save</span>
@@ -191,6 +191,14 @@ function mobileDeleteOrEditBtnHTML(index) {
                 <img src="./assets/img/icons/delete.png" alt="">
                 <span>Delete</span>
             </div>
+        </div>
+    `
+}
+
+function addNewContactMobileHTML() {
+    return /*html*/ `
+        <div class="add-contacts-btn add-contact-btn-mobile main-btn-color" onclick="renderAddNewContact()">
+            <img src="./assets/img/icons/person_add.png" />
         </div>
     `
 }

@@ -156,6 +156,7 @@ async function deleteContact(id) {
     renderContacts();
     document.getElementById("single-contact-data-container").innerHTML = "";
     lastActivePerson = 0;
+    renderContactListAfterDeleteMobile()
     setItem("contacts", contacts);
   }
 }
@@ -359,6 +360,9 @@ function renderEditContact(userId, userIndex) {
   renderCard("edit-card", contactsCardHTML(formConfig));
   let circleColor = document.getElementById("circle-color");
   circleColor.innerHTML += contactsCardCircleHTML(userIndex)
+  document.getElementById("name").value = contacts[userIndex].name + " " + contacts[userIndex].lastname;
+  document.getElementById("email").value = contacts[userIndex].email;
+  document.getElementById("phone").value = contacts[userIndex].phone;
 }
 
 /**
@@ -540,9 +544,19 @@ function renderEditOrDelete(index) {
 }
 
 function addBtnMobileOrDesktop() {
-  if (window.innerWidth < 1024) {
-    return renderMobileViewMenu(index);
-  } else {
     return renderAddNewContact();
+}
+
+function renderContactListAfterDeleteMobile() {
+  if (window.innerWidth < 1024) {
+    let renderOrDelete = document.getElementById("renderOrDelete");
+    let addOrEddit = document.getElementById("add-or-eddit");
+    document.getElementById("contact-list").innerHTML = "";
+    renderContacts();
+    renderOrDelete.innerHTML = "";
+    addOrEddit.innerHTML = "";
+    addOrEddit.innerHTML = addBtnMobileOrDesktop();
+
+
   }
 }
