@@ -8,6 +8,7 @@ let tasksDone = [];
  * in regard of the task status.
  *
  * @param {Object} data - JSON with all Tasks data
+ * @author Kevin Mueller
  */
 async function renderCheckState(data) {
     await clearBoard();
@@ -34,6 +35,8 @@ async function renderCheckState(data) {
 
 /**
  * this function clears the board and all board dependant arrays
+ * 
+ * @author Kevin Mueller
  */
 function clearBoard() {
     document.getElementById("todo").innerHTML = "";
@@ -49,6 +52,8 @@ function clearBoard() {
 /**
  * this function checks if there are tasks in the section, if not the template for noTask
  * will be rendered.
+ * 
+ * @author Kevin Mueller
  */
 function checkIfTasksAvailable() {
     if (tasksTodo.length == 0) {
@@ -70,6 +75,7 @@ function checkIfTasksAvailable() {
  *
  * @param {Object} task - data of the task
  * @param {string} id - id of the section
+ * @author Kevin Mueller
  */
 function renderCard(task, id) {
     boardSection = document.getElementById(id);
@@ -81,6 +87,7 @@ function renderCard(task, id) {
  *
  * @param {Array} data - provides assignees as an array
  * @returns html template with Assignees
+ * @author Kevin Mueller
  */
 function renderCardAssignee(data) {
     let textHTML = "";
@@ -92,10 +99,13 @@ function renderCardAssignee(data) {
     return textHTML;
 }
 
+
 /**
- *
- * @param {Array} data
- * @returns
+ * this function gets the assignees data and renders it in the html template
+ * 
+ * @param {Object} data - JSON that contains needed data for assignees
+ * @returns html template with assignees for the overlay
+ * @author Kevin Mueller
  */
 function renderOverlayAssignee(data) {
     let textHTML = "";
@@ -108,6 +118,13 @@ function renderOverlayAssignee(data) {
     return textHTML;
 }
 
+
+/**
+ * function to render the card task overlay
+ * 
+ * @param {number} index - index of the wanted information 
+ * @author Kevin Mueller
+ */
 function renderTaskOverlay(index) {
     let overlay = document.getElementById("overlay-card");
     let taskIndex = allTasks[index][0];
@@ -116,6 +133,13 @@ function renderTaskOverlay(index) {
     openOverlay();
 }
 
+
+/**
+ * function to render the edit overlay
+ * 
+ * @param {number} index - index of the array data
+ * @author Kevin Mueller
+ */
 async function renderEditOverlay(index) {
     let overlay = document.getElementById("overlay-card");
     let taskIndex = allTasks[index][0];
@@ -131,6 +155,14 @@ async function renderEditOverlay(index) {
     showSubtasks();
 }
 
+
+/**
+ * function to get subtasks with its states from the specified task and to render it
+ * 
+ * @param {Object} task - Json object to gather the data from 
+ * @returns html template with provided data
+ * @author Kevin Mueller
+ */
 function renderSubtask(task) {
     let textHTML = "";
     let imgSource = "";
@@ -149,6 +181,14 @@ function renderSubtask(task) {
     return textHTML;
 }
 
+
+/**
+ * function to get the length and status of the subtasks to render it
+ * 
+ * @param {Object} task - Json object to gather the data from
+ * @returns html template with provided data
+ * @author Kevin Mueller
+ */
 function renderProgressBar(task) {
     let progressLength = task.subtask.subtask.length;
     let taskState = task.subtask.taskstate;
@@ -161,6 +201,14 @@ function renderProgressBar(task) {
     }
 }
 
+
+/**
+ * function to get the length and status of the subtasks to render it
+ * 
+ * @param {Object} task - Json object to gather the data from
+ * @returns html template with provided data
+ * @author Kevin Mueller
+ */
 function renderProgressAmount(task) {
     let progressLength = task.subtask.subtask.length;
     let taskState = task.subtask.taskstate.filter(Boolean).length;
@@ -172,6 +220,12 @@ function renderProgressAmount(task) {
     
 }
 
+
+/**
+ * function to render the Addtask overlay
+ * 
+ * @author Kevin Mueller
+ */
 function renderAddTaskOverlay() {
     document.getElementById("overlay-add-task").innerHTML = templateAddTaskBoard();
     initContacts();
