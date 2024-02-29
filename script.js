@@ -157,11 +157,15 @@ function navigateToAddTask() {
 
 function renderLogedUser() {
   let userInitials = document.getElementById('logedUserInitials');
-  let firstName = document.getElementById('logedInName');
-  let lastname = document.getElementById('logedInLastname');
+
+  if (window.location == "http://127.0.0.1:5500/summary.html") {
+    let firstName = document.getElementById('logedInName');
+    let lastname = document.getElementById('logedInLastname');
+    firstName.innerHTML = logedInUser[0].name;
+    lastname.innerHTML = logedInUser[0].lastname;
+  }
+
   userInitials.innerHTML = logedInUser[0].initials;
-  firstName.innerHTML = logedInUser[0].name;
-  lastname.innerHTML = logedInUser[0].lastname;
 }
 
 function logInAsGuest() {
