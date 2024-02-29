@@ -11,6 +11,10 @@
   <link rel="stylesheet" href="./styles/style.css" />
   <link rel="stylesheet" href="./styles/board.css" />
   <link rel="stylesheet" href="./styles/add-task.css" />
+  <link rel="stylesheet" href="./styles/add-task-form.css">
+  <link rel="stylesheet" href="./styles/add-task-contacts.css">
+
+  <link rel="stylesheet" href="./styles/add-task-global-style.css">
   <link rel="stylesheet" href="./styles/board-add-task.css" />
   <link rel="stylesheet" href="./styles/board-responsive.css">
   <script src="./script.js"></script>
@@ -20,7 +24,10 @@
   <script src="./js/boardHtmlTemplate.js"></script>
   <script src="./js/boardAddTask.js"></script>
   <script src="./js/addTask.js"></script>
-  <script src="./js/addTaskHTML.js"></script>
+  <script src="./js/addTaskContacts.js"></script>
+  <script src="./js/addTaskCreateTask.js"></script>
+  <script src="./js/addTaskSubtask.js"></script>
+  <script src="./js/addTaskHTML.js"></script> 
 </head>
 
 <body onload="includeHTML();initBoard()">
@@ -57,8 +64,8 @@
       </div>
     </div>
     <div class="board-main">
-  
-  
+
+
       <div class="board-card-section">
         <div class="board-title-content" id="title-todo">
           <div>
@@ -79,8 +86,8 @@
           </div>
         </div>
       </div>
-  
-  
+
+
       <div class="board-card-section">
         <div class="board-title-content" id="title-inprogress">
           <div>
@@ -101,8 +108,8 @@
           </div>
         </div>
       </div>
-  
-  
+
+
       <div class="board-card-section">
         <div class="board-title-content" id="title-boardtitle">
           <div>
@@ -116,14 +123,14 @@
             </svg>
           </div>
         </div>
-        <div id="await-feedback" ondragleave="removeGhostCard('ghostcard')"
-          ondrop="moveTo('await-feedback')" ondragover="allowDrop(event);renderGhostCard('await-feedback')">
+        <div id="await-feedback" ondragleave="removeGhostCard('ghostcard')" ondrop="moveTo('await-feedback')"
+          ondragover="allowDrop(event);renderGhostCard('await-feedback')">
           <div class="board-no-task">
             <span>No tasks To do</span>
           </div>
         </div>
       </div>
-  
+
       <div class="board-card-section">
         <div class="board-title-content" id="title-boardtitle">
           <div>
@@ -131,13 +138,13 @@
           </div>
         </div>
         <div id="done" ondragleave="removeGhostCard('ghostcard')" ondrop="moveTo('done')"
-        ondragover="allowDrop(event);renderGhostCard('done')">
-        <div class="board-no-task">
-          <span>No tasks To do</span>
+          ondragover="allowDrop(event);renderGhostCard('done')">
+          <div class="board-no-task">
+            <span>No tasks To do</span>
+          </div>
         </div>
       </div>
-      </div>
-  
+
     </div>
   </main>
 
