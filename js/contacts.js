@@ -267,18 +267,35 @@ function renderContacts() {
   }
 }
 
+
+function renderSingleContactOverview(id) {
+  if (window.innerWidth < 1024) {
+    mobileSingleContactOverview(id);
+  } else {
+    singleContactOverview(id);
+  }
+}
+
 /**
  * Render a single person in a more detailed view
  * @param {number} id - is required to find the desired user
  */
-function renderSingleContactOverview(id) {
+function singleContactOverview(id) {
   const singlContactDataContainer = document.getElementById(
     "single-contact-data-container"
   );
   setPersonToActive(id);
   singlContactDataContainer.innerHTML = "";
-  const element = document.querySelector('.single-contact-data-container');
-  rightSlideAnimation("single-contact-data-container", singleContactOverview(id));
+  rightSlideAnimation("single-contact-data-container", singleContactOverviewHTML(id));
+}
+
+function mobileSingleContactOverview(id) {
+  const singlContactDataContainer = document.getElementById("single-contact-data-container");
+  const headlineContaier = document.getElementById("single-contact-headline");
+  setPersonToActive(id);
+  singlContactDataContainer.innerHTML = "";
+  singlContactDataContainer.innerHTML += singleContactOverviewHTML(id);
+  headlineContaier.classList.remove("dnone");
 }
 
 /**

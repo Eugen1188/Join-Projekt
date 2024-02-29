@@ -40,15 +40,15 @@ function contactUserCardHtml(index) {
  * @param {number} index - array index of the person to be displayed
  * @returns - HTML
  */
-function singleContactOverview(index) {
+function singleContactOverviewHTML(index) {
     return /*html*/ `
         <div class="single-data-headline">
-            <div class="big-circle dnone ${contacts[index].circleColor}">
+            <div class="big-circle ${contacts[index].circleColor}">
                 ${contacts[index].initials}
             </div>
             <div class="single-contact-name-card">
                 <span class="single-contacts-name">${contacts[index].name + " " + contacts[index].lastname}</span>
-                <div class="contacts-icon-container" id="contacts-icon-container">
+                <div class="contacts-icon-container dnone" id="contacts-icon-container">
                     <div class="icons-contacts" id="single-contact-edit" onclick="renderEditContact(${contacts[index].id}, ${index})">
                         <img src="./assets/img/icons/edit.png" alt="">
                         <span>Edit</span>

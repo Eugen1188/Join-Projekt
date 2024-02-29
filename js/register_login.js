@@ -29,8 +29,6 @@ async function logIn() {
   }
 }
 
-
-
 // Zeige den Sign Up Button sobald die Checkbox aktiviert ist
 
 function showRegisterButton() {
