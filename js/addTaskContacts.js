@@ -1,27 +1,4 @@
 /**
- * Retrieves contacts associated with a specified key from a storage endpoint.
- * @async
- * @function getItemContacts
- * @param {string} key - The key associated with the contacts to retrieve.
- * @returns {Promise<Array>} A promise that resolves to an array of contacts.
- * @throws {Error} Throws an error if there is a problem with the retrieval process.
- * @author Dragan
- */
-
-async function getItemContacts(key) {
-  const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
-  try {
-    let response = await fetch(url);
-    if (response.ok) {
-      const responseData = await response.json();
-      return JSON.parse(responseData.data.value);
-    }
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-/**
  * Initializes the contacts by retrieving them from storage and populating the temporary contacts array.
  * @async
  * @function initContacts

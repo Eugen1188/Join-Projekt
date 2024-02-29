@@ -22,19 +22,6 @@ async function setItem(key, value) {
   }).then((res) => res.json());
 }
 
-/**
- * Ruft einen Wert aus dem Speicher ab.
- * @async
- * @function getItem
- * @param {string} key - Der Schlüssel des Werts, der abgerufen werden soll.
- * @returns {Promise<Object>} Ein Promise, das das abgerufene Ergebnis zurückgibt.
- * @throws {Error} - Ein Fehler tritt auf, wenn das Abrufen fehlschlägt.
- */
-
-async function getItem(key) {
-  const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
-  return await fetch(url).then((res) => res.json());
-}
 
 /**
  * Asynchronously retrieves and parses the task data from storage to populate the tasks array.
@@ -44,14 +31,7 @@ async function getItem(key) {
  */
 
 async function getAllTasksData() {
-  let myArray = getItem("test_board");
-  await myArray
-    .then((result) => {
-      allTasks = JSON.parse(result.data.value);
-    })
-    .catch((error) => {
-      console.error("Ein Fehler ist aufgetreten:", error);
-    });
+  allTasks = await getItemContacts("test_board");
 }
 
 
@@ -201,4 +181,28 @@ function logOut() {
   logedInUser = [];
   setItem("logedInUser", logedInUser);
   window.location = "index.html";
+}
+
+
+/**
+ * Retrieves contacts associated with a specified key from a storage endpoint.
+ * @async
+ * @function getItemContacts
+ * @param {string} key - The key associated with the contacts to retrieve.
+ * @returns {Promise<Array>} A promise that resolves to an array of contacts.
+ * @throws {Error} Throws an error if there is a problem with the retrieval process.
+ * @author Dragan
+ */
+
+async function getItemContacts(key) {
+  const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
+  try {
+    let response = await fetch(url);
+    if (response.ok) {
+      const responseData = await response.json();
+      return JSON.parse(responseData.data.value);
+    }
+  } catch (error) {
+    console.error(error);
+  }
 }

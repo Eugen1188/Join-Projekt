@@ -128,24 +128,6 @@ async function editContact(userId) {
   }
 }
 
-/**If the code is adopted, replace getItem with getItemContacts
- * @param {string} key - is required to find the desired data
- * @returns {array} - returns the contacts array
- */
-async function getItemContacts(key) {
-  const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
-  try {
-    let response = await fetch(url);
-    if (!response.ok) {
-      throw new Error("Failed to fetch data");
-    }
-    const responseData = await response.json();
-    return JSON.parse(responseData.data.value);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
 /** deletes a contact from the contact list
  * @param {number} id - is required to find the desired user
  */

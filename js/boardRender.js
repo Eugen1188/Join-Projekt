@@ -7,6 +7,7 @@ let tasksDone = [];
  * this function clears the whole board and after that it renders the tasks
  * in regard of the task status.
  *
+ * 
  * @param {Object} data - JSON with all Tasks data
  * @author Kevin Mueller
  */
