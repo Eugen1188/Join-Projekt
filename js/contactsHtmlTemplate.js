@@ -107,7 +107,7 @@ function contactsCardHTML({ cardName, secondText, functionName, index } = formCo
                         <input class="edit-card-from-input" type="tel" placeholder="Phone" id="phone" maxlength="11">
                         <div class="edit-card-btn-wrapper">
                             <div id="delete-btn">
-                                <button class="edit-card-btn white-btn pointer" onclick="deleteContact(${contacts[index].id}); closeRenderContactCardSlide()">Delete</button>
+                                <button class="edit-card-btn white-btn pointer" id="delete" onclick="closeRenderContactCardSlide()">Delete</button>
                             </div>
                             <button class="edit-card-btn main-btn-color font-color pointer" type="submit">
                                 <span>Save</span>
@@ -145,10 +145,10 @@ function contactsCardCircleHTML(index) {
     `
 }
 
-function menuContactMobileIconHTML() {
+function menuContactMobileIconHTML(index) {
     return /*html*/ `
         <div class="btn-container" id="btn-container">
-            <button class="add-contacts-btn add-contact-btn-mobile main-btn-color" onclick="renderEditOrDelete()" id="add-or-eddit">
+            <button class="add-contacts-btn add-contact-btn-mobile main-btn-color" onclick="renderEditOrDelete(${index})" id="add-or-eddit">
                 <img src="./assets/img/icons/more_vert.png" />
             </button>
         </div>
@@ -172,11 +172,41 @@ function renderEditOrDeleteHTML(index) {
 
 function contactsWelcomHTML() {
     return /*html*/ `
-        <div class="single-contact-headline">
+        <div class="single-contact-headline small-underline">
             <h1>Contacts</h1>
-            <div class="vertical-bar"></div>
-            <span class="">Better with a Team</span>
-            <div class="small-underline desktop-none"></div>
+            <span>Better with a Team</span>
+            <!-- <div class="small-underline desktop-none"></div> -->
+        </div>
+    `
+}
+
+function mobileDeleteOrEditBtnHTML(index) {
+    return /*html*/ `
+        <div class="icon-container-mobile">
+            <div class="icons-contacts">
+                <img src="./assets/img/icons/edit.png" alt="" onclick="renderEditContact(${contacts[index].id}, ${index})">
+                <span>Edit</span>
+            </div>
+            <div class="icons-contacts" id="single-contact-delete}" onclick="deleteContact(${contacts[index].id})">
+                <img src="./assets/img/icons/delete.png" alt="">
+                <span>Delete</span>
+            </div>
+        </div>
+    `
+}
+
+function addNewContactMobileHTML() {
+    return /*html*/ `
+        <div class="add-contacts-btn add-contact-btn-mobile main-btn-color" onclick="renderAddNewContact()">
+            <img src="./assets/img/icons/person_add.png" />
+        </div>
+    `
+}
+
+function goBackToContactlistHTML() {
+    return /*html*/ `
+        <div class="back-btn-container" onclick="goBackToContactListMobile()">
+            <img src="./assets/img/back_arrow.png" alt="" >
         </div>
     `
 }

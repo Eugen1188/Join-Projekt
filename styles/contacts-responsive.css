@@ -145,6 +145,9 @@
         align-items: flex-start;
         transition: none;
         gap: 8px;
+        margin: 0;
+        height: 110px;
+
     }
 
     .big-circle {
@@ -156,10 +159,11 @@
     .single-data-headline {
         gap: 20px;
     }
+
     .single-contact-name-card {
         display: flex;
         align-items: center;
-        font-size: 37px;
+        font-size: 27px;
     }
 
     .single-contact-data-container {
@@ -172,6 +176,7 @@
 
     .single-contact-headline span {
         font-size: 20px;
+        width: 200px;
     }
 
     .desktop-none {
@@ -196,5 +201,31 @@
 .mobile-headline {
     display: flex;
     flex-direction: column;
-    ;
+}
+
+.icon-container-mobile {
+    width: 116px;
+    height: 100px;
+    border-radius: 20px 20px 0 20px;
+    padding: 10px;
+    border: 1px solid;
+    position: relative;
+    right: 111%;
+    bottom: 21px;
+    display: flex;
+    background-color: #ffffff;
+    flex-direction: column;
+    justify-content: center;
+    gap: 14px;
+    transition: right 0.5s ease-in-out;
+}
+
+@keyframes right {
+    0% {
+        right: 0;
+    }
+
+    100% {
+        right: 111%;
+    }
 }

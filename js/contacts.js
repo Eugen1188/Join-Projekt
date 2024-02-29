@@ -98,8 +98,8 @@ let lastActivePerson;
 async function initContacts() {
   contacts = await getItemContacts("contacts");
   id = await getItemContacts("id");
-  renderContacts();
   logedInUser = await getItemContacts("logedInUser");
+  renderContacts();
   renderLogedUser()
 }
 
@@ -156,6 +156,7 @@ async function deleteContact(id) {
     renderContacts();
     document.getElementById("single-contact-data-container").innerHTML = "";
     lastActivePerson = 0;
+    renderContactListAfterDeleteMobile()
     setItem("contacts", contacts);
   }
 }
@@ -271,6 +272,7 @@ function renderContacts() {
 function renderSingleContactOverview(id) {
   if (window.innerWidth < 1024) {
     mobileSingleContactOverview(id);
+    renderMobileViewMenu(id)
   } else {
     singleContactOverview(id);
   }
@@ -280,13 +282,13 @@ function renderSingleContactOverview(id) {
  * Render a single person in a more detailed view
  * @param {number} id - is required to find the desired user
  */
-function singleContactOverview(id) {
+function singleContactOverview(index) {
   const singlContactDataContainer = document.getElementById(
     "single-contact-data-container"
   );
-  setPersonToActive(id);
+  setPersonToActive(index);
   singlContactDataContainer.innerHTML = "";
-  rightSlideAnimation("single-contact-data-container", singleContactOverviewHTML(id));
+  rightSlideAnimation("single-contact-data-container", singleContactOverviewHTML(index));
 }
 
 function mobileSingleContactOverview(id) {
@@ -295,6 +297,7 @@ function mobileSingleContactOverview(id) {
   singlContactDataContainer.innerHTML = "";
   singlContactDataContainer.innerHTML += contactsWelcomHTML();
   singlContactDataContainer.innerHTML += singleContactOverviewHTML(id);
+  singlContactDataContainer.innerHTML += goBackToContactlistHTML();
 }
 
 /**
@@ -358,6 +361,9 @@ function renderEditContact(userId, userIndex) {
   renderCard("edit-card", contactsCardHTML(formConfig));
   let circleColor = document.getElementById("circle-color");
   circleColor.innerHTML += contactsCardCircleHTML(userIndex)
+  document.getElementById("name").value = contacts[userIndex].name + " " + contacts[userIndex].lastname;
+  document.getElementById("email").value = contacts[userIndex].email;
+  document.getElementById("phone").value = formatPhoneNumber(contacts[userIndex].phone);
 }
 
 /**
@@ -525,23 +531,46 @@ function renderAddContactSuccess(userId) {
   }, 1420);
 }
 
-function renderMobileView() {
+function renderMobileViewMenu(index) {
   let container = document.getElementById("contact-list")
   let btnContainer = document.getElementById("btn-container")
   btnContainer.innerHTML = ""
-  btnContainer.innerHTML += menuContactMobileIconHTML()
+  btnContainer.innerHTML += menuContactMobileIconHTML(index)
 }
 
-function renderEditOrDelete() {
+function renderEditOrDelete(index) {
   let container = document.getElementById("renderOrDelete")
   container.innerHTML = ""
-  container.innerHTML += renderEditOrDeleteHTML()
+  container.innerHTML += mobileDeleteOrEditBtnHTML(index)
 }
 
 function addBtnMobileOrDesktop() {
-  if (window.innerWidth < 1024) {
-    return renderMobileView();
-  } else {
     return renderAddNewContact();
+}
+
+function renderContactListAfterDeleteMobile() {
+  if (window.innerWidth < 1024) {
+    let renderOrDelete = document.getElementById("renderOrDelete");
+    document.getElementById("contact-list").innerHTML = "";
+    renderContacts();
+    setMobileAddBtnToDefault()
+    renderOrDelete.innerHTML = "";
+
+
   }
+}
+
+goBackToContactListMobile = () => {
+  renderContacts();
+  setMobileAddBtnToDefault()
+  let element = document.getElementById('renderOrDelete');
+  if (element && element.hasChildNodes()) {
+    element.innerHTML = '';
+  }
+}
+
+function setMobileAddBtnToDefault() {
+  let addOrEddit = document.getElementById("add-or-eddit");
+  addOrEddit.innerHTML = "";
+  addOrEddit.innerHTML = addNewContactMobileHTML();
 }
