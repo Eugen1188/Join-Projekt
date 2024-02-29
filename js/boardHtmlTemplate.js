@@ -177,7 +177,7 @@ function templateAddTaskLeft() {
       <div class="addtask-side-left">
           <div class="input-container">
               <label>Title <span class="required-icon">*</span></label>
-              <input class="input-addtask" required id="title" type="text" />
+              <input class="input-addtask" required id="title" type="text" autocomplete="off" />
           </div>
           <div class="input-container">
               <label>Description</label>
@@ -197,7 +197,7 @@ function templateAddTaskAssignee() {
   return `
   <div class="input-container-contacts">
   <label>Assigned to</label>
-  <input class="input-addtask assigned-to" id="contactAssignInput" onclick="showContacts();showChoosenContactsCircle()" onkeyup="filterContacts()" placeholder="Select contacts to assign" type="text" />
+  <input class="input-addtask assigned-to" id="contactAssignInput" autocomplete="off" onclick="showContacts();showChoosenContactsCircle()" onkeyup="filterContacts()" placeholder="Select contacts to assign" type="text" />
   <svg id="arrowContactInput" class="arrow" onclick="showContacts();  showChoosenContactsCircle()" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <mask id="mask0_135766_812" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
       <rect width="24" height="24" fill="#D9D9D9" />
@@ -219,8 +219,8 @@ function templateAddTaskDueDate() {
   return `
       <div class="input-container">
         <label>Due Date <span class="required-icon">*</span></label>
-        <input onclick="checkDateInputField()" onkeyup="checkDateInputField()" class="input-addtask-date-modified" id="date" type="text" maxlength="10" placeholder="dd/mm/yyyy" pattern="\\d{2}/\\d{2}/\\d{4}" required />
-        <input type="date" id="dateNormal" class="input-addtask-datepicker" pattern="\\d{2}/\\d{2}/\\d{4}" onchange="formatDateInput();updateDateFieldValue()" />
+        <input onclick="checkDateInputField()" autocomplete="off" onkeyup="checkDateInputField()" class="input-addtask-date-modified" id="date" type="text" maxlength="10" placeholder="dd/mm/yyyy" pattern="\\d{2}/\\d{2}/\\d{4}" required />
+        <input type="date" id="dateNormal" autocomplete="off" class="input-addtask-datepicker" pattern="\\d{2}/\\d{2}/\\d{4}" onchange="formatDateInput();updateDateFieldValue()" />
         <span id="inputReqiuredSpanDate" class="required-input-info d-none">this field is required</span>
         <div class="due-date-icon">
           <svg class="d-none" width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -237,7 +237,7 @@ function templateAddTaskDueDate() {
 
 function templateAddTaskPrioUrgent() {
   return `
-      <input class="input-addtask" type="radio" id="urgent" name="priority" value="urgent" />
+      <input class="input-addtask" type="radio" id="urgent" name="priority" value="urgent" autocomplete="off" />
       <label for="urgent" class="radio-button" onclick="invertSvgFills('urgent'); handleClick('urgent')">Urgent
         <svg id="urgent-icon" width="21" height="16" viewBox="0 0 21 16" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clip-path="url(#clip0_156_987)">
@@ -255,7 +255,7 @@ function templateAddTaskPrioUrgent() {
 
 function templateAddTaskPrioMedium() {
   return `
-      <input class="input-addtask" type="radio" id="medium" checked name="priority" value="medium" />
+      <input class="input-addtask" type="radio" id="medium" checked name="priority" value="medium" autocomplete="off" />
       <label for="medium" class="radio-button" onclick="invertSvgFills('medium');handleClick('medium')">Medium
         <svg id="medium-icon" width="21" height="8" viewBox="0 0 21 8" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clip-path="url(#clip0_156_994)">
@@ -286,7 +286,7 @@ function templateAddTaskCategory() {
   return `
       <div class="input-container">
         <label for="category">Category <span class="required-icon">*</span></label>
-        <select class="custom-select" id="category" name="category" onchange="getRequiredFormInputs()">
+        <select class="custom-select" id="category" name="category" onchange="getRequiredFormInputs()" autocomplete="off">
           <option value="" disabled selected>Select a task category</option>
           <option value="Technical Task">Technical Task</option>
           <option value="User Story">User Story</option>
@@ -299,7 +299,7 @@ function templateAddTaskSubtask() {
       <div class="input-container">
       <label for="subtask">Subtask</label>
       <div class="add-subtask">
-        <input class="input-addtask" name="subtask" id="subtask" type="text" minlength="5" maxlength="33" onkeypress=" checkKeyPressAndPushSubtask(event)"  onclick="changeSubtaskInputIcons()" onkeyup="getInput()" />
+        <input class="input-addtask" autocomplete="off" name="subtask" id="subtask" type="text" minlength="5" maxlength="33" onkeypress=" checkKeyPressAndPushSubtask(event)"  onclick="changeSubtaskInputIcons()" onkeyup="getInput()" />
         <div id="subTaskSvgContainer" class="svg-container">
           <svg class="svg-plusicon" id="subTaskPlusIcon" width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <mask id="mask0_136369_4669" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="24">
