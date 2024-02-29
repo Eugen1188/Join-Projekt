@@ -14,7 +14,7 @@ async function addTask(index) {
   let date = document.getElementById("date");
   let prio = getPriorityValue();
   let category = document.getElementById("category");
-  let task = createTaskObject(id, title.value, taskDescription.value, date.value, prio, category.value, index);
+  let task = await createTaskObject(id, title.value, taskDescription.value, date.value, prio, category.value, index);
   if (index !== undefined) {
     updateExistingTask(index, task);
   } else {

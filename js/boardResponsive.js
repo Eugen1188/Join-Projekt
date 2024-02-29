@@ -21,7 +21,6 @@ function closeOutwards(){
     document.onclick = function (event) {
         for (let i = 0; i < allTasks.length; i++) {
             document.getElementById(`drop-menu${i}`).classList.add('d-none');
-            
         }
     }
 }
