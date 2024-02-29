@@ -563,6 +563,10 @@ function renderContactListAfterDeleteMobile() {
 goBackToContactListMobile = () => {
   renderContacts();
   setMobileAddBtnToDefault()
+  let element = document.getElementById('renderOrDelete');
+  if (element && element.hasChildNodes()) {
+    element.innerHTML = '';
+  }
 }
 
 function setMobileAddBtnToDefault() {
