@@ -255,7 +255,7 @@ function templateAddTaskPrioUrgent() {
 
 function templateAddTaskPrioMedium() {
   return `
-      <input class="input-addtask" type="radio" id="medium" name="priority" value="medium" />
+      <input class="input-addtask" type="radio" id="medium" checked name="priority" value="medium" />
       <label for="medium" class="radio-button" onclick="invertSvgFills('medium');handleClick('medium')">Medium
         <svg id="medium-icon" width="21" height="8" viewBox="0 0 21 8" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clip-path="url(#clip0_156_994)">

@@ -1,3 +1,5 @@
+
+
 function dragMenu(id){
     let task = allTasks[id][0].status;
     currentDraggedElement = id;
@@ -11,5 +13,15 @@ function dragMenu(id){
         document.getElementById(`drop-done${id}`).classList.toggle('drop-menu-disabled');
     }else{
         document.getElementById(`drop-todo${id}`).classList.toggle('drop-menu-disabled');
+    }
+    closeOutwards();
+}
+
+function closeOutwards(){
+    document.onclick = function (event) {
+        for (let i = 0; i < allTasks.length; i++) {
+            document.getElementById(`drop-menu${i}`).classList.add('d-none');
+            
+        }
     }
 }
