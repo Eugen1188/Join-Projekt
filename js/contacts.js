@@ -98,8 +98,8 @@ let lastActivePerson;
 async function initContacts() {
   contacts = await getItemContacts("contacts");
   id = await getItemContacts("id");
-  renderContacts();
   logedInUser = await getItemContacts("logedInUser");
+  renderContacts();
   renderLogedUser()
 }
 
@@ -297,6 +297,7 @@ function mobileSingleContactOverview(id) {
   singlContactDataContainer.innerHTML = "";
   singlContactDataContainer.innerHTML += contactsWelcomHTML();
   singlContactDataContainer.innerHTML += singleContactOverviewHTML(id);
+  singlContactDataContainer.innerHTML += goBackToContactlistHTML();
 }
 
 /**
@@ -550,13 +551,22 @@ function addBtnMobileOrDesktop() {
 function renderContactListAfterDeleteMobile() {
   if (window.innerWidth < 1024) {
     let renderOrDelete = document.getElementById("renderOrDelete");
-    let addOrEddit = document.getElementById("add-or-eddit");
     document.getElementById("contact-list").innerHTML = "";
     renderContacts();
+    setMobileAddBtnToDefault()
     renderOrDelete.innerHTML = "";
-    addOrEddit.innerHTML = "";
-    addOrEddit.innerHTML = addBtnMobileOrDesktop();
 
 
   }
+}
+
+goBackToContactListMobile = () => {
+  renderContacts();
+  setMobileAddBtnToDefault()
+}
+
+function setMobileAddBtnToDefault() {
+  let addOrEddit = document.getElementById("add-or-eddit");
+  addOrEddit.innerHTML = "";
+  addOrEddit.innerHTML = addNewContactMobileHTML();
 }

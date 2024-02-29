@@ -202,3 +202,11 @@ function addNewContactMobileHTML() {
         </div>
     `
 }
+
+function goBackToContactlistHTML() {
+    return /*html*/ `
+        <div class="back-btn-container" onclick="goBackToContactListMobile()">
+            <img src="./assets/img/back_arrow.png" alt="" >
+        </div>
+    `
+}
