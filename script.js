@@ -206,3 +206,19 @@ async function getItemContacts(key) {
     console.error(error);
   }
 }
+
+
+/*
+ change Links Direction if user klick in privacy Policy or Legal notice from index.html
+*/ 
+
+function changeLinkDirection() {
+
+  setTimeout(() => {
+    let privacyPolicy = document.getElementById('privacyPolicyLink');
+    let legalNotice = document.getElementById('legalNoticeLink');
+  
+    privacyPolicy.href = "privacy-policy-unloged.html";
+    legalNotice.href = "legal-notice-unloged.html"
+  }, 100);
+}
