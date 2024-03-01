@@ -290,6 +290,12 @@
     margin-right: 3px;
 }
 
+.icons-contacts:hover,.icons-contacts:hover #hoverPath, .icons-contacts:hover #hoverSecPath {
+    fill: var(--contacts-link-color);
+    color: var(--light-blue);
+    transition: all 80ms ease;
+}
+
 .initials-circle {
     height: 42px;
     min-width: 42px;
