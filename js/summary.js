@@ -1,10 +1,9 @@
 let urgentDates = [];
-let allTasks = [];
+
 
 async function renderSummeryTasks() {
     await getAllTasksData()
     logedInUser = await getItemContacts("logedInUser");
-    allTasks = await getItemContacts("test_board");
     tasksInBoard();
     tasksInProgress();
     tasksToDo();
