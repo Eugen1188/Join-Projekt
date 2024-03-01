@@ -110,6 +110,7 @@ function renderEditContact(userId, userIndex) {
 
 /**
  * Renders the success message after adding a contact
+ * and sets the person to active.
  * @param {Number} id - id of the contact
  */
 function renderAddContactSuccess(userId) {

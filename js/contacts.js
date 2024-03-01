@@ -409,7 +409,7 @@ function addBtnMobileOrDesktop() {
     return renderAddNewContact();
 }
 
-goBackToContactListMobile = () => {
+const goBackToContactListMobile = () => {
   renderContacts();
   setMobileAddBtnToDefault()
   let element = document.getElementById('renderOrDelete');
@@ -424,7 +424,25 @@ function setMobileAddBtnToDefault() {
   addOrEddit.innerHTML = addNewContactMobileHTML();
 }
 
+/**
+ * Sets the gray opacity background color for an element with the id "opasity".
+ */
 function grayOpasityBackgroundColor() {
   let opasity = document.getElementById("opasity");
   opasity.classList.add("opasity");
 }
+
+
+/**
+ * Represents the element with the ID "single-contact-data-container".
+ * @type {HTMLElement}
+ */
+window.addEventListener('resize', function () {
+  if (window.innerWidth <= 1022) {
+    let checkElement = document.getElementById("single-contact-data-container")
+    if (checkElement && checkElement.childNodes.length > 0) {
+      checkElement.innerHTML = '';
+      renderContacts()
+    }
+  }
+});
