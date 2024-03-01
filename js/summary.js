@@ -1,8 +1,10 @@
 let urgentDates = [];
+let allTasks = [];
 
 async function renderSummeryTasks() {
     await getAllTasksData()
     logedInUser = await getItemContacts("logedInUser");
+    allTasks = await getItemContacts("test_board");
     tasksInBoard();
     tasksInProgress();
     tasksToDo();
@@ -82,7 +84,7 @@ function tasksUrgent() {
     } else {
         nextUrgentDate.innerHTML = "No urgent dates !"
     }
-    
+
 }
 
 function showDateInRightFormat(date) {
@@ -143,6 +145,6 @@ function GreetingDependTime() {
         return "Good afternoon";
     } else if (hour < 24) {
         return "Good evening";
-    } 
+    }
 
 }
