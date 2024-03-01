@@ -182,6 +182,49 @@
     .desktop-none {
         display: unset;
     }
+
+    #edit-card {
+        position: absolute;
+        top: 80px;
+    }
+
+    .edit-card-form {
+        flex-direction: column;
+    }
+
+    .edit-card {
+        flex-direction: column;
+        border-radius: 30px;
+    }
+
+    .edit-card-headline {
+        width: 100%;
+        padding: 20px;
+        border-radius: 30px 30px 0 0;
+    }
+
+    .edit-card-headline img {
+        display: none;
+    }
+
+    .edit-card-form {
+        border-radius: 0 0 30px 30px;
+        padding: 62px 20px;
+        width: 100%;
+    }
+
+    .big-circle {
+        position: absolute;
+        top: calc(100% - 310px);
+        left: 42%;
+    }
+
+    .close-btn {
+        top: 2%;
+        left: 90%;
+        background-color: wheat;
+    }
+
 }
 
 @media(max-width: 340px) {
