@@ -1,5 +1,10 @@
 
-
+/**
+ * function to handle the disable of the dragndrop responsive menu
+ * 
+ * @param {number} id - index of the task
+ * @author Kevin Mueller
+ */
 function dragMenu(id){
     let task = allTasks[id][0].status;
     currentDraggedElement = id;
@@ -17,6 +22,12 @@ function dragMenu(id){
     closeOutwards();
 }
 
+
+/**
+ * function to handle the closing of the responsive drag overlay
+ * 
+ * @author Kevin Mueller
+ */
 function closeOutwards(){
     document.onclick = function (event) {
         for (let i = 0; i < allTasks.length; i++) {
