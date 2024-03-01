@@ -137,12 +137,6 @@
         width: 100%;
     }
 
-    .big-circle {
-        position: absolute;
-        top: calc(100% - 310px);
-        left: 42%;
-    }
-
     .close-btn {
         top: 2%;
         left: 90%;
