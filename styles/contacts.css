@@ -208,8 +208,7 @@
     justify-content: space-around;
     padding: 10px;
     background-color: var(--background-color-site);
-    border-top-right-radius: 16px;
-    border-bottom-right-radius: 16px;
+    border-radius: 0 16px 16px 0;
 }
 
 .edit-card-form-input form {
@@ -224,8 +223,7 @@
     height: 592px;
     padding: 66px 46px;
     background-color: var(--button-color);
-    border-top-left-radius: 16px;
-    border-bottom-left-radius: 16px;
+    border-radius: 16px 0 0 16px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -453,8 +451,7 @@
     height: 592px;
     padding: 66px 46px;
     background-color: var(--content-color);
-    border-top-right-radius: 16px;
-    border-bottom-right-radius: 16px;
+    border-radius: 0 16px 16px 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -579,4 +576,14 @@
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.2);
+}
+
+.opasity {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 3;
+    background-color: rgba(0, 0, 0, 0.1);
 }
