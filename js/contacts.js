@@ -412,6 +412,7 @@ function addBtnMobileOrDesktop() {
 const goBackToContactListMobile = () => {
   renderContacts();
   setMobileAddBtnToDefault()
+  removeMoileBgColorSingleUserCard()
   let element = document.getElementById('renderOrDelete');
   if (element && element.hasChildNodes()) {
     element.innerHTML = '';
@@ -451,3 +452,13 @@ function makeBigCircleSmaller() {
   let bigCircle = document.getElementById("big-circle");
   bigCircle.classList.add("mobile-big-circle");
 }
+
+function changeMobileBgColorSingelUserCard() {
+  let singleUserCard = document.getElementById("contacts-container");
+  singleUserCard.classList.add("mobile-single-user-card");
+}
+
+  function removeMoileBgColorSingleUserCard() {
+    let singleUserCard = document.getElementById("contacts-container");
+    singleUserCard.classList.remove("mobile-single-user-card");
+  }

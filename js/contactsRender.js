@@ -29,6 +29,7 @@ function renderSingleContactOverview(id) {
         mobileSingleContactOverview(id);
         makeBigCircleSmaller()
         renderMobileViewMenu(id)
+        changeMobileBgColorSingelUserCard()
     } else {
         singleContactOverview(id);
     }

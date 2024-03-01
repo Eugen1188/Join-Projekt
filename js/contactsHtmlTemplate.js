@@ -116,7 +116,7 @@ function contactsCardHTML({ cardName, secondText, functionName, secontFunction, 
 
             </div>
             <div class="edit-card-form">
-                <div id="circle-color">
+                <div class="mobileCirclePosition" id="circle-color">
                 </div>
                 <div class="edit-card-form-input">
                     <form onsubmit="${functionName}; return false" id="contacts-form">
