@@ -43,7 +43,7 @@ function renderSingleContactOverview(id) {
 function closeRenderContactCardSlide() {
     let opasity = document.getElementById("opasity");
     opasity.classList.remove("opasity");
-    clearFormValues("contacts-form");
+    // clearFormValues("contacts-form");
     slideBackAnimation("edit-card");
     setTimeout(() => {
         document.getElementById("edit-card").innerHTML = "";
@@ -71,7 +71,7 @@ function renderAddNewContact() {
     const formConfig = {
         cardName: "Add contact",
         secondText: "Tasks are better with a team!",
-        functionName: `addNewContactToContactlist()`,
+        functionName: `addNewContactToContactlist(); closeRenderContactCardSlide()`,
         secontFunction: `closeRenderContactCardSlide()`,
         deleteOrClosebtn: "Close",
         saveOrCreateContact: "Create contact",
@@ -94,8 +94,8 @@ function renderEditContact(userId, userIndex) {
     const formConfig = {
         cardName: "Edit contact",
         secondText: "",
-        functionName: `editContact(${userId})`,
-        secontFunction: `deleteContact(${userId})`,
+        functionName: `editContact(${userId}); closeRenderContactCardSlide()`,
+        secontFunction: `deleteContact(${userId}); closeRenderContactCardSlide()`,
         deleteOrClosebtn: "Delete",
         saveOrCreateContact: "Save",
         index: userIndex
@@ -117,7 +117,7 @@ function renderAddContactSuccess(userId) {
     let indexOfId = contacts.findIndex(contact => contact.id === userId);
     let succesfully = document.getElementById("contact-success");
     container.innerHTML = ""
-    container.innerHTML += singleContactOverview(indexOfId)
+    container.innerHTML += singleContactOverviewHTML(indexOfId)
     setPersonToActive(indexOfId);
     rightSlideAnimation("contact-success", addContactSuccessHTML());
     setTimeout(() => {
