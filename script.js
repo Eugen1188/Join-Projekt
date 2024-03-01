@@ -168,7 +168,7 @@ function renderLogedUser() {
   userInitials.innerHTML = logedInUser[0].initials;
 }
 
-function logInAsGuest() {
+async function logInAsGuest() {
   guestArray = ({
     name: "Guest",
     email: "guest@guest.org",
@@ -176,12 +176,12 @@ function logInAsGuest() {
     initials: "G",
   });
   logedInUser.push(guestArray);
-  setItem("logedInUser", logedInUser);
+  await setItem("logedInUser", logedInUser);
 }
 
-function logOut() {
+async function logOut() {
   logedInUser = [];
-  setItem("logedInUser", logedInUser);
+  await setItem("logedInUser", logedInUser);
   window.location = "index.html";
 }
 
