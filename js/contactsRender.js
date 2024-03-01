@@ -17,6 +17,13 @@ function renderContacts() {
     }
 }
 
+
+/**
+ * Renders the overview of a single contact.
+ *
+ * @param {string} id - The ID of the contact to render.
+ * @returns {void}
+ */
 function renderSingleContactOverview(id) {
     if (window.innerWidth < 1024) {
         mobileSingleContactOverview(id);
@@ -26,6 +33,13 @@ function renderSingleContactOverview(id) {
     }
 }
 
+/**
+ * Closes the rendered contact card slide.
+ * Removes the "opasity" class from the element with the id "opasity".
+ * Clears the form values of the element with the id "contacts-form".
+ * Performs a slide back animation on the element with the id "edit-card".
+ * Removes the inner HTML content of the element with the id "edit-card" after a delay of 420 milliseconds.
+ */
 function closeRenderContactCardSlide() {
     let opasity = document.getElementById("opasity");
     opasity.classList.remove("opasity");
@@ -47,12 +61,20 @@ function renderCard(id, htmlContent) {
     rightSlideAnimation(id, htmlContent);
 }
 
+/**
+ * Renders the "Add New Contact" card on the page.
+ * This function sets the background color, configures the form, and renders the card HTML.
+ * It also updates the circle color and adds the contact icon.
+ */
 function renderAddNewContact() {
     grayOpasityBackgroundColor()
     const formConfig = {
         cardName: "Add contact",
         secondText: "Tasks are better with a team!",
         functionName: `addNewContactToContactlist()`,
+        secontFunction: `closeRenderContactCardSlide()`,
+        deleteOrClosebtn: "Close",
+        saveOrCreateContact: "Create contact",
         index: ""
     };
     renderCard("edit-card", contactsCardHTML(formConfig));
@@ -60,12 +82,22 @@ function renderAddNewContact() {
     circleColor.innerHTML = addContactIconHTML();
 }
 
+/**
+ * Renders the edit contact form for a specific user.
+ *
+ * @param {string} userId - The ID of the user.
+ * @param {number} userIndex - The index of the user in the contacts array.
+ * @returns {void}
+ */
 function renderEditContact(userId, userIndex) {
     grayOpasityBackgroundColor()
     const formConfig = {
         cardName: "Edit contact",
         secondText: "",
         functionName: `editContact(${userId})`,
+        secontFunction: `deleteContact(${userId})`,
+        deleteOrClosebtn: "Delete",
+        saveOrCreateContact: "Save",
         index: userIndex
     };
     renderCard("edit-card", contactsCardHTML(formConfig));
@@ -96,6 +128,11 @@ function renderAddContactSuccess(userId) {
     }, 1420);
 }
 
+/**
+ * Renders the mobile view menu for a contact at the specified index.
+ *
+ * @param {number} index - The index of the contact.
+ */
 function renderMobileViewMenu(index) {
     let container = document.getElementById("contact-list")
     let btnContainer = document.getElementById("btn-container")
@@ -103,12 +140,23 @@ function renderMobileViewMenu(index) {
     btnContainer.innerHTML += menuContactMobileIconHTML(index)
 }
 
+/**
+ * Renders the edit or delete button for a specific contact.
+ *
+ * @param {number} index - The index of the contact.
+ */
 function renderEditOrDelete(index) {
     let container = document.getElementById("renderOrDelete")
     container.innerHTML = ""
     container.innerHTML += mobileDeleteOrEditBtnHTML(index)
 }
 
+/**
+ * Renders the contact list after deleting a contact on mobile devices.
+ * If the window width is less than 1024 pixels, it clears the contact list,
+ * renders the updated contact list, sets the mobile add button to its default state,
+ * and clears the renderOrDelete element.
+ */
 function renderContactListAfterDeleteMobile() {
     if (window.innerWidth < 1024) {
         let renderOrDelete = document.getElementById("renderOrDelete");

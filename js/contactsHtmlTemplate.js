@@ -83,7 +83,7 @@ function singleContactOverviewHTML(index) {
  * @param {String} functionName - function name to be used renderAddNewContact or renderEditContact
  * @returns - HTML
  */
-function contactsCardHTML({ cardName, secondText, functionName, index } = formConfig) {
+function contactsCardHTML({ cardName, secondText, functionName,secontFunction, deleteOrClosebtn, saveOrCreateContact, index } = formConfig) {
     return /*html*/ `
         <div class="edit-card slideInAnimation">
             <div class="edit-card-headline">
@@ -107,10 +107,10 @@ function contactsCardHTML({ cardName, secondText, functionName, index } = formCo
                         <input class="edit-card-from-input" type="tel" placeholder="Phone" id="phone" maxlength="11">
                         <div class="edit-card-btn-wrapper">
                             <div id="delete-btn">
-                                <button class="edit-card-btn white-btn pointer" id="delete" onclick="closeRenderContactCardSlide()">Delete</button>
+                                <button class="edit-card-btn white-btn pointer" id="delete" onclick="${secontFunction}">${deleteOrClosebtn}</button>
                             </div>
-                            <button class="edit-card-btn main-btn-color font-color pointer" type="submit">
-                                <span>Save</span>
+                            <button class="edit-card-btn main-btn-color font-color pointer" type="submit" onclick="${functionName}">
+                                <span>${saveOrCreateContact}</span>
                                 <img src="./assets/img/icons/check.png" alt="">
                             </button>
                         </div>
