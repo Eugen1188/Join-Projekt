@@ -1,14 +1,15 @@
 @media(max-width:660px) {
 
+    .login-main-cont {
+      justify-content: center;
+    }
+
     .login-top-cont {
         justify-content: center;
     }
 
-    .login-main-cont {
-        flex-direction: column-reverse;
-    }
-
     .login-cont{
+     order: 1;
      width: 396px;
      height: 515px;
      justify-content: space-evenly;
@@ -32,6 +33,7 @@
 
     .login-top-cont {
         padding: 58px 0px 99px 0px;
+        order: 2;
     }
 
     .login-headline span {
@@ -118,5 +120,74 @@
         width: unset; 
         margin-left: 0;
       }
+
+}
+
+@media(max-width:440px) {
+
+  .login-main-cont{
+    padding-top: 55px;
+  }
+
+  .login-cont {
+    width: 370px;
+  }
+
+  .loginemail {
+    width: 340px;
+    background-position-x: 300px;
+  }
+
+  .loginpassword {
+    width: 340px;
+    background-position-x: 300px;
+  }
+
+}
+
+@media(max-height:670px) {
+
+
+  .login-main-cont{
+    padding-top: 100px;
+
+  }
+
+  .login-rights-cont {
+    bottom: 0px;
+  }
+
+  .login-headline span {
+    font-size: 37px;
+  }
+
+  .loginemail {
+    height: 40px;
+  }
+
+  .loginpassword {
+    height: 40px;
+  }
+
+  .login-cont {
+    height: 450px;
+  }
+
+  .login-top-cont {
+    padding: 10px 0px 138px 0px;
+  }
+
+  .signup-button {
+    width: 80px;
+    height: 40px;
+  }
+
+  .signup-cont span {
+    font-size: 16px;
+  }
+
+  .checkbox-cont {
+    margin-bottom: 0;
+  }
 
 }
