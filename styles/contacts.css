@@ -343,7 +343,7 @@
 }
 
 .right-slide-animation {
-    animation: slideIn 425ms ease-in;
+    animation: slideIn 225ms ease-in;
 }
 
 @keyframes slideIn {
@@ -357,7 +357,7 @@
 }
 
 .slide-back-animation {
-    animation: slideOut 425ms ease-in;
+    animation: slideOut 225ms ease-in;
 }
 
 @keyframes slideOut {
@@ -586,4 +586,5 @@
     height: 100vh;
     z-index: 3;
     background-color: rgba(0, 0, 0, 0.1);
+    transition: all 225ms ease-in;
 }

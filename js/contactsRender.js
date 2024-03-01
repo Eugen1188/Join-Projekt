@@ -47,7 +47,7 @@ function closeRenderContactCardSlide() {
     slideBackAnimation("edit-card");
     setTimeout(() => {
         document.getElementById("edit-card").innerHTML = "";
-    }, 420);
+    }, 200);
 }
 
 /**
@@ -126,7 +126,7 @@ function renderAddContactSuccess(userId) {
     }, 1000);
     setTimeout(() => {
         succesfully.innerHTML = "";
-    }, 1420);
+    }, 1220);
 }
 
 /**
