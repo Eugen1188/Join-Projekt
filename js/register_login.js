@@ -33,7 +33,9 @@ async function logIn() {
 
 function showRegisterButton() {
   let btn = document.getElementById('registerBtn');
-  if (menuOn == false) {
+
+  if (menuOn == false && checkInput() == true) {
+    console.log(checkInput());
     btn.classList.remove('d-none');
     menuOn = true;
   }
@@ -41,6 +43,23 @@ function showRegisterButton() {
     btn.classList.add('d-none');
     menuOn = false;
   }
+}
+
+
+// check input fields not empty
+
+function checkInput() {
+  let name = document.getElementById('name-reg').value;
+  let email = document.getElementById('email-reg').value;
+  let password = document.getElementById('password-reg').value;
+  let confirmPassword = document.getElementById('rep-password-reg').value;
+
+  if(name != '' && email != '' && password != '' && confirmPassword != ''){
+    return true;
+  } else {
+    return false;
+  }
+
 }
 
 
@@ -55,21 +74,3 @@ function showRegistrationAnimation() {
     window.location.href = 'index.html';;
   }, 1000);
 }
-
-
-/*
-function save() {
-
-  let logedInUsers = JSON.stringify(logedInUser);
-  localStorage.setItem('logedInUser', logedInUsers);
-}
-
-function load() {
-
-  let logedInUsers = localStorage.getItem('logedInUser');
-  if (logedInUsers) {
-    logedInUser = JSON.parse(logedInUsers);
-  }
-}
-
-*/

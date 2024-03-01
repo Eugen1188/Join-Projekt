@@ -1,3 +1,19 @@
+@media(max-width:1023px) {
+
+  .greetings-main-cont {
+    display: none;
+  }
+
+  .main-sum-cont {
+    inset: 70px 0px;
+    width: 100%;
+  }
+
+  .summary-cont {
+    justify-content: center;
+  }
+}
+
 @media(max-width:660px) {
 
     .greeting-main-cont-responsive {
@@ -42,6 +58,7 @@
         order: 1;
         margin-block-start: 0;
         margin-block-end: 0;
+        font-size: 47px;
       }
 
       p {
@@ -209,217 +226,157 @@
   }
 }
 
+@media(max-width:501px) {
 
-
-@media(max-width:1023px) {
-
-  .greeting-main-cont-responsive {
-      display: flex;
-      background-color: white;
-      z-index: 1;
-      justify-content: center;
-      align-items: center;
-      position: absolute;
-      top: 0px;
+  .join360-cont {
+    margin-left: 16px;
   }
 
-  @keyframes set-opacity {
-      from {
-          opacity: 1;
-          display: block;
-      }
-    
-      to {
+  .main-sum-cont {
+    inset: 100px 0px;
+  }
+}
 
-          opacity: 0;
-          display: none;
-      }
-    }
+@media(max-width:401px) {
 
+  .tasks-main-cont {
+    width: 350px;
+  }
 
-    .greetings-main-cont {
-      display: none;
-    }
+  .todo-done-cont {
+    width: 350px;
+  }
 
-    .join360-cont {
-      flex-direction: column;
-      justify-content: unset;
-      align-items: unset;
-    }
+  .task1-cont {
+    width: 170px;
+  }
 
-    .main-sum-cont {
-      inset: 100px 16px;
-    }
+  .task1-cont:hover {
+    width: 170px;
+    height: 110px;
+    background-color: white;
+  }
 
-    h1 {
-      order: 1;
-      margin-block-start: 0;
-      margin-block-end: 0;
-    }
+  .task2-cont {
+    width: 170px;
+  }
 
-    p {
-      order: 2;
-      margin-block-start: 0;
-      margin-block-end: 0;
-    }
+  .task2-cont:hover {
+    width: 170px;
+    height: 110px;
+    background-color: white;
+  }
 
-    .blue-line {
-      order: 3;
-      height: 3px;
-      width: 90px;
-    }
-
-    .task1-cont {
-      width: 186px;
-      height: 110px;
-    }
-
-    .task2-cont {
-      width: 186px;
-      height: 110px;
-    }
-
-    .deadline-cont {
-      width: 396px;
-      height: 110px;
-    }
-
-    .tasks-in-board-cont {
-      width: 116px;
-      height: 116px;
-    }
-
-    .todo-done-cont {
-      width: 396px;
-      height: 110px;
-    }
-
-    .tasks-overview-cont {
-      width: 396px;
-      height: 110px;
-      margin-top: unset;
-    }
-
-    .tasks-main-cont {
-      width: 396px;
-      height: 384px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .tasks-in-board-help-hover-cont {
-      width: 116px;
-      height: 116px;
-    }
-
-    .deadline-help-hover-cont {
-      width: 396px;
-      height: 110px;
-    }
-
-    .tasks-overall-cont {
-      margin-top: 40px;
-    }
-
-    .task-number span {
-      font-size: 47px;
-    }
-    .task-number div {
-      font-size: 14px;
-    }
-
-    .urgent-count {
-      font-size: 47px;
-    }
-
-    .urgent {
-      font-size: 14px;
-    }
-
-    .date {
-      font-size: 19px;
-    }
-
-    .upcom-deadline {
-      font-size: 14px;
-    }
-
-    .tasks-amount-board {
-      font-size: 47px;
-    }
-
-    .tasks-in-board-span {
-      font-size: 14px;
-    }
-
-    .tasks-main-cont svg {
-      width: 40px;
-    }
-
-    .task1-cont:hover {
-      width: 186px;
-      height: 110px;
-      background-color: white;
-    }
-
-    .task1-cont:hover .pencil-circle-white {
-      fill: var(--button-color);
-    }
-
-    .task1-cont:hover .pencil-hover {
-      fill: rgb(255, 255, 255);
-    }
-
-    .task1-cont:hover span {
-     color: rgb(0, 0, 0);
-    }
-
-    .task1-cont:hover .task-number div {
-      color: rgb(0, 0, 0);
-    }
-
-    .task2-cont:hover {
-      width: 186px;
-      height: 110px;
-      background-color: white;
+  .deadline-help-hover-cont{
+    width: 350px;
   }
   
-  .task2-cont:hover .circle-task2 {
-      fill: var(--button-color);
-  }
-  
-  .task2-cont:hover .hook-task2 {
-      stroke: white;
-  }
-  
-  .task2-cont:hover span {
-      color: rgb(0, 0, 0);
-  }
-  
-  .task2-cont:hover .task-number div {
-      color: rgb(0, 0, 0);
+  .deadline-cont {
+    width: 350px;
+    height: 110px;
   }
 
   .deadline-cont:hover {
-      width: 396px;
-      height: 110px;
-      background-color: white;
+    width: 350px;
+    height: 110px;
+    background-color: white;
+}
+
+  .tasks-overview-cont {
+    width: 350px;
   }
 
-  .deadline-cont:hover span {
-      color: rgb(0, 0, 0);
+  .tasks-in-board-help-hover-cont {
+    width: 100px;
+    height: 100px;
+  }
+
+  .tasks-in-board-cont {
+    width: 100px;
+    height: 100px;
   }
 
   .tasks-in-board-cont:hover {
-    width: 116px;
-    height: 116px;
+    width: 100px;
+    height: 100px;
     background-color: rgb(255, 255, 255);
+  }
 }
 
-.tasks-in-board-cont:hover span {
-    color: rgb(0, 0, 0);
+
+@media(max-height:670px) {
+
+  .tasks-overall-cont {
+    margin-top: 20px;
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+
+  .tasks-main-cont {
+    width: 350px;
+    height: 330px;
+  }
+
+  .todo-done-cont {
+    width: 350px;
+  }
+
+  .task1-cont {
+    width: 150px;
+    height: 90px;
+  }
+
+  .task1-cont:hover {
+    width: 150px;
+    height: 90px;
+    background-color: white;
+  }
+
+  .task2-cont {
+    width: 150px;
+    height: 90px;
+  }
+
+  .task2-cont:hover {
+    width: 150px;
+    height: 90px;
+    background-color: white;
+  }
+
+  .deadline-help-hover-cont{
+    width: 350px;
+  }
+
+  .deadline-cont {
+    width: 350px;
+    height: 90px;
+  }
+
+  .deadline-cont:hover {
+    width: 350px;
+    height: 90px;
+    background-color: white;
 }
 
-}
+  .tasks-overview-cont {
+    width: 350px;
+  }
 
+  .tasks-in-board-help-hover-cont {
+    width: 80px;
+    height: 80px;
+  }
+
+  .tasks-in-board-cont {
+    width: 80px;
+    height: 80px;
+  }
+
+  .tasks-in-board-cont:hover {
+    width: 80px;
+    height: 80px;
+    background-color: rgb(255, 255, 255);
+  }
+}

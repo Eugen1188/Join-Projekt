@@ -7,7 +7,11 @@ body {
     width: max-content;
     position: fixed;
     inset: 120px 320px;
-    overflow: scroll;
+}
+
+a {
+    text-decoration: none;
+    color: black;
 }
 
 h1 {

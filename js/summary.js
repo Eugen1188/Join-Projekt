@@ -1,7 +1,7 @@
 let urgentDates = [];
 
 async function renderSummeryTasks() {
-    await testfunc();
+    await getAllTasksData()
     logedInUser = await getItemContacts("logedInUser");
     tasksInBoard();
     tasksInProgress();
@@ -107,8 +107,36 @@ function sortDates(urgentDates) {
 
 function userGreetings() {
     let greeting = document.getElementById('greetings-resposive-user');
-    if (logedInUser[0].name == "Guest")
-        greeting.innerHTML += `Good morning!`;
-    else
-    greeting.innerHTML = `Good morning, <br> <span class="greetingNameMobile"> ${logedInUser[0].name} ${logedInUser[0].lastname} </span>`
+    let greetSummaryMain = document.getElementById('greeting-depent-time');
+    let name = document.getElementById('logedInName');
+    let lastName = document.getElementById('logedInLastname');;
+    if (logedInUser[0].name == "Guest"){
+        greetSummaryMain.innerHTML = `${GreetingDependTime()}`;
+        greeting.innerHTML = `${GreetingDependTime()}!`;
+    }
+    else{
+        console.log(logedInUser[0].name);
+        greetSummaryMain.innerHTML = `${GreetingDependTime()}`;
+        name.innerHTML = `${logedInUser[0].name} `;
+        lastName.innerHTML = `${logedInUser[0].lastname}`;
+        greeting.innerHTML = `${GreetingDependTime()}, <br> <span class="greetingNameMobile"> ${logedInUser[0].name} ${logedInUser[0].lastname} </span>`
+    }
+
+}
+
+
+// Grüße abhängig von der Zeit
+
+function GreetingDependTime() {
+    let now = new Date();
+    let hour = now.getHours()
+
+    if (hour < 11) {
+        return "Good morning"
+    }else if (hour < 12) {
+        return "Good afernoon";
+    } else if (hour < 18) {
+        return "Good evening";
+    } 
+
 }
