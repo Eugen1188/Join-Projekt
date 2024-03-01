@@ -187,3 +187,7 @@ body {
 .logout-menu-animation-off {
     animation: menuOff 100ms ease-in-out forwards;
 }
+
+.help-for-responsive {
+    display: none;
+}

@@ -69,6 +69,7 @@ function tasksUrgent() {
     for (let i = 0; i < allTasks.length; i++) {
         const element = allTasks[i][0];
         if (element.prio == "urgent") {
+            console.log(element.prio);
             count++;
             rightDate = element.date.replace(/[/]/g, "-");
             urgentDates.push(rightDate);
@@ -76,7 +77,12 @@ function tasksUrgent() {
         }
         urgentTasks.innerHTML = count;
     }
-    nextUrgentDate.innerHTML = showDateInRightFormat(urgentDates[0]);
+    if(count != 0){
+        nextUrgentDate.innerHTML = showDateInRightFormat(urgentDates[0]);
+    } else {
+        nextUrgentDate.innerHTML = "No urgent dates !"
+    }
+    
 }
 
 function showDateInRightFormat(date) {
