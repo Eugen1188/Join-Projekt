@@ -303,6 +303,8 @@ function firstCharToLowerCase(name) {
 }
 
 function closeRenderContactCardSlide() {
+  let opasity = document.getElementById("opasity");
+  opasity.classList.remove("opasity");
   clearFormValues("contacts-form");
   slideBackAnimation("edit-card");
   setTimeout(() => {
@@ -322,6 +324,7 @@ function renderCard(id, htmlContent) {
 }
 
 function renderAddNewContact() {
+  grayOpasityBackgroundColor()
   const formConfig = {
     cardName: "Add contact",
     secondText: "Tasks are better with a team!",
@@ -334,6 +337,7 @@ function renderAddNewContact() {
 }
 
 function renderEditContact(userId, userIndex) {
+  grayOpasityBackgroundColor()
   const formConfig = {
     cardName: "Edit contact",
     secondText: "",
@@ -555,4 +559,9 @@ function setMobileAddBtnToDefault() {
   let addOrEddit = document.getElementById("add-or-eddit");
   addOrEddit.innerHTML = "";
   addOrEddit.innerHTML = addNewContactMobileHTML();
+}
+
+function grayOpasityBackgroundColor() {
+  let opasity = document.getElementById("opasity");
+  opasity.classList.add("opasity");
 }
