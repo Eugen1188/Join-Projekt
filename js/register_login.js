@@ -18,6 +18,7 @@ async function logIn() {
         console.log(logedInUser);
         await setItem("logedInUser", logedInUser);
         window.location = "summary.html";
+        saveRememberMe();
       }
       else {
         email.value = '';
@@ -29,13 +30,52 @@ async function logIn() {
   }
 }
 
+// remember me funktion zum einlogen, speichert eingegebene email und password im local storage
+function saveRememberMe() {
+
+  let rememberMe = document.getElementById('rememberMe').checked;
+  var email = document.getElementById("email").value;
+  var password = document.getElementById("password").value;
+
+  if (rememberMe) {
+    localStorage.setItem('rememberedEmail', email);
+    localStorage.setItem('rememberedPassword', password);
+  } else {
+    localStorage.removeItem('rememberedEmail');
+    localStorage.removeItem('rememberedPassword');
+  }
+}
+
+
+// Ruft die gespeicherten Daten aus dem Lokal Store und für email und password ins input Feld
+function loadRememberMe() {
+  let rememberedEmail = localStorage.getItem('rememberedEmail');
+  let rememberedPassword = localStorage.getItem('rememberedPassword');
+  if (rememberedEmail && rememberedPassword) {
+      document.getElementById("email").value = rememberedEmail;
+      document.getElementById("password").value = rememberedPassword;
+  }
+}
+
 // Zeige den Sign Up Button sobald die Checkbox aktiviert ist
 
+function showRegisterButton() {
+  let checkedBox = document.getElementById('registerCheckbox').checked;
+  let btn = document.getElementById('registerBtn');
+
+  if (checkedBox && checkInput() == true) {
+    btn.classList.remove('d-none');
+  }
+  else if (!checkedBox) {
+    btn.classList.add('d-none');
+  }
+}
+
+/*
 function showRegisterButton() {
   let btn = document.getElementById('registerBtn');
 
   if (menuOn == false && checkInput() == true) {
-    console.log(checkInput());
     btn.classList.remove('d-none');
     menuOn = true;
   }
@@ -44,6 +84,7 @@ function showRegisterButton() {
     menuOn = false;
   }
 }
+*/
 
 
 // check input fields not empty
@@ -54,7 +95,7 @@ function checkInput() {
   let password = document.getElementById('password-reg').value;
   let confirmPassword = document.getElementById('rep-password-reg').value;
 
-  if(name != '' && email != '' && password != '' && confirmPassword != ''){
+  if (name != '' && email != '' && password != '' && confirmPassword != '') {
     return true;
   } else {
     return false;
@@ -74,3 +115,19 @@ function showRegistrationAnimation() {
     window.location.href = 'index.html';;
   }, 1000);
 }
+
+/*
+function save() {
+
+  let logedInUsers = JSON.stringify(logedInUser);
+  localStorage.setItem('logedInUser', logedInUsers);
+}
+
+function load() {
+
+  let logedInUsers = localStorage.getItem('logedInUser');
+  if (logedInUsers) {
+    logedInUser = JSON.parse(logedInUsers);
+  }
+}
+*/
