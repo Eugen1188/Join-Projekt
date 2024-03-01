@@ -139,10 +139,10 @@ function GreetingDependTime() {
 
     if (hour < 11) {
         return "Good morning"
-    }else if (hour < 12) {
-        return "Good afernoon";
-    } else if (hour < 18) {
+    }else if (hour < 18) {
         return "Good evening";
+    } else if (hour < 24) {
+        return "Good afernoon";
     } 
 
 }
