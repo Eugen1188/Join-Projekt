@@ -74,12 +74,6 @@
 
     }
 
-    .big-circle {
-        width: 80px;
-        height: 80px;
-        font-size: 27px;
-    }
-
     .single-data-headline {
         gap: 20px;
     }
@@ -140,7 +134,22 @@
     .close-btn {
         top: 2%;
         left: 90%;
-        background-color: wheat;
     }
 
+    #closeBtn {
+        fill: var(--background-color-site);
+    }
+    .close-btn:hover {
+        background-color: var(--light-blue);
+    }
+
+    .icons-contacts:hover {
+        color: black;
+    }
+}
+
+.mobile-big-circle {
+    width: 80px;
+    height: 80px;
+    font-size: 27px;
 }

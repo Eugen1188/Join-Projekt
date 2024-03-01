@@ -43,7 +43,7 @@ function contactUserCardHtml(index) {
 function singleContactOverviewHTML(index) {
     return /*html*/ `
         <div class="single-data-headline">
-            <div class="big-circle ${contacts[index].circleColor}">
+            <div class="big-circle ${contacts[index].circleColor}" id="big-circle">
                 ${contacts[index].initials}
             </div>
             <div class="single-contact-name-card">
@@ -109,8 +109,11 @@ function contactsCardHTML({ cardName, secondText, functionName, secontFunction, 
                 </div>
                 <div class="small-underline"></div>
             </div>
-            <div class="close-btn pointer">
-                <img src="./assets/img/icons/close.png" alt="" onclick="closeRenderContactCardSlide()">
+            <div class="close-btn pointer" onclick="closeRenderContactCardSlide()">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path id="closeBtn" d="M7.00005 8.40005L2.10005 13.3C1.91672 13.4834 1.68338 13.575 1.40005 13.575C1.11672 13.575 0.883382 13.4834 0.700049 13.3C0.516715 13.1167 0.425049 12.8834 0.425049 12.6C0.425049 12.3167 0.516715 12.0834 0.700049 11.9L5.60005 7.00005L0.700049 2.10005C0.516715 1.91672 0.425049 1.68338 0.425049 1.40005C0.425049 1.11672 0.516715 0.883382 0.700049 0.700049C0.883382 0.516715 1.11672 0.425049 1.40005 0.425049C1.68338 0.425049 1.91672 0.516715 2.10005 0.700049L7.00005 5.60005L11.9 0.700049C12.0834 0.516715 12.3167 0.425049 12.6 0.425049C12.8834 0.425049 13.1167 0.516715 13.3 0.700049C13.4834 0.883382 13.575 1.11672 13.575 1.40005C13.575 1.68338 13.4834 1.91672 13.3 2.10005L8.40005 7.00005L13.3 11.9C13.4834 12.0834 13.575 12.3167 13.575 12.6C13.575 12.8834 13.4834 13.1167 13.3 13.3C13.1167 13.4834 12.8834 13.575 12.6 13.575C12.3167 13.575 12.0834 13.4834 11.9 13.3L7.00005 8.40005Z" fill="#2A3647"/>
+                </svg>
+
             </div>
             <div class="edit-card-form">
                 <div id="circle-color">
@@ -154,7 +157,7 @@ function addContactIconHTML() {
 
 function contactsCardCircleHTML(index) {
     return  /*html*/ `
-        <div class="big-circle dnone card-circle-center ${contacts[index].circleColor}" id="circle-icon">
+        <div class="big-circle card-circle-center ${contacts[index].circleColor}" id="circle-icon">
             <span>${contacts[index].initials}</span>
         </div>
     `
@@ -204,9 +207,9 @@ function contactsWelcomHTML() {
 
 function mobileDeleteOrEditBtnHTML(index) {
     return /*html*/ `
-        <div class="icon-container-mobile">
+        <div class="icon-container-mobile" onclick="renderEditContact(${contacts[index].id}, ${index})">
             <div class="icons-contacts">
-                <img src="./assets/img/icons/edit.png" alt="" onclick="renderEditContact(${contacts[index].id}, ${index})">
+                <img src="./assets/img/icons/edit.png" alt="">
                 <span>Edit</span>
             </div>
             <div class="icons-contacts" id="single-contact-delete}" onclick="deleteContact(${contacts[index].id})">
@@ -227,7 +230,7 @@ function addNewContactMobileHTML() {
 
 function goBackToContactlistHTML() {
     return /*html*/ `
-        <div class="back-btn-container" onclick="goBackToContactListMobile()">
+        <div class="back-btn-container pointer" onclick="goBackToContactListMobile()">
             <img src="./assets/img/back_arrow.png" alt="" >
         </div>
     `

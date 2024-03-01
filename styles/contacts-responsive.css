@@ -65,6 +65,10 @@
     .main-header {
         width: 154px;
     }
+
+    .single-contact-headline {
+        gap: 8px;
+    }
 }
 
 @media (max-width: 1100px) {

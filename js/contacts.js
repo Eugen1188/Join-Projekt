@@ -446,3 +446,8 @@ window.addEventListener('resize', function () {
     }
   }
 });
+
+function makeBigCircleSmaller() {
+  let bigCircle = document.getElementById("big-circle");
+  bigCircle.classList.add("mobile-big-circle");
+}

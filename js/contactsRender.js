@@ -27,6 +27,7 @@ function renderContacts() {
 function renderSingleContactOverview(id) {
     if (window.innerWidth < 1024) {
         mobileSingleContactOverview(id);
+        makeBigCircleSmaller()
         renderMobileViewMenu(id)
     } else {
         singleContactOverview(id);

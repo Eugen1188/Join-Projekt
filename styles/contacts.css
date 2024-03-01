@@ -291,6 +291,7 @@
 }
 
 .icons-contacts:hover,.icons-contacts:hover #hoverPath, .icons-contacts:hover #hoverSecPath {
+    cursor: pointer;
     fill: var(--contacts-link-color);
     color: var(--light-blue);
     transition: all 80ms ease;
