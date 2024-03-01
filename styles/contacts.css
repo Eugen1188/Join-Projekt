@@ -8,13 +8,9 @@
     color: var(--background-color-site);
 }
 
-.main-btn-color:active {
+.main-btn-color:active, .main-btn-color:hover {
     background-color: var(--light-blue);
-    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
-}
-
-.main-btn-color:hover {
-    background-color: var(--light-blue);
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
 }
 
 .font-color {
@@ -274,10 +270,10 @@
     color: var(--light-blue);
 }
 
-.white-btn:active {
+.white-btn:active, .white-btn:hover {
     border-color: var(--light-blue);
     color: var(--light-blue);
-    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
 }
 
 .icons-contacts {
@@ -515,6 +511,11 @@
     left: 1118px;
     display: flex;
     justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+.close-btn:hover {
+    background-color : rgba(0, 0, 0, .2);
 }
 
 .close-btn img {
