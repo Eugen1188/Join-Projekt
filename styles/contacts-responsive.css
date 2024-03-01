@@ -65,123 +65,16 @@
     .main-header {
         width: 154px;
     }
+
+    .single-contact-headline {
+        gap: 8px;
+    }
 }
 
 @media (max-width: 1100px) {
     /* .dnone {
         display: none;
     } */
-}
-
-
-@media (max-width: 1023px) {
-    .desktop-view-off {
-        display: none;
-    }
-
-    .contacts-container {
-        margin: 0px auto;
-        position: unset;
-        overflow-y: scroll;
-        height: calc(100% - 160px);
-        width: 100%;
-    }
-
-    .mobile-center {
-        display: flex;
-        justify-content: end;
-    }
-
-    .main-header {
-        width: 100%;
-    }
-
-    .dnone {
-        display: none;
-    }
-
-    .add-contacts-btn {
-        width: 56px;
-        border-radius: 50%;
-    }
-
-    .contacts-conllection {
-        margin: 0;
-    }
-
-    .btn-container {
-        background-color: unset;
-        margin-right: 14px;
-        width: 56px;
-        height: 56px;
-    }
-
-    .contacts-btn-bg {
-        display: unset;
-        width: 56px;
-        height: 56px;
-        left: 81%;
-        right: 0px;
-        top: calc(100% - 160px);
-    }
-
-    .contacts-icon-container {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 8px;
-    }
-
-    ::-webkit-scrollbar {
-        display: none;
-    }
-
-    .desktop-view-off {
-        display: none;
-    }
-
-    .single-contact-headline {
-        flex-direction: column;
-        align-items: flex-start;
-        transition: none;
-        gap: 8px;
-        margin: 0;
-        height: 110px;
-
-    }
-
-    .big-circle {
-        width: 80px;
-        height: 80px;
-        font-size: 27px;
-    }
-
-    .single-data-headline {
-        gap: 20px;
-    }
-
-    .single-contact-name-card {
-        display: flex;
-        align-items: center;
-        font-size: 27px;
-    }
-
-    .single-contact-data-container {
-        min-width: 0;
-    }
-
-    .single-contact-headline h1 {
-        font-size: 47px;
-    }
-
-    .single-contact-headline span {
-        font-size: 20px;
-        width: 200px;
-    }
-
-    .desktop-none {
-        display: unset;
-    }
 }
 
 @media(max-width: 340px) {

@@ -7,26 +7,26 @@
     <title>Join</title>
     <link rel="stylesheet" href="./styles/font.css" />
     <link rel="stylesheet" href="./assets/templates/header.style.css" />
-    <link rel="stylesheet" href="assets/templates/header.style-responsive.css">
+    <link rel="stylesheet" href="./assets/templates/header.style-responsive.css">
     <link rel="stylesheet" href="./styles/style.css" />
     <link rel="stylesheet" href="./styles/contacts.css" />
     <link rel="stylesheet" href="./styles/contacts-responsive.css">
+    <link rel="stylesheet" href="./styles/contacts-mobile.css">
     <script src="./script.js" defer></script>
-    <script src="./js/addTask.js"></script>
     <script src="./js/contactsHtmlTemplate.js"></script>
+    <script src="./js/contactsRender.js"></script>
     <script src="./js/contacts.js" defer></script>
-    <script src="js/register_login.js" defer></script>
-    <script src="js/summary.js" defer></script>
 </head>
 
 <body onload="includeHTML(); initContacts()">
     <header id="main-header" w3-include-html="assets/templates/header.html"></header>
-    <div class="contacts-container">
+    <div id="opasity"></div>
+    <div class="contacts-container" id="contacts-container">
         <div class="contacts-conllection">
             <div class="contacts-btn-bg">
                 <div id="mobile-single-contacts"></div>
                 <div class="btn-container" id="btn-container">
-                    <button class="add-contacts-btn add-contact-btn-mobile main-btn-color"
+                    <button class="add-contacts-btn add-contact-btn-mobile main-btn-color pointer"
                         onclick="addBtnMobileOrDesktop()" id="add-or-eddit">
                         <span class="dnone">Add new Contact</span>
                         <img src="./assets/img/icons/person_add.png" />

@@ -23,24 +23,40 @@ let tempContacts = [];
 let contactIds = [];
 
 /**
- *  @function init()
- *  @author Christian Förster
- *   Initializes the application by performing several setup tasks:
- * - Inverts SVG fills for a specified size.
- * - Handles click events for a specified size.
- * - Includes HTML files.
- * - Initializes contacts.
- * - Executes a test function.
+ * Initializes the application by calling various functions.
+ * This function initializes the application by executing the following steps:
+ * 1. Calls the `contacts` function.
+ * 2. Sets the priority to "medium" by calling the `invertSvgFills` and `handleClick` functions with the "medium" parameter.
+ * 3. Initializes contacts by calling the `initContacts` function.
+ * 4. Retrieves all tasks data by calling the `getAllTasksData` function.
+ *
+ * @function init()
+ *  @author Christian Förster & Kevin Müller
  */
 
-async function init() {
+function init() {
   // invertSvgFills("medium") & handleClick("medium") setzen die Prio standardmäßig auf medium. Im HTML muss  der input den Wert checked bekommen
-  logedInUser = await getItemContacts("logedInUser");
-  renderLogedUser();
+  contacts();
   invertSvgFills("medium");
   handleClick("medium");
   initContacts();
   getAllTasksData();
+}
+
+/**
+ * Asynchronously fetches the logged-in user's contacts and renders the logged-in user.
+ *
+ * This function performs the following steps:
+ * 1. Retrieves the logged-in user's contacts by awaiting the result of the `getItemContacts` function with the key "logedInUser".
+ * 2. Renders the logged-in user by calling the `renderLogedUser` function.
+ * @function contacts()
+ * @returns {Promise<void>} A promise that resolves when the contacts are fetched and the logged-in user is rendered.
+ * @author Dragan Saric & Kevin Müller
+ */
+
+async function contacts() {
+  logedInUser = await getItemContacts("logedInUser");
+  renderLogedUser();
 }
 
 /**
