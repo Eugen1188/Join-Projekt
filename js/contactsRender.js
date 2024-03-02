@@ -35,6 +35,7 @@ function renderSingleContactOverview(id) {
     }
 }
 
+
 /**
  * Closes the rendered contact card slide.
  * Removes the "opasity" class from the element with the id "opasity".
@@ -52,6 +53,7 @@ function closeRenderContactCardSlide() {
     }, 200);
 }
 
+
 /**
  * Renders the card with the given html content
  * @param {Number} id - id of the person in contacts
@@ -62,6 +64,7 @@ function renderCard(id, htmlContent) {
     card.innerHTML = "";
     rightSlideAnimation(id, htmlContent);
 }
+
 
 /**
  * Renders the "Add New Contact" card on the page.
@@ -83,6 +86,7 @@ function renderAddNewContact() {
     let circleColor = document.getElementById("circle-color");
     circleColor.innerHTML = addContactIconHTML();
 }
+
 
 /**
  * Renders the edit contact form for a specific user.
@@ -110,6 +114,7 @@ function renderEditContact(userId, userIndex) {
     document.getElementById("phone").value = formatPhoneNumber(contacts[userIndex].phone);
 }
 
+
 /**
  * Renders the success message after adding a contact
  * and sets the person to active.
@@ -131,6 +136,7 @@ function renderAddContactSuccess(userId) {
     }, 1220);
 }
 
+
 /**
  * Renders the mobile view menu for a contact at the specified index.
  *
@@ -143,6 +149,7 @@ function renderMobileViewMenu(index) {
     btnContainer.innerHTML += menuContactMobileIconHTML(index)
 }
 
+
 /**
  * Renders the edit or delete button for a specific contact.
  *
@@ -153,6 +160,7 @@ function renderEditOrDelete(index) {
     container.innerHTML = ""
     container.innerHTML += mobileDeleteOrEditBtnHTML(index)
 }
+
 
 /**
  * Renders the contact list after deleting a contact on mobile devices.
@@ -169,6 +177,7 @@ function renderContactListAfterDeleteMobile() {
         renderOrDelete.innerHTML = "";
     }
 }
+
 
 /**
  * Render a single person in a more detailed view
@@ -198,16 +207,28 @@ function mobileSingleContactOverview(id) {
     singlContactDataContainer.innerHTML += goBackToContactlistHTML();
 }
 
+
+/**
+ * Makes the big circle smaller by adding the "mobile-big-circle" class.
+ */
 function makeBigCircleSmaller() {
     let bigCircle = document.getElementById("big-circle");
     bigCircle.classList.add("mobile-big-circle");
 }
 
+
+/**
+ * Changes the background color of the mobile single user card.
+ */
 function changeMobileBgColorSingelUserCard() {
     let singleUserCard = document.getElementById("contacts-container");
     singleUserCard.classList.add("mobile-single-user-card");
 }
 
+
+/**
+ * Removes the mobile background color from the single user card.
+ */
 function removeMoileBgColorSingleUserCard() {
     let singleUserCard = document.getElementById("contacts-container");
     singleUserCard.classList.remove("mobile-single-user-card");

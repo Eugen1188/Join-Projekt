@@ -14,6 +14,7 @@ function contactDataHTML(index) {
     `
 }
 
+
 /**
  * together with a for loop can render all contacts
  * @param {number} index - Array index required to display the contact
@@ -34,6 +35,7 @@ function contactUserCardHtml(index) {
         </div>
     `
 }
+
 
 /**
  * Renders the large display when clicking on a contact in Contacts
@@ -90,6 +92,7 @@ function singleContactOverviewHTML(index) {
     `
 }
 
+
 /**
  * Is required to display the form fields
  * @param {String} cardName - Heading of the card
@@ -138,6 +141,7 @@ function contactsCardHTML({ cardName, secondText, functionName, secontFunction, 
     `
 }
 
+
 function addContactSuccessHTML() {
     return /*html*/ `
         <div class="add-success">
@@ -145,6 +149,7 @@ function addContactSuccessHTML() {
         </div>
     `
 }
+
 
 function addContactIconHTML() {
     return /*html*/ `
@@ -154,6 +159,7 @@ function addContactIconHTML() {
     `
 }
 
+
 function contactsCardCircleHTML(index) {
     return  /*html*/ `
         <div class="big-circle card-circle-center ${contacts[index].circleColor}" id="circle-icon">
@@ -161,6 +167,7 @@ function contactsCardCircleHTML(index) {
         </div>
     `
 }
+
 
 function menuContactMobileIconHTML(index) {
     return /*html*/ `
@@ -201,6 +208,7 @@ function renderEditOrDeleteHTML(index) {
     `
 }
 
+
 function contactsWelcomHTML() {
     return /*html*/ `
         <div class="single-contact-headline small-underline">
@@ -210,6 +218,7 @@ function contactsWelcomHTML() {
         </div>
     `
 }
+
 
 function mobileDeleteOrEditBtnHTML(index) {
     return /*html*/ `
@@ -226,6 +235,7 @@ function mobileDeleteOrEditBtnHTML(index) {
     `
 }
 
+
 function addNewContactMobileHTML() {
     return /*html*/ `
         <div class="add-contacts-btn add-contact-btn-mobile main-btn-color" onclick="renderAddNewContact()">
@@ -233,6 +243,7 @@ function addNewContactMobileHTML() {
         </div>
     `
 }
+
 
 function goBackToContactlistHTML() {
     return /*html*/ `
