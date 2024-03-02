@@ -117,20 +117,36 @@ async function editContact(userId) {
   const emailValue = document.getElementById("email").value.trim();
   const phoneValue = document.getElementById("phone").value.trim();
   if (nameValue && emailValue && phoneValue) {
-    let inedOfContact = contacts.findIndex(contact => contact.id === userId);
-    if (inedOfContact != -1) {
+    let inedxOfContact = contacts.findIndex(contact => contact.id === userId);
+    if (inedxOfContact != -1) {
       let editName = nameValue.split(" ")
-      contacts[inedOfContact].name = editName[0];
-      contacts[inedOfContact].lastname = editName.slice(1).join(" ");
-      contacts[inedOfContact].email = emailValue;
-      contacts[inedOfContact].phone = phoneValue;
+      contacts[inedxOfContact].name = editName[0];
+      contacts[inedxOfContact].lastname = editName.slice(1).join(" ");
+      contacts[inedxOfContact].email = emailValue;
+      contacts[inedxOfContact].phone = phoneValue;
+      contacts[inedxOfContact].initials = editName[0].charAt(0).toUpperCase() + editName.slice(1).join(" ").charAt(0).toUpperCase();
       renderContacts()
+      renderSingleContactOverview(inedxOfContact)
+      checkIfEditedDataIsLoggInUser(userId, inedxOfContact)
       setItem("contacts", contacts)
     }
   } else {
     return
   }
 }
+
+async function checkIfEditedDataIsLoggInUser(userId, inedOfContact) {
+  if (logedInUser[0].id == userId) {
+    logedInUser[0].name = contacts[inedOfContact].name;
+    logedInUser[0].lastname = contacts[inedOfContact].lastname;
+    logedInUser[0].email = contacts[inedOfContact].email;
+    logedInUser[0].initials = contacts[inedOfContact].initials;
+    logedInUser[0].phone = contacts[inedOfContact].phone;
+    await setItem("logedInUser", logedInUser)
+    renderLogedUser()
+  }
+}
+
 
 /** deletes a contact from the contact list
  * @param {number} id - is required to find the desired user
@@ -171,6 +187,7 @@ async function saveNewUserData() {
     password: password,
     initials: firstname[0].charAt(0).toUpperCase() + lastname[lastname.length - 1].charAt(0),
     circleColor: getRandomColor(),
+    phone: "No data stored",
   });
   id++;
   console.log(id);
