@@ -524,6 +524,7 @@ async function setLogedInUserInContactsArray() {
  * @returns {Promise<void>} A promise that resolves when the update is complete.
  */
 async function updateLogedInUserInUserDataArray() {
+  userData = await getItemContacts("userData");
   let checkUserId = userData.findIndex(user => user.id === logedInUser[0].id);
   if (checkUserId != -1) {
     userData[checkUserId] = logedInUser[0];
