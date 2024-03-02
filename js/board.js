@@ -11,6 +11,9 @@ let lockout;
  */
 async function initBoard() {
     logedInUser = await getItemContacts("logedInUser");
+    if (logedInUser.length == 0) {
+        navigateToIndex();
+    }
     renderLogedUser()
     await getAllTasksData();
     clearCurrentTask();

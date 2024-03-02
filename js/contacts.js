@@ -99,6 +99,9 @@ async function initContacts() {
   contacts = await getItemContacts("contacts");
   id = await getItemContacts("id");
   logedInUser = await getItemContacts("logedInUser");
+  if (logedInUser.length == 0) {
+    navigateToIndex();
+  }
   renderContacts();
   renderLogedUser()
 }
@@ -406,7 +409,7 @@ function slideBackAnimation(id) {
 }
 
 function addBtnMobileOrDesktop() {
-    return renderAddNewContact();
+  return renderAddNewContact();
 }
 
 const goBackToContactListMobile = () => {
@@ -458,7 +461,7 @@ function changeMobileBgColorSingelUserCard() {
   singleUserCard.classList.add("mobile-single-user-card");
 }
 
-  function removeMoileBgColorSingleUserCard() {
-    let singleUserCard = document.getElementById("contacts-container");
-    singleUserCard.classList.remove("mobile-single-user-card");
-  }
+function removeMoileBgColorSingleUserCard() {
+  let singleUserCard = document.getElementById("contacts-container");
+  singleUserCard.classList.remove("mobile-single-user-card");
+}

@@ -54,6 +54,9 @@ async function init() {
 
 async function contacts() {
   logedInUser = await getItemContacts("logedInUser");
+  if (logedInUser.length == 0) {
+    navigateToIndex();
+  }
   renderLogedUser();
 }
 
