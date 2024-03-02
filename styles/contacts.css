@@ -353,6 +353,26 @@
     animation: slideInMobileFromRight 225ms ease;
 }
 
+@keyframes slideFromBottomToTop {
+    0% {
+        top: 160%;
+    }
+
+    100% {
+        top: 10%;
+    }
+}
+
+@keyframes slideFromTopToBottom {
+    0% {
+        top: 10%;
+    }
+
+    100% {
+        top: 160%;
+    }
+}
+
 @keyframes slideInMobileFromRight {
     0% {
         right: 0;

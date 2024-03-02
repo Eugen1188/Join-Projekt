@@ -103,7 +103,7 @@
 
     #edit-card {
         position: absolute;
-        top: 80px;
+        top: 10%;
     }
 
     .edit-card-form {
@@ -164,6 +164,14 @@
         width: 100%;
     }
 
+    .right-slide-animation {
+        animation: slideFromBottomToTop 0.2s ease-in
+    }
+
+    .slide-back-animation {
+        animation: slideFromTopToBottom 0.3s ease-in
+
+    }
 }
 
 .mobile-single-user-card {
