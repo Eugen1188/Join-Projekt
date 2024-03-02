@@ -99,6 +99,7 @@ async function initContacts() {
   contacts = await getItemContacts("contacts");
   id = await getItemContacts("id");
   logedInUser = await getItemContacts("logedInUser");
+  setLogedInUserInContactsArray()
   if (logedInUser.length == 0) {
     navigateToIndex();
   }
@@ -169,6 +170,7 @@ async function saveNewUserData() {
     email: email,
     password: password,
     initials: firstname[0].charAt(0).toUpperCase() + lastname[lastname.length - 1].charAt(0),
+    circleColor: getRandomColor(),
   });
   id++;
   console.log(id);
@@ -232,15 +234,6 @@ function checkEmailAddress(email, array) {
       return "This email is already in use";
     }
   }
-}
-
-function mobileSingleContactOverview(id) {
-  const singlContactDataContainer = document.getElementById("contact-list");
-  setPersonToActive(id);
-  singlContactDataContainer.innerHTML = "";
-  singlContactDataContainer.innerHTML += contactsWelcomHTML();
-  singlContactDataContainer.innerHTML += singleContactOverviewHTML(id);
-  singlContactDataContainer.innerHTML += goBackToContactlistHTML();
 }
 
 /**
@@ -451,17 +444,15 @@ window.addEventListener('resize', function () {
   }
 });
 
-function makeBigCircleSmaller() {
-  let bigCircle = document.getElementById("big-circle");
-  bigCircle.classList.add("mobile-big-circle");
-}
-
-function changeMobileBgColorSingelUserCard() {
-  let singleUserCard = document.getElementById("contacts-container");
-  singleUserCard.classList.add("mobile-single-user-card");
-}
-
-function removeMoileBgColorSingleUserCard() {
-  let singleUserCard = document.getElementById("contacts-container");
-  singleUserCard.classList.remove("mobile-single-user-card");
+async function setLogedInUserInContactsArray() {
+  // let logedInUser = await getItemContacts("logedInUser");
+  let checkUserId = contacts.findIndex(contact => contact.id === logedInUser[0].id);
+  if (logedInUser.length == 0 && logedInUser[0].lastname == undefined) {
+      return;
+  }
+  if (checkUserId == -1) {
+    contacts.push(logedInUser[0]);
+    renderContacts();
+    setItem("contacts", contacts);
+  }
 }

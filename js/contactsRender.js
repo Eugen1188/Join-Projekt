@@ -182,3 +182,33 @@ function singleContactOverview(index) {
     singlContactDataContainer.innerHTML = "";
     rightSlideAnimation("single-contact-data-container", singleContactOverviewHTML(index));
 }
+
+
+/**
+ * Renders the overview of a single contact on a mobile device.
+ *
+ * @param {Number} id - The ID of the contact to render.
+ */
+function mobileSingleContactOverview(id) {
+    const singlContactDataContainer = document.getElementById("contact-list");
+    setPersonToActive(id);
+    singlContactDataContainer.innerHTML = "";
+    singlContactDataContainer.innerHTML += contactsWelcomHTML();
+    singlContactDataContainer.innerHTML += singleContactOverviewHTML(id);
+    singlContactDataContainer.innerHTML += goBackToContactlistHTML();
+}
+
+function makeBigCircleSmaller() {
+    let bigCircle = document.getElementById("big-circle");
+    bigCircle.classList.add("mobile-big-circle");
+}
+
+function changeMobileBgColorSingelUserCard() {
+    let singleUserCard = document.getElementById("contacts-container");
+    singleUserCard.classList.add("mobile-single-user-card");
+}
+
+function removeMoileBgColorSingleUserCard() {
+    let singleUserCard = document.getElementById("contacts-container");
+    singleUserCard.classList.remove("mobile-single-user-card");
+}
