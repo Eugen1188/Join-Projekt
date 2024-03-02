@@ -4,6 +4,9 @@ let urgentDates = [];
 async function renderSummeryTasks() {
     await getAllTasksData()
     logedInUser = await getItemContacts("logedInUser");
+    if (logedInUser.length == 0) {
+        navigateToIndex();
+    }
     tasksInBoard();
     tasksInProgress();
     tasksToDo();

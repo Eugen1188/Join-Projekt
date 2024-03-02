@@ -154,6 +154,10 @@ function navigateToAddTask() {
   window.location.href = "./add-task.html";
 }
 
+function navigateToIndex() {
+  window.location.href = "./index.html";
+}
+
 function renderLogedUser() {
   let userInitials = document.getElementById('logedUserInitials');
 

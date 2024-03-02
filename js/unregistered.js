@@ -1,8 +1,8 @@
 async function initUnregistered(){
     logedInUser = await getItemContacts("logedInUser");
     if (logedInUser.length == 0) {
-        addCss('../styles/privacy-policy-unloged.css');
-    }    
+        addCss('../styles/unregistered.css');
+    }
 }
 
 function addCss(fileName) {
