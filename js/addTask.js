@@ -23,20 +23,18 @@ let tempContacts = [];
 let contactIds = [];
 
 /**
- * Initializes the application by calling various functions.
- * This function initializes the application by executing the following steps:
- * 1. Calls the `contacts` function.
- * 2. Sets the priority to "medium" by calling the `invertSvgFills` and `handleClick` functions with the "medium" parameter.
- * 3. Initializes contacts by calling the `initContacts` function.
- * 4. Retrieves all tasks data by calling the `getAllTasksData` function.
- *
+ * Initializes the application by fetching logged-in user data, rendering the logged-in user,
+ * setting priority to medium for SVG fills, handling click events with medium priority,
+ * initializing contacts, and retrieving all tasks data.
+ * @returns {Promise<void>} A Promise that resolves when initialization is complete.
  * @function init()
- *  @author Christian Förster & Kevin Müller
+ * @author Christian Förster & Kevin Müller
  */
 
-function init() {
+async function init() {
+  logedInUser = await getItemContacts("logedInUser");
+  renderLogedUser();
   // invertSvgFills("medium") & handleClick("medium") setzen die Prio standardmäßig auf medium. Im HTML muss  der input den Wert checked bekommen
-  contacts();
   invertSvgFills("medium");
   handleClick("medium");
   initContacts();
