@@ -172,6 +172,11 @@
         animation: slideFromTopToBottom 0.3s ease-in
 
     }
+
+        #contact-success {
+            top: 10%;
+            left: 25%;
+        }
 }
 
 .mobile-single-user-card {

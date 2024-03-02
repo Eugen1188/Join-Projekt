@@ -163,13 +163,29 @@ async function checkIfEditedDataIsLoggInUser(userId, inedOfContact) {
  */
 async function deleteContact(id) {
   const index = contacts.findIndex(contact => contact.id === id);
-  if (index !== -1) {
+  dontDeleteUrSelfInContacts(index)
+  if (index !== -1 && logedInUser[0].id != contacts[index].id){
     contacts.splice(index, 1);
     renderContacts();
     document.getElementById("single-contact-data-container").innerHTML = "";
     lastActivePerson = 0;
     renderContactListAfterDeleteMobile()
     setItem("contacts", contacts);
+  }
+}
+
+
+async function dontDeleteUrSelfInContacts(index) {
+  if (logedInUser[0].id == contacts[index].id) {
+    console.log(logedInUser[0].id == contacts[index].id);
+    rightSlideAnimation("contact-success", slideInMessageHTML("You can't delete yourself"));
+    setTimeout(() => {
+      slideBackAnimation("contact-success");
+    }, 1000);
+    setTimeout(() => {
+      document.getElementById("contact-success").innerHTML = "";
+    }, 1220);
+    return;
   }
 }
 
@@ -233,7 +249,7 @@ async function addNewContactToContactlist() {
     });
     renderContacts();
     renderCard("edit-card", "");
-    renderAddContactSuccess(id);
+    renderAddContactSuccess(id, "Contact succesfully created ");
     id++;
     setItem("id", id);
     setItem("contacts", contacts);

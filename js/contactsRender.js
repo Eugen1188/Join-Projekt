@@ -120,14 +120,14 @@ function renderEditContact(userId, userIndex) {
  * and sets the person to active.
  * @param {Number} id - id of the contact
  */
-function renderAddContactSuccess(userId) {
+function renderAddContactSuccess(userId, message) {
     let container = document.getElementById("single-contact-data-container")
     let indexOfId = contacts.findIndex(contact => contact.id === userId);
     let succesfully = document.getElementById("contact-success");
     container.innerHTML = ""
     container.innerHTML += singleContactOverviewHTML(indexOfId)
     setPersonToActive(indexOfId);
-    rightSlideAnimation("contact-success", addContactSuccessHTML());
+    rightSlideAnimation("contact-success", slideInMessageHTML(message));
     setTimeout(() => {
         slideBackAnimation("contact-success");
     }, 1000);

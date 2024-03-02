@@ -142,10 +142,10 @@ function contactsCardHTML({ cardName, secondText, functionName, secontFunction, 
 }
 
 
-function addContactSuccessHTML() {
+function slideInMessageHTML(message) {
     return /*html*/ `
         <div class="add-success">
-            <span>Contact succesfully created</span>
+            <span>${message}</span>
         </div>
     `
 }
@@ -222,8 +222,8 @@ function contactsWelcomHTML() {
 
 function mobileDeleteOrEditBtnHTML(index) {
     return /*html*/ `
-        <div class="icon-container-mobile slideInMobile" onclick="renderEditContact(${contacts[index].id}, ${index})">
-            <div class="icons-contacts">
+        <div class="icon-container-mobile slideInMobile">
+            <div class="icons-contacts" onclick="renderEditContact(${contacts[index].id}, ${index})">
                 <img src="./assets/img/icons/edit.png" alt="">
                 <span>Edit</span>
             </div>
