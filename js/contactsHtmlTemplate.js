@@ -222,7 +222,7 @@ function contactsWelcomHTML() {
 
 function mobileDeleteOrEditBtnHTML(index) {
     return /*html*/ `
-        <div class="icon-container-mobile" onclick="renderEditContact(${contacts[index].id}, ${index})">
+        <div class="icon-container-mobile slideInMobile" onclick="renderEditContact(${contacts[index].id}, ${index})">
             <div class="icons-contacts">
                 <img src="./assets/img/icons/edit.png" alt="">
                 <span>Edit</span>

@@ -349,6 +349,20 @@
     animation: slideIn 225ms ease-in;
 }
 
+.slideInMobile {
+    animation: slideInMobileFromRight 225ms ease;
+}
+
+@keyframes slideInMobileFromRight {
+    0% {
+        right: 0;
+    }
+
+    100% {
+        right: 111%;
+    }
+}
+
 @keyframes slideIn {
     0% {
         margin-left: 1000px;
