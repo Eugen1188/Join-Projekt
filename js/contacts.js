@@ -143,6 +143,7 @@ async function checkIfEditedDataIsLoggInUser(userId, inedOfContact) {
     logedInUser[0].initials = contacts[inedOfContact].initials;
     logedInUser[0].phone = contacts[inedOfContact].phone;
     await setItem("logedInUser", logedInUser)
+    updateLogedInUserInUserDataArray()
     renderLogedUser()
   }
 }
@@ -471,5 +472,13 @@ async function setLogedInUserInContactsArray() {
     contacts.push(logedInUser[0]);
     renderContacts();
     setItem("contacts", contacts);
+  }
+}
+
+async function updateLogedInUserInUserDataArray() {
+  let checkUserId = userData.findIndex(user => user.id === logedInUser[0].id);
+  if (checkUserId != -1) {
+    userData[checkUserId] = logedInUser[0];
+    await setItem("userData", userData);
   }
 }
