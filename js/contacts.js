@@ -125,7 +125,7 @@ async function editContact(userId) {
       contacts[inedxOfContact].name = editName[0];
       contacts[inedxOfContact].lastname = editName.slice(1).join(" ");
       contacts[inedxOfContact].email = emailValue;
-      contacts[inedxOfContact].phone = phoneValue;
+      contacts[inedxOfContact].phone = formatPhoneNumber(phoneValue);
       contacts[inedxOfContact].initials = editName[0].charAt(0).toUpperCase() + editName.slice(1).join(" ").charAt(0).toUpperCase();
       renderContacts()
       renderSingleContactOverview(inedxOfContact)
@@ -177,7 +177,6 @@ async function deleteContact(id) {
 
 async function dontDeleteUrSelfInContacts(index) {
   if (logedInUser[0].id == contacts[index].id) {
-    console.log(logedInUser[0].id == contacts[index].id);
     rightSlideAnimation("contact-success", slideInMessageHTML("You can't delete yourself"));
     setTimeout(() => {
       slideBackAnimation("contact-success");
