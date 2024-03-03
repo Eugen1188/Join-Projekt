@@ -204,6 +204,10 @@
     outline: 2px solid var(--light-blue);
   }
 
+  .loginname:focus {
+    outline: 2px solid var(--light-blue);
+  }
+  
   .reg-cont {
     display: flex;
     border-radius: 30px;
