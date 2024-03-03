@@ -149,6 +149,7 @@ async function deleteContact(id) {
  * @returns {void} - returns nothing
  */
 async function saveNewUserData() {
+  event.preventDefault(); // Kein Standardverhalten des Formulars
   id = await getItemContacts("id");
   const name = document.getElementById("name-reg").value.trim();
   const firstname = name.split(" ");

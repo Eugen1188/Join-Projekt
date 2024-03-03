@@ -105,6 +105,10 @@
 
     }
 
+    .logout-inner-cont {
+        height: 35px;
+    }
+
     @keyframes menuOn {
         from {
             transform: translateX(500px)

@@ -53,30 +53,29 @@
             </div>
 
             <div class="form-cont">
-                <form action="summary.html">
+                <form onsubmit="logIn()"; return false>
                     <input class="loginemail" type="email" name="email" id="email" placeholder="Email" required>
                     <input class="loginpassword" type="password" name="" id="password" placeholder="Password" required>
-
                     <div class="checkbox-cont">
-
                         <label class="checkboxlabel"> <span>Remember me</span>
                             <input class="logincheckbox" type="checkbox" id="rememberMe">
                             <span class="checkmark"></span>
                         </label>
+                    </div>
 
+                    <div class="login-buttons-cont">
+                        <button type="submit" class="text-decoration-none loginbutton">Log in</button>
+                        <a href="summary.html" class="text-decoration-none loginguestbutton"
+                            onclick="logInAsGuest()">Guest Log in</a>
                     </div>
 
                 </form>
 
             </div>
-
-            <div class="login-buttons-cont">
-                <a href="#" class="text-decoration-none loginbutton" onclick="logIn()">Log in</a>
-                <a href="summary.html" class="text-decoration-none loginguestbutton" onclick="logInAsGuest()">Guest Log in</a>
-            </div>
-
         </div>
 
+
+        
         <div class="reg-cont ecrease-opacity d-none" id="reg-user-menu">
 
             <div class="reg-headline">
@@ -90,8 +89,11 @@
                 </div>
             </div>
 
+
             <div class="form-cont">
-                <form action="summary.html">
+
+
+                <form onsubmit="saveNewUserData(), showRegistrationAnimation()"; return false>
                     <input class="loginname" type="text" name="" id="name-reg" placeholder="Name" required>
                     <input class="loginemail" type="email" name="" id="email-reg" placeholder="Email" required>
                     <input class="loginpassword" type="password" name="" id="password-reg" placeholder="Password" required>
@@ -99,19 +101,24 @@
 
                     <div class="checkbox-cont">
 
-                        <label class="checkboxlabel"> <span>I accept the <a class="privacy-policy-span">Pricavy
+                        <label class="checkboxlabel"> <span>I accept the <a class="privacy-policy-span" href="privacy-policy-unloged.html" onclick="showInfoForUnloggedUser()">Pricavy
                                     policy</a> </span>
-                            <input class="logincheckbox" type="checkbox" id="registerCheckbox" onclick="showRegisterButton()">
+                            <input class="logincheckbox" type="checkbox" id="registerCheckbox"
+                                onclick="showRegisterButton()" required>
                             <span class="checkmark"></span>
                         </label>
 
                     </div>
 
+                    <div class="login-buttons-cont">
+                        <button type="submit" class="text-decoration-none loginbutton disable-btn" disabled id="registerBtn">Sign up </button>
+                    </div>
+
                 </form>
 
-                <div class="login-buttons-cont">
-                    <a href="#" class="text-decoration-none loginbutton d-none" id="registerBtn" onclick="saveNewUserData(), showRegistrationAnimation()">Sign up</a>
-                </div>
+
+
+
 
             </div>
 
@@ -119,8 +126,10 @@
 
         <div class="login-rights-cont ecrease-opacity">
 
-            <a href="privacy-policy-unloged.html" class="privacy-cont" onclick="showInfoForUnloggedUser()">Privacy Policy</a>
-            <a href="legal-notice-unloged.html" class="privacy-cont" onclick="showInfoForUnloggedUser()">Legal notice</a>
+            <a href="privacy-policy-unloged.html" class="privacy-cont" onclick="showInfoForUnloggedUser()">Privacy
+                Policy</a>
+            <a href="legal-notice-unloged.html" class="privacy-cont" onclick="showInfoForUnloggedUser()">Legal
+                notice</a>
         </div>
 
     </div>

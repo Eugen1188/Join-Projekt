@@ -11,6 +11,7 @@ async function renderSummeryTasks() {
     tasksUrgent();
     renderLogedUser();
     userGreetings();
+    greetingResponsive();
 }
 
 function tasksInBoard() {
@@ -77,16 +78,14 @@ function tasksUrgent() {
         }
         urgentTasks.innerHTML = count;
     }
-    if(count != 0){
+    if (count != 0) {
         nextUrgentDate.innerHTML = showDateInRightFormat(urgentDates[0]);
     } else {
         nextUrgentDate.innerHTML = "No urgent dates !"
     }
-    
 }
 
 function showDateInRightFormat(date) {
-
     let arr = Array.from(date);
     let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     let rightMonth = arr[3] + arr[4];
@@ -107,25 +106,39 @@ function sortDates(urgentDates) {
     });
 };
 
-
 // render greetings for mobile phones
 
-
 function userGreetings() {
-    let greeting = document.getElementById('greetings-resposive-user');
     let greetSummaryMain = document.getElementById('greeting-depent-time');
     let name = document.getElementById('logedInName');
-    let lastName = document.getElementById('logedInLastname');;
-    if (logedInUser[0].name == "Guest"){
+    let lastName = document.getElementById('logedInLastname');
+    if (logedInUser[0].name == "Guest") {
         greetSummaryMain.innerHTML = `${GreetingDependTime()}`;
-        greeting.innerHTML = `${GreetingDependTime()}!`;
     }
-    else{
-        console.log(logedInUser[0].name);
+    else {
         greetSummaryMain.innerHTML = `${GreetingDependTime()}`;
         name.innerHTML = `${logedInUser[0].name} `;
         lastName.innerHTML = `${logedInUser[0].lastname}`;
-        greeting.innerHTML = `${GreetingDependTime()}, <br> <span class="greetingNameMobile"> ${logedInUser[0].name} ${logedInUser[0].lastname} </span>`
+    }
+
+}
+
+function greetingResponsive() {
+
+    let greetingContainer = document.getElementById('greeting-main-cont-responsive');
+    let greeting = document.getElementById('greetings-resposive-user');
+    if (window.innerWidth <= 660) {
+        console.log(greeting);
+        greetingContainer.style.display = 'flex';
+        if(logedInUser[0].name == "Guest"){
+            greeting.innerHTML = `${GreetingDependTime()}`;
+        }
+        else{
+            greeting.innerHTML = `${GreetingDependTime()}, <br> <span class="greetingNameMobile"> ${logedInUser[0].name} ${logedInUser[0].lastname} </span>`
+        }
+        setTimeout(() => {
+            greetingContainer.style.display = 'none';
+        }, 2000);
     }
 
 }
@@ -139,10 +152,10 @@ function GreetingDependTime() {
 
     if (hour < 11) {
         return "Good morning"
-    }else if (hour < 18) {
+    } else if (hour < 18) {
         return "Good afternoon";
     } else if (hour < 24) {
         return "Good evening";
-    } 
+    }
 
 }

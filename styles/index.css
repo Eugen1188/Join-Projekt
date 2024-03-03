@@ -199,6 +199,10 @@
     padding: 12px 21px;
     box-sizing: border-box;
   }
+
+  .loginemail:focus {
+    outline: 2px solid var(--light-blue);
+  }
   
   .reg-cont {
     display: flex;
@@ -210,6 +214,17 @@
     height: 630px;
     margin: 0 auto;
     background-color: white;
+  }
+
+  .disable-btn {
+    opacity: 0.5;
+    cursor:auto !important;
+    background-color: grey;
+  }
+
+  .disable-btn:hover {
+    background-color: grey !important;
+    box-shadow:none !important;
   }
   
   .reg-headline {
@@ -280,6 +295,10 @@
     justify-content: center;
     box-sizing: border-box;
   }
+
+  .loginpassword:focus {
+    outline: 2px solid var(--light-blue)
+  }
   
   ::placeholder {
     color: var(--light-grey);
@@ -312,6 +331,7 @@
     margin-right: 16px;
     cursor: pointer;
     transition: 0.3s;
+    border: unset;
   }
   
   .loginbutton:hover {
