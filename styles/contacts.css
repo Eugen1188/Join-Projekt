@@ -2,6 +2,10 @@
 :root {
     --contacts-link-color: #29ABE2;
 }
+.edit-card-from-input:focus,
+.edit-card-from-input:focus-visible {
+    border: 1px solid var(--contacts-link-color) !important;
+}
 
 .main-btn-color {
     background-color: var(--button-color);
