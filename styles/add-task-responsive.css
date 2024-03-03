@@ -21,6 +21,7 @@
   }
 
   .edit-subtask-field input {
+    width: calc(100% - 16px);
     height: 48px;
   }
 
@@ -47,8 +48,7 @@
     background-color: white;
   }
 
-  .input-container,
-  .edit-subtask-field input {
+  .input-container {
     width: calc(100% - 22px);
   }
 
@@ -197,7 +197,7 @@
 
   .input-container,
   .edit-subtask-field input {
-    width: calc(100% - 22px);
+    width: calc(100% - 16px);
   }
 
   .input-addtask,
