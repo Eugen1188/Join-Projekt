@@ -108,6 +108,7 @@
 
     .logout-inner-cont {
         height: 35px;
+        border-radius: 8px;
     }
 
     @keyframes menuOn {

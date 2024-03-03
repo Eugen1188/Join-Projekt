@@ -207,7 +207,7 @@
   .loginname:focus {
     outline: 2px solid var(--light-blue);
   }
-  
+
   .reg-cont {
     display: flex;
     border-radius: 30px;
@@ -350,7 +350,7 @@
 
   .loginguestbutton {
     color: var(--button-color);
-    width: 177px;
+    width: 180px;
     height: 46px;
     background-color: #ffffff;
     border: solid 1px var(--button-color);

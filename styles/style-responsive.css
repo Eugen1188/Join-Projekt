@@ -52,7 +52,7 @@
         margin-bottom: 0px;
         width: 180px !important;
         height: 123px !important;
-        justify-content: unset !important;
+        justify-content: space-around !important;
         align-items: unset !important;
     }
     
