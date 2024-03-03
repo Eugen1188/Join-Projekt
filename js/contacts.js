@@ -188,7 +188,7 @@ function renderSlideInMsg(elementId, msg) {
     slideBackAnimation(elementId);
   }, 1000);
   setTimeout(() => {
-    document.getElementById("elementId").innerHTML = "";
+    document.getElementById(elementId).innerHTML = "";
   }, 1220);
 }
 
