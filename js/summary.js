@@ -87,10 +87,6 @@ function tasksUrgent() {
     } else {
         nextUrgentDate.innerHTML = "No urgent dates !"
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> 9b50da55219d90e91c05c5730dc89e508e733848
 }
 
 function showDateInRightFormat(date) {
