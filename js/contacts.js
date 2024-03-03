@@ -1,95 +1,4 @@
-let contacts = [
-  {
-    id: 1,
-    name: "Max",
-    lastname: "Mustermann",
-    email: "max@example.com",
-    phone: "+495689876241",
-    initials: "MM",
-    circleColor: "user-color-one",
-  },
-  {
-    id: 2,
-    name: "Anna",
-    lastname: "Musterfrau",
-    email: "anna@example.com",
-    phone: "+495689876242",
-    initials: "AM",
-    circleColor: "user-color-two",
-  },
-  {
-    id: 3,
-    name: "John",
-    lastname: "Doe",
-    email: "john@example.com",
-    phone: "+495689876243",
-    initials: "JD",
-    circleColor: "user-color-three",
-  },
-  {
-    id: 4,
-    name: "Jane",
-    lastname: "Doe",
-    email: "jane@example.com",
-    phone: "+495689876244",
-    initials: "JD",
-    circleColor: "user-color-four",
-  },
-  {
-    id: 5,
-    name: "Alice",
-    lastname: "Smith",
-    email: "alice@example.com",
-    phone: "+495689876245",
-    initials: "AS",
-    circleColor: "user-color-five",
-  },
-  {
-    id: 6,
-    name: "Bob",
-    lastname: "Johnson",
-    email: "bob@example.com",
-    phone: "+495689876246",
-    initials: "BJ",
-    circleColor: "user-color-six",
-  },
-  {
-    id: 7,
-    name: "Emily",
-    lastname: "Davis",
-    email: "emily@example.com",
-    phone: "+495689876247",
-    initials: "ED",
-    circleColor: "user-color-seven",
-  },
-  {
-    id: 8,
-    name: "Michael",
-    lastname: "Brown",
-    email: "michael@example.com",
-    phone: "+495689876248",
-    initials: "MB",
-    circleColor: "user-color-eight",
-  },
-  {
-    id: 9,
-    name: "Sarah",
-    lastname: "Wilson",
-    email: "sarah@example.com",
-    phone: "+495639826249",
-    initials: "SW",
-    circleColor: "user-color-nine",
-  },
-  {
-    id: 10,
-    name: "David",
-    lastname: "Lee",
-    email: "david@example.com",
-    phone: "+495689876250",
-    initials: "DL",
-    circleColor: "user-color-ten",
-  },
-];
+let contacts = [];
 let userData = [];
 let sortedUsers;
 let id = 11;
@@ -165,7 +74,7 @@ async function deleteContact(id) {
   const index = contacts.findIndex(contact => contact.id === id);
   if (logedInUser[0].id == contacts[index].id) {
     renderSlideInMsg("contact-success", "You can't delete yourself");
-
+    return;
   }
   if (!logedInUser[0].id) {
     renderSlideInMsg("contact-success", "Guest can't delete a user");
@@ -179,17 +88,6 @@ async function deleteContact(id) {
     renderContactListAfterDeleteMobile()
     setItem("contacts", contacts);
   }
-}
-
-
-function renderSlideInMsg(elementId, msg) {
-  rightSlideAnimation(elementId, slideInMessageHTML(msg));
-  setTimeout(() => {
-    slideBackAnimation(elementId);
-  }, 1000);
-  setTimeout(() => {
-    document.getElementById(elementId).innerHTML = "";
-  }, 1220);
 }
 
 

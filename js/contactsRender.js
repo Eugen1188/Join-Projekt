@@ -254,3 +254,20 @@ function renderOnlyInDesktopView(functionName) {
         functionName
     }
 }
+
+
+/**
+ * Renders a slide-in message in the specified element.
+ *
+ * @param {string} elementId - The ID of the element where the message will be rendered.
+ * @param {string} msg - The message to be rendered.
+ */
+function renderSlideInMsg(elementId, msg) {
+    rightSlideAnimation(elementId, slideInMessageHTML(msg));
+    setTimeout(() => {
+        slideBackAnimation(elementId);
+    }, 1000);
+    setTimeout(() => {
+        document.getElementById(elementId).innerHTML = "";
+    }, 1220);
+}
