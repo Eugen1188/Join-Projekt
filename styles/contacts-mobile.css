@@ -1,3 +1,24 @@
+.mobile-btn-font-size {
+    font-size: 17px;
+}
+
+.mobile-single-user-card {
+    background-color: #F6F7F8;
+}
+
+.mobile-big-circle {
+    width: 80px;
+    height: 80px;
+    font-size: 27px;
+}
+
+.small-screen-display-none {}
+
+
+.mobile-btn-font-size {
+    font-size: 17px;
+}
+
 @media (max-width: 1023px) {
     .desktop-view-off {
         display: none;
@@ -113,7 +134,7 @@
     .edit-card {
         flex-direction: column;
         border-radius: 30px;
-        width: 392px;
+        width: 400px;
         height: 748px;
     }
 
@@ -192,27 +213,19 @@
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 800px) {
     .edit-card {
-        width: 324px;
-        height: 542px;
-    }
-
-    .edit-card-header {
-        font-size: 44px;
-    }
-
-
-    #edit-card {
-        top: 14%;
-    }
-
-    .close-btn {
-        left: 86%;
+        width: 400px;
     }
 }
 
-@media (max-width: 390px) {
+@media (max-width: 500px) {
+    .edit-card-header {
+        font-size: 58px;
+    }
+}
+
+@media (max-width: 400px) {
     .edit-card {
         width: 324px;
         height: 542px;
@@ -235,24 +248,12 @@
     }
 }
 
+@media (max-width: 350px) {
+    .edit-card {
+        width: 310px;
+    }
 
-
-.mobile-single-user-card {
-    background-color: #F6F7F8;
-}
-
-.mobile-big-circle {
-    width: 80px;
-    height: 80px;
-    font-size: 27px;
-}
-
-
-.small-screen-display-none {
-
-}
-
-
-.mobile-btn-font-size {
-    font-size: 17px;
+    .mobile-btn-font-size {
+        font-size: 14px;
+    }
 }
