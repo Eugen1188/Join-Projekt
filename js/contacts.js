@@ -163,9 +163,15 @@ async function checkIfEditedDataIsLoggInUser(userId, inedOfContact) {
  */
 async function deleteContact(id) {
   const index = contacts.findIndex(contact => contact.id === id);
-  dontDeleteUrSelfInContacts(index)
-  guestCantDeleteAUser()
-  if (index !== -1 && logedInUser[0].id != contacts[index].id){
+  if (logedInUser[0].id == contacts[index].id) {
+    renderSlideInMsg("contact-success", "You can't delete yourself");
+
+  }
+  if (!logedInUser[0].id) {
+    renderSlideInMsg("contact-success", "Guest can't delete a user");
+    return;
+  }
+  if (index !== -1 && logedInUser[0].id != contacts[index].id) {
     contacts.splice(index, 1);
     renderContacts();
     document.getElementById("single-contact-data-container").innerHTML = "";
@@ -176,30 +182,14 @@ async function deleteContact(id) {
 }
 
 
-async function dontDeleteUrSelfInContacts(index) {
-  if (logedInUser[0].id == contacts[index].id) {
-    rightSlideAnimation("contact-success", slideInMessageHTML("You can't delete yourself"));
-    setTimeout(() => {
-      slideBackAnimation("contact-success");
-    }, 1000);
-    setTimeout(() => {
-      document.getElementById("contact-success").innerHTML = "";
-    }, 1220);
-    return;
-  }
-}
-
-function guestCantDeleteAUser() {
-  if (!logedInUser[0].id) {
-    rightSlideAnimation("contact-success", slideInMessageHTML("You can't delete a User"));
-    setTimeout(() => {
-      slideBackAnimation("contact-success");
-    }, 1000);
-    setTimeout(() => {
-      document.getElementById("contact-success").innerHTML = "";
-    }, 1220);
-    return;
-  }
+function renderSlideInMsg(elementId, msg) {
+  rightSlideAnimation(elementId, slideInMessageHTML(msg));
+  setTimeout(() => {
+    slideBackAnimation(elementId);
+  }, 1000);
+  setTimeout(() => {
+    document.getElementById("elementId").innerHTML = "";
+  }, 1220);
 }
 
 
