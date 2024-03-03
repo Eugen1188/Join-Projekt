@@ -259,6 +259,15 @@
 
 @media(max-width:401px) {
 
+
+  .tasks-amount-board {
+    font-size: 34px;
+  }
+
+  .tasks-in-board-span {
+    font-size: 12px;
+  }
+
   .tasks-main-cont {
     width: 300px;
   }
