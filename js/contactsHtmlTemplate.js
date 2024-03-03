@@ -14,6 +14,7 @@ function contactDataHTML(index) {
     `
 }
 
+
 /**
  * together with a for loop can render all contacts
  * @param {number} index - Array index required to display the contact
@@ -34,6 +35,7 @@ function contactUserCardHtml(index) {
         </div>
     `
 }
+
 
 /**
  * Renders the large display when clicking on a contact in Contacts
@@ -90,6 +92,7 @@ function singleContactOverviewHTML(index) {
     `
 }
 
+
 /**
  * Is required to display the form fields
  * @param {String} cardName - Heading of the card
@@ -115,7 +118,7 @@ function contactsCardHTML({ cardName, secondText, functionName, secontFunction, 
 
             </div>
             <div class="edit-card-form">
-                <div class="mobileCirclePosition" id="circle-color">
+                <div class="mobileCirclePosition small-screen-display-none" id="circle-color">
                 </div>
                 <div class="edit-card-form-input">
                     <form onsubmit="${functionName}; return false" id="contacts-form">
@@ -124,11 +127,11 @@ function contactsCardHTML({ cardName, secondText, functionName, secontFunction, 
                         <input class="edit-card-from-input" type="tel" placeholder="Phone" id="phone" maxlength="11">
                         <div class="edit-card-btn-wrapper">
                             <div id="delete-btn">
-                                <button class="edit-card-btn white-btn pointer" id="delete" onclick="${secontFunction}">${deleteOrClosebtn}</button>
+                                <button class="edit-card-btn white-btn pointer mobile-btn-font-size" id="delete" onclick="${secontFunction}">${deleteOrClosebtn}</button>
                             </div>
                             <button class="edit-card-btn main-btn-color font-color pointer" type="submit" onclick="${functionName}">
-                                <span>${saveOrCreateContact}</span>
-                                <img src="./assets/img/icons/check.png" alt="">
+                                <span class="mobile-btn-font-size">${saveOrCreateContact}</span>
+                                <img class="small-screen-display-none" src="./assets/img/icons/check.png" alt="">
                             </button>
                         </div>
                     </form>
@@ -138,13 +141,15 @@ function contactsCardHTML({ cardName, secondText, functionName, secontFunction, 
     `
 }
 
-function addContactSuccessHTML() {
+
+function slideInMessageHTML(message) {
     return /*html*/ `
         <div class="add-success">
-            <span>Contact succesfully created</span>
+            <span>${message}</span>
         </div>
     `
 }
+
 
 function addContactIconHTML() {
     return /*html*/ `
@@ -154,6 +159,7 @@ function addContactIconHTML() {
     `
 }
 
+
 function contactsCardCircleHTML(index) {
     return  /*html*/ `
         <div class="big-circle card-circle-center ${contacts[index].circleColor}" id="circle-icon">
@@ -161,6 +167,7 @@ function contactsCardCircleHTML(index) {
         </div>
     `
 }
+
 
 function menuContactMobileIconHTML(index) {
     return /*html*/ `
@@ -201,6 +208,7 @@ function renderEditOrDeleteHTML(index) {
     `
 }
 
+
 function contactsWelcomHTML() {
     return /*html*/ `
         <div class="single-contact-headline small-underline">
@@ -211,10 +219,11 @@ function contactsWelcomHTML() {
     `
 }
 
+
 function mobileDeleteOrEditBtnHTML(index) {
     return /*html*/ `
-        <div class="icon-container-mobile" onclick="renderEditContact(${contacts[index].id}, ${index})">
-            <div class="icons-contacts">
+        <div class="icon-container-mobile slideInMobile">
+            <div class="icons-contacts" onclick="renderEditContact(${contacts[index].id}, ${index})">
                 <img src="./assets/img/icons/edit.png" alt="">
                 <span>Edit</span>
             </div>
@@ -226,6 +235,7 @@ function mobileDeleteOrEditBtnHTML(index) {
     `
 }
 
+
 function addNewContactMobileHTML() {
     return /*html*/ `
         <div class="add-contacts-btn add-contact-btn-mobile main-btn-color" onclick="renderAddNewContact()">
@@ -233,6 +243,7 @@ function addNewContactMobileHTML() {
         </div>
     `
 }
+
 
 function goBackToContactlistHTML() {
     return /*html*/ `

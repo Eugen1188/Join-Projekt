@@ -95,16 +95,19 @@ let sortedUsers;
 let id = 11;
 let lastActivePerson;
 
+
 async function initContacts() {
   contacts = await getItemContacts("contacts");
   id = await getItemContacts("id");
   logedInUser = await getItemContacts("logedInUser");
+  setLogedInUserInContactsArray()
   if (logedInUser.length == 0) {
     navigateToIndex();
   }
   renderContacts();
   renderLogedUser()
 }
+
 
 /**
  *Updates the data of a person, only updates the data whose field is also filled in
@@ -116,14 +119,17 @@ async function editContact(userId) {
   const emailValue = document.getElementById("email").value.trim();
   const phoneValue = document.getElementById("phone").value.trim();
   if (nameValue && emailValue && phoneValue) {
-    let inedOfContact = contacts.findIndex(contact => contact.id === userId);
-    if (inedOfContact != -1) {
+    let inedxOfContact = contacts.findIndex(contact => contact.id === userId);
+    if (inedxOfContact != -1) {
       let editName = nameValue.split(" ")
-      contacts[inedOfContact].name = editName[0];
-      contacts[inedOfContact].lastname = editName.slice(1).join(" ");
-      contacts[inedOfContact].email = emailValue;
-      contacts[inedOfContact].phone = phoneValue;
+      contacts[inedxOfContact].name = editName[0];
+      contacts[inedxOfContact].lastname = editName.slice(1).join(" ");
+      contacts[inedxOfContact].email = emailValue;
+      contacts[inedxOfContact].phone = formatPhoneNumber(phoneValue);
+      contacts[inedxOfContact].initials = editName[0].charAt(0).toUpperCase() + editName.slice(1).join(" ").charAt(0).toUpperCase();
       renderContacts()
+      renderSingleContactOverview(inedxOfContact)
+      checkIfEditedDataIsLoggInUser(userId, inedxOfContact)
       setItem("contacts", contacts)
     }
   } else {
@@ -131,12 +137,34 @@ async function editContact(userId) {
   }
 }
 
+
+/**
+ * Checks if the edited data belongs to the logged-in user and updates the user's information accordingly.
+ * @param {number} userId - The ID of the logged-in user.
+ * @param {number} indexOfContact - The index of the contact being edited in the contacts array.
+ * @returns {Promise<void>} - A promise that resolves when the user's information is updated.
+ */
+async function checkIfEditedDataIsLoggInUser(userId, inedOfContact) {
+  if (logedInUser[0].id == userId) {
+    logedInUser[0].name = contacts[inedOfContact].name;
+    logedInUser[0].lastname = contacts[inedOfContact].lastname;
+    logedInUser[0].email = contacts[inedOfContact].email;
+    logedInUser[0].initials = contacts[inedOfContact].initials;
+    logedInUser[0].phone = contacts[inedOfContact].phone;
+    await setItem("logedInUser", logedInUser)
+    updateLogedInUserInUserDataArray()
+    renderLogedUser()
+  }
+}
+
+
 /** deletes a contact from the contact list
  * @param {number} id - is required to find the desired user
  */
 async function deleteContact(id) {
   const index = contacts.findIndex(contact => contact.id === id);
-  if (index !== -1) {
+  dontDeleteUrSelfInContacts(index)
+  if (index !== -1 && logedInUser[0].id != contacts[index].id){
     contacts.splice(index, 1);
     renderContacts();
     document.getElementById("single-contact-data-container").innerHTML = "";
@@ -145,6 +173,21 @@ async function deleteContact(id) {
     setItem("contacts", contacts);
   }
 }
+
+
+async function dontDeleteUrSelfInContacts(index) {
+  if (logedInUser[0].id == contacts[index].id) {
+    rightSlideAnimation("contact-success", slideInMessageHTML("You can't delete yourself"));
+    setTimeout(() => {
+      slideBackAnimation("contact-success");
+    }, 1000);
+    setTimeout(() => {
+      document.getElementById("contact-success").innerHTML = "";
+    }, 1220);
+    return;
+  }
+}
+
 
 /**
  * Saves the user in userData array and
@@ -169,12 +212,15 @@ async function saveNewUserData() {
     email: email,
     password: password,
     initials: firstname[0].charAt(0).toUpperCase() + lastname[lastname.length - 1].charAt(0),
+    circleColor: getRandomColor(),
+    phone: "No data stored",
   });
   id++;
   console.log(id);
   setItem("id", id);
   setItem("userData", userData);
 }
+
 
 /** adds a new contact to Contactlist and sets the id to the next number
  * @returns {void} - returns nothing
@@ -202,12 +248,13 @@ async function addNewContactToContactlist() {
     });
     renderContacts();
     renderCard("edit-card", "");
-    renderAddContactSuccess(id);
+    renderAddContactSuccess(id, "Contact succesfully created ");
     id++;
     setItem("id", id);
     setItem("contacts", contacts);
   }
 }
+
 
 /** sets the item in the local storage  */
 function sortArrayByUserName() {
@@ -216,6 +263,7 @@ function sortArrayByUserName() {
     return result !== 0 ? result : a.lastname.localeCompare(b.lastname);
   });
 }
+
 
 /**
  * /**
@@ -234,14 +282,6 @@ function checkEmailAddress(email, array) {
   }
 }
 
-function mobileSingleContactOverview(id) {
-  const singlContactDataContainer = document.getElementById("contact-list");
-  setPersonToActive(id);
-  singlContactDataContainer.innerHTML = "";
-  singlContactDataContainer.innerHTML += contactsWelcomHTML();
-  singlContactDataContainer.innerHTML += singleContactOverviewHTML(id);
-  singlContactDataContainer.innerHTML += goBackToContactlistHTML();
-}
 
 /**
  *capitalizes the first letter
@@ -253,6 +293,7 @@ function firstCharToUpperCase(name) {
   return toUpper
 }
 
+
 /**
  *Sets all letters to lower case
  * @param {String} name - User name
@@ -262,6 +303,7 @@ function firstCharToLowerCase(name) {
   let toLower = name.toLowerCase()
   return toLower
 }
+
 
 /**
  * Sets the clicked card to active and colors it, if another card is clicked, the last card is reset to normal state
@@ -279,6 +321,7 @@ function setPersonToActive(id) {
   activPerson.classList.add("set-contact-to-active")
   lastActivePerson = id
 }
+
 
 function getRandomColor() {
   let number = Math.floor(Math.random() * 15) + 1;
@@ -318,6 +361,7 @@ function getRandomColor() {
   }
 }
 
+
 /**
  * Sets the first letter of the name to upper case
  * @param {String} name - User name
@@ -328,6 +372,7 @@ function firstCharToUpperCase(name) {
   return toUpper;
 }
 
+
 /**
  * Sets all letters to lower case
  * @param {String} name - User name
@@ -337,6 +382,7 @@ function firstCharToLowerCase(name) {
   let toLowerCase = name.toLowerCase();
   return toLowerCase;
 }
+
 
 /**
  * Sets the clicked card to active and colors it, if another card is clicked, the last card is reset to normal state
@@ -356,6 +402,7 @@ function setPersonToActive(id) {
   lastActivePerson = id;
 }
 
+
 /**
  * Formats a phone number by removing any non-numeric characters and adding a country code if missing.
  * @param {string} phone - The phone number to format.
@@ -371,6 +418,7 @@ function formatPhoneNumber(phoneNumber) {
   return phoneNumber;
 }
 
+
 /**
  *  Clears the form values
  * @param {String} formId - id of the form
@@ -379,6 +427,7 @@ function clearFormValues(formId) {
   const form = document.getElementById(formId);
   form.reset();
 }
+
 
 /**
  * Right slide in animation
@@ -395,6 +444,7 @@ function rightSlideAnimation(id, htmlTemplate) {
   }, 450);
 }
 
+
 /**
  *  Right slide out animation
  * @param {Number} id - id of the element
@@ -408,10 +458,18 @@ function slideBackAnimation(id) {
   }, 550);
 }
 
+
 function addBtnMobileOrDesktop() {
   return renderAddNewContact();
 }
 
+
+/**
+ * Goes back to the contact list on mobile.
+ * Renders the contacts, sets the mobile add button to default,
+ * removes the mobile background color from the single user card,
+ * and clears the content of the element with the id 'renderOrDelete'.
+ */
 const goBackToContactListMobile = () => {
   renderContacts();
   setMobileAddBtnToDefault()
@@ -422,11 +480,17 @@ const goBackToContactListMobile = () => {
   }
 }
 
+
+
+/**
+ * Sets the mobile add button to its default state.
+ */
 function setMobileAddBtnToDefault() {
   let addOrEddit = document.getElementById("add-or-eddit");
   addOrEddit.innerHTML = "";
   addOrEddit.innerHTML = addNewContactMobileHTML();
 }
+
 
 /**
  * Sets the gray opacity background color for an element with the id "opasity".
@@ -451,17 +515,34 @@ window.addEventListener('resize', function () {
   }
 });
 
-function makeBigCircleSmaller() {
-  let bigCircle = document.getElementById("big-circle");
-  bigCircle.classList.add("mobile-big-circle");
+
+/**
+ * Sets the logged-in user in the contacts array.
+ * @returns {Promise<void>} A promise that resolves when the operation is complete.
+ */
+async function setLogedInUserInContactsArray() {
+  // let logedInUser = await getItemContacts("logedInUser");
+  let checkUserId = contacts.findIndex(contact => contact.id === logedInUser[0].id);
+  if (logedInUser.length != "Guest" && !logedInUser[0].id) {
+      return;
+  }
+  if (checkUserId == -1) {
+    contacts.push(logedInUser[0]);
+    renderContacts();
+    setItem("contacts", contacts);
+  }
 }
 
-function changeMobileBgColorSingelUserCard() {
-  let singleUserCard = document.getElementById("contacts-container");
-  singleUserCard.classList.add("mobile-single-user-card");
-}
 
-function removeMoileBgColorSingleUserCard() {
-  let singleUserCard = document.getElementById("contacts-container");
-  singleUserCard.classList.remove("mobile-single-user-card");
+/**
+ * Updates the logged-in user in the userData array.
+ * @returns {Promise<void>} A promise that resolves when the update is complete.
+ */
+async function updateLogedInUserInUserDataArray() {
+  userData = await getItemContacts("userData");
+  let checkUserId = userData.findIndex(user => user.id === logedInUser[0].id);
+  if (checkUserId != -1) {
+    userData[checkUserId] = logedInUser[0];
+    await setItem("userData", userData);
+  }
 }
