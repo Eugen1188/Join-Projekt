@@ -524,7 +524,7 @@ window.addEventListener('resize', function () {
 async function setLogedInUserInContactsArray() {
   // let logedInUser = await getItemContacts("logedInUser");
   let checkUserId = contacts.findIndex(contact => contact.id === logedInUser[0].id);
-  if (logedInUser.length == 0 && logedInUser[0].lastname == undefined) {
+  if (logedInUser.length != "Guest" && !logedInUser[0].id) {
       return;
   }
   if (checkUserId == -1) {

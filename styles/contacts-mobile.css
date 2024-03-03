@@ -170,13 +170,16 @@
 
     .slide-back-animation {
         animation: slideFromTopToBottom 0.3s ease-in
-
     }
 
-        #contact-success {
-            top: 10%;
-            left: 25%;
-        }
+    #contact-success {
+        top: 10%;
+        left: 25%;
+    }
+
+    .single-contact-data-container{
+        display: none;
+    }
 }
 
 .mobile-single-user-card {

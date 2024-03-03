@@ -121,11 +121,9 @@ function renderEditContact(userId, userIndex) {
  * @param {Number} id - id of the contact
  */
 function renderAddContactSuccess(userId, message) {
-    let container = document.getElementById("single-contact-data-container")
     let indexOfId = contacts.findIndex(contact => contact.id === userId);
     let succesfully = document.getElementById("contact-success");
-    container.innerHTML = ""
-    container.innerHTML += singleContactOverviewHTML(indexOfId)
+    renderOnlyInDesktopView(renderSingleContactOverviewDesktop(indexOfId))
     setPersonToActive(indexOfId);
     rightSlideAnimation("contact-success", slideInMessageHTML(message));
     setTimeout(() => {
@@ -232,4 +230,27 @@ function changeMobileBgColorSingelUserCard() {
 function removeMoileBgColorSingleUserCard() {
     let singleUserCard = document.getElementById("contacts-container");
     singleUserCard.classList.remove("mobile-single-user-card");
+}
+
+
+/**
+ * Renders the overview of a single contact for mobile devices.
+ *
+ * @param {number} indexOfId - The index of the contact ID.
+ */
+function renderSingleContactOverviewDesktop(indexOfId) {
+    let container = document.getElementById("single-contact-data-container")
+    container.innerHTML = ""
+    container.innerHTML += singleContactOverviewHTML(indexOfId)
+}
+
+
+/**
+ * Renders the content only in desktop view.
+ * @param {function} functionName - The function to be executed in desktop view.
+ */
+function renderOnlyInDesktopView(functionName) {
+    if (window.innerWidth < 1024) {
+        functionName
+    }
 }
