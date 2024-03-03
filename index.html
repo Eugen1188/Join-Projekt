@@ -53,7 +53,7 @@
             </div>
 
             <div class="form-cont">
-                <form onsubmit="logIn()"; return false>
+                <form onsubmit="logIn()" ; return false>
                     <input class="loginemail" type="email" name="email" id="email" placeholder="Email" required>
                     <input class="loginpassword" type="password" name="" id="password" placeholder="Password" required>
                     <div class="checkbox-cont">
@@ -75,7 +75,7 @@
         </div>
 
 
-        
+
         <div class="reg-cont ecrease-opacity d-none" id="reg-user-menu">
 
             <div class="reg-headline">
@@ -93,25 +93,28 @@
             <div class="form-cont">
 
 
-                <form onsubmit="saveNewUserData(), showRegistrationAnimation()"; return false>
+                <form onchange="showRegisterButton()" onsubmit="saveNewUserData(), showRegistrationAnimation()" ; return
+                    false>
                     <input class="loginname" type="text" name="" id="name-reg" placeholder="Name" required>
                     <input class="loginemail" type="email" name="" id="email-reg" placeholder="Email" required>
-                    <input class="loginpassword" type="password" name="" id="password-reg" placeholder="Password" required>
-                    <input class="loginpassword" type="password" name="" id="rep-password-reg" placeholder="Confirm Password" required>
+                    <input class="loginpassword" type="password" name="" id="password-reg" placeholder="Password"
+                        required>
+                    <input class="loginpassword" type="password" name="" id="rep-password-reg"
+                        placeholder="Confirm Password" required>
 
                     <div class="checkbox-cont">
 
-                        <label class="checkboxlabel"> <span>I accept the <a class="privacy-policy-span" href="privacy-policy-unloged.html" onclick="showInfoForUnloggedUser()">Pricavy
+                        <label class="checkboxlabel"> <span>I accept the <a class="privacy-policy-span"
+                                    href="privacy-policy-unloged.html" onclick="showInfoForUnloggedUser()">Pricavy
                                     policy</a> </span>
-                            <input class="logincheckbox" type="checkbox" id="registerCheckbox"
-                                onclick="showRegisterButton()" required>
+                            <input class="logincheckbox" type="checkbox" id="registerCheckbox" required>
                             <span class="checkmark"></span>
                         </label>
 
                     </div>
 
                     <div class="login-buttons-cont">
-                        <button type="submit" class="text-decoration-none loginbutton disable-btn" disabled id="registerBtn">Sign up </button>
+                        <button class="text-decoration-none loginbutton" id="registerBtn" disabled>Sign up </button>
                     </div>
 
                 </form>

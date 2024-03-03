@@ -58,31 +58,19 @@ function loadRememberMe() {
 
 function showRegisterButton() {
   let checkedBox = document.getElementById('registerCheckbox').checked;
-  let btn = document.getElementById('registerBtn');
-
-  if (checkedBox && checkInput() == true) {
-    btn.classList.remove('disable-btn');
-    btn.removeAttribute('disabled');
-  }
-  else if (!checkedBox) {
-    btn.classList.add('disable-btn');
-  }
-}
-
-
-// check input fields not empty
-
-function checkInput() {
   let name = document.getElementById('name-reg').value;
   let email = document.getElementById('email-reg').value;
   let password = document.getElementById('password-reg').value;
+  let btn = document.getElementById('registerBtn');
   let confirmPassword = document.getElementById('rep-password-reg').value;
-  if (name != '' && email != '' && password != '' && confirmPassword != '') {
-    return true;
-  } else {
-    return false;
+  if (!name || !email || !password || !confirmPassword || !checkedBox) {
+    btn.disabled = true;
+    return
   }
+  btn.disabled = false;
+
 }
+
 
 
 function showRegistrationAnimation() {

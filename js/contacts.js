@@ -219,7 +219,6 @@ function setPersonToActive(id) {
     let lastPersconActive = document.getElementById(`contact-data-${lastActivePerson}`)
     lastPersconActive.classList.remove("set-contact-to-active")
     lastPersconActive.classList.remove("pointerEvents")
-
   }
   activPerson.classList.add("set-contact-to-active")
   lastActivePerson = id

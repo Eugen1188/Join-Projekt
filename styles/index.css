@@ -4,11 +4,11 @@
     height: 100vh;
     width: 100%;
   }
-  
+
   .change-height {
     animation: change-height 2s ease-in-out forwards;
   }
-  
+
   @keyframes change-height {
     from {
       height: 100vh;
@@ -17,11 +17,11 @@
       height: 0vh;
     }
   }
-  
+
   .change-logo-color {
     animation: change-logo-color 1s ease-in-out forwards;
   }
-  
+
   @keyframes change-logo-color {
     from {
       fill: white;
@@ -30,11 +30,11 @@
       fill: var(--button-color);
     }
   }
-  
+
   .change-background-color {
     animation: change-background-color 2s ease-in-out;
   }
-  
+
   @keyframes change-background-color {
     from {
       background-color: var(--button-color);
@@ -43,7 +43,7 @@
       background-color: var(--background-color-site);
     }
   }
-  
+
   .animation-img {
     width: 100px;
     height: 120px;
@@ -55,7 +55,7 @@
     transform: translate(-50%, -50%);
     animation: move-logo 1s ease-in-out forwards;
   }
-  
+
   @keyframes move-logo {
     from {
       top: 50%;
@@ -70,19 +70,19 @@
       height: 120px;
     }
   }
-  
+
   .login-top-cont {
     display: flex;
     justify-content: end;
     padding: 80px;
   }
-  
+
   .login-top-cont img {
     width: 100px;
     height: 120px;
     display: none;
   }
-  
+
   .signup-button {
     background-color: var(--button-color);
     width: 100px;
@@ -96,29 +96,29 @@
     cursor: pointer;
     transition: 0.3s;
   }
-  
+
   .signup-button:hover {
     background-color: var(--light-blue);
     box-shadow: rgb(0 0 0 / 20%) 1px 3px 5px 1px;
   }
-  
+
   .signup-cont {
     display: flex;
     height: fit-content;
     align-items: center;
   }
-  
+
   .signup-cont span {
     font-size: 20px;
   }
-  
+
   .login-main-cont {
     display: flex;
     height: 100vh;
     flex-direction: column;
     background-color: var(--background-color-site);
   }
-  
+
   .login-rights-cont {
     width: 235px;
     height: 30px;
@@ -133,18 +133,18 @@
     position: absolute;
     transform: translate(-50%, -50%);
   }
-  
+
   .login-rights-cont a {
     color: var(--light-grey);
     text-decoration: none;
     transition: 0.1s;
   }
-  
+
   .login-rights-cont a:hover {
     font-weight: 700;
     color: var(--light-blue);
   }
-  
+
   .login-cont {
     display: flex;
     border-radius: 30px;
@@ -156,7 +156,7 @@
     margin: 0 auto;
     background-color: white;
   }
-  
+
   .login-headline {
     width: 315px;
     height: 89px;
@@ -172,20 +172,20 @@
     align-items: center;
     margin: 32px 0px 24px;
   }
-  
+
   .line {
     width: 150px;
     height: 3px;
     background-color: var(--light-blue);
   }
-  
+
   form {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
   }
-  
+
   .loginemail {
     background: url(../assets/img/mail.png) no-repeat 100%;
     background-size: 20px 16px;
@@ -203,7 +203,7 @@
   .loginemail:focus {
     outline: 2px solid var(--light-blue);
   }
-  
+
   .reg-cont {
     display: flex;
     border-radius: 30px;
@@ -226,7 +226,7 @@
     background-color: grey !important;
     box-shadow:none !important;
   }
-  
+
   .reg-headline {
     width: 100%;
     height: 120px;
@@ -241,18 +241,18 @@
     align-items: center;
     margin: 32px 0 24px;
   }
-  
+
   .reg-headline-with-back-btn {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
   }
-  
+
   .reg-headline-with-back-btn img {
     object-fit: contain;
     cursor: pointer;
   }
-  
+
   .reg-rights-cont {
     width: 235px;
     height: 30px;
@@ -264,7 +264,7 @@
     margin-top: 120px;
     box-sizing: border-box;
   }
-  
+
   .loginname {
     background: url(../assets/img/person.png) no-repeat 100%;
     background-size: 20px 16px;
@@ -278,7 +278,7 @@
     padding: 12px 21px;
     box-sizing: border-box;
   }
-  
+
   .loginpassword {
     background: url(../assets/img/lock.png) no-repeat 100%;
     background-size: 16px 21px;
@@ -299,24 +299,24 @@
   .loginpassword:focus {
     outline: 2px solid var(--light-blue)
   }
-  
+
   ::placeholder {
     color: var(--light-grey);
     opacity: 1;
   }
-  
+
   .checkbox-cont {
     width: 100%;
     margin: 0 0 40px 39px;
   }
-  
+
   .login-buttons-cont {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 32px;
   }
-  
+
   .loginbutton {
     width: 110px;
     height: 48px;
@@ -333,12 +333,17 @@
     transition: 0.3s;
     border: unset;
   }
-  
+
   .loginbutton:hover {
     background-color: var(--light-blue);
     box-shadow: rgb(0 0 0 / 20%) 1px 3px 5px 1px;
   }
-  
+
+  .loginbutton:disabled {
+    background-color: grey;
+    cursor: auto;
+  }
+
   .loginguestbutton {
     color: var(--button-color);
     width: 177px;
@@ -356,26 +361,26 @@
     transition: 0.1s;
     box-sizing: border-box;
   }
-  
+
   .loginguestbutton:hover {
     border: solid 2px var(--light-blue);
     box-shadow: rgb(0 0 0 / 20%) 1px 3px 5px 1px;
     color: var(--light-blue);
   }
-  
+
   .text-decoration-none {
     text-decoration: none;
   }
-  
+
   .checkbox-cont {
     display: flex;
     align-items: center;
   }
-  
+
   .checkbox-cont span {
     margin-left: 8px;
   }
-  
+
   .checkboxlabel {
     display: block;
     position: relative;
@@ -386,13 +391,13 @@
     -ms-user-select: none;
     user-select: none;
   }
-  
+
   .logincheckbox {
     position: absolute;
     opacity: 0;
     cursor: pointer;
   }
-  
+
   .checkmark {
     position: absolute;
     top: 0;
@@ -404,21 +409,21 @@
     cursor: pointer;
     border: 2px solid var(--button-color) !important;
   }
-  
+
   .checkboxlabel input:checked~.checkmark {
     background-color: #000000;
   }
-  
+
   .checkmark:after {
     content: "";
     position: absolute;
     display: none;
   }
-  
+
   .checkboxlabel input:checked~.checkmark:after {
     display: block;
   }
-  
+
   .checkboxlabel .checkmark:after {
     left: 4px;
     top: 0px;
@@ -430,16 +435,16 @@
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
   }
-  
+
   .checkboxlabel span a {
     cursor: pointer;
     color: var(--light-blue);
   }
-  
+
   .checkboxlabel span a:hover {
     text-decoration: underline;
   }
-  
+
   .privacy-cont {
     display: flex;
     justify-content: space-around;
@@ -447,12 +452,11 @@
     font-size: 16px;
     margin-right: 16px;
   }
-  
+
   .privacy-cont span {
     cursor: pointer;
   }
-  
+
   .ecrease-opacity {
     animation: encrease-opacity 1s ease-in-out forwards;
   }
-  
