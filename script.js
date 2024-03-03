@@ -15,14 +15,17 @@ let currentTaskState = { inProgress: false, awaitFeedback: false, done: false };
 
 window.addEventListener("resize", function () {
   let header = document.getElementById("main-header");
-  header.classList.remove("d-none");
-  if (window.innerWidth > window.innerHeight && window.innerHeight < 500) {
-    createDivOverlayPreventLandscapeMode();
-  } else {
-    let overlayDiv = document.getElementById("LandscapeModeOverlayDiv");
-    if (overlayDiv) {
-      overlayDiv.remove();
+  if (header && header.childNodes.length > 0) {
+    header.classList.remove("d-none");
+    if (window.innerWidth > window.innerHeight && window.innerHeight < 500) {
+      createDivOverlayPreventLandscapeMode();
+    } else {
+      let overlayDiv = document.getElementById("LandscapeModeOverlayDiv");
+      if (overlayDiv) {
+        overlayDiv.remove();
+      }
     }
+    
   }
 });
 
