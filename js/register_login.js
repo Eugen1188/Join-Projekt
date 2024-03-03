@@ -13,7 +13,6 @@ async function logIn() {
     if (element.email === email && element.password === password) {
       loggedIn = true;
       logedInUser.push(element);
-      console.log(logedInUser);
       await setItem("logedInUser", logedInUser);
       window.location.href = "summary.html";
       saveRememberMe();
@@ -78,7 +77,6 @@ function showRegistrationAnimation() {
   let blackCont = document.getElementById('feedback-black-container');
   let feedback = document.getElementById('feedback-registration');
   blackCont.style.display = 'flex';
-  console.log(feedback.style.top);
   feedback.style.top = '50%';
   setTimeout(() => {
     window.location.href = 'index.html';;
