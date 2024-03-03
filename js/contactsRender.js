@@ -35,6 +35,7 @@ function renderSingleContactOverview(id) {
     }
 }
 
+
 /**
  * Closes the rendered contact card slide.
  * Removes the "opasity" class from the element with the id "opasity".
@@ -52,6 +53,7 @@ function closeRenderContactCardSlide() {
     }, 200);
 }
 
+
 /**
  * Renders the card with the given html content
  * @param {Number} id - id of the person in contacts
@@ -62,6 +64,7 @@ function renderCard(id, htmlContent) {
     card.innerHTML = "";
     rightSlideAnimation(id, htmlContent);
 }
+
 
 /**
  * Renders the "Add New Contact" card on the page.
@@ -83,6 +86,7 @@ function renderAddNewContact() {
     let circleColor = document.getElementById("circle-color");
     circleColor.innerHTML = addContactIconHTML();
 }
+
 
 /**
  * Renders the edit contact form for a specific user.
@@ -110,19 +114,18 @@ function renderEditContact(userId, userIndex) {
     document.getElementById("phone").value = formatPhoneNumber(contacts[userIndex].phone);
 }
 
+
 /**
  * Renders the success message after adding a contact
  * and sets the person to active.
  * @param {Number} id - id of the contact
  */
-function renderAddContactSuccess(userId) {
-    let container = document.getElementById("single-contact-data-container")
+function renderAddContactSuccess(userId, message) {
     let indexOfId = contacts.findIndex(contact => contact.id === userId);
     let succesfully = document.getElementById("contact-success");
-    container.innerHTML = ""
-    container.innerHTML += singleContactOverviewHTML(indexOfId)
+    renderOnlyInDesktopView(renderSingleContactOverviewDesktop(indexOfId))
     setPersonToActive(indexOfId);
-    rightSlideAnimation("contact-success", addContactSuccessHTML());
+    rightSlideAnimation("contact-success", slideInMessageHTML(message));
     setTimeout(() => {
         slideBackAnimation("contact-success");
     }, 1000);
@@ -130,6 +133,7 @@ function renderAddContactSuccess(userId) {
         succesfully.innerHTML = "";
     }, 1220);
 }
+
 
 /**
  * Renders the mobile view menu for a contact at the specified index.
@@ -143,6 +147,7 @@ function renderMobileViewMenu(index) {
     btnContainer.innerHTML += menuContactMobileIconHTML(index)
 }
 
+
 /**
  * Renders the edit or delete button for a specific contact.
  *
@@ -153,6 +158,7 @@ function renderEditOrDelete(index) {
     container.innerHTML = ""
     container.innerHTML += mobileDeleteOrEditBtnHTML(index)
 }
+
 
 /**
  * Renders the contact list after deleting a contact on mobile devices.
@@ -170,6 +176,7 @@ function renderContactListAfterDeleteMobile() {
     }
 }
 
+
 /**
  * Render a single person in a more detailed view
  * @param {number} id - is required to find the desired user
@@ -181,4 +188,69 @@ function singleContactOverview(index) {
     setPersonToActive(index);
     singlContactDataContainer.innerHTML = "";
     rightSlideAnimation("single-contact-data-container", singleContactOverviewHTML(index));
+}
+
+
+/**
+ * Renders the overview of a single contact on a mobile device.
+ *
+ * @param {Number} id - The ID of the contact to render.
+ */
+function mobileSingleContactOverview(id) {
+    const singlContactDataContainer = document.getElementById("contact-list");
+    setPersonToActive(id);
+    singlContactDataContainer.innerHTML = "";
+    singlContactDataContainer.innerHTML += contactsWelcomHTML();
+    singlContactDataContainer.innerHTML += singleContactOverviewHTML(id);
+    singlContactDataContainer.innerHTML += goBackToContactlistHTML();
+}
+
+
+/**
+ * Makes the big circle smaller by adding the "mobile-big-circle" class.
+ */
+function makeBigCircleSmaller() {
+    let bigCircle = document.getElementById("big-circle");
+    bigCircle.classList.add("mobile-big-circle");
+}
+
+
+/**
+ * Changes the background color of the mobile single user card.
+ */
+function changeMobileBgColorSingelUserCard() {
+    let singleUserCard = document.getElementById("contacts-container");
+    singleUserCard.classList.add("mobile-single-user-card");
+}
+
+
+/**
+ * Removes the mobile background color from the single user card.
+ */
+function removeMoileBgColorSingleUserCard() {
+    let singleUserCard = document.getElementById("contacts-container");
+    singleUserCard.classList.remove("mobile-single-user-card");
+}
+
+
+/**
+ * Renders the overview of a single contact for mobile devices.
+ *
+ * @param {number} indexOfId - The index of the contact ID.
+ */
+function renderSingleContactOverviewDesktop(indexOfId) {
+    let container = document.getElementById("single-contact-data-container")
+    container.innerHTML = ""
+    container.innerHTML += singleContactOverviewHTML(indexOfId)
+}
+
+
+/**
+ * Renders the content only in desktop view.
+ * @param {function} functionName - The function to be executed in desktop view.
+ */
+function renderOnlyInDesktopView(functionName) {
+    if (window.innerWidth < 1024) {
+        functionName
+    }
 }

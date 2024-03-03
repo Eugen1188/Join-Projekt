@@ -6,6 +6,82 @@ let logedIn = false;
 let currentTaskState = { inProgress: false, awaitFeedback: false, done: false };
 
 /**
+ * Event listener for the window resize event. It adjusts the UI based on window dimensions,
+ * displaying the main header, creating a div overlay to prevent landscape mode
+ * if the window is in portrait mode with height less than 500 pixels, an overlay is beeing created.
+ * @param {Event} event - The resize event object.
+ * @author Christian Förster
+ */
+
+window.addEventListener("resize", function () {
+  let header = document.getElementById("main-header");
+  header.classList.remove("d-none");
+  if (window.innerWidth > window.innerHeight && window.innerHeight < 500) {
+    createDivOverlayPreventLandscapeMode();
+  } else {
+    let overlayDiv = document.getElementById("LandscapeModeOverlayDiv");
+    if (overlayDiv) {
+      overlayDiv.remove();
+    }
+  }
+});
+
+/**
+ * Creates a div overlay to prevent landscape mode, hiding the main header,
+ * and updates the overlay content if the overlay already exists.
+ * @function createDivOverlayPreventLandscapeMode()
+ * @author Christian Förster
+ */
+
+function createDivOverlayPreventLandscapeMode() {
+  let overlayDiv = document.getElementById("LandscapeModeOverlayDiv");
+  let header = document.getElementById("main-header");
+  if (!overlayDiv) {
+    header.classList.add("d-none");
+    overlayDiv = document.createElement("div");
+    overlayDiv.id = "LandscapeModeOverlayDiv";
+    overlayDiv.innerHTML = createOverlayContentHTML();
+    document.body.appendChild(overlayDiv);
+    // verhindert das nach jedem aufruf ein <div></div> verbleibt
+  } else {
+    let newOverlayContentHTML = createOverlayContentHTML();
+    overlayDiv.innerHTML = newOverlayContentHTML;
+  }
+}
+
+/**
+ * Creates HTML content for an overlay prompting the user to turn their device.
+ * @function createOverlayContentHTML()
+ * @returns {string} HTML content for the overlay.
+ * @author Christian Förster
+ */
+
+function createOverlayContentHTML() {
+  const html = `
+      <div class="turn-device-conatainer">
+        <div>
+          <h3> Please turn your Device</h3>
+        </div>
+         <div class="turn-device-svg-container">
+         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+         viewBox="0 0 32 32" xml:space="preserve">
+      <style type="text/css">
+        .st0{fill:none;}
+      </style>
+      <path id="rotate--device_1_" d="M24,23c-0.6,0-1-0.4-1-1s0.4-1,1-1s1,0.4,1,1S24.6,23,24,23z M24.6,30.6h-5.3V27h-0.7v3.6H1.4V17.4
+        H15v-0.7H1c-0.2,0-0.4,0.2-0.4,0.4v14c0,0.2,0.2,0.4,0.4,0.4h24c0.2,0,0.4-0.2,0.4-0.4v-4h-0.7C24.6,27,24.6,30.6,24.6,30.6z
+         M4.4,13c0-4.2,3.4-7.6,7.6-7.6h1.1l-2.4,2.4l0.5,0.5L14.5,5l-3.3-3.3l-0.5,0.5l2.4,2.4H12c-4.6,0-8.4,3.8-8.4,8.4v2h0.7
+        C4.4,15,4.4,13,4.4,13z M31.4,1v24c0,0.2-0.2,0.4-0.4,0.4H17c-0.2,0-0.4-0.2-0.4-0.4V1c0-0.2,0.2-0.4,0.4-0.4h14
+        C31.2,0.6,31.4,0.8,31.4,1z M30.6,19.4H17.4v5.3h13.3V19.4z M30.6,1.4H17.4v17.3h13.3V1.4z"/>
+      <rect id="_Transparent_Rectangle" class="st0" width="32" height="32"/>
+      </svg>
+         </div>
+      </div>
+  `;
+  return html;
+}
+
+/**
  * Speichert einen Wert im Speicher.
  * @async
  * @function setItem
@@ -23,7 +99,6 @@ async function setItem(key, value) {
   }).then((res) => res.json());
 }
 
-
 /**
  * Asynchronously retrieves and parses the task data from storage to populate the tasks array.
  * @async
@@ -35,23 +110,22 @@ async function getAllTasksData() {
   allTasks = await getItemContacts("test_board");
 }
 
-
 /* Öffnet Menü, um neuen user zu registrieren */
 
 function regNewUser() {
-  let loginmenu = document.getElementById('login-menu');
-  let regmenu = document.getElementById('reg-user-menu');
-  loginmenu.classList.add('d-none')
-  regmenu.classList.remove('d-none')
+  let loginmenu = document.getElementById("login-menu");
+  let regmenu = document.getElementById("reg-user-menu");
+  loginmenu.classList.add("d-none");
+  regmenu.classList.remove("d-none");
 }
 
 /* Schließe Menü zum Registrieren */
 
 function closeRegMenu() {
-  let loginmenu = document.getElementById('login-menu');
-  let regmenu = document.getElementById('reg-user-menu');
-  loginmenu.classList.remove('d-none')
-  regmenu.classList.add('d-none')
+  let loginmenu = document.getElementById("login-menu");
+  let regmenu = document.getElementById("reg-user-menu");
+  loginmenu.classList.remove("d-none");
+  regmenu.classList.add("d-none");
 }
 
 /* Header-User Menu öffnen für Info und Logout */
@@ -59,11 +133,10 @@ function closeRegMenu() {
 function openNavMenu() {
   let menu = document.getElementById("logOutMenu");
   if (menu.style.display === "flex") {
-    if(window.innerWidth < 660){
+    if (window.innerWidth < 660) {
       menu.classList.add("logout-menu-animation-off");
       menu.classList.remove("logout-menu-animation-on");
-    }
-    else {
+    } else {
       menu.classList.remove("logout-menu-animation-off");
       menu.classList.remove("logout-menu-animation-on");
     }
@@ -71,15 +144,13 @@ function openNavMenu() {
     setTimeout(() => {
       menu.style.display = "none";
     }, 100);
-
   } else {
     menu.style.display = "flex";
     document.body.addEventListener("click", closeMenuOutside);
-    if(window.innerWidth < 660) {
+    if (window.innerWidth < 660) {
       menu.classList.add("logout-menu-animation-on");
       menu.classList.remove("logout-menu-animation-off");
-    }
-    else {
+    } else {
       menu.classList.remove("logout-menu-animation-on");
       menu.classList.remove("logout-menu-animation-off");
     }
@@ -97,7 +168,7 @@ function closeMenuOutside(event) {
 
   if (menu.style.display === "flex" && event.target !== menu && !menu.contains(event.target)) {
     document.body.removeEventListener("click", closeMenuOutside);
-    if(window.innerWidth < 660) {
+    if (window.innerWidth < 660) {
       menu.classList.add("logout-menu-animation-off");
       setTimeout(() => {
         menu.style.display = "none";
@@ -106,7 +177,6 @@ function closeMenuOutside(event) {
     setTimeout(() => {
       menu.style.display = "none";
     }, 100);
-
   }
 }
 
@@ -154,8 +224,12 @@ function navigateToAddTask() {
   window.location.href = "./add-task.html";
 }
 
+function navigateToIndex() {
+  window.location.href = "./index.html";
+}
+
 function renderLogedUser() {
-  let userInitials = document.getElementById('logedUserInitials');
+  let userInitials = document.getElementById("logedUserInitials");
 
   if (window.location == "http://127.0.0.1:5500/summary.html") {
     /*
@@ -170,12 +244,12 @@ function renderLogedUser() {
 }
 
 async function logInAsGuest() {
-  guestArray = ({
+  guestArray = {
     name: "Guest",
     email: "guest@guest.org",
     password: "password",
     initials: "G",
-  });
+  };
   logedInUser.push(guestArray);
   await setItem("logedInUser", logedInUser);
 }
@@ -185,7 +259,6 @@ async function logOut() {
   await setItem("logedInUser", logedInUser);
   window.location = "index.html";
 }
-
 
 /**
  * Retrieves contacts associated with a specified key from a storage endpoint.
@@ -210,18 +283,16 @@ async function getItemContacts(key) {
   }
 }
 
-
 /*
  change Links Direction if user klick in privacy Policy or Legal notice from index.html
-*/ 
+*/
 
 function changeLinkDirection() {
-
   setTimeout(() => {
-    let privacyPolicy = document.getElementById('privacyPolicyLink');
-    let legalNotice = document.getElementById('legalNoticeLink');
-  
+    let privacyPolicy = document.getElementById("privacyPolicyLink");
+    let legalNotice = document.getElementById("legalNoticeLink");
+
     privacyPolicy.href = "privacy-policy-unloged.html";
-    legalNotice.href = "legal-notice-unloged.html"
+    legalNotice.href = "legal-notice-unloged.html";
   }, 100);
 }

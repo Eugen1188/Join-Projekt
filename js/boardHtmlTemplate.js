@@ -475,7 +475,7 @@ function templateEditOverlaySubtasks() {
       <label class="label-subtask" for="subtask">Subtask</label>
       <div class="add-subtask">
         <input class="input-addtask" name="subtask" id="subtask" type="text" minlength="5"
-          onclick="changeSubtaskInputIcons()" onkeyup="getInput()" />
+          onclick="changeSubtaskInputIcons()" onkeypress=" checkKeyPressAndPushSubtask(event)"  onkeyup="getInput()" />
         <div id="subTaskSvgContainer" class="svg-container">
           <svg class="svg-plusicon" id="subTaskPlusIcon" width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <mask id="mask0_136369_4669" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="24">
