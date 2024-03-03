@@ -5,39 +5,36 @@
     }
 
     .login-top-cont {
-        justify-content: center;
+        justify-content: center !important;
+        padding: 58px 0px 99px 0px;
+        order: 2;
     }
 
     .login-cont{
-     order: 1;
-     width: 396px;
-     height: 515px;
-     justify-content: space-evenly;
+        order: 1;
+        width: 396px !important;
+        height: 515px !important;
+        justify-content: space-evenly;
     }
 
     .loginemail {
-        width: 364px;
-        height: 48px;
-        background-position-x: 330px;
+        width: 364px !important;
+        height: 48px !important;
+        background-position-x: 330px !important;
     }
     
     .loginpassword {
-        width: 364px;
-        height: 48px;
-        background-position-x: 330px;
+        width: 364px !important;
+        height: 48px !important;
+        background-position-x: 330px !important;
     }
 
     .login-rights-cont {
         bottom: 22px;
     }
 
-    .login-top-cont {
-        padding: 58px 0px 99px 0px;
-        order: 2;
-    }
-
     .login-headline span {
-        font-size: 47px;
+        font-size: 47px !important;
     }
 
     .line {
@@ -53,21 +50,22 @@
     .login-buttons-cont {
         flex-direction: column;
         margin-bottom: 0px;
-        width: 180px;
-        height: 123px;
-        justify-content: space-between;
+        width: 180px !important;
+        height: 123px !important;
+        justify-content: space-around !important;
+        align-items: unset !important;
     }
     
     .loginbutton {
-        width: 180px;
-        height: 51px;
-        margin-right: 0px
+        width: 180px !important;
+        height: 51px !important;
+        margin-right: 0px;
     }
 
     .loginguestbutton {
         width: 180px;
         height: 51px;
-        margin-left: 0px;
+        margin-left: 0px !important;
     }
 
     .animation-img {
@@ -97,8 +95,8 @@
       }
 
       .loginname {
-        width: 364px;
-        height: 50px;
+        width: 364px !important;
+        height: 50px !important;
         background-position-x: 330px;
       }
 
@@ -134,8 +132,8 @@
   }
 
   .loginemail {
-    width: 340px;
-    background-position-x: 300px;
+    width: 340px !important;
+    background-position-x: 300px !important;
   }
 
   .loginpassword {
