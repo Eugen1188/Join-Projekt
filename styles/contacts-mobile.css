@@ -113,11 +113,12 @@
     .edit-card {
         flex-direction: column;
         border-radius: 30px;
+        width: 392px;
         height: 748px;
     }
 
     .edit-card-headline {
-        width: 100%;
+        width: inherit;
         padding: 20px;
         border-radius: 30px 30px 0 0;
         height: 40%;
@@ -130,8 +131,17 @@
     .edit-card-form {
         border-radius: 0 0 30px 30px;
         padding: 62px 20px;
-        width: 100%;
+        width: inherit;
         height: 60%;
+    }
+
+    .edit-card-form-input {
+        width: inherit;
+    }
+
+    #contacts-form {
+        width: inherit;
+        padding: 16px;
     }
 
     .close-btn {
@@ -177,10 +187,55 @@
         left: 25%;
     }
 
-    .single-contact-data-container{
+    .single-contact-data-container {
         display: none;
     }
 }
+
+@media (max-width: 400px) {
+    .edit-card {
+        width: 324px;
+        height: 542px;
+    }
+
+    .edit-card-header {
+        font-size: 44px;
+    }
+
+
+    #edit-card {
+        top: 14%;
+    }
+
+    .close-btn {
+        left: 86%;
+    }
+}
+
+@media (max-width: 390px) {
+    .edit-card {
+        width: 324px;
+        height: 542px;
+    }
+
+    .edit-card-header {
+        font-size: 44px;
+    }
+
+    .small-screen-display-none {
+        display: none;
+    }
+
+    #edit-card {
+        top: 14%;
+    }
+
+    .close-btn {
+        left: 86%;
+    }
+}
+
+
 
 .mobile-single-user-card {
     background-color: #F6F7F8;
@@ -190,4 +245,14 @@
     width: 80px;
     height: 80px;
     font-size: 27px;
+}
+
+
+.small-screen-display-none {
+
+}
+
+
+.mobile-btn-font-size {
+    font-size: 17px;
 }
