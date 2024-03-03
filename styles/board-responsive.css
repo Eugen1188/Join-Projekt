@@ -20,6 +20,10 @@
     align-items: center;
 }
 
+.board-top-cont-left h2{
+    font-size: 47px;
+}
+
 .change-state-card{
     display: none;
     justify-content: center;
