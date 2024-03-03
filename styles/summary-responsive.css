@@ -21,9 +21,21 @@
   .summary-cont {
     justify-content: center;
   }
+
+  .join360-cont {
+    margin-left: 16px;
+  }
+
+  .summary-cont {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+  
 }
 
 @media(max-width:660px) {
+
+  
 
     .greeting-main-cont-responsive {
         background-color: white;
@@ -59,7 +71,7 @@
       }
 
       .main-sum-cont {
-        inset: 100px 16px;
+        inset: 100px 0px;
       }
 
       h1 {
@@ -248,65 +260,67 @@
 @media(max-width:401px) {
 
   .tasks-main-cont {
-    width: 350px;
+    width: 300px;
   }
 
   .todo-done-cont {
-    width: 350px;
+    width: 300px;
   }
 
   .task1-cont {
-    width: 170px;
+    width: 130px;
+    height: 90px;
   }
 
   .task1-cont:hover {
-    width: 170px;
-    height: 110px;
+    width: 130px;
+    height: 90px;
     background-color: white;
   }
 
   .task2-cont {
-    width: 170px;
+    width: 130px;
+    height: 90px;
   }
 
   .task2-cont:hover {
-    width: 170px;
-    height: 110px;
+    width: 130px;
+    height: 90px;
     background-color: white;
   }
 
   .deadline-help-hover-cont{
-    width: 350px;
+    width: 300px;
   }
   
   .deadline-cont {
-    width: 350px;
+    width: 300px;
     height: 110px;
   }
 
   .deadline-cont:hover {
-    width: 350px;
+    width: 300px;
     height: 110px;
     background-color: white;
 }
 
   .tasks-overview-cont {
-    width: 350px;
+    width: 300px;
   }
 
   .tasks-in-board-help-hover-cont {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
   }
 
   .tasks-in-board-cont {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
   }
 
   .tasks-in-board-cont:hover {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     background-color: rgb(255, 255, 255);
   }
 }
