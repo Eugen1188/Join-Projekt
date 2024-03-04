@@ -24,6 +24,7 @@ async function addTask(index) {
   handleLocation(index);
 }
 
+
 /**
  * Retrieves the priority value from the selected priority input.
  * @function getPriorityValue
@@ -41,6 +42,7 @@ function getPriorityValue() {
   }
   return prio;
 }
+
 
 /**
  * Creates a task object with the provided details.
@@ -77,6 +79,7 @@ function createTaskObject(id, title, description, date, prio, category, index) {
   ];
 }
 
+
 /**
  * Asynchronously updates an existing task with the provided index and task object.
  * @async
@@ -99,6 +102,7 @@ async function updateExistingTask(index, task) {
   initBoard();
 }
 
+
 /**
  * Asynchronously adds a new task to the tasks array and updates the storage.
  * @async
@@ -111,6 +115,7 @@ async function addNewTask(task) {
   allTasks.push(task);
   await setItem("test_board", allTasks);
 }
+
 
 /**
  * Handles the location based on the current URL and task index.
@@ -128,6 +133,7 @@ function handleLocation(index) {
     translateTaskAddedElementAndRedirect();
   }
 }
+
 
 /**
  * Translates and transforms the task added element and redirects to the board page after a delay.
@@ -147,6 +153,7 @@ function translateTaskAddedElementAndRedirect() {
     window.location.href = "./board.html";
   }, 2000);
 }
+
 
 /**
  * Generates the task state array based on the provided task index.

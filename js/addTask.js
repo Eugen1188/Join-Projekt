@@ -31,6 +31,7 @@ let contactIds = [];
  * @author Christian Förster & Kevin Müller
  */
 
+
 async function init() {
   logedInUser = await getItemContacts("logedInUser");
   renderLogedUser();
@@ -40,6 +41,7 @@ async function init() {
   initContacts();
   getAllTasksData();
 }
+
 
 /**
  * Asynchronously fetches the logged-in user's contacts and renders the logged-in user.
@@ -60,6 +62,7 @@ async function contacts() {
   renderLogedUser();
 }
 
+
 /**
  * Handles click events and updates the priority button color based on the provided value.
  * @function handleClick
@@ -71,6 +74,7 @@ function handleClick(value) {
   let priority = value;
   document.documentElement.style.setProperty("--prio-button-selected", getButtonColor(priority));
 }
+
 
 /**
  * Retrieves the color associated with the specified priority.
@@ -91,6 +95,7 @@ function getButtonColor(priority) {
     return "white";
   }
 }
+
 
 /**
  * Inverts SVG fills based on the provided priority value.
@@ -117,6 +122,7 @@ function invertSvgFills(value) {
   }
 }
 
+
 /**
  * @function checkTitleInputField
  * Checks the title input field and applies styling based on its value.
@@ -136,6 +142,7 @@ function checkTitleInputField() {
   }
 }
 
+
 /**
  * @function updateDateFieldValue
  * Updates the value of the date field to a different format and checks its validity.
@@ -149,6 +156,7 @@ function updateDateFieldValue() {
   document.getElementById("date").value = formattedDate;
   checkDateInputField();
 }
+
 
 /**
  * @function checkDateInputField
@@ -169,6 +177,8 @@ function checkDateInputField() {
     inputReqiuredSpanDate.classList.add("d-none");
   }
 }
+
+
 /**
  * Formats the date input field value by removing non-numeric characters and inserting slashes (/) at appropriate positions.
  * @function formatDateInput
@@ -191,6 +201,7 @@ function formatDateInput() {
   input.value = formattedValue;
 }
 
+
 /**
  * Retrieves the values of required form inputs and sets the state and style of the submit button accordingly.
  * @function getRequiredFormInputs
@@ -204,6 +215,7 @@ function getRequiredFormInputs() {
   let submitButton = document.getElementById("submitButton");
   setSubmitButtonStateAndStyle(titleValue, inputDateFieldValue, categoryValue, submitButton);
 }
+
 
 /**
  * Sets the state and style of the submit button based on the provided values of required form inputs.
@@ -224,6 +236,7 @@ function setSubmitButtonStateAndStyle(titleValue, inputDateFieldValue, categoryV
     submitButton.classList.remove("btn-bg", "btn-color-wht", "pointer");
   }
 }
+
 
 /**
  * Validates the form inputs for adding a task based on the selected contact and priority.
@@ -248,6 +261,7 @@ function validateForm(index) {
   } else addTask(index);
 }
 
+
 /**
  * Clears all field inputs by reloading the page.
  * @function clearFieldInputs
@@ -257,6 +271,7 @@ function validateForm(index) {
 function clearFieldInputs() {
   location.reload();
 }
+
 
 /**
  * Prevents the default form submission behavior when the Enter key is pressed.
@@ -270,6 +285,7 @@ function preventFormSubmit(event) {
     event.preventDefault();
   }
 }
+
 
 /**
  * Clears the current task state by resetting it to its initial values.
