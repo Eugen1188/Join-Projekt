@@ -397,16 +397,3 @@
     padding: 16px;
     pointer-events: none;
 }
-
-.add-task-overlay {
-    position: fixed;
-    width: 1116px;
-    height: 100%;
-    background-color: white;
-    border-radius: 30px;
-    z-index: 1000;
-    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
-    top: calc(50% - 435px);
-    left: 150vw;
-    transition: all 125ms ease-in-out;
-}
