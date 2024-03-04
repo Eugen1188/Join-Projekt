@@ -19,6 +19,7 @@ body {
 .menu {
     padding-bottom: 300px;
     width: -webkit-fill-available;
+    width: -moz-available
 }
 
 .menu_buttons {
