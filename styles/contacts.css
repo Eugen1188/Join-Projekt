@@ -398,6 +398,7 @@
 }
 
 .edit-card-from-input:focus,
+.edit-card-from-input:focus-within,
 .edit-card-from-input:focus-visible {
     border: 1px solid var(--light-blue) !important;
 }
