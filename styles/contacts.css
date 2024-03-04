@@ -5,11 +5,6 @@
     box-sizing: border-box;
 }
 
-.edit-card-from-input:focus,
-.edit-card-from-input:focus-visible {
-    border: 1px solid var(--light-blue) !important;
-}
-
 .main-btn-color {
     background-color: var(--button-color);
     color: var(--background-color-site);
@@ -400,4 +395,9 @@
     z-index: 3;
     background-color: rgba(0, 0, 0, 0.1);
     transition: all 225ms ease-in;
+}
+
+.edit-card-from-input:focus,
+.edit-card-from-input:focus-visible {
+    border: 1px solid var(--light-blue) !important;
 }
