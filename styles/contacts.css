@@ -1,10 +1,13 @@
-/* style button select*/
-:root {
-    --contacts-link-color: #29ABE2;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
 .edit-card-from-input:focus,
 .edit-card-from-input:focus-visible {
-    border: 1px solid var(--contacts-link-color) !important;
+    border: 1px solid var(--light-blue) !important;
 }
 
 .main-btn-color {
@@ -19,12 +22,6 @@
 
 .font-color {
     color: var(--background-color-site);
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
 }
 
 .add-contacts-btn {
@@ -79,7 +76,7 @@
 }
 
 .contact-data a {
-    color: var(--contacts-link-color);
+    color: var(--light-blue);
 }
 
 .contact-data:hover {
@@ -187,7 +184,7 @@
 
 .icons-contacts:hover,.icons-contacts:hover #hoverPath, .icons-contacts:hover #hoverSecPath {
     cursor: pointer;
-    fill: var(--contacts-link-color);
+    fill: var(--light-blue);
     color: var(--light-blue);
     transition: all 80ms ease;
 }
