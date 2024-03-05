@@ -108,8 +108,8 @@ async function saveNewUserData() {
   }
   userData.push({
     id: id,
-    name: helper[0],
-    lastname: helper.length === 0 ? "" : helper[helper.length - 1],
+    name: firstCharToUpperCase(helper[0]),
+    lastname: helper.length === 0 ? "" : firstCharToUpperCase(helper[helper.length - 1]),
     email: email,
     password: password,
     initials: helper.length === 0 ? helper[0].charAt(0).toUpperCase() : helper[0].charAt(0).toUpperCase() + helper[1].charAt(0).toUpperCase(),
@@ -129,8 +129,6 @@ async function saveNewUserData() {
 async function addNewContactToContactlist() {
   let name = document.getElementById("name").value.toLowerCase().trim();
   let helper = name.split(" ");
-  const firstname = helper[0];
-  let lastname;
   let email = document.getElementById("email").value.trim();
   let phone = document.getElementById("phone").value.trim();
   if (checkEmailAddress(email, contacts)) {
@@ -139,8 +137,8 @@ async function addNewContactToContactlist() {
   if (name && email && phone) {
     contacts.push({
       id: id,
-      name: firstCharToUpperCase(firstname),
-      lastname: firstCharToUpperCase(lastname),
+      name: firstCharToUpperCase(helper[0]),
+      lastname: helper.length === 0 ? "" : firstCharToUpperCase(helper[helper.length - 1]),
       email: email.toLowerCase(),
       phone: formatPhoneNumber(phone),
       initials:
