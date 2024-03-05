@@ -75,7 +75,7 @@
     color: white;
     margin-left: 16px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: 0.1s;
   }
 
   .signup-button:hover {

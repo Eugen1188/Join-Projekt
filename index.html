@@ -45,12 +45,12 @@
 
         <div class="form-cont">
           <form onsubmit="logIn()" ; return false>
-            <input class="input-field" type="email" name="email" id="email" placeholder="Email" required />
-            <input class="input-field" type="password" name="password" id="password" placeholder="Password" required />
+            <input autocomplete="off" class="input-field" type="email" name="email" id="email" placeholder="Email" required />
+            <input autocomplete="off" class="input-field" type="password" name="password" id="password" placeholder="Password" required />
             <div class="checkbox-cont">
               <label class="checkboxlabel">
                 <span>Remember me</span>
-                <input class="logincheckbox" type="checkbox" id="rememberMe" />
+                <input autocomplete="off" class="logincheckbox" type="checkbox" id="rememberMe" />
                 <span class="checkmark"></span>
               </label>
             </div>
@@ -75,15 +75,15 @@
 
         <div class="form-cont">
           <form onchange="showRegisterButton()" onsubmit="saveNewUserData(), showRegistrationAnimation(); return false">
-            <input class="input-field" type="text" name="" id="name-reg" placeholder="Name" required />
-            <input class="input-field" type="email" name="" id="email-reg" placeholder="Email" required />
-            <input class="input-field" type="password" name="" id="password-reg" placeholder="Password" required />
-            <input class="input-field" type="password" name="" id="rep-password-reg" placeholder="Confirm Password" required />
+            <input autocomplete="off" class="input-field" type="text" name="" id="name-reg" placeholder="Name" required />
+            <input autocomplete="off" class="input-field" type="email" name="" id="email-reg" placeholder="Email" required />
+            <input autocomplete="off" class="input-field" type="password" name="" id="password-reg" placeholder="Password" required />
+            <input autocomplete="off" class="input-field" type="password" name="" id="rep-password-reg" placeholder="Confirm Password" required />
 
             <div class="checkbox-cont">
               <label class="checkboxlabel">
-                <span>I accept the <a class="privacy-policy-span" href="privacy-policy.html" onclick="showInfoForUnloggedUser()">Pricavy policy</a> </span>
-                <input class="logincheckbox" type="checkbox" id="registerCheckbox" required />
+                <span>I accept the <a class="privacy-policy-span" href="privacy-policy.html" onclick="showInfoForUnloggedUser()">Privacy policy</a> </span>
+                <input autocomplete="off" class="logincheckbox" type="checkbox" id="registerCheckbox" required />
                 <span class="checkmark"></span>
               </label>
             </div>
