@@ -39,7 +39,7 @@
       }
   
       .login-headline {
-          height: 73px;
+          height: 73px !important;
           margin-bottom: 0;
           margin-top: 0;
       }
@@ -115,6 +115,15 @@
           width: unset; 
           margin-left: 0;
         }
+
+        .reg-cont {
+            width: 396px !important;
+            height: 595px !important;
+        }
+
+        .line {
+            margin-top: 8px;
+        }
   
   }
 
@@ -128,6 +137,7 @@
     .input-field {
         width: 230px !important;
         height: 40px !important;
+        background-position-x: 195px !important
     }
 
     .login-headline {
@@ -140,6 +150,14 @@
 
     .checkbox-cont {
         margin: 0 0 15px 39px !important;
+    }
+
+    .reg-cont {
+        width: 280px !important;
+    }
+
+    .reg-headline-with-back-btn span {
+        font-size: 37px;
     }
 
   }

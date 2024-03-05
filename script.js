@@ -120,6 +120,8 @@ async function getAllTasksData() {
 function regNewUser() {
   let loginmenu = document.getElementById("login-menu");
   let regmenu = document.getElementById("reg-user-menu");
+  let signUpButton = document.getElementById("signup-cont");
+  signUpButton.classList.add("d-none");
   loginmenu.classList.add("d-none");
   regmenu.classList.remove("d-none");
 }
@@ -131,8 +133,10 @@ function regNewUser() {
 function closeRegMenu() {
   let loginmenu = document.getElementById("login-menu");
   let regmenu = document.getElementById("reg-user-menu");
+  let signUpButton = document.getElementById("signup-cont");
   loginmenu.classList.remove("d-none");
   regmenu.classList.add("d-none");
+  signUpButton.classList.remove("d-none");
 }
 
 

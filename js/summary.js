@@ -95,7 +95,7 @@ function tasksDone() {
 
 /**
  * render amount of urgent tasks depent on the counter.
- * show the next urgent date in the right format (month day, year) with function showDateInRightFormat
+ * show the next urgent date in the right format (month day, year) with function showDateInRightFormat and sort dates
  */
 function tasksUrgent() {
     let urgentTasks = document.getElementById('tasks_number_urgent');
