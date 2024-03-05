@@ -25,10 +25,17 @@ window.addEventListener("resize", function () {
         overlayDiv.remove();
       }
     }
-    
+
   }
 });
 
+
+async function initDisclaimer() {
+  logedInUser = await getItemContacts("logedInUser");
+  if (logedInUser.length == 0) {
+    navigateToIndex();
+  }
+}
 /**
  * Creates a div overlay to prevent landscape mode, hiding the main header,
  * and updates the overlay content if the overlay already exists.
