@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join</title>
     <link rel="stylesheet" href="./styles/font.css">
+    <link rel="stylesheet" href="./styles/animation.css">
     <link rel="stylesheet" href="./styles/style.css">
-    <link rel="stylesheet" href="./styles/style-responsive.css">
+    <!-- <link rel="stylesheet" href="./styles/style-responsive.css"> -->
+    <link rel="stylesheet" href="./styles/index-responsive.css">
     <link rel="stylesheet" href="./styles/index.css">
     <script src="./script.js" defer></script>
     <script src="./js/contactsHtmlTemplate.js"></script>
@@ -54,8 +56,8 @@
 
             <div class="form-cont">
                 <form onsubmit="logIn()" ; return false>
-                    <input class="loginemail" type="email" name="email" id="email" placeholder="Email" required>
-                    <input class="loginpassword" type="password" name="" id="password" placeholder="Password" required>
+                    <input class="input-field" type="email" name="email" id="email" placeholder="Email" required>
+                    <input class="input-field" type="password" name="password" id="password" placeholder="Password" required>
                     <div class="checkbox-cont">
                         <label class="checkboxlabel"> <span>Remember me</span>
                             <input class="logincheckbox" type="checkbox" id="rememberMe">
@@ -95,11 +97,11 @@
 
                 <form onchange="showRegisterButton()" onsubmit="saveNewUserData(), showRegistrationAnimation()" ; return
                     false>
-                    <input class="loginname" type="text" name="" id="name-reg" placeholder="Name" required>
-                    <input class="loginemail" type="email" name="" id="email-reg" placeholder="Email" required>
-                    <input class="loginpassword" type="password" name="" id="password-reg" placeholder="Password"
+                    <input class="input-field" type="text" name="" id="name-reg" placeholder="Name" required>
+                    <input class="input-field" type="email" name="" id="email-reg" placeholder="Email" required>
+                    <input class="input-field" type="password" name="" id="password-reg" placeholder="Password"
                         required>
-                    <input class="loginpassword" type="password" name="" id="rep-password-reg"
+                    <input class="input-field" type="password" name="" id="rep-password-reg"
                         placeholder="Confirm Password" required>
 
                     <div class="checkbox-cont">

@@ -5,8 +5,6 @@
 
 }
 
-
-
 @media(max-width:1023px) {
 
   .greetings-main-cont {
@@ -35,8 +33,6 @@
 }
 
 @media(max-width:660px) {
-
-  
 
     .greeting-main-cont-responsive {
         background-color: white;
@@ -334,7 +330,6 @@
     background-color: rgb(255, 255, 255);
   }
 }
-
 
 @media(max-height:670px) {
 
