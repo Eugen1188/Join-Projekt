@@ -71,6 +71,8 @@ async function checkIfEditedDataIsLoggInUser(userId, inedOfContact) {
  * @param {number} id - is required to find the desired user
  */
 async function deleteContact(id) {
+  const disabledClick = document.getElementById("single-contact-delete");
+  disabledClick.style.pointerEvents = "none";
   const index = contacts.findIndex(contact => contact.id === id);
   if (logedInUser[0].id == contacts[index].id) {
     renderSlideInMsg("contact-success", "You can't delete yourself");
@@ -88,6 +90,7 @@ async function deleteContact(id) {
     renderContactListAfterDeleteMobile()
     setItem("contacts", contacts);
   }
+  disabledClick.style.pointerEvents = "auto";
 }
 
 
