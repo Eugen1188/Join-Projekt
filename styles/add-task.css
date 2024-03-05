@@ -234,6 +234,7 @@
   border: none;
   width: 183px;
   flex-wrap: nowrap;
+  transition: 0.1s;
 }
 
 .input-addtask-datepicker:focus-visible {
