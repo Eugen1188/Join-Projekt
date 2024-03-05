@@ -109,7 +109,7 @@ async function saveNewUserData() {
   userData.push({
     id: id,
     name: helper[0],
-    lastname: helper[lastname.length - 1],
+    lastname: helper.length === 0 ? "" : helper[helper.length - 1],
     email: email,
     password: password,
     initials: helper.length === 0 ? helper[0].charAt(0).toUpperCase() : helper[0].charAt(0).toUpperCase() + helper[1].charAt(0).toUpperCase(),
