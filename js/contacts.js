@@ -109,10 +109,10 @@ async function saveNewUserData() {
   userData.push({
     id: id,
     name: firstCharToUpperCase(helper[0]),
-    lastname: helper.length === 0 ? "" : firstCharToUpperCase(helper[helper.length - 1]),
+    lastname: helper.length === 1 ? "" : firstCharToUpperCase(helper[helper.length - 1]),
     email: email,
     password: password,
-    initials: helper.length === 0 ? helper[0].charAt(0).toUpperCase() : helper[0].charAt(0).toUpperCase() + helper[1].charAt(0).toUpperCase(),
+    initials: helper.length === 1 ? helper[0].charAt(0).toUpperCase() : helper[0].charAt(0).toUpperCase() + helper[1].charAt(0).toUpperCase(),
     circleColor: getRandomColor(),
     phone: "No data stored",
   });
@@ -138,11 +138,11 @@ async function addNewContactToContactlist() {
     contacts.push({
       id: id,
       name: firstCharToUpperCase(helper[0]),
-      lastname: helper.length === 0 ? "" : firstCharToUpperCase(helper[helper.length - 1]),
+      lastname: helper.length === 1 ? "" : firstCharToUpperCase(helper[helper.length - 1]),
       email: email.toLowerCase(),
       phone: formatPhoneNumber(phone),
       initials:
-        helper.length === 0 ? helper[0].charAt(0).toUpperCase() : helper[0].charAt(0).toUpperCase() + helper[1].charAt(0).toUpperCase(),
+        helper.length === 1 ? helper[0].charAt(0).toUpperCase() : helper[0].charAt(0).toUpperCase() + helper[1].charAt(0).toUpperCase(),
       circleColor: getRandomColor(),
     });
     renderContacts();
