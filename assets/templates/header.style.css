@@ -173,7 +173,8 @@ body {
 }
 
 .logout-inner-cont:hover {
-    background-color: #4c6ea1
+    background-color: #4c6ea1;
+    border-radius: 8px;
 }
 
 .logout-smaller-help-cont {
