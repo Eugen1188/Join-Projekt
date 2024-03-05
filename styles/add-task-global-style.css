@@ -49,6 +49,7 @@ input[type="radio"]:checked + label.radio-button {
   color: white;
   font-weight: 700;
   box-shadow: none;
+  transition: 0.1s;
 }
 
 input[type="radio"] {
