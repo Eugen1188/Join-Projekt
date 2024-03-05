@@ -117,7 +117,6 @@ async function saveNewUserData() {
     phone: "No data stored",
   });
   id++;
-  console.log(id);
   setItem("id", id);
   setItem("userData", userData);
 }
