@@ -104,7 +104,6 @@ function tasksUrgent() {
     for (let i = 0; i < allTasks.length; i++) {
         const element = allTasks[i][0];
         if (element.prio == "urgent") {
-            console.log(element.prio);
             count++;
             rightDate = element.date.replace(/[/]/g, "-");
             urgentDates.push(rightDate);
@@ -181,7 +180,6 @@ function greetingResponsive() {
     let greetingContainer = document.getElementById('greeting-main-cont-responsive');
     let greeting = document.getElementById('greetings-resposive-user');
     if (window.innerWidth <= 660) {
-        console.log(greeting);
         greetingContainer.style.display = 'flex';
         if (logedInUser[0].name == "Guest") {
             greeting.innerHTML = `${GreetingDependTime()}`;

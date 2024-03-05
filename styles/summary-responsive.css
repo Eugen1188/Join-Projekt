@@ -181,66 +181,23 @@
       .task1-cont:hover {
         width: 186px;
         height: 110px;
-        background-color: white;
-      }
-  
-      .task1-cont:hover .pencil-circle-white {
-        fill: var(--button-color);
-      }
-  
-      .task1-cont:hover .pencil-hover {
-        fill: rgb(255, 255, 255);
-      }
-  
-      .task1-cont:hover span {
-       color: rgb(0, 0, 0);
-      }
-  
-      .task1-cont:hover .task-number div {
-        color: rgb(0, 0, 0);
       }
   
       .task2-cont:hover {
         width: 186px;
         height: 110px;
-        background-color: white;
-    }
-    
-    .task2-cont:hover .circle-task2 {
-        fill: var(--button-color);
-    }
-    
-    .task2-cont:hover .hook-task2 {
-        stroke: white;
-    }
-    
-    .task2-cont:hover span {
-        color: rgb(0, 0, 0);
-    }
-    
-    .task2-cont:hover .task-number div {
-        color: rgb(0, 0, 0);
     }
   
     .deadline-cont:hover {
         width: 396px;
         height: 110px;
-        background-color: white;
-    }
-  
-    .deadline-cont:hover span {
-        color: rgb(0, 0, 0);
     }
   
     .tasks-in-board-cont:hover {
       width: 116px;
       height: 116px;
-      background-color: rgb(255, 255, 255);
   }
   
-  .tasks-in-board-cont:hover span {
-      color: rgb(0, 0, 0);
-  }
 }
 
 @media(max-width:501px) {
@@ -281,7 +238,6 @@
   .task1-cont:hover {
     width: 130px;
     height: 90px;
-    background-color: white;
   }
 
   .task2-cont {
@@ -292,7 +248,6 @@
   .task2-cont:hover {
     width: 130px;
     height: 90px;
-    background-color: white;
   }
 
   .deadline-help-hover-cont{
@@ -307,7 +262,6 @@
   .deadline-cont:hover {
     width: 300px;
     height: 110px;
-    background-color: white;
 }
 
   .tasks-overview-cont {
@@ -327,7 +281,6 @@
   .tasks-in-board-cont:hover {
     width: 80px;
     height: 80px;
-    background-color: rgb(255, 255, 255);
   }
 }
 
