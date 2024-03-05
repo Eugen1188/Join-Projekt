@@ -133,11 +133,6 @@ async function addNewContactToContactlist() {
   let helper = name.split(" ");
   const firstname = helper[0];
   let lastname;
-  if (helper.length === 0) {
-    lastname = ""
-  } else {
-    lastname = helper[helper.length - 1];
-  }
   let email = document.getElementById("email").value.trim();
   let phone = document.getElementById("phone").value.trim();
   if (checkEmailAddress(email, contacts)) {
@@ -151,7 +146,7 @@ async function addNewContactToContactlist() {
       email: email.toLowerCase(),
       phone: formatPhoneNumber(phone),
       initials:
-        firstname.charAt(0).toUpperCase() + lastname.charAt(0).toUpperCase(),
+        helper.length === 0 ? helper[0].charAt(0).toUpperCase() : helper[0].charAt(0).toUpperCase() + helper[1].charAt(0).toUpperCase(),
       circleColor: getRandomColor(),
     });
     renderContacts();
