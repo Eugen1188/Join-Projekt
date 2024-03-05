@@ -132,7 +132,12 @@ async function addNewContactToContactlist() {
   let name = document.getElementById("name").value.toLowerCase().trim();
   let helper = name.split(" ");
   const firstname = helper[0];
-  const lastname = helper[helper.length - 1];
+  let lastname;
+  if (helper.length === 0) {
+    lastname = ""
+  } else {
+    lastname = helper[helper.length - 1];
+  }
   let email = document.getElementById("email").value.trim();
   let phone = document.getElementById("phone").value.trim();
   if (checkEmailAddress(email, contacts)) {
