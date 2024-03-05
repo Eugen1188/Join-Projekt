@@ -1,3 +1,8 @@
+/**
+ * function to check if user is unregistered, if yes unregistered style is aplied
+ * 
+ * @author Kevin Mueller
+ */
 async function initUnregistered(){
     logedInUser = await getItemContacts("logedInUser");
     if (logedInUser.length == 0) {
@@ -5,9 +10,15 @@ async function initUnregistered(){
     }
 }
 
+
+/**
+ * function to apply css for unregistered user
+ * 
+ * @param {string} fileName - href destination
+ */
 function addCss(fileName) {
-    var head = document.head;
-    var link = document.createElement("link");
+    let head = document.head;
+    let link = document.createElement("link");
   
     link.type = "text/css";
     link.rel = "stylesheet";
