@@ -4,6 +4,14 @@ let searchedTask = [];
 let dummyContacts = [];
 let lockout;
 
+window.addEventListener('resize', function() {
+    let windowWidth = window.innerWidth;
+    if (windowWidth >= 1000 && windowWidth <= 1023) {
+        closeOverlayAddTask();
+    }
+});
+
+
 /**
  * init function to load the content and reset global variables
  *
