@@ -110,6 +110,7 @@
     position: fixed;
     top: 96px;
     left: 232px;
+    bottom: 0;
     width: 456px;
     padding: 0;
     display: flex;
