@@ -1,4 +1,8 @@
 @media only screen and (max-width: 1330px) {
+  .form-container::-webkit-scrollbar {
+    display: none;
+  }
+
   .form-container {
     display: flex;
     inset: 336px 328px;
@@ -163,6 +167,10 @@
 }
 
 @media only screen and (max-width: 1023px) {
+  .form-container::-webkit-scrollbar {
+    display: none;
+  }
+
   .button-container {
     position: fixed;
     top: calc(100% - 168px);
@@ -318,6 +326,10 @@
 }
 
 @media only screen and (max-width: 360px) {
+  .form-container::-webkit-scrollbar {
+    display: none;
+  }
+
   .task-added {
     width: 252px;
   }
@@ -332,6 +344,10 @@
 }
 
 @media only screen and (max-width: 320px) {
+  .form-container::-webkit-scrollbar {
+    display: none;
+  }
+
   .prio-container {
     flex-direction: column;
     align-items: center;
