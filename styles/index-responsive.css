@@ -210,5 +210,13 @@
     .checkbox-cont {
       margin-bottom: 0;
     }
+
+    .reg-cont {
+        height: 480px !important;
+    }
+
+    .reg-headline {
+        margin: 63px 0 24px !important;
+    }
   
   }
