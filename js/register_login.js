@@ -25,7 +25,7 @@ async function logIn() {
       loggedIn = true;
       logedInUser.push(element);
       await setItem("logedInUser", logedInUser);
-      window.location.href = "summary.html";
+      window.location.href = "./summary.html";
       saveRememberMe();
       return;
     }
@@ -96,6 +96,6 @@ function showRegistrationAnimation() {
   blackCont.style.display = 'flex';
   feedback.style.top = '50%';
   setTimeout(() => {
-    window.location.href = 'index.html';;
+    window.location.href = './index.html';;
   }, 1000);
 }

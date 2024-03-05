@@ -15,6 +15,7 @@ async function initUnregistered(){
  * function to apply css for unregistered user
  * 
  * @param {string} fileName - href destination
+ * @author Kevin Mueller
  */
 function addCss(fileName) {
     let head = document.head;
