@@ -23,7 +23,7 @@
 .add-task-overlay {
     position: fixed;
     width: 1116px;
-    height: 85%;
+    height: 90%;
     background-color: white;
     border-radius: 30px;
     z-index: 1000;
