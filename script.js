@@ -113,8 +113,10 @@ async function getAllTasksData() {
   allTasks = await getItemContacts("test_board");
 }
 
-/* Öffnet Menü, um neuen user zu registrieren */
 
+/**
+ * enable the field for signup new user and disable the input field for login
+ */
 function regNewUser() {
   let loginmenu = document.getElementById("login-menu");
   let regmenu = document.getElementById("reg-user-menu");
@@ -122,8 +124,10 @@ function regNewUser() {
   regmenu.classList.remove("d-none");
 }
 
-/* Schließe Menü zum Registrieren */
 
+/**
+ * enable the field for login disable the input field for signup new user
+ */
 function closeRegMenu() {
   let loginmenu = document.getElementById("login-menu");
   let regmenu = document.getElementById("reg-user-menu");
@@ -131,8 +135,10 @@ function closeRegMenu() {
   regmenu.classList.add("d-none");
 }
 
-/* Header-User Menu öffnen für Info und Logout */
 
+/**
+ * open the navigation menu for logout or info with animation, click outside menu, close menu
+ */
 function openNavMenu() {
   let menu = document.getElementById("logOutMenu");
   if (menu.style.display === "flex") {
@@ -160,15 +166,24 @@ function openNavMenu() {
   }
 }
 
-// Funktion zum Verhindern, dass das Menü beim Klicken darauf geschlossen wird
+
+/**
+ * 
+ * @param {event} event 
+ * To prevent a click event from propagating to the body
+ */
 function preventClose(event) {
-  event.stopPropagation(); // Verhindert, dass das Klick-Ereignis sich auf den Body ausbreitet
+  event.stopPropagation();
 }
 
-// Event-Listener für Klicks auf den Body, um das Menü zu schließen
+
+/**
+ * 
+ * @param {MouseEvent} event 
+ * clouse the menu on a click outside
+ */
 function closeMenuOutside(event) {
   var menu = document.getElementById("logOutMenu");
-
   if (menu.style.display === "flex" && event.target !== menu && !menu.contains(event.target)) {
     document.body.removeEventListener("click", closeMenuOutside);
     if (window.innerWidth < 660) {
@@ -231,9 +246,11 @@ function navigateToIndex() {
   window.location.href = "./index.html";
 }
 
+/**
+ * render initials of logged user in the user logo
+ */
 function renderLogedUser() {
   let userInitials = document.getElementById("logedUserInitials");
-
   if (window.location == "http://127.0.0.1:5500/summary.html") {
     /*
     let firstName = document.getElementById('logedInName');
@@ -242,10 +259,13 @@ function renderLogedUser() {
     lastname.innerHTML = logedInUser[0].lastname;
     */
   }
-
   userInitials.innerHTML = logedInUser[0].initials;
 }
 
+
+/**
+ * if push the guest login button, push guestArray in the logedInUser Array 
+ */
 async function logInAsGuest() {
   guestArray = {
     name: "Guest",
@@ -257,6 +277,10 @@ async function logInAsGuest() {
   await setItem("logedInUser", logedInUser);
 }
 
+
+/**
+ * logout user -> clear the logedInUser Array and locate user the index.html
+ */
 async function logOut() {
   logedInUser = [];
   await setItem("logedInUser", logedInUser);
@@ -286,10 +310,10 @@ async function getItemContacts(key) {
   }
 }
 
-/*
- change Links Direction if user klick in privacy Policy or Legal notice from index.html
-*/
 
+/**
+ * change Links Direction if user klick in privacy Policy or Legal notice from index.html
+ */
 function changeLinkDirection() {
   setTimeout(() => {
     let privacyPolicy = document.getElementById("privacyPolicyLink");

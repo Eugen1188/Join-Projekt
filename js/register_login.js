@@ -1,8 +1,19 @@
+/**
+ * init function to load the registered contacts
+ *
+ * @author Eugen Ferchow
+ */
 async function initRegisteredContacts() {
   userData = await getItemContacts('userData');
 }
 
 
+/**
+ * 
+ * @returns {string}
+ * check input password and email to login user or show an alert if password or email are wrong
+ * if login succfully, push the input in logedInUser Array and forward the user to summary.html
+ */
 async function logIn() {
   event.preventDefault(); // Kein Standardverhalten des Formulars
   let email = document.getElementById('email').value;
@@ -25,8 +36,10 @@ async function logIn() {
 }
 
 
-// remember me funktion zum einlogen, speichert eingegebene email und password im local storage
-
+/**
+ * remember me function
+ * if user checked the checkmark field, save user password and email in localStorage
+ */
 function saveRememberMe() {
   let rememberMe = document.getElementById('rememberMe').checked;
   var email = document.getElementById("email").value;
@@ -41,8 +54,9 @@ function saveRememberMe() {
 }
 
 
-// Ruft die gespeicherten Daten aus dem Lokal Store und für email und password ins input Feld
-
+/**
+ * load the user password from local Storage and put it in the input field
+ */
 function loadRememberMe() {
   let rememberedEmail = localStorage.getItem('rememberedEmail');
   let rememberedPassword = localStorage.getItem('rememberedPassword');
@@ -53,8 +67,11 @@ function loadRememberMe() {
 }
 
 
-// Zeige den Sign Up Button sobald die Checkbox aktiviert ist
-
+/**
+ * 
+ * @returns {boolean}
+ * if all input fields are filled and the checkbox are checked, enable the sign up button, otherweise disable 
+ */
 function showRegisterButton() {
   let checkedBox = document.getElementById('registerCheckbox').checked;
   let name = document.getElementById('name-reg').value;
@@ -67,13 +84,13 @@ function showRegisterButton() {
     return
   }
   btn.disabled = false;
-
 }
 
 
-
+/**
+ * if user sign up succesfully display a feedback message and redirect user to index.html
+ */
 function showRegistrationAnimation() {
-
   let blackCont = document.getElementById('feedback-black-container');
   let feedback = document.getElementById('feedback-registration');
   blackCont.style.display = 'flex';
