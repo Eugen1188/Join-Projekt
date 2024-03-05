@@ -76,10 +76,12 @@ async function deleteContact(id) {
   const index = contacts.findIndex(contact => contact.id === id);
   if (logedInUser[0].id == contacts[index].id) {
     renderSlideInMsg("contact-success", "You can't delete yourself");
+    disabledClick.style.pointerEvents = "auto";
     return;
   }
   if (!logedInUser[0].id) {
     renderSlideInMsg("contact-success", "Guest can't delete a user");
+    disabledClick.style.pointerEvents = "auto";
     return;
   }
   if (index !== -1 && logedInUser[0].id != contacts[index].id) {
