@@ -483,9 +483,7 @@ function disabledBtn() {
   let email = document.getElementById("email").value.trim();
   let phone = document.getElementById("phone").value.trim();
   let disabledBtn = document.getElementById("submitContact");
-  console.log("wird ausgeführt");
   if (!name || !isValidEmail(email) || !phone) {
-    console.log(email);
     disabledBtn.disabled = true;
     return
   }
