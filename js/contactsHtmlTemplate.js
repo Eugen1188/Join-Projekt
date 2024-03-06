@@ -129,7 +129,7 @@ function contactsCardHTML({ cardName, secondText, functionName, secontFunction, 
                             <div id="delete-btn">
                                 <button class="edit-card-btn white-btn pointer mobile-btn-font-size" id="delete" onclick="${secontFunction}">${deleteOrClosebtn}</button>
                             </div>
-                            <button class="edit-card-btn main-btn-color font-color pointer" type="submit" id="submitContact" onclick="${functionName}" disabled>
+                            <button class="edit-card-btn main-btn-color font-color pointer" type="submit" id="submitContact" onclick="ifEmailIsValisAddorEditContacts(${functionName})" disabled>
                                 <span class="mobile-btn-font-size">${saveOrCreateContact}</span>
                                 <img class="small-screen-display-none" src="./assets/img/icons/check.png" alt="">
                             </button>
