@@ -403,3 +403,13 @@
 .edit-card-from-input:focus-visible {
     outline-color: var(--light-blue);
 }
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}

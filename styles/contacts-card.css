@@ -226,3 +226,9 @@
         margin-left: 1000px;
     }
 }
+
+#submitContact:disabled {
+    background-color: gray;
+    color: var(--background-color-site);
+    cursor: not-allowed;
+}
