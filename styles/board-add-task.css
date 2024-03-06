@@ -148,9 +148,9 @@
     border: 1px solid lightgray;
 }
 
-.choosen-contacts{
-    position: static;
-    padding-top: 8px;
+.show-selected-contacts-container{
+    position: absolute;
+    top: 80px;
 }
 
 .due-date-icon {
@@ -161,10 +161,14 @@ label.radio-button {
     margin-right: 0px;
 }
 
-.contact-values-edit{
-    max-height: 304px;
-    position: static;
-    margin-top: 0;
+.contact-values{
+    z-index: 1000;
+    background-color: white;
+}
+
+.required-info{
+    position: absolute;
+    bottom: -208px;
 }
 
 .button-container{
