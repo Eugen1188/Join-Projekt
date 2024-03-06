@@ -483,10 +483,20 @@ function disabledBtn() {
   let email = document.getElementById("email").value.trim();
   let phone = document.getElementById("phone").value.trim();
   let disabledBtn = document.getElementById("submitContact");
-  if (!name || !isValidEmail(email) || !phone) {
+  if (!name || !email || !phone) {
     disabledBtn.disabled = true;
     return
   }
   disabledBtn.disabled = false;
 
+}
+
+function ifEmailIsValisAddorEditContacts(functionName) {
+  let email = document.getElementById("email").value.trim();
+  let disabledBtn = document.getElementById("submitContact");
+  if (!isValidEmail(email)) {
+    disabledBtn.disabled = true;
+    return
+  }
+  functionName
 }
