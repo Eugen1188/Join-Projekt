@@ -100,11 +100,17 @@ function showRegistrationAnimation() {
   }, 1000);
 }
 
+
+/**
+ * function to highlight if the passwords in signup dont match
+ * @author Kevin Mueller
+ */
 function	passOutline(){
   let passwordReg = document.getElementById('password-reg');
   let repPasswordReg = document.getElementById('rep-password-reg');
   if (passwordReg.value != repPasswordReg) {
-    passwordReg.style.outline = 'red';
-    repPasswordReg.style.outline = 'red';
+    passwordReg.style.border = '2px solid #ff8190';
+    repPasswordReg.style.border = '2px solid #ff8190';
+    document.getElementById('inputRequired').classList.remove('d-none')
   }
 }
