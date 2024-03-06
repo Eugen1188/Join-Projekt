@@ -137,6 +137,25 @@ function checkTitleInputField() {
 }
 
 /**
+ * @function checkSubtasknputField()
+ * Checks the subtask input field and applies styling based on its value.
+ * @author Christian Förster
+ */
+
+function checkSubtasknputField() {
+  let inputSubtaskFieldValue = document.getElementById("subtask").value;
+  let inputSubtaskField = document.getElementById("subtask");
+  let inputReqiuredSpanTitle = document.getElementById("inputReqiuredSpanSubtask");
+  if (inputSubtaskFieldValue === "") {
+    inputSubtaskField.classList.add("input-focus-required");
+    inputReqiuredSpanTitle.classList.remove("d-none");
+  } else {
+    inputSubtaskField.classList.remove("input-focus-required");
+    inputReqiuredSpanTitle.classList.add("d-none");
+  }
+}
+
+/**
  * @function updateDateFieldValue
  * Updates the value of the date field to a different format and checks its validity.
  * @author Christian Förster

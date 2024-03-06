@@ -10,7 +10,6 @@ function getInput() {
   return subtask;
 }
 
-
 /**
  * Pushes a subtask into the subtasks array, updates task states, displays subtasks, and renders a plus icon.
  * @function pushSubtask
@@ -22,7 +21,7 @@ function pushSubtask() {
   let subtask = getInput();
   let taskState = false;
   if (subtask == "") {
-    alert("Please enter a value");
+    checkSubtasknputField();
   } else {
     subtasks.push(subtask);
     taskStates.push(taskState);
@@ -31,7 +30,6 @@ function pushSubtask() {
     clearSubtaskInput();
   }
 }
-
 
 /**
  * Checks if the Enter key is pressed and calls the 'pushSubtask' function if the event target's id is "subtask".
@@ -48,7 +46,6 @@ function checkKeyPressAndPushSubtask(event) {
   }
 }
 
-
 /**
  * Handles key press events and invokes the 'saveEditedSubtask' function with the specified index if the Enter key is pressed.
  * @function checkKeyPressAndPushEditedSubtask
@@ -63,7 +60,6 @@ function checkKeyPressAndPushEditedSubtask(event, index) {
   }
 }
 
-
 /**
  * Displays subtasks in the designated container.
  * @function showSubtasks
@@ -77,7 +73,6 @@ function showSubtasks() {
     showSubtasks.innerHTML += renderSubtaskItem(subtask, index);
   });
 }
-
 
 /**
  * Handles mouse hover event to display additional options for a subtask.
@@ -96,7 +91,6 @@ function mouseIn(index) {
   }
 }
 
-
 /**
  * Handles mouse out event to hide additional options for a subtask.
  * @function mouseOut
@@ -112,7 +106,6 @@ function mouseOut(index) {
     iconSection.classList.add("d-none");
   }
 }
-
 
 /**
  * Prepares a subtask for editing by replacing it with an input field.
@@ -133,7 +126,6 @@ function editSubtask(index) {
   subtaskToEdit.querySelector("input").focus();
 }
 
-
 /**
  * Saves the edited value of a subtask and updates the display.
  * @function saveEditedSubtask
@@ -151,7 +143,6 @@ function saveEditedSubtask(index) {
   }
 }
 
-
 /**
  * Clears the input field for entering subtasks.
  * @function clearSubtaskInput
@@ -163,7 +154,6 @@ function clearSubtaskInput() {
   let subtask = (document.getElementById("subtask").value = "");
   return subtask;
 }
-
 
 /**
  * Removes a subtask and its corresponding task state from the task's subtasks and taskStates arrays respectively.
@@ -179,7 +169,6 @@ function deleteSubtask(index) {
   showSubtasks();
 }
 
-
 /**
  * Updates the icons for subtask inputs by replacing the content of the container with new SVG icons.
  * Retrieves the container element by its ID "subTaskSvgContainer" and updates its innerHTML with the rendered SVG icons.
@@ -191,7 +180,6 @@ function changeSubtaskInputIcons() {
   let subTaskSvgContainer = document.getElementById("subTaskSvgContainer");
   subTaskSvgContainer.innerHTML = renderSubtaskInputIcons();
 }
-
 
 /**
  * Sets focus to the input field for adding subtasks by programmatically clicking on it and then focusing on it.
