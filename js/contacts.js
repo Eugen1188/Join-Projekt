@@ -122,8 +122,11 @@ async function saveNewUserData() {
     phone: "No data stored",
   });
   id++;
-  setItem("id", id);
-  setItem("userData", userData);
+  await setItem("id", id);
+  await setItem("userData", userData);
+  if (window.location.href=="https://join-63.developerakademie.net/index.html") {
+    showRegistrationAnimation()
+  }
 }
 
 

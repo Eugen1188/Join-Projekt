@@ -177,11 +177,11 @@ function templateAddTaskLeft() {
       <div class="addtask-side-left">
           <div class="input-container">
               <label>Title <span class="required-icon">*</span></label>
-              <input class="input-addtask" required id="title" type="text" autocomplete="off" />
+              <input class="input-addtask" placeholder="Enter a title" required id="title" type="text" autocomplete="off" />
           </div>
           <div class="input-container">
               <label>Description</label>
-              <textarea required name="Description" id="taskDescription" cols="30" rows="10"></textarea>
+              <textarea required name="Description" placeholder="Enter a Description" id="taskDescription" cols="30" rows="10"></textarea>
           </div>
           ${templateAddTaskAssignee()}
           <div class="required-info">
@@ -299,7 +299,7 @@ function templateAddTaskSubtask() {
       <div class="input-container">
       <label for="subtask">Subtask</label>
       <div class="add-subtask">
-        <input class="input-addtask" autocomplete="off" name="subtask" id="subtask" type="text" minlength="5" maxlength="33" onkeypress=" checkKeyPressAndPushSubtask(event)"  onclick="changeSubtaskInputIcons()" onkeyup="getInput()" />
+        <input class="input-addtask" autocomplete="off" placeholder="Enter a Subtask" name="subtask" id="subtask" type="text" minlength="5" maxlength="33" onkeypress=" checkKeyPressAndPushSubtask(event)"  onclick="changeSubtaskInputIcons()" onkeyup="getInput()" />
         <div id="subTaskSvgContainer" class="svg-container">
           <svg class="svg-plusicon" id="subTaskPlusIcon" width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <mask id="mask0_136369_4669" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="24">
@@ -464,8 +464,8 @@ function templateEditOverlayAssignees() {
           </svg>
         </div>
         <div id="contact-values" class="d-none contact-values contact-values-edit"></div>
-        <div class="show-selected-contacts-container">
-          <div id="choosenContacts" class="choosen-contacts"></div>
+        <div class="show-selected-contacts-container-edit">
+          <div id="choosenContacts" class="choosen-contacts-edit"></div>
         </div>
       </div>`
 }

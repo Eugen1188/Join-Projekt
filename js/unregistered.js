@@ -5,9 +5,11 @@
  */
 async function initUnregistered(){
     logedInUser = await getItemContacts("logedInUser");
-    renderLogedUser()
+    
     if (logedInUser.length == 0) {
         addCss('../styles/unregistered.css');
+    }else{
+        renderLogedUser();
     }
 }
 

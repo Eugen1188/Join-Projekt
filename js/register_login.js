@@ -99,3 +99,12 @@ function showRegistrationAnimation() {
     window.location.href = './index.html';;
   }, 1000);
 }
+
+function	passOutline(){
+  let passwordReg = document.getElementById('password-reg');
+  let repPasswordReg = document.getElementById('rep-password-reg');
+  if (passwordReg.value != repPasswordReg) {
+    passwordReg.style.outline = 'red';
+    repPasswordReg.style.outline = 'red';
+  }
+}

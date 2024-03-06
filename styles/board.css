@@ -244,16 +244,12 @@
     justify-content: space-between;
 }
 
-.board-card-assignee {
-    display: flex;
-}
-
 .assignee {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 32px;
-    width: 32px;
+    min-width: 32px;
     border-radius: 50%;
     color: white;
     font-size: 12px;
@@ -309,6 +305,7 @@
     gap: 24px;
     position: absolute;
     left: 150vw;
+    max-height: 843px;
     width: calc(525px - 80px);
     background-color: white;
     z-index: 2000;
@@ -317,6 +314,11 @@
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
     transition: all 125ms ease-in-out;
     overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.task-overlay-content::-webkit-scrollbar{
+    display: none;
 }
 
 .task-overlay-top img:hover {
