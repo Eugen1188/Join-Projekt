@@ -9,15 +9,11 @@
   --Logout-font-color: #cdcdcd;
 }
 
-html {
-  height: webkit-fill-available;
-}
-
 body {
   width: 100%;
   margin: 0;
   font-family: "Inter", sans-serif;
-  height: webkit-fill-available;
+  height: 100vh;
   background-color: var(--background-color-site);
   position: relative;
   overflow: hidden;

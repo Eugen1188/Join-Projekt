@@ -158,6 +158,18 @@ async function addNewContactToContactlist() {
   }
 }
 
+function disabledBtn() {
+  let name = document.getElementById("name").value.trim();
+  let email = document.getElementById("email").value.trim();
+  let phone = document.getElementById("phone").value.trim();
+  let disabledBtn = document.getElementById("submitContact");
+  if (!name || !email || !phone) {
+    disabledBtn.disabled = true;
+    return
+  }
+  disabledBtn.disabled = false;
+
+}
 
 /** sets the item in the local storage  */
 function sortArrayByUserName() {
@@ -447,4 +459,14 @@ async function updateLogedInUserInUserDataArray() {
     userData[checkUserId] = logedInUser[0];
     await setItem("userData", userData);
   }
+}
+
+
+function checkIfOnlyNumbers(id) {
+  const inputElement = document.getElementById(id);
+  inputElement.addEventListener('input', function () {
+    if (!/^\+?\d*$/.test(this.value)) {
+      this.value = this.value.replace(/[^\d+]|(?!^)\+/g, '');
+    }
+  });
 }
