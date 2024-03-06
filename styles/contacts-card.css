@@ -91,7 +91,7 @@
 
 .contact-info-card a {
     text-decoration: none;
-    color: var(--contacts-link-color);
+    color: var(--light-blue);
 }
 
 .contact-info-card .second-cart-font {
