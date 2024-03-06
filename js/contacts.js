@@ -124,6 +124,9 @@ async function saveNewUserData() {
   id++;
   setItem("id", id);
   setItem("userData", userData);
+  if (window.location.href == 'https://join-63.developerakademie.net/index.html' || 'http://127.0.0.1:5500/index.html') {
+    showRegistrationAnimation();
+  }
 }
 
 
