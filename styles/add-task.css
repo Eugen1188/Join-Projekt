@@ -245,6 +245,8 @@
   display: flex;
   align-items: center;
   position: absolute;
+  flex-wrap: wrap;
+  width: 416px;
 }
 
 .required-info {
