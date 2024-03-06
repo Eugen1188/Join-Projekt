@@ -233,7 +233,8 @@ function setSubmitButtonStateAndStyle(titleValue, inputDateFieldValue, categoryV
  * @author Christian Förster
  */
 
-function validateForm(index) {
+/**
+ * function validateForm(index) {
   getCheckedContact();
   let lengthCheckedContacts = checkedContacts.length;
   let prioInputs = document.getElementsByName("priority");
@@ -248,9 +249,13 @@ function validateForm(index) {
     alert("select a Prio Value !");
   } else addTask(index);
 }
+ */
 
 /**
- * Clears all field inputs by reloading the page.
+ *Clears field inputs and resets form state.
+ *This function clears various field inputs within a form and resets its state.
+ *It resets the form using the reset() method, clears specific input values,
+ *inner HTML content, resets certain variables, and triggers additional functions.
  * @function clearFieldInputs
  * @author Christian Förster
  */
