@@ -122,11 +122,8 @@ async function saveNewUserData() {
     phone: "No data stored",
   });
   id++;
-  await setItem("id", id);
-  await setItem("userData", userData);
-  if (window.location.href=="https://join-63.developerakademie.net/index.html") {
-    showRegistrationAnimation()
-  }
+  setItem("id", id);
+  setItem("userData", userData);
 }
 
 
@@ -138,7 +135,7 @@ async function addNewContactToContactlist() {
   let helper = name.split(" ");
   let email = document.getElementById("email").value.trim();
   let phone = document.getElementById("phone").value.trim();
-  if (checkEmailAddress(email, contacts)) {
+  if (checkEmailAddress(email, contacts) || !isValidEmail(email)) {
     return;
   }
   if (name && email && phone) {
@@ -161,18 +158,6 @@ async function addNewContactToContactlist() {
   }
 }
 
-function disabledBtn() {
-  let name = document.getElementById("name").value.trim();
-  let email = document.getElementById("email").value.trim();
-  let phone = document.getElementById("phone").value.trim();
-  let disabledBtn = document.getElementById("submitContact");
-  if (!name || !email || !phone) {
-    disabledBtn.disabled = true;
-    return
-  }
-  disabledBtn.disabled = false;
-
-}
 
 /** sets the item in the local storage  */
 function sortArrayByUserName() {
@@ -398,7 +383,6 @@ const goBackToContactListMobile = () => {
 }
 
 
-
 /**
  * Sets the mobile add button to its default state.
  */
@@ -441,7 +425,7 @@ async function setLogedInUserInContactsArray() {
   // let logedInUser = await getItemContacts("logedInUser");
   let checkUserId = contacts.findIndex(contact => contact.id === logedInUser[0].id);
   if (logedInUser.length != "Guest" && !logedInUser[0].id) {
-      return;
+    return;
   }
   if (checkUserId == -1) {
     contacts.push(logedInUser[0]);
@@ -465,6 +449,10 @@ async function updateLogedInUserInUserDataArray() {
 }
 
 
+/**
+ * Checks if the input value contains only numbers and optional plus sign.
+ * @param {string} id - The ID of the input element.
+ */
 function checkIfOnlyNumbers(id) {
   const inputElement = document.getElementById(id);
   inputElement.addEventListener('input', function () {
@@ -472,4 +460,33 @@ function checkIfOnlyNumbers(id) {
       this.value = this.value.replace(/[^\d+]|(?!^)\+/g, '');
     }
   });
+}
+
+
+/**
+ * Checks if the given email is valid.
+ *
+ * @param {string} email - The email to be validated.
+ * @returns {boolean} - True if the email is valid, false otherwise.
+ */
+function isValidEmail(email) {
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  return emailRegex.test(email);
+}
+
+
+/**
+ * Disables or enables the submit button based on the input fields' values.
+ */
+function disabledBtn() {
+  let name = document.getElementById("name").value.trim();
+  let email = document.getElementById("email").value.trim();
+  let phone = document.getElementById("phone").value.trim();
+  let disabledBtn = document.getElementById("submitContact");
+  if (!name || !isValidEmail(email) || !phone) {
+    disabledBtn.disabled = true;
+    return
+  }
+  disabledBtn.disabled = false;
+
 }
