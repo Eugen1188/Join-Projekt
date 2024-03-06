@@ -14,6 +14,8 @@ function clearBoardAddTask(){
     uncheckPrioButtons();
     invertSvgFills("medium");
     handleClick("medium");
+    checkedContacts = [];
+    subtasks = [];
 }
 
 

@@ -1,3 +1,5 @@
+logedInUser=[];
+
 /**
  * init function to load the registered contacts
  *
@@ -32,7 +34,8 @@ async function logIn() {
   }
   document.getElementById('email').value = '';
   document.getElementById('password').value = '';
-  alert('Email Adresse oder Passwort falsch !');
+
+  passOutlineLogIn();
 }
 
 
@@ -112,5 +115,19 @@ function	passOutline(){
     passwordReg.style.border = '2px solid #ff8190';
     repPasswordReg.style.border = '2px solid #ff8190';
     document.getElementById('inputRequired').classList.remove('d-none')
+  }
+}
+
+/**
+ * function to highlight if the passwords in signup dont match
+ * @author Kevin Mueller
+ */
+function	passOutlineLogIn(){
+  let passwordReg = document.getElementById('email');
+  let repPasswordReg = document.getElementById('password');
+  if (passwordReg.value != repPasswordReg) {
+    passwordReg.style.border = '2px solid #ff8190';
+    repPasswordReg.style.border = '2px solid #ff8190';
+    document.getElementById('inputRequiredLogIn').classList.remove('d-none')
   }
 }
