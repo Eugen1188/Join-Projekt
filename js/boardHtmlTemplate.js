@@ -181,7 +181,7 @@ function templateAddTaskLeft() {
           </div>
           <div class="input-container">
               <label>Description</label>
-              <textarea required name="Description" placeholder="Enter a Description" id="taskDescription" cols="30" rows="10"></textarea>
+              <textarea name="Description" placeholder="Enter a Description" id="taskDescription" cols="30" rows="10"></textarea>
           </div>
           ${templateAddTaskAssignee()}
           <div class="required-info">
