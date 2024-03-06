@@ -1,4 +1,8 @@
 logedInUser=[];
+setItem("logedInUser", logedInUser);
+localStorage.setItem('rememberedEmail', '');
+localStorage.setItem('rememberedPassword', '');
+
 
 /**
  * init function to load the registered contacts
