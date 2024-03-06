@@ -74,12 +74,12 @@
         </div>
 
         <div class="form-cont">
-          <form onchange="showRegisterButton()" onsubmit="saveNewUserData(); return false">
+          <form onchange="showRegisterButton()" onsubmit="saveNewUserData(), passOutline(); return false">
             <input autocomplete="off" class="input-field" type="text" name="" id="name-reg" placeholder="Name" required />
             <input autocomplete="off" class="input-field" type="email" name="" id="email-reg" placeholder="Email" required />
             <input autocomplete="off" class="input-field" type="password" name="" id="password-reg" placeholder="Password" required />
             <input autocomplete="off" class="input-field" type="password" name="" id="rep-password-reg" placeholder="Confirm Password" required />
-
+            <span id="inputRequired" class="d-none">* Passwords don't match</span>
             <div class="checkbox-cont">
               <label class="checkboxlabel">
                 <span>I accept the <a class="privacy-policy-span" href="privacy-policy.html" onclick="showInfoForUnloggedUser()">Privacy policy</a> </span>
