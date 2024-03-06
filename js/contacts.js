@@ -124,6 +124,9 @@ async function saveNewUserData() {
   id++;
   setItem("id", id);
   setItem("userData", userData);
+  if (window.location.href == 'https://join-63.developerakademie.net/index.html' || 'http://127.0.0.1:5500/index.html') {
+    showRegistrationAnimation();
+  }
 }
 
 
@@ -491,12 +494,12 @@ function disabledBtn() {
 
 }
 
-function ifEmailIsValisAddorEditContacts(functionName) {
+async function ifEmailIsValisAddorEditContacts(functionName) {
   let email = document.getElementById("email").value.trim();
   let disabledBtn = document.getElementById("submitContact");
-  if (!isValidEmail(email)) {
-    disabledBtn.disabled = true;
+  if (await !isValidEmail(email)) {
     return
   }
   functionName
+  closeRenderContactCardSlide()
 }

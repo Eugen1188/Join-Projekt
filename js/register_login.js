@@ -111,7 +111,7 @@ function showRegistrationAnimation() {
 function	passOutline(){
   let passwordReg = document.getElementById('password-reg');
   let repPasswordReg = document.getElementById('rep-password-reg');
-  if (passwordReg.value != repPasswordReg) {
+  if (passwordReg.value != repPasswordReg.value) {
     passwordReg.style.border = '2px solid #ff8190';
     repPasswordReg.style.border = '2px solid #ff8190';
     document.getElementById('inputRequired').classList.remove('d-none')
