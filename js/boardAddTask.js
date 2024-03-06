@@ -4,23 +4,26 @@
  * @author Kevin Mueller
  */
 function clearBoardAddTask(){
-    document.getElementById('title').value = ''
-    document.getElementById('taskDescription').value = ''
-    document.getElementById('choosenContacts').innerHTML = ''
-    document.getElementById('date').value = ''
-    document.getElementById('dateNormal').value = ''
-    document.getElementById('category').value = ''
-    document.getElementById('subtask').value = ''
+    document.getElementById('title').value = '';
+    document.getElementById('taskDescription').value = '';
+    document.getElementById('choosenContacts').innerHTML = '';
+    document.getElementById('date').value = '';
+    document.getElementById('dateNormal').value = '';
+    document.getElementById('category').value = '';
+    document.getElementById('subtask').value = '';
     uncheckPrioButtons();
     invertSvgFills("medium");
     handleClick("medium");
-    
 }
 
+
+/**
+ * function to reset the prio buttons
+ */
 function uncheckPrioButtons(){
-    document.getElementById('urgent').checked = false
-    document.getElementById('medium').checked = true
-    document.getElementById('low').checked = false
+    document.getElementById('urgent').checked = false;
+    document.getElementById('medium').checked = true;
+    document.getElementById('low').checked = false;
 }
 
 
