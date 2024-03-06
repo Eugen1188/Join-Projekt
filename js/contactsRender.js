@@ -76,7 +76,7 @@ function renderAddNewContact() {
     const formConfig = {
         cardName: "Add contact",
         secondText: "Tasks are better with a team!",
-        functionName: `addNewContactToContactlist(); closeRenderContactCardSlide()`,
+        functionName: `addNewContactToContactlist()`,
         secontFunction: `closeRenderContactCardSlide()`,
         deleteOrClosebtn: "Close",
         saveOrCreateContact: "Create contact",
@@ -100,7 +100,7 @@ function renderEditContact(userId, userIndex) {
     const formConfig = {
         cardName: "Edit contact",
         secondText: "",
-        functionName: `editContact(${userId}); closeRenderContactCardSlide()`,
+        functionName: `editContact(${userId})`,
         secontFunction: `deleteContact(${userId}); closeRenderContactCardSlide()`,
         deleteOrClosebtn: "Delete",
         saveOrCreateContact: "Save",

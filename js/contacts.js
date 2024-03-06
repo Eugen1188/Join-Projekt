@@ -491,12 +491,12 @@ function disabledBtn() {
 
 }
 
-function ifEmailIsValisAddorEditContacts(functionName) {
+async function ifEmailIsValisAddorEditContacts(functionName) {
   let email = document.getElementById("email").value.trim();
   let disabledBtn = document.getElementById("submitContact");
-  if (!isValidEmail(email)) {
-    disabledBtn.disabled = true;
+  if (await !isValidEmail(email)) {
     return
   }
   functionName
+  closeRenderContactCardSlide()
 }
