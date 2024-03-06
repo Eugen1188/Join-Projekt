@@ -17,6 +17,12 @@ main {
     left: 328px;
     width: calc(100% - 400px);
     gap: 35px;
+    height: calc(100% - 252px);
+    overflow-y: scroll;
+}
+
+main::-webkit-scrollbar{
+    display: none;
 }
 
 .policy-headline {
