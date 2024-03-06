@@ -290,6 +290,7 @@ function clearFieldInputs() {
   checkedContacts = [];
   subtasks = [];
   getRequiredFormInputs();
+  clearActiveContacts();
 }
 
 /**

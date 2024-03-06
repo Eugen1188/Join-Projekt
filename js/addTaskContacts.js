@@ -10,7 +10,6 @@ async function initContacts() {
   getAllContacts();
 }
 
-
 /**
  * Retrieves all contacts and displays them.
  * @function getAllContacts
@@ -20,7 +19,6 @@ async function initContacts() {
 function getAllContacts() {
   displayContacts(tempContacts);
 }
-
 
 /**
  * Displays a list of contacts in a select element on the DOM.
@@ -40,7 +38,6 @@ function displayContacts(contacts) {
   selectElement.innerHTML = optionsHTML;
 }
 
-
 /**
  * Toggles the visibility of a list of contacts.
  * @function showContacts
@@ -58,7 +55,6 @@ function showContacts() {
     closeContactValueOnDifferentClickTarget();
   }
 }
-
 
 /**
  * Closes the contact values dropdown when clicking outside this specific element and its components.
@@ -84,7 +80,6 @@ function closeContactValueOnDifferentClickTarget(index) {
   };
 }
 
-
 /**
  * Retrieves information about a clicked contact and updates its visual representation.
  * @function getClickedContact
@@ -103,7 +98,6 @@ function getClickedContact(index, contactId) {
   checkClickedContact(iconToChange, contactCard, checkBoxIconColor, isChecked, index, contactId);
   closeContactValueOnDifferentClickTarget(index);
 }
-
 
 /**
  * Updates the visual representation of a clicked contact based on its current state.
@@ -135,6 +129,20 @@ function checkClickedContact(iconToChange, contactCard, checkBoxIconColor, isChe
   showChoosenContactsCircle();
 }
 
+/**
+ * Clears the active state of contacts by removing the "active" class from their corresponding elements
+ * and resetting checkbox icons to default.
+ * @function clearActiveContacts
+ * @author Christian Förster
+ */
+
+function clearActiveContacts() {
+  for (let index = 0; index < tempContacts.length; index++) {
+    document.getElementById(`checkboxIcon_${index}`).innerHTML = renderBoxIcon();
+    document.getElementById(`contact_${index}`).classList.remove("active");
+    document.getElementById(`checkboxIcon_${index}`).classList.remove("stroke-wht");
+  }
+}
 
 /**
  * Filters and displays contacts based on the input value.
@@ -160,7 +168,6 @@ function filterContacts() {
   displayFilteredContacts(filteredContacts);
 }
 
-
 /**
  * Displays filtered contacts by passing them to the function responsible for displaying contacts.
  * @function displayFilteredContacts
@@ -171,7 +178,6 @@ function filterContacts() {
 function displayFilteredContacts(filteredContacts) {
   displayContacts(filteredContacts);
 }
-
 
 /**
  * Renders circles representing chosen contacts and displays them in the designated container.
@@ -195,7 +201,6 @@ function showChoosenContactsCircle() {
     });
   });
 }
-
 
 /**
  * Retrieves information about checked contacts and stores it in various arrays.
