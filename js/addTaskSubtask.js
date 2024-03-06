@@ -136,7 +136,7 @@ function editSubtask(index) {
 function saveEditedSubtask(index) {
   let newSubtaskValue = document.getElementById("changedSubtaskValue").value;
   if (newSubtaskValue == "") {
-    alert("Please enter a value");
+    checkSubtasknputField();
   } else {
     subtasks[index] = newSubtaskValue;
     showSubtasks();
