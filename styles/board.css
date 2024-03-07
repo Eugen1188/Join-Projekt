@@ -321,6 +321,7 @@
     display: none;
 }
 
+
 .task-overlay-top img:hover {
     background-color: rgba(0, 0, 0, 0.1);
     border-radius: 50% 50%;
