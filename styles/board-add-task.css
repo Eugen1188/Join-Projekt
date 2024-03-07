@@ -173,6 +173,7 @@ label.radio-button {
 
 .button-container{
     top: 241px;
+    height: min-content;
 }
 
 .task-added{

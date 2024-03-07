@@ -321,7 +321,7 @@ function getContactIndex(id) {
  * @author Kevin Mueller
  */
 async function editTask(index) {
-  await addTask(index);
+  await validateForm(index);
   renderTaskOverlay(index);
 }
 

@@ -11,6 +11,7 @@ function clearBoardAddTask(){
     document.getElementById('dateNormal').value = '';
     document.getElementById('category').value = '';
     document.getElementById('subtask').value = '';
+    document.getElementById('showSubtasks').innerHTML = '';
     uncheckPrioButtons();
     invertSvgFills("medium");
     handleClick("medium");
