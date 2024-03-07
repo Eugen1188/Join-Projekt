@@ -61,6 +61,11 @@ async function contacts() {
   renderLogedUser();
 }
 
+function validateForm(index) {
+  getCheckedContact();
+  addTask(index);
+}
+
 /**
  * Handles click events and updates the priority button color based on the provided value.
  * @function handleClick
