@@ -24,10 +24,11 @@ async function initContacts() {
  * @returns {void} - returns nothing
  * */
 async function editContact(userId) {
+  console.log("button clicked");
   const nameValue = document.getElementById("name").value.trim();
   const emailValue = document.getElementById("email").value.trim();
   const phoneValue = document.getElementById("phone").value.trim();
-  if (nameValue && emailValue && phoneValue) {
+  if (nameValue && isValidEmail(emailValue) && phoneValue) {
     let inedxOfContact = contacts.findIndex(contact => contact.id === userId);
     if (inedxOfContact != -1) {
       let editName = nameValue.split(" ")
@@ -495,10 +496,10 @@ function disabledBtn() {
 
 async function ifEmailIsValisAddorEditContacts(functionName) {
   let email = document.getElementById("email").value.trim();
-  let disabledBtn = document.getElementById("submitContact");
   if (await !isValidEmail(email)) {
     return
+  } else {
+    functionName
+    closeRenderContactCardSlide()
   }
-  functionName
-  closeRenderContactCardSlide()
 }
