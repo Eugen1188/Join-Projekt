@@ -176,7 +176,8 @@ function templateAddTaskLeft() {
       <div class="addtask-side-left">
           <div class="input-container">
               <label>Title <span class="required-icon">*</span></label>
-              <input class="input-addtask" placeholder="Enter a title" required id="title" type="text" autocomplete="off" />
+              <input onclick="checkTitleInputField()" autocomplete="off" onkeyup="checkTitleInputField();getRequiredFormInputs()" placeholder="Enter a title" class="input-addtask input-focus-required" id="title" type="text" required="">          
+              <span id="inputReqiuredSpanTitle" class="required-input-info d-none">this field is required</span>
           </div>
           <div class="input-container">
               <label>Description</label>
@@ -217,9 +218,8 @@ function templateAddTaskDueDate() {
   return `
       <div class="input-container">
         <label>Due Date <span class="required-icon">*</span></label>
-        <input onclick="checkDateInputField()" autocomplete="off" onkeyup="checkDateInputField()" class="input-addtask-date-modified" id="date" type="text" maxlength="10" placeholder="dd/mm/yyyy" pattern="\\d{2}/\\d{2}/\\d{4}" required />
-        <input type="date" id="dateNormal" autocomplete="off" class="input-addtask-datepicker" pattern="\\d{2}/\\d{2}/\\d{4}" onchange="formatDateInput();updateDateFieldValue()" />
-        <span id="inputReqiuredSpanDate" class="required-input-info d-none">this field is required</span>
+        <input onclick="checkDateInputField()" autocomplete="off" onkeyup="checkDateInputField();getRequiredFormInputs()" class="input-addtask-date-modified" id="date" type="text" maxlength="10" placeholder="dd/mm/yyyy" pattern="\d{2}/\d{2}/\d{4}" required />
+        <input type="date" id="dateNormal" autocomplete="off" class="input-addtask-datepicker pointer" pattern="\d{2}/\d{2}/\d{4}" onchange="formatDateInput();updateDateFieldValue();getRequiredFormInputs()" />        <span id="inputReqiuredSpanDate" class="required-input-info d-none">this field is required</span>
         <div class="due-date-icon">
           <svg class="d-none" width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <mask id="mask0_138036_1819" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="24">
