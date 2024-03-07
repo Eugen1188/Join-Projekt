@@ -16,14 +16,14 @@ function templateCard(task) {
                   <img src="./assets/img/${task.prio}.png" alt="prio-low">
               </div>
           </div>
-      </div>`
+      </div>`;
 }
 
 function templateNoTask() {
   return `
       <div class="board-no-task">
           <span>No tasks To do</span>
-      </div>`
+      </div>`;
 }
 
 function templateCardTopContent(task) {
@@ -57,11 +57,11 @@ function templateCardTopContent(task) {
         <div class="max-lines">
             <span>${task.taskDescription}</span>
         </div>
-      </div>`
+      </div>`;
 }
 
 function templateCardAssignee(assignee, color) {
-  return `<div class="assignee ${color}" >${assignee}</div>`
+  return `<div class="assignee ${color}" >${assignee}</div>`;
 }
 
 function templateTaskOverlay(task) {
@@ -83,7 +83,7 @@ function templateTaskOverlay(task) {
               ${renderSubtask(task)}
           </div>
       </div>
-      ${templateOverlayMenu(task)}`
+      ${templateOverlayMenu(task)}`;
 }
 
 function templateOverlayTopContent(task) {
@@ -97,7 +97,7 @@ function templateOverlayTopContent(task) {
       <div class="task-overlay-section">
           <span class="task-overlay-text task-overlay-text-fix">Priority:</span>
           <span class="task-overlay-text board-prio-pad">${task.prio} <img src="./assets/img/${task.prio}.png" alt=""></span>
-      </div>`
+      </div>`;
 }
 
 function templateOverlayAssignee(assignee, name, color) {
@@ -105,7 +105,7 @@ function templateOverlayAssignee(assignee, name, color) {
       <div class="task-overlay-assignee">
           <div class="assignee ${color}">${assignee}</div>
           <span>${name}</span>
-      </div>`
+      </div>`;
 }
 
 function templateOverlaySubtask(index, subtask, task, source) {
@@ -113,7 +113,7 @@ function templateOverlaySubtask(index, subtask, task, source) {
       <div class="task-subtask" onclick="checkedSubtask(${index}, ${task.id})">
           <img id="sub${index}" src="${source}">
           <span>${subtask}</span>
-      </div>`
+      </div>`;
 }
 
 function templateOverlayMenu(task) {
@@ -132,22 +132,21 @@ function templateOverlayMenu(task) {
           </svg>
           <span>Edit</span>
         </div>
-      </div> `
+      </div> `;
 }
 
 function templateProgressBar(progress) {
   return `
       <div class="task-progress-blank">
         <div class="task-progress" style="width:${progress}%"></div>
-      </div>`
+      </div>`;
 }
 
 function templateGhostCard() {
-  return `<div id="ghostcard" class="ghost-card"></div>`
+  return `<div id="ghostcard" class="ghost-card"></div>`;
 }
 
 function templateAddTaskBoard() {
-
   return `
       <div class="task-headline">
           <h1>Add Task</h1>
@@ -169,7 +168,7 @@ function templateAddTaskBoard() {
           ${templateAddTaskCategory()}
           ${templateAddTaskSubtask()}
           ${templateAddTaskButton()}
-      </form>`
+      </form>`;
 }
 
 function templateAddTaskLeft() {
@@ -190,7 +189,7 @@ function templateAddTaskLeft() {
               This field is required
             </div>
           </div>
-      </div>`
+      </div>`;
 }
 
 function templateAddTaskAssignee() {
@@ -211,9 +210,8 @@ function templateAddTaskAssignee() {
     <div id="choosenContacts" class="choosen-contacts"></div>
   </div>
 </div>
-`
+`;
 }
-
 
 function templateAddTaskDueDate() {
   return `
@@ -232,7 +230,7 @@ function templateAddTaskDueDate() {
             </g>
           </svg>
         </div>
-      </div>`
+      </div>`;
 }
 
 function templateAddTaskPrioUrgent() {
@@ -250,7 +248,7 @@ function templateAddTaskPrioUrgent() {
             </clipPath>
           </defs>
         </svg>
-      </label>`
+      </label>`;
 }
 
 function templateAddTaskPrioMedium() {
@@ -268,7 +266,7 @@ function templateAddTaskPrioMedium() {
             </clipPath>
           </defs>
         </svg>
-      </label>`
+      </label>`;
 }
 
 function templateAddTaskPrioLow() {
@@ -279,7 +277,7 @@ function templateAddTaskPrioLow() {
           <path d="M10.8555 9.69779C10.6209 9.69819 10.3923 9.62335 10.2035 9.48427L1.30038 2.91453C1.18454 2.82898 1.0867 2.72146 1.01245 2.59812C0.938193 2.47478 0.888977 2.33803 0.867609 2.19569C0.824455 1.90821 0.897354 1.61537 1.07027 1.3816C1.24319 1.14782 1.50196 0.992265 1.78965 0.949143C2.07734 0.906021 2.3704 0.978866 2.60434 1.15165L10.8555 7.23414L19.1066 1.15165C19.2224 1.0661 19.354 1.00418 19.4938 0.969432C19.6336 0.934685 19.7788 0.927791 19.9213 0.949143C20.0637 0.970495 20.2006 1.01967 20.324 1.09388C20.4474 1.16808 20.555 1.26584 20.6407 1.3816C20.7263 1.49735 20.7883 1.62882 20.823 1.7685C20.8578 1.90818 20.8647 2.05334 20.8433 2.19569C20.822 2.33803 20.7727 2.47478 20.6985 2.59812C20.6242 2.72146 20.5264 2.82898 20.4106 2.91453L11.5075 9.48427C11.3186 9.62335 11.0901 9.69819 10.8555 9.69779Z" fill="#7AE229"/>
           <path d="M10.8555 15.4463C10.6209 15.4467 10.3923 15.3719 10.2035 15.2328L1.30038 8.66307C1.06644 8.49028 0.910763 8.2317 0.867609 7.94422C0.824455 7.65674 0.897354 7.3639 1.07027 7.13013C1.24319 6.89636 1.50196 6.7408 1.78965 6.69768C2.07734 6.65456 2.3704 6.7274 2.60434 6.90019L10.8555 12.9827L19.1066 6.90019C19.3405 6.7274 19.6336 6.65456 19.9213 6.69768C20.209 6.7408 20.4678 6.89636 20.6407 7.13013C20.8136 7.3639 20.8865 7.65674 20.8433 7.94422C20.8002 8.2317 20.6445 8.49028 20.4106 8.66307L11.5075 15.2328C11.3186 15.3719 11.0901 15.4467 10.8555 15.4463Z" fill="#7AE229"/>
         </svg>
-      </label>`
+      </label>`;
 }
 
 function templateAddTaskCategory() {
@@ -291,7 +289,7 @@ function templateAddTaskCategory() {
           <option value="Technical Task">Technical Task</option>
           <option value="User Story">User Story</option>
         </select>
-      </div> `
+      </div> `;
 }
 
 function templateAddTaskSubtask() {
@@ -299,7 +297,7 @@ function templateAddTaskSubtask() {
       <div class="input-container">
       <label for="subtask">Subtask</label>
       <div class="add-subtask">
-        <input class="input-addtask" autocomplete="off" placeholder="Enter a Subtask" name="subtask" id="subtask" type="text" minlength="5" maxlength="33" onkeypress=" checkKeyPressAndPushSubtask(event)"  onclick="changeSubtaskInputIcons()" onkeyup="getInput()" />
+        <input class="input-addtask" autocomplete="off" placeholder="Enter a Subtask" name="subtask" id="subtask" type="text" minlength="5" maxlength="33" onkeypress=" checkKeyPressAndPushSubtask(event);checkSubtasknputField()"  onclick="changeSubtaskInputIcons()" onkeyup="getInput()" />
         <div id="subTaskSvgContainer" class="svg-container">
           <svg class="svg-plusicon" id="subTaskPlusIcon" width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <mask id="mask0_136369_4669" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="24">
@@ -311,9 +309,10 @@ function templateAddTaskSubtask() {
           </svg>
         </div>
       </div>
+        <span id="inputReqiuredSpanSubtask" class="required-input-info d-none">Please enter a value to create or edit a subtask</span>
       <div>
         <div id="showSubtasks" class="show-subtasks"></div>
-      </div>`
+      </div>`;
 }
 
 function templateAddTaskButton() {
@@ -329,7 +328,7 @@ function templateAddTaskButton() {
             <path d="M5.79923 9.15L14.2742 0.675C14.4742 0.475 14.7117 0.375 14.9867 0.375C15.2617 0.375 15.4992 0.475 15.6992 0.675C15.8992 0.875 15.9992 1.1125 15.9992 1.3875C15.9992 1.6625 15.8992 1.9 15.6992 2.1L6.49923 11.3C6.29923 11.5 6.0659 11.6 5.79923 11.6C5.53256 11.6 5.29923 11.5 5.09923 11.3L0.79923 7C0.59923 6.8 0.503397 6.5625 0.51173 6.2875C0.520064 6.0125 0.62423 5.775 0.82423 5.575C1.02423 5.375 1.26173 5.275 1.53673 5.275C1.81173 5.275 2.04923 5.375 2.24923 5.575L5.79923 9.15Z" fill="white"/>
           </svg>
         </button>
-      </div>`
+      </div>`;
 }
 
 function templateEditOverlay(task) {
@@ -360,7 +359,7 @@ function templateEditOverlay(task) {
         </div>
       </div>
       ${TemplateEditOverlayCheckButton(task)}
-  `
+  `;
 }
 
 function templateEditOverlayTitleDescription(task) {
@@ -372,7 +371,7 @@ function templateEditOverlayTitleDescription(task) {
       <div class="input-container-edit">
         <span>Description</span>
         <textarea required name="Description" id="taskDescription" cols="30" rows="10">${task.taskDescription}</textarea>
-      </div> `
+      </div> `;
 }
 
 function templateEditOverlayDueDate(task) {
@@ -391,7 +390,7 @@ function templateEditOverlayDueDate(task) {
             </g>
           </svg>
         </div>
-      </div>`
+      </div>`;
 }
 
 function templateEditOverlayPrioUrgent() {
@@ -410,7 +409,7 @@ function templateEditOverlayPrioUrgent() {
             </clipPath>
           </defs>
         </svg>
-      </label>`
+      </label>`;
 }
 
 function templateEditOverlayPrioMedium() {
@@ -429,7 +428,7 @@ function templateEditOverlayPrioMedium() {
             </clipPath>
           </defs>
         </svg>
-      </label>`
+      </label>`;
 }
 
 function templateEditOverlayPrioLow() {
@@ -445,7 +444,7 @@ function templateEditOverlayPrioLow() {
             d="M10.8555 15.4463C10.6209 15.4467 10.3923 15.3719 10.2035 15.2328L1.30038 8.66307C1.06644 8.49028 0.910763 8.2317 0.867609 7.94422C0.824455 7.65674 0.897354 7.3639 1.07027 7.13013C1.24319 6.89636 1.50196 6.7408 1.78965 6.69768C2.07734 6.65456 2.3704 6.7274 2.60434 6.90019L10.8555 12.9827L19.1066 6.90019C19.3405 6.7274 19.6336 6.65456 19.9213 6.69768C20.209 6.7408 20.4678 6.89636 20.6407 7.13013C20.8136 7.3639 20.8865 7.65674 20.8433 7.94422C20.8002 8.2317 20.6445 8.49028 20.4106 8.66307L11.5075 15.2328C11.3186 15.3719 11.0901 15.4467 10.8555 15.4463Z"
             fill="#7AE229" />
         </svg>
-      </label>`
+      </label>`;
 }
 
 function templateEditOverlayAssignees() {
@@ -467,7 +466,7 @@ function templateEditOverlayAssignees() {
         <div class="show-selected-contacts-container-edit">
           <div id="choosenContacts" class="choosen-contacts-edit"></div>
         </div>
-      </div>`
+      </div>`;
 }
 
 function templateEditOverlaySubtasks() {
@@ -475,7 +474,7 @@ function templateEditOverlaySubtasks() {
       <label class="label-subtask" for="subtask">Subtask</label>
       <div class="add-subtask">
         <input class="input-addtask" name="subtask" id="subtask" type="text" minlength="5"
-          onclick="changeSubtaskInputIcons()" onkeypress=" checkKeyPressAndPushSubtask(event)"  onkeyup="getInput()" />
+          onclick="changeSubtaskInputIcons()" onkeypress=" checkKeyPressAndPushSubtask(event);checkSubtasknputField()"  onkeyup="getInput()" />
         <div id="subTaskSvgContainer" class="svg-container">
           <svg class="svg-plusicon" id="subTaskPlusIcon" width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <mask id="mask0_136369_4669" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="24">
@@ -486,7 +485,9 @@ function templateEditOverlaySubtasks() {
             </g>
           </svg>
         </div>
-      </div>`
+      </div>
+        <span id="inputReqiuredSpanSubtask" class="required-input-info d-none">Please enter a value to create or edit a subtask</span>
+      `;
 }
 
 function TemplateEditOverlayCheckButton(task) {
@@ -496,5 +497,5 @@ function TemplateEditOverlayCheckButton(task) {
         <svg width="17" height="12" viewBox="0 0 17 12" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M6.23282 9.04673L14.7078 0.571728C14.9078 0.371729 15.1453 0.271729 15.4203 0.271729C15.6953 0.271729 15.9328 0.371729 16.1328 0.571728C16.3328 0.771728 16.4328 1.00923 16.4328 1.28423C16.4328 1.55923 16.3328 1.79673 16.1328 1.99673L6.93282 11.1967C6.73282 11.3967 6.49949 11.4967 6.23282 11.4967C5.96616 11.4967 5.73282 11.3967 5.53282 11.1967L1.23282 6.89673C1.03282 6.69673 0.936991 6.45923 0.945324 6.18423C0.953658 5.90923 1.05782 5.67173 1.25782 5.47173C1.45782 5.27173 1.69532 5.17173 1.97032 5.17173C2.24532 5.17173 2.48282 5.27173 2.68282 5.47173L6.23282 9.04673Z" fill="white"/>
         </svg>
-      </div> `
+      </div> `;
 }
