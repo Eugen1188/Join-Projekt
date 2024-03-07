@@ -297,8 +297,7 @@ function templateAddTaskSubtask() {
       <div class="input-container">
       <label for="subtask">Subtask</label>
       <div class="add-subtask">
-        <input class="input-addtask" autocomplete="off" placeholder="Enter a Subtask" name="subtask" id="subtask" type="text" minlength="5" maxlength="33" onkeypress=" checkKeyPressAndPushSubtask(event);checkSubtasknputField()"  onclick="changeSubtaskInputIcons()" onkeyup="getInput()" />
-        <div id="subTaskSvgContainer" class="svg-container">
+      <input class="input-addtask" name="subtask" id="subtask" type="text" placeholder="Add  new subtask" minlength="5" maxlength="33" onkeypress="checkKeyPressAndPushSubtask(event)" onclick="changeSubtaskInputIcons()" autocomplete="off" onkeyup="getInput()" />        <div id="subTaskSvgContainer" class="svg-container">
           <svg class="svg-plusicon" id="subTaskPlusIcon" width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <mask id="mask0_136369_4669" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="24">
               <rect x="0.248535" width="24" height="24" fill="#D9D9D9" />
