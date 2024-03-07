@@ -24,7 +24,6 @@ async function initContacts() {
  * @returns {void} - returns nothing
  * */
 async function editContact(userId) {
-  console.log("button clicked");
   const nameValue = document.getElementById("name").value.trim();
   const emailValue = document.getElementById("email").value.trim();
   const phoneValue = document.getElementById("phone").value.trim();
@@ -315,9 +314,9 @@ function setPersonToActive(id) {
  */
 function formatPhoneNumber(phoneNumber) {
   let cleaned = ('' + phoneNumber).replace(/\D/g, '');
-  let match = cleaned.match(/^(\d{2})(\d{4})(\d{3})(\d{2})(\d{1})$/);
+  let match = cleaned.match(/^(\d{1})(\d{4})(\d{3})(\d{2})(\d{1})$/);
   if (match) {
-    let countryCode = match[1] === '0' ? '+49' : '+' + match[1];
+    let countryCode = match[1] === '0' ? '+49' : match[1];
     return countryCode + ' ' + match[2] + ' ' + match[3] + ' ' + match[4] + ' ' + match[5];
   }
   return phoneNumber;
