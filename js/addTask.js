@@ -39,6 +39,7 @@ async function init() {
   handleClick("medium");
   initContacts();
   getAllTasksData();
+  createTodayDateforDatepicker();
 }
 
 /**
@@ -132,6 +133,25 @@ function checkTitleInputField() {
     inputReqiuredSpanTitle.classList.remove("d-none");
   } else {
     inputTitleField.classList.remove("input-focus-required");
+    inputReqiuredSpanTitle.classList.add("d-none");
+  }
+}
+
+/**
+ * @function checkSubtasknputField()
+ * Checks the subtask input field and applies styling based on its value.
+ * @author Christian Förster
+ */
+
+function checkSubtasknputField() {
+  let inputSubtaskFieldValue = document.getElementById("subtask").value;
+  let inputSubtaskField = document.getElementById("subtask");
+  let inputReqiuredSpanTitle = document.getElementById("inputReqiuredSpanSubtask");
+  if (inputSubtaskFieldValue === "") {
+    inputSubtaskField.classList.add("input-focus-required");
+    inputReqiuredSpanTitle.classList.remove("d-none");
+  } else {
+    inputSubtaskField.classList.remove("input-focus-required");
     inputReqiuredSpanTitle.classList.add("d-none");
   }
 }
@@ -271,6 +291,7 @@ function clearFieldInputs() {
   checkedContacts = [];
   subtasks = [];
   getRequiredFormInputs();
+  clearActiveContacts();
 }
 
 /**
@@ -294,4 +315,10 @@ function preventFormSubmit(event) {
 
 function clearCurrentTask() {
   currentTaskState = { inProgress: false, awaitFeedback: false, done: false };
+}
+
+function createTodayDateforDatepicker() {
+  let today = new Date().toISOString().split("T")[0];
+  let datePickerInput = document.getElementById("dateNormal");
+  datePickerInput.setAttribute("min", today);
 }
