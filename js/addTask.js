@@ -157,6 +157,19 @@ function checkSubtasknputField() {
 }
 
 /**
+ * @function removeEmptyEditSubtaskInputNotice()
+ * @author Christian Förster
+ *Removes the visual notice indicating that input is required for editing a subtask.
+ *This function removes the CSS class "input-focus-required" from the element with the ID "subtask",
+ *and adds the CSS class "d-none" to the element with the ID "inputRequiredSpanSubtask".
+ */
+
+function removeEmptyEditSubtaskInputNotice() {
+  document.getElementById("subtask").classList.remove("input-focus-required");
+  document.getElementById("inputReqiuredSpanSubtask").classList.add("d-none");
+}
+
+/**
  * @function updateDateFieldValue
  * Updates the value of the date field to a different format and checks its validity.
  * @author Christian Förster
@@ -247,31 +260,6 @@ function setSubmitButtonStateAndStyle(titleValue, inputDateFieldValue, categoryV
 }
 
 /**
- * Validates the form inputs for adding a task based on the selected contact and priority.
- * @function validateForm
- * @param {number} index - The index of the task to be added.
- * @author Christian Förster
- */
-
-/**
- * function validateForm(index) {
-  getCheckedContact();
-  let lengthCheckedContacts = checkedContacts.length;
-  let prioInputs = document.getElementsByName("priority");
-  for (let i = 0; i < prioInputs.length; i++) {
-    if (prioInputs[i].checked) {
-      prio = prioInputs[i].value;
-    }
-  }
-  if (lengthCheckedContacts < 1) {
-    alert("select a Contact !");
-  } else if (prio !== "low" && prio !== "medium" && prio !== "urgent") {
-    alert("select a Prio Value !");
-  } else addTask(index);
-}
- */
-
-/**
  *Clears field inputs and resets form state.
  *This function clears various field inputs within a form and resets its state.
  *It resets the form using the reset() method, clears specific input values,
@@ -316,6 +304,13 @@ function preventFormSubmit(event) {
 function clearCurrentTask() {
   currentTaskState = { inProgress: false, awaitFeedback: false, done: false };
 }
+
+/**
+ * @function createTodayDateforDatepicker()
+ * @author Christian Förster
+ *Creates today's date for a datepicker input field.
+ *This function retrieves the current date, formats it to YYYY-MM-DD format, and sets it as the minimum selectable date for the datepicker input field with the ID "dateNormal".
+ */
 
 function createTodayDateforDatepicker() {
   let today = new Date().toISOString().split("T")[0];

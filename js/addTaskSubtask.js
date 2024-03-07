@@ -118,7 +118,7 @@ function editSubtask(index) {
   let subtaskToEdit = document.getElementById(`subtask_${index}`);
   let iconSection = document.getElementById(`subtask-icon-section_${index}`);
   let subtaskText = subtasks[index];
-  let inputField = ` <input id="changedSubtaskValue" onkeypress="checkKeyPressAndPushEditedSubtask(event,${index})" type="text" value="${subtaskText}" >`;
+  let inputField = ` <input id="changedSubtaskValue" onkeypress="checkKeyPressAndPushEditedSubtask(event,${index});removeEmptyEditSubtaskInputNotice()" type="text" value="${subtaskText}" >`;
   let getUlElement = document.getElementById(`subTaskItemUl_${index}`);
   iconSection.innerHTML = renderEditSubtaskIcons(index);
   getUlElement.classList.add("edit-subtask-field");
