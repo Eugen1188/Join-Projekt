@@ -72,16 +72,15 @@ async function checkIfEditedDataIsLoggInUser(userId, inedOfContact) {
  */
 async function deleteContact(id) {
   const disabledClick = document.getElementById("single-contact-delete");
-  disabledClick.style.pointerEvents = "none";
   const index = contacts.findIndex(contact => contact.id === id);
   if (logedInUser[0].id == contacts[index].id) {
     renderSlideInMsg("contact-success", "You can't delete yourself");
-    disabledClick.style.pointerEvents = "auto";
+    disabledClick.style.pointerEvents = "none";
     return;
   }
   if (!logedInUser[0].id) {
     renderSlideInMsg("contact-success", "Guest can't delete a user");
-    disabledClick.style.pointerEvents = "auto";
+    disabledClick.style.pointerEvents = "none";
     return;
   }
   if (index !== -1 && logedInUser[0].id != contacts[index].id) {
@@ -92,7 +91,7 @@ async function deleteContact(id) {
     renderContactListAfterDeleteMobile()
     setItem("contacts", contacts);
   }
-  disabledClick.style.pointerEvents = "auto";
+
 }
 
 
