@@ -24,10 +24,11 @@ async function initContacts() {
  * @returns {void} - returns nothing
  * */
 async function editContact(userId) {
+  console.log("button clicked");
   const nameValue = document.getElementById("name").value.trim();
   const emailValue = document.getElementById("email").value.trim();
   const phoneValue = document.getElementById("phone").value.trim();
-  if (nameValue && emailValue && phoneValue) {
+  if (nameValue && isValidEmail(emailValue) && phoneValue) {
     let inedxOfContact = contacts.findIndex(contact => contact.id === userId);
     if (inedxOfContact != -1) {
       let editName = nameValue.split(" ")
@@ -72,16 +73,15 @@ async function checkIfEditedDataIsLoggInUser(userId, inedOfContact) {
  */
 async function deleteContact(id) {
   const disabledClick = document.getElementById("single-contact-delete");
-  disabledClick.style.pointerEvents = "none";
   const index = contacts.findIndex(contact => contact.id === id);
   if (logedInUser[0].id == contacts[index].id) {
     renderSlideInMsg("contact-success", "You can't delete yourself");
-    disabledClick.style.pointerEvents = "auto";
+    disabledClick.style.pointerEvents = "none";
     return;
   }
   if (!logedInUser[0].id) {
     renderSlideInMsg("contact-success", "Guest can't delete a user");
-    disabledClick.style.pointerEvents = "auto";
+    disabledClick.style.pointerEvents = "none";
     return;
   }
   if (index !== -1 && logedInUser[0].id != contacts[index].id) {
@@ -92,7 +92,7 @@ async function deleteContact(id) {
     renderContactListAfterDeleteMobile()
     setItem("contacts", contacts);
   }
-  disabledClick.style.pointerEvents = "auto";
+
 }
 
 
@@ -496,10 +496,10 @@ function disabledBtn() {
 
 async function ifEmailIsValisAddorEditContacts(functionName) {
   let email = document.getElementById("email").value.trim();
-  let disabledBtn = document.getElementById("submitContact");
   if (await !isValidEmail(email)) {
     return
+  } else {
+    functionName
+    closeRenderContactCardSlide()
   }
-  functionName
-  closeRenderContactCardSlide()
 }
