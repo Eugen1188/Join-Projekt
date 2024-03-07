@@ -104,6 +104,7 @@ function openOverlay() {
  * @author Kevin Mueller
  */
 function openAddTaskOverlay() {
+    subtasks = [];
     displayOpenOverlay("overlay-add-task");
     setTimeout(slideInOverlayAddTask, 75);
 }
