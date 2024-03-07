@@ -39,6 +39,7 @@ function pushSubtask() {
  */
 
 function checkKeyPressAndPushSubtask(event) {
+  removeEmptyEditSubtaskInputNotice();
   if (event.key === "Enter") {
     if (event.srcElement.id == "subtask") {
       pushSubtask();
@@ -55,6 +56,7 @@ function checkKeyPressAndPushSubtask(event) {
  */
 
 function checkKeyPressAndPushEditedSubtask(event, index) {
+  removeEmptyEditSubtaskInputNotice();
   if (event.key === "Enter") {
     saveEditedSubtask(index);
   }
@@ -118,7 +120,7 @@ function editSubtask(index) {
   let subtaskToEdit = document.getElementById(`subtask_${index}`);
   let iconSection = document.getElementById(`subtask-icon-section_${index}`);
   let subtaskText = subtasks[index];
-  let inputField = ` <input id="changedSubtaskValue" onkeypress="checkKeyPressAndPushEditedSubtask(event,${index});removeEmptyEditSubtaskInputNotice()" type="text" value="${subtaskText}" >`;
+  let inputField = ` <input id="changedSubtaskValue" onkeypress="checkKeyPressAndPushEditedSubtask(event,${index})" type="text" value="${subtaskText}" >`;
   let getUlElement = document.getElementById(`subTaskItemUl_${index}`);
   iconSection.innerHTML = renderEditSubtaskIcons(index);
   getUlElement.classList.add("edit-subtask-field");
@@ -136,7 +138,7 @@ function editSubtask(index) {
 function saveEditedSubtask(index) {
   let newSubtaskValue = document.getElementById("changedSubtaskValue").value;
   if (newSubtaskValue == "") {
-    checkSubtasknputField();
+    document.getElementById("inputReqiuredSpanSubtask").classList.remove("d-none");
   } else {
     subtasks[index] = newSubtaskValue;
     showSubtasks();
@@ -152,6 +154,7 @@ function saveEditedSubtask(index) {
 
 function clearSubtaskInput() {
   let subtask = (document.getElementById("subtask").value = "");
+  removeEmptyEditSubtaskInputNotice();
   return subtask;
 }
 
@@ -167,6 +170,7 @@ function deleteSubtask(index) {
   subtasks.splice(index, 1);
   taskStates.splice(index, 1);
   showSubtasks();
+  removeEmptyEditSubtaskInputNotice();
 }
 
 /**
