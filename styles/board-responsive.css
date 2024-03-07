@@ -146,7 +146,7 @@
     }
 
     .edit-datepicker {
-        left: calc(100% - 16px);
+        left: calc(100% - 32px);
         right: 0;
     }
 

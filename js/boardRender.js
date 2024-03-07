@@ -154,6 +154,7 @@ async function renderEditOverlay(index) {
     fillRadio(taskIndex.prio);
     getSubtasks(taskIndex.subtask.subtask);
     showSubtasks();
+    createTodayDateforDatepicker()
 }
 
 
