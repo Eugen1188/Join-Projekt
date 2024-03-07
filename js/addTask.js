@@ -39,6 +39,7 @@ async function init() {
   handleClick("medium");
   initContacts();
   getAllTasksData();
+  createTodayDateforDatepicker();
 }
 
 /**
@@ -314,4 +315,10 @@ function preventFormSubmit(event) {
 
 function clearCurrentTask() {
   currentTaskState = { inProgress: false, awaitFeedback: false, done: false };
+}
+
+function createTodayDateforDatepicker() {
+  let today = new Date().toISOString().split("T")[0];
+  let datePickerInput = document.getElementById("dateNormal");
+  datePickerInput.setAttribute("min", today);
 }
